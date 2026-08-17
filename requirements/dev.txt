@@ -1,0 +1,4 @@
+-r base.txt
+pytest>=7.4
+httpx>=0.24
+ruff>=0.6

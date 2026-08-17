@@ -1,0 +1,14 @@
+{
+  "prompt": "Trap Soul noturno, groove atrás do tempo, baixo 808 profundo",
+  "genre": "Trap Soul",
+  "bpm": 140,
+  "key": "C#",
+  "scale": "minor",
+  "lyrics": "Vida de artista, flow pesado\n808 na alma",
+  "duration_seconds": 8,
+  "swing": 0.6,
+  "humanize_ms": 6,
+  "sample_rate": 44100,
+  "output_format": "wav",
+  "stems": false
+}

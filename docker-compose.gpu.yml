@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    environment:
+      KAIROS_ENABLE_EXTERNAL_MODELS: "true"
+    # A imagem base deve ser substituída por uma imagem CUDA compatível com o host.
+    # Nenhum checkpoint é baixado automaticamente por este arquivo.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

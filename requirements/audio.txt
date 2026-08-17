@@ -1,0 +1,7 @@
+-r base.txt
+librosa>=0.10
+pedalboard>=0.9
+pydub>=0.25
+soundfile>=0.12
+# Optional analysis stack; install only when needed.
+essentia>=2.3.3

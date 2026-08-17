@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    environment:
+      KAIROS_OUTPUT_DIR: /app/data/output
+      KAIROS_FFMPEG_BIN: ffmpeg
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+  web:
+    build: ./web-client
+    ports:
+      - "8080:80"
+    depends_on:
+      - api

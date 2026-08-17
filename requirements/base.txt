@@ -1,0 +1,6 @@
+fastapi>=0.100
+numpy>=1.24
+pydantic>=2.4
+uvicorn[standard]>=0.23
+
+# FFmpeg/LAME is an operating-system dependency; see Dockerfile and docs/roadmap.md.

@@ -1,0 +1,7 @@
+-r base.txt
+torch>=2.1
+torchaudio>=2.1
+transformers>=4.35
+accelerate>=0.24
+sentencepiece>=0.1.99
+# Demucs is kept separate because it is heavier and model download is operator-controlled.
