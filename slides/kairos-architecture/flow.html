@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Um fluxo único conecta texto, áudio e artefatos</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    .slide-container { position: relative; width: 1280px; min-height: 720px; background: #e5e7eb; color: #1c1917; padding-top: 76px; overflow: hidden; }
+    .wrap { margin: 0 102px; position: relative; z-index: 2; }
+    .topline { display: flex; justify-content: space-between; border-top: 2px solid #059669; padding-top: 15px; }
+    .index, .series { color: #059669; font: 700 14px/1 Arial, sans-serif; letter-spacing: .14em; }
+    .series { color: #78716c; }
+    .intro { padding-top: 44px; }
+    h1 { max-width: 800px; margin: 0; font: 700 52px/1.03 Georgia, 'Times New Roman', serif; letter-spacing: -.04em; }
+    .dek { max-width: 600px; margin: 20px 0 0; color: #57534e; font: 400 21px/1.4 Arial, sans-serif; }
+
+    .flow-bg { position: absolute; top: 320px; left: 102px; right: 102px; height: 240px; background: rgba(5, 150, 105, 0.1); z-index: 1; }
+
+    .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; padding-top: 80px; position: relative; z-index: 2; }
+    .step { padding: 24px; border-top: 4px solid #1c1917; background: transparent; }
+    .step:nth-child(2) { border-color: #059669; }
+    .step:nth-child(3) { border-color: #44403c; }
+    .step:nth-child(4) { border-color: #78716c; }
+
+    .step-number { color: #059669; font: 700 16px/1 Arial, sans-serif; letter-spacing: .1em; margin-bottom: 16px; display: block; }
+    .step-title { color: #1c1917; font: 700 22px/1.2 Georgia, 'Times New Roman', serif; margin-bottom: 12px; }
+    .step-copy { color: #44403c; font: 400 16px/1.4 Arial, sans-serif; }
+
+    .foot { position: absolute; left: 102px; right: 102px; bottom: 40px; display: flex; justify-content: space-between; color: #78716c; font: 700 11px/1 Arial, sans-serif; letter-spacing: .12em; z-index: 2; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="flow-bg"></div>
+    <div class="wrap">
+      <div class="topline"><span class="index">03 / FLUXO</span><span class="series">CADEIA INTEGRADA</span></div>
+      <div class="intro">
+        <h1>Um fluxo único conecta texto, áudio e artefatos</h1>
+        <p class="dek">A central multimídia processa referências e intenções em uma sequência lógica, garantindo rastreabilidade desde a entrada até a entrega.</p>
+      </div>
+
+      <div class="flow-grid">
+        <div class="step">
+          <span class="step-number">01</span>
+          <div class="step-title">Intake Seguro</div>
+          <div class="step-copy">Recebe a referência e valida os contratos, garantindo que apenas caminhos permitidos sejam processados.</div>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <div class="step-title">AudioProcessor</div>
+          <div class="step-copy">Extrai métricas técnicas essenciais: duração, canais, loudness aproximado e tempo opcional.</div>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <div class="step-title">Transcrição</div>
+          <div class="step-copy">Utiliza sidecar ou Faster-Whisper para alimentar o contexto musical com texto e segmentos.</div>
+        </div>
+        <div class="step">
+          <span class="step-number">04</span>
+          <div class="step-title">Resultado</div>
+          <div class="step-copy">Retorna o artefato final acompanhado por áudio, transcrição, metadados e plano estruturado.</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>PROCESSAMENTO SEQUENCIAL</span><span>04</span></div>
+  </div>
+</body>
+</html>

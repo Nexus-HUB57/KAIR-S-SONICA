@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contratos pequenos reduzem o acoplamento</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    .slide-container { position: relative; width: 1280px; min-height: 720px; background: #e5e7eb; color: #1c1917; padding-top: 76px; }
+    .wrap { margin: 0 102px; }
+    .topline { display: flex; justify-content: space-between; border-top: 2px solid #059669; padding-top: 15px; }
+    .index, .series { color: #059669; font: 700 14px/1 Arial, sans-serif; letter-spacing: .14em; }
+    .series { color: #78716c; }
+    .intro { padding-top: 44px; }
+    h1 { margin: 0; font: 700 52px/1.03 Georgia, 'Times New Roman', serif; letter-spacing: -.04em; }
+    .table-container { margin-top: 60px; position: relative; }
+    .bg-block { position: absolute; top: 0; left: 0; right: 0; height: 60px; background: rgba(5, 150, 105, 0.1); z-index: 0; }
+    table { width: 100%; border-collapse: collapse; position: relative; z-index: 1; }
+    th, td { text-align: left; padding: 20px 24px; border-bottom: 1px solid #a8a29e; }
+    th { font: 700 16px/1.2 Arial, sans-serif; color: #059669; letter-spacing: .1em; text-transform: uppercase; }
+    td { font: 400 20px/1.4 Arial, sans-serif; color: #44403c; }
+    td:first-child { font-family: 'Courier New', Courier, monospace; font-weight: 700; color: #1c1917; }
+    td:last-child { font-weight: 700; color: #059669; }
+    .foot { position: absolute; left: 102px; right: 102px; bottom: 40px; display: flex; justify-content: space-between; color: #78716c; font: 700 11px/1 Arial, sans-serif; letter-spacing: .12em; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="wrap">
+      <div class="topline"><span class="index">05 / CONTRATOS</span><span class="series">ARQUITETURA DESACOPLADA</span></div>
+      <div class="intro">
+        <h1>Contratos pequenos reduzem o acoplamento</h1>
+      </div>
+      <div class="table-container">
+        <div class="bg-block"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Contrato</th>
+              <th>Papel</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MultimediaRequest</td>
+              <td>Intenção e controles</td>
+              <td>Pedido validado</td>
+            </tr>
+            <tr>
+              <td>AudioAnalysis</td>
+              <td>Métricas da referência</td>
+              <td>Contexto técnico</td>
+            </tr>
+            <tr>
+              <td>TranscriptResult</td>
+              <td>Texto e segmentos</td>
+              <td>Contexto semântico</td>
+            </tr>
+            <tr>
+              <td>TaskSnapshot</td>
+              <td>Estado observável</td>
+              <td>Progresso e links</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="foot"><span>INTERFACES CLARAS · DADOS ESTRUTURADOS</span><span>06</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>A orquestração multimídia é assíncrona por desenho</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    .slide-container { position: relative; width: 1280px; min-height: 720px; background: #e5e7eb; color: #1c1917; padding-top: 76px; overflow: hidden; }
+    .wrap { margin: 0 102px; }
+    .topline { display: flex; justify-content: space-between; border-top: 2px solid #059669; padding-top: 15px; }
+    .index, .series { color: #059669; font: 700 14px/1 Arial, sans-serif; letter-spacing: .14em; }
+    .series { color: #78716c; }
+    .main { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding-top: 56px; }
+    h1 { margin: 0; font: 700 52px/1.03 Georgia, 'Times New Roman', serif; letter-spacing: -.04em; }
+    .content-list { margin-top: 34px; display: flex; flex-direction: column; gap: 28px; }
+    .item { display: flex; gap: 16px; align-items: flex-start; }
+    .item-icon { color: #059669; font-size: 20px; line-height: 1.2; }
+    .item-text { color: #44403c; font: 400 22px/1.4 Arial, sans-serif; }
+    .item-text strong { color: #1c1917; font-weight: 700; }
+    code { font-family: monospace; background: #d6d3d1; padding: 2px 6px; font-size: 20px; }
+
+    .visual-block { position: relative; background: rgba(5, 150, 105, 0.1); padding: 40px; border-left: 4px solid #059669; height: 420px; display: flex; flex-direction: column; justify-content: space-between; }
+    .state-box { background: #f5f5f4; padding: 16px 24px; border: 1px solid #a8a29e; font: 700 20px/1.2 Arial, sans-serif; color: #1c1917; text-align: center; }
+    .state-box.accent { border-color: #059669; color: #059669; }
+    .state-sub { display: block; margin-top: 6px; font-size: 15px; color: #78716c; font-weight: 400; }
+    .arrow { text-align: center; color: #059669; font-size: 28px; font-weight: bold; }
+
+    .foot { position: absolute; left: 102px; right: 102px; bottom: 40px; display: flex; justify-content: space-between; color: #78716c; font: 700 11px/1 Arial, sans-serif; letter-spacing: .12em; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="wrap">
+      <div class="topline"><span class="index">04 / ASSÍNCRONO</span><span class="series">KAIR-S-SONICA</span></div>
+      <div class="main">
+        <section>
+          <h1>A orquestração multimídia é assíncrona por desenho</h1>
+          <div class="content-list">
+            <div class="item">
+              <div class="item-icon">■</div>
+              <div class="item-text"><strong>POST /v1/orchestrate</strong> responde imediatamente com <code>task_id</code> e status PENDING.</div>
+            </div>
+            <div class="item">
+              <div class="item-icon">■</div>
+              <div class="item-text">O worker percorre os estados <strong>RUNNING</strong> até <strong>SUCCEEDED</strong> ou <strong>FAILED</strong>.</div>
+            </div>
+            <div class="item">
+              <div class="item-icon">■</div>
+              <div class="item-text">O cliente consulta snapshots HTTP e recebe eventos em tempo real pelo <strong>WebSocket</strong>.</div>
+            </div>
+            <div class="item">
+              <div class="item-icon">■</div>
+              <div class="item-text">A interface mantém <strong>múltiplos streams</strong> acompanhados na mesma tela sem bloqueios.</div>
+            </div>
+          </div>
+        </section>
+        <section class="visual-block">
+          <div class="state-box">POST /v1/orchestrate<span class="state-sub">Retorna task_id (PENDING)</span></div>
+          <div class="arrow">↓</div>
+          <div class="state-box accent">Worker: RUNNING<span class="state-sub">Processamento em background</span></div>
+          <div class="arrow">↓</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="state-box" style="border-color: #059669;">SUCCEEDED</div>
+            <div class="state-box" style="border-color: #ef4444; color: #ef4444;">FAILED</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="foot"><span>FLUXO DE ESTADOS · WEBSOCKET</span><span>05</span></div>
+  </div>
+</body>
+</html>

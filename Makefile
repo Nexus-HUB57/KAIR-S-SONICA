@@ -1,6 +1,9 @@
 PYTHON ?= python3
 
-.PHONY: install test lint run plan demo persona-json persona-prompt clean
+.PHONY: install test lint run plan demo load persona-json persona-prompt clean
+
+REQUESTS ?= 20
+CONCURRENCY ?= 5
 
 install:
 	$(PYTHON) -m pip install -e ".[dev]"
@@ -19,6 +22,9 @@ plan:
 
 demo:
 	PYTHONPATH=packages $(PYTHON) scripts/run_local.py demo --duration 8 --output data/output/demo.wav
+
+load:
+	PYTHONPATH=packages $(PYTHON) scripts/load_test_orchestrate.py --requests $(REQUESTS) --concurrency $(CONCURRENCY)
 
 persona-json:
 	PYTHONPATH=packages $(PYTHON) scripts/run_local.py persona --format json

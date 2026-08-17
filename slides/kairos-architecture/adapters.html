@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bibliotecas pesadas entram como adaptadores</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    .slide-container { position: relative; width: 1280px; min-height: 720px; background: #e5e7eb; color: #1c1917; padding-top: 82px; overflow: hidden; }
+    .wrap { margin: 0 102px; }
+    .topline { display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid #059669; padding-top: 16px; }
+    .index { color: #059669; font: 700 15px/1 Arial, sans-serif; letter-spacing: .16em; }
+    .series { color: #78716c; font: 700 13px/1 Arial, sans-serif; letter-spacing: .14em; }
+    .main { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; padding-top: 56px; }
+    h1 { margin: 0; font: 700 56px/1.03 Georgia, 'Times New Roman', serif; letter-spacing: -.045em; }
+    .thesis { margin: 28px 0 0; color: #44403c; font: 400 22px/1.45 Arial, sans-serif; }
+
+    .adapters-list { position: relative; padding: 30px; }
+    .adapters-list::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,150,105,.1); z-index: 0; }
+    .adapter-item { position: relative; z-index: 1; margin-bottom: 32px; border-left: 4px solid #059669; padding-left: 20px; }
+    .adapter-item:last-child { margin-bottom: 0; }
+    .adapter-title { color: #1c1917; font: 700 24px/1.2 Georgia, 'Times New Roman', serif; }
+    .adapter-desc { margin-top: 8px; color: #44403c; font: 400 18px/1.4 Arial, sans-serif; }
+
+    .foot { position: absolute; left: 102px; right: 102px; bottom: 42px; display: flex; justify-content: space-between; color: #78716c; font: 700 11px/1 Arial, sans-serif; letter-spacing: .12em; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="wrap">
+      <div class="topline"><span class="index">06 / ADAPTADORES</span><span class="series">KAIR-S-SONICA</span></div>
+      <div class="main">
+        <section>
+          <h1>Bibliotecas pesadas entram como adaptadores</h1>
+          <p class="thesis">O núcleo do Káiros é leve e determinístico. Dependências complexas de áudio e IA são injetadas apenas quando configuradas, garantindo portabilidade e execução em CPU.</p>
+        </section>
+        <section class="adapters-list">
+          <div class="adapter-item">
+            <div class="adapter-title">Base CPU Determinística</div>
+            <div class="adapter-desc">NumPy, WAV local e gerador procedural. Permite testes e execução sem dependências externas.</div>
+          </div>
+          <div class="adapter-item">
+            <div class="adapter-title">Áudio Opcional</div>
+            <div class="adapter-desc">SoundFile, Librosa, Pedalboard, Pydub e Essentia para processamento avançado e extração de features.</div>
+          </div>
+          <div class="adapter-item">
+            <div class="adapter-title">Transcrição Opcional</div>
+            <div class="adapter-desc">Faster-Whisper com modelo e dispositivo configuráveis, substituindo o sidecar de texto.</div>
+          </div>
+          <div class="adapter-item">
+            <div class="adapter-title">Transcodificação</div>
+            <div class="adapter-desc">FFmpeg/LAME cobre formatos comprimidos e entrega MP3 otimizado para distribuição.</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="foot"><span>PORTABILIDADE · EXTENSIBILIDADE</span><span>07</span></div>
+  </div>
+</body>
+</html>

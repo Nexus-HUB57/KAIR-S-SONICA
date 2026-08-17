@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>O Káiros organiza o organismo</title>
+  <style>
+    * { box-sizing: border-box; }
+    html,body{height:100%;margin:0;} /* remove default body margin to keep measurements tight */
+    .slide-container { position: relative; width: 1280px; min-height: 720px; background: #e5e7eb; color: #1c1917; padding-top: 76px; }
+    .wrap { margin: 0 102px; }
+    .topline { display: flex; justify-content: space-between; border-top: 2px solid #059669; padding-top: 15px; }
+    .index, .series { color: #059669; font: 700 14px/1 Arial, sans-serif; letter-spacing: .14em; }
+    .series { color: #78716c; }
+    .intro { display: grid; grid-template-columns: 1.08fr .92fr; gap: 60px; padding-top: 24px; align-items: end; }
+    h1 { margin: 0; font: 700 52px/1.03 Georgia, 'Times New Roman', serif; letter-spacing: -.04em; }
+    .dek { max-width: 540px; margin: 20px 0 0; color: #57534e; font: 400 21px/1.4 Arial, sans-serif; }
+    .visual { display: flex; justify-content: flex-end; padding-top: 6px; }
+    .visual img { width: 378px; height: 140px; object-fit: contain; } /* reduced image height */
+    .layers { margin-top: 20px; border-top: 1px solid #a8a29e; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 26px; }
+    .layer { display: grid; grid-template-columns: 140px 1fr 120px; gap: 18px; align-items: center; min-height: 64px; border-bottom: 1px solid #a8a29e; padding: 10px 0; }
+    .layer-name { color: #1c1917; font: 700 22px/1.1 Georgia, 'Times New Roman', serif; }
+    .layer-copy, .layer-outcome { color: #57534e; font: 400 14px/1.35 Arial, sans-serif; }
+    .layer-outcome { color: #059669; font-weight: 700; }
+    .layer-number { color: #a8a29e; font: 700 13px/1 Arial, sans-serif; letter-spacing: .12em; }
+    .foot { position: absolute; left: 102px; right: 102px; bottom: 40px; display: flex; justify-content: space-between; color: #78716c; font: 700 11px/1 Arial, sans-serif; letter-spacing: .12em; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="wrap">
+      <div class="topline"><span class="index">02 / ORGANISMO</span><span class="series">CAMADAS DE COORDENAÇÃO</span></div>
+      <div class="intro">
+        <section>
+          <h1>O Káiros organiza o organismo</h1>
+          <p class="dek">A arquitetura distribui a intenção em módulos especializados, mas preserva um único contrato de tarefa até a entrega.</p>
+        </section>
+        <div class="visual"><img src="/home/ubuntu/KAIR-S-SONICA/assets/references/audio-hud.jpg" alt="Interface HUD de análise de áudio" /></div>
+      </div>
+      <div class="layers">
+        <div class="layer"><span class="layer-number">01</span><span class="layer-name">Maestro</span><span class="layer-copy">Extrai BPM, tonalidade, gênero, escala e seções.</span><span class="layer-outcome">TrackPlan</span></div>
+        <div class="layer"><span class="layer-number">02</span><span class="layer-name">Rhythm / Groove</span><span class="layer-copy">Traduz o plano em grade temporal, swing e humanização.</span><span class="layer-outcome">Grade de eventos</span></div>
+        <div class="layer"><span class="layer-number">03</span><span class="layer-name">Audio / DSP</span><span class="layer-copy">Gera, processa, masteriza e transcodifica o sinal.</span><span class="layer-outcome">WAV / MP3</span></div>
+        <div class="layer"><span class="layer-number">04</span><span class="layer-name">Gateway</span><span class="layer-copy">Entrega tarefas, eventos e artefatos para o cliente.</span><span class="layer-outcome">HTTP / WebSocket</span></div>
+      </div>
+    </div>
+    <div class="foot"><span>INTENÇÃO DISTRIBUÍDA · CONTRATO ÚNICO</span><span>03</span></div>
+  </div>
+</body>
+</html>

@@ -43,6 +43,12 @@ curl -X POST http://localhost:8000/v1/orchestrate \\
 
 A tarefa expõe progresso por `GET /v1/tasks/{task_id}` e `WS /ws/tasks/{task_id}`. Quando concluída, o cliente pode buscar áudio, transcrição e metadados em `/v1/audio`, `/v1/transcript` e `/v1/metadata`.
 
+O cliente web inclui um painel Live Ops que acompanha múltiplas tarefas pelo WebSocket, exibe progresso, estado de conexão, mensagens do worker e links para os artefatos. Execute-o com `cd web-client && npm install && npm run dev` e use `VITE_API_BASE` para apontar ao gateway.
+
+## Carga e observabilidade
+
+O utilitário [`scripts/load_test_orchestrate.py`](scripts/load_test_orchestrate.py) submete tarefas concorrentes, acompanha cada `task_id` e grava latências, throughput, taxa de sucesso e resultados individuais em JSON. O cenário de referência usa 20 tarefas com concorrência 5; execute `make load` ou ajuste `REQUESTS` e `CONCURRENCY`. O relatório experimental está documentado em [`docs/load-testing.md`](docs/load-testing.md).
+
 ## Execução rápida
 
 A execução local requer Python 3.10 ou superior. Para instalar o núcleo e as dependências de desenvolvimento, execute `python3 -m pip install -e ".[dev]"`. Em seguida, `make test` roda a suíte unitária e `make run` inicializa a API em `http://localhost:8000`.
@@ -53,7 +59,7 @@ Também é possível gerar um artefato de demonstração sem iniciar servidor:
 PYTHONPATH=packages python3 scripts/run_local.py demo --duration 8 --output data/output/demo.wav
 ```
 
-Depois, consulte `http://localhost:8000/docs` para a documentação interativa da API. O cliente web pode ser executado com `cd web-client && npm install && npm run dev`; a variável `VITE_API_BASE` permite apontar para outro gateway.
+Depois, consulte `http://localhost:8000/docs` para a documentação interativa da API. A imagem conceitual da persona está em [`assets/persona/kairos-persona.png`](assets/persona/kairos-persona.png), e o material da apresentação da arquitetura está em [`docs/slides-kairos-architecture.md`](docs/slides-kairos-architecture.md).
 
 ## Geração e limites da base inicial
 

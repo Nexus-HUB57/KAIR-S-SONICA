@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Do MVP observável à plataforma multimídia</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    .slide-container { position: relative; width: 1280px; min-height: 720px; background: #e5e7eb; color: #1c1917; padding-top: 76px; overflow: hidden; }
+    .wrap { margin: 0 102px; position: relative; z-index: 2; }
+    .topline { display: flex; justify-content: space-between; border-top: 2px solid #059669; padding-top: 15px; }
+    .index, .series { color: #059669; font: 700 14px/1 Arial, sans-serif; letter-spacing: .14em; }
+    .series { color: #78716c; }
+    .intro { padding-top: 44px; }
+    h1 { margin: 0; font: 700 52px/1.03 Georgia, 'Times New Roman', serif; letter-spacing: -.04em; }
+
+    .roadmap-container { position: relative; margin-top: 32px; padding: 32px 0; }
+    .roadmap-bg { position: absolute; top: 0; left: -102px; right: -102px; bottom: 0; background: rgba(5, 150, 105, 0.1); z-index: 0; border-top: 1px solid #059669; border-bottom: 1px solid #059669; }
+    .roadmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; position: relative; z-index: 1; }
+
+    .phase { border-left: 4px solid #1c1917; padding-left: 24px; }
+    .phase:nth-child(2) { border-color: #059669; }
+    .phase:nth-child(3) { border-color: #78716c; }
+
+    .phase-title { font: 700 22px/1.2 Georgia, 'Times New Roman', serif; color: #1c1917; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .phase-content { font: 400 18px/1.45 Arial, sans-serif; color: #44403c; }
+    .phase-content p { margin: 0 0 12px 0; }
+    .phase-content p:last-child { margin-bottom: 0; }
+
+    .conclusion { margin-top: 32px; font: 400 28px/1.4 Georgia, 'Times New Roman', serif; color: #059669; text-align: center; max-width: 960px; margin-left: auto; margin-right: auto; }
+    .conclusion strong { font-weight: 700; color: #1c1917; }
+
+    .foot { position: absolute; left: 102px; right: 102px; bottom: 40px; display: flex; justify-content: space-between; color: #78716c; font: 700 11px/1 Arial, sans-serif; letter-spacing: .12em; z-index: 2; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="wrap">
+      <div class="topline"><span class="index">10 / ROADMAP</span><span class="series">FUTURO DA PLATAFORMA</span></div>
+      <div class="intro">
+        <h1>Do MVP observável à plataforma multimídia</h1>
+      </div>
+
+      <div class="roadmap-container">
+        <div class="roadmap-bg"></div>
+        <div class="roadmap-grid">
+          <div class="phase">
+            <div class="phase-title">Agora</div>
+            <div class="phase-content">
+              <p>Pipeline CPU determinístico, FastAPI, WebSocket e painel de monitoramento.</p>
+              <p>Segurança garantida por isolamento de diretórios e sidecars auditáveis sem download automático de modelos.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-title">Próximo</div>
+            <div class="phase-content">
+              <p>Fila durável com Redis ou PostgreSQL e workers GPU dedicados.</p>
+              <p>Streaming PCM em tempo real e armazenamento escalável de artefatos em S3.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-title">Depois</div>
+            <div class="phase-content">
+              <p>Adaptadores neurais testados e validados para modelos open-source.</p>
+              <p>Editor multifaixa integrado e governança estrita de modelos e identidades vocais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="conclusion">
+        O Káiros transforma a complexidade multimídia em um <strong>fluxo coordenado, seguro e verificável</strong>.
+      </div>
+    </div>
+    <div class="foot"><span>SEGURANÇA · GOVERNANÇA</span><span>10</span></div>
+  </div>
+</body>
+</html>

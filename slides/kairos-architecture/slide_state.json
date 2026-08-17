@@ -1,0 +1,116 @@
+{
+  "project_info": {
+    "title": "KAIR-S-SONICA",
+    "created": 1786994131.508,
+    "last_updated": 1786994691.298,
+    "total_slides": 10
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "problem",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "organism",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "flow",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "async",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "contracts",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "adapters",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "load",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "observability",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "security-roadmap",
+      "state": "edited",
+      "pageNum": 10
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "KAIR-S-SONICA",
+      "summary": "Capa minimalista com o nome do organismo, subtítulo Arquitetura da central multimídia do Agente Káiros e crédito Manus AI · Agosto de 2026.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/persona/kairos-persona.png - Cover slide representing Agente Káiros with futuristic digital avatar and teal glow."
+    },
+    {
+      "id": "problem",
+      "title": "O problema: transformar intenção em sinal",
+      "summary": "Mostrar entradas heterogêneas e a necessidade de transformar prompt, letra e referência de áudio em artefatos observáveis."
+    },
+    {
+      "id": "organism",
+      "title": "O Káiros organiza o organismo",
+      "summary": "Apresentar Maestro, Rhythm/Groove, Audio/DSP e Gateway como camadas coordenadas do sistema.",
+      "image_plan": "/home/ubuntu/upload/search_images/4uqBnWDoljAI.jpg - HUD audio analysis interface matching the system components and organization."
+    },
+    {
+      "id": "flow",
+      "title": "Um fluxo único conecta texto, áudio e artefatos",
+      "summary": "Explicar intake seguro, análise de áudio, transcrição e geração como uma cadeia integrada."
+    },
+    {
+      "id": "async",
+      "title": "A orquestração multimídia é assíncrona por desenho",
+      "summary": "Mostrar POST /v1/orchestrate, estados de tarefa, snapshots HTTP, WebSocket e múltiplos streams."
+    },
+    {
+      "id": "contracts",
+      "title": "Contratos pequenos reduzem o acoplamento",
+      "summary": "Apresentar MultimediaRequest, AudioAnalysis, TranscriptResult e TaskSnapshot em uma tabela funcional."
+    },
+    {
+      "id": "adapters",
+      "title": "Bibliotecas pesadas entram como adaptadores",
+      "summary": "Distinguir base CPU determinística das extensões opcionais de áudio, transcrição e FFmpeg/LAME."
+    },
+    {
+      "id": "load",
+      "title": "O sistema já mede o caminho crítico",
+      "summary": "Exibir os resultados do teste de carga: 20/20, 100%, 38,0 tarefas/s, P50 69 ms e P95 77 ms.",
+      "image_plan": "/home/ubuntu/upload/search_images/vqRouqjqOCyO.png - Frequency domain and signal activation charts matching system metrics and tests."
+    },
+    {
+      "id": "observability",
+      "title": "Observabilidade vira experiência de produto",
+      "summary": "Apresentar o painel WebSocket com cartões, progresso, links de artefatos e fallback HTTP.",
+      "image_plan": "/home/ubuntu/upload/search_images/Bbi0bvE8PFNu.webp - Futuristic control room representing product UI experience and observability."
+    },
+    {
+      "id": "security-roadmap",
+      "title": "Do MVP observável à plataforma multimídia",
+      "summary": "Fechamento com limites de segurança atuais e roadmap para fila durável, workers GPU, storage e governança."
+    }
+  ]
+}

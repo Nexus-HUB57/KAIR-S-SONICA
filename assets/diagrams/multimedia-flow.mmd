@@ -1,0 +1,23 @@
+flowchart LR
+  C[Cliente Web / CLI] --> G[API Gateway]
+  G --> Q[TaskStore]
+  Q --> W[Worker Orquestrador]
+  W --> I[Ingestão segura]
+  I --> P[AudioProcessor]
+  P --> A[Análise técnica]
+  I --> T[Transcrição]
+  T --> M[Maestro / TrackPlan]
+  M --> R[Rhythm / Groove]
+  R --> N[Generator Adapter]
+  N --> D[DSP / Mix / Master]
+  D --> O[WAV / MP3]
+  W --> J[Transcript + Metadata]
+  O --> S[data/output]
+  J --> S
+  S --> H[Delivery API]
+  H --> C
+  Q --> WS[WebSocket de progresso]
+  WS --> C
+  T -. opcional .-> FW[Faster-Whisper]
+  N -. opcional .-> ML[MusicGen / Bark / Lyria]
+  P -. opcional .-> FF[FFmpeg / SoundFile]
