@@ -13,6 +13,17 @@ def test_health_and_plan() -> None:
         assert response.json()["bpm"] == 92
 
 
+def test_persona_endpoint() -> None:
+    with TestClient(app) as client:
+        response = client.get("/v1/persona")
+        assert response.status_code == 200
+        payload = response.json()
+        assert payload["id"] == "kairos.aai_apo"
+        assert payload["version"] == "1.0.0"
+        assert "Maestro Layer" in payload["roles"]
+        assert "Você é Káiros" in payload["system_prompt"]
+
+
 def test_generate_task_completes(tmp_path) -> None:
     original = settings.output_dir
     settings.output_dir = tmp_path

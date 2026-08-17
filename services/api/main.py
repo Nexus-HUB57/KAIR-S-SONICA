@@ -10,7 +10,15 @@ from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
 from kairos_core.audio.pipeline import AudioPipeline
 from kairos_core.config import Settings
-from kairos_core.schemas import GenerateResponse, Progress, TaskSnapshot, TrackPlan, TrackRequest
+from kairos_core.persona import DEFAULT_PERSONA
+from kairos_core.schemas import (
+    GenerateResponse,
+    PersonaResponse,
+    Progress,
+    TaskSnapshot,
+    TrackPlan,
+    TrackRequest,
+)
 
 
 class TaskStore:
@@ -58,6 +66,11 @@ def _run_task(task_id: str, request: TrackRequest) -> None:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "service": "kairos-sonica-api", "version": "0.1.0"}
+
+
+@app.get("/v1/persona", response_model=PersonaResponse)
+def get_persona() -> PersonaResponse:
+    return PersonaResponse.model_validate(DEFAULT_PERSONA.to_dict())
 
 
 @app.post("/v1/plan", response_model=TrackPlan)

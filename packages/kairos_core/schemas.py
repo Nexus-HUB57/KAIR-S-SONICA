@@ -79,3 +79,19 @@ class TaskSnapshot(BaseModel):
 class GenerateResponse(BaseModel):
     task_id: str
     status: Literal["PENDING", "RUNNING", "SUCCEEDED", "FAILED"]
+
+
+class PersonaResponse(BaseModel):
+    id: str
+    name: str
+    version: str
+    language: str
+    mission: str
+    identity: str
+    roles: list[str]
+    capabilities: list[str]
+    operating_principles: list[str]
+    pipeline: list[str]
+    output_contract: list[str]
+    guardrails: list[str]
+    system_prompt: str

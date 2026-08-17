@@ -10,6 +10,21 @@ Retorna o estado do gateway e a versão da API.
 {"status":"ok","service":"kairos-sonica-api","version":"0.1.0"}
 ```
 
+## `GET /v1/persona`
+
+Retorna a persona operacional versionada do Agente Káiros. O payload inclui identidade, missão, papéis, capacidades, pipeline, contrato de saída, guardrails e o prompt de sistema. Em produção, o endpoint deve ser protegido por autenticação e política de versionamento.
+
+```json
+{
+  "id": "kairos.aai_apo",
+  "name": "Káiros",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "roles": ["Maestro Layer", "Rhythm and Groove Agent"],
+  "pipeline": ["intake", "maestro_plan", "generation", "master_and_delivery"]
+}
+```
+
 ## `POST /v1/plan`
 
 Recebe um pedido musical e retorna o plano normalizado sem gerar áudio.
