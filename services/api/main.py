@@ -8,11 +8,13 @@ from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
+from kairos_core.audio.orchestrator import MultimediaOrchestrator
 from kairos_core.audio.pipeline import AudioPipeline
 from kairos_core.config import Settings
 from kairos_core.persona import DEFAULT_PERSONA
 from kairos_core.schemas import (
     GenerateResponse,
+    MultimediaRequest,
     PersonaResponse,
     Progress,
     TaskSnapshot,
@@ -63,6 +65,37 @@ def _run_task(task_id: str, request: TrackRequest) -> None:
         store.update(task_id, status="FAILED", progress=Progress(step="failed", percent=100, message="Pipeline interrompido"), error=str(exc))
 
 
+def _run_multimedia_task(task_id: str, request: MultimediaRequest) -> None:
+    store.update(task_id, status="RUNNING", progress=Progress(step="starting", percent=1, message="Orquestração multimídia iniciada"))
+    try:
+        orchestrator = MultimediaOrchestrator(settings)
+
+        def report(step: str, percent: int, message: str) -> None:
+            store.update(task_id, progress=Progress(step=step, percent=percent, message=message))
+
+        result = orchestrator.run(request, task_id, progress=report)
+        artifact_url = f"/v1/audio/{task_id}" if result.artifact_path else None
+        transcript_url = f"/v1/transcript/{task_id}" if result.transcript_path else None
+        metadata_url = f"/v1/metadata/{task_id}"
+        public_result = {
+            "artifact_url": artifact_url,
+            "transcript_url": transcript_url,
+            "metadata_url": metadata_url,
+            "analysis": result.metadata.get("analysis"),
+            "transcription": result.metadata.get("transcription"),
+            "plan": result.metadata.get("plan"),
+        }
+        store.update(
+            task_id,
+            status="SUCCEEDED",
+            progress=Progress(step="completed", percent=100, message="Orquestração multimídia concluída"),
+            artifact_url=artifact_url,
+            result=public_result,
+        )
+    except Exception as exc:  # noqa: BLE001  # Convert worker failures into task snapshots.
+        store.update(task_id, status="FAILED", progress=Progress(step="failed", percent=100, message="Orquestração interrompida"), error=str(exc))
+
+
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "service": "kairos-sonica-api", "version": "0.1.0"}
@@ -83,6 +116,16 @@ def generate(request: TrackRequest) -> GenerateResponse:
     task_id = uuid4().hex
     store.create(task_id)
     thread = threading.Thread(target=_run_task, args=(task_id, request), daemon=True)
+    thread.start()
+    return GenerateResponse(task_id=task_id, status="PENDING")
+
+
+@app.post("/v1/orchestrate", response_model=GenerateResponse, status_code=202)
+def orchestrate(request: MultimediaRequest) -> GenerateResponse:
+    """Executa a central multimídia sem bloquear o request HTTP."""
+    task_id = uuid4().hex
+    store.create(task_id)
+    thread = threading.Thread(target=_run_multimedia_task, args=(task_id, request), daemon=True)
     thread.start()
     return GenerateResponse(task_id=task_id, status="PENDING")
 
@@ -108,6 +151,28 @@ def get_audio(task_id: str) -> FileResponse:
         raise HTTPException(status_code=404, detail="Artefato não encontrado")
     media_type = "audio/mpeg" if artifact.suffix == ".mp3" else "audio/wav"
     return FileResponse(artifact, media_type=media_type, filename=artifact.name)
+
+
+@app.get("/v1/transcript/{task_id}")
+def get_transcript(task_id: str) -> FileResponse:
+    snapshot = store.get(task_id)
+    if snapshot is None:
+        raise HTTPException(status_code=404, detail="Tarefa não encontrada")
+    transcript = settings.output_dir / f"{task_id}.transcript.json"
+    if not transcript.is_file():
+        raise HTTPException(status_code=404, detail="Transcrição não encontrada")
+    return FileResponse(transcript, media_type="application/json", filename=transcript.name)
+
+
+@app.get("/v1/metadata/{task_id}")
+def get_metadata(task_id: str) -> FileResponse:
+    snapshot = store.get(task_id)
+    if snapshot is None:
+        raise HTTPException(status_code=404, detail="Tarefa não encontrada")
+    metadata = settings.output_dir / f"{task_id}.metadata.json"
+    if not metadata.is_file():
+        raise HTTPException(status_code=404, detail="Metadados não encontrados")
+    return FileResponse(metadata, media_type="application/json", filename=metadata.name)
 
 
 @app.websocket("/ws/tasks/{task_id}")

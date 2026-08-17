@@ -24,11 +24,24 @@ A persona não afirma credenciais humanas reais e não autoriza copiar código p
 | Generator | Produzir áudio a partir do plano | `ProceduralDemoGenerator` | Adaptadores MusicGen/Lyria/Bark |
 | Vocal/Lyric | Organizar letra e intenção vocal | `kairos_core.agents.vocal` | RVC/TTS com consentimento e modelos licenciados |
 | DSP | Saturação, ganho, limitação e preparação de stems | `kairos_core.audio.dsp` | Pedalboard, Librosa, Essentia e Torchaudio |
+| Multimídia | Ingestão, análise, transcrição e sidecars | `kairos_core.audio.orchestrator` | Workers, storage e streaming de referências |
 | Master/MP3 | Renderizar WAV e transcodificar com FFmpeg/LAME | `kairos_core.audio.transcode` | Presets de distribuição e streaming |
 | Gateway | API HTTP e eventos WebSocket | `services.api.main` | Fila distribuída, autenticação e storage S3 |
 | Cliente | Formulário responsivo e acompanhamento de tarefa | `web-client` | Editor multifaixa e Web Audio API |
 
-O diagrama detalhado e as decisões de engenharia estão em [`docs/architecture.md`](docs/architecture.md), e o contrato HTTP está em [`docs/api.md`](docs/api.md).
+O diagrama detalhado e as decisões de engenharia estão em [`docs/architecture.md`](docs/architecture.md), o fluxo específico da central multimídia está em [`docs/multimedia-architecture.md`](docs/multimedia-architecture.md), e o contrato HTTP está em [`docs/api.md`](docs/api.md).
+
+## Central multimídia
+
+O endpoint `POST /v1/orchestrate` coordena uma referência de áudio opcional, análise técnica, transcrição e geração. Para processamento avançado, instale `pip install -e ".[multimedia]"`; para transcrição local, o backend Faster-Whisper também pode ser instalado por `pip install -r requirements/transcription.txt`. Sem esse backend, o modo `sidecar` lê um arquivo `.txt` ou `.json` ao lado da referência e mantém a execução reproduzível.
+
+```bash
+curl -X POST http://localhost:8000/v1/orchestrate \\
+  -H 'Content-Type: application/json' \\
+  -d @examples/requests/orchestrate.json
+```
+
+A tarefa expõe progresso por `GET /v1/tasks/{task_id}` e `WS /ws/tasks/{task_id}`. Quando concluída, o cliente pode buscar áudio, transcrição e metadados em `/v1/audio`, `/v1/transcript` e `/v1/metadata`.
 
 ## Execução rápida
 
@@ -46,7 +59,7 @@ Depois, consulte `http://localhost:8000/docs` para a documentação interativa d
 
 A rota `POST /v1/generate` cria uma tarefa em memória, executa o pipeline e expõe o WAV ou MP3 final. O backend inclui uma implementação procedural para testes e uma interface `AudioGenerator` para trocar o motor. A separação de stems e a geração neural são opcionais: quando não estão configuradas, o sistema não finge que executou um modelo; retorna o resultado do modo demo e registra a capacidade ausente.
 
-Não coloque chaves, tokens ou arquivos de modelos no Git. Copie `.env.example` para `.env` somente no ambiente local. Arquivos gerados ficam em `data/output`, que é ignorado pelo Git.
+Não coloque chaves, tokens ou arquivos de modelos no Git. Copie `.env.example` para `.env` somente no ambiente local. Arquivos gerados ficam em `data/output`, que é ignorado pelo Git. Referências de entrada devem ficar em `data/uploads`; o endpoint rejeita caminhos fora dos diretórios permitidos.
 
 ## Roadmap
 

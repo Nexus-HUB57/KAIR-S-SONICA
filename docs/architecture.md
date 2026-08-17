@@ -6,16 +6,26 @@ O sistema é organizado como um **pipeline de portas e adaptadores**. O domínio
 
 ```mermaid
 flowchart LR
-  C[Cliente Web/Mobile] --> G[API Gateway]
-  G --> M[Maestro Agent]
-  M --> O[Orchestra / Pipeline]
-  O --> R[Rhythm & Groove]
-  O --> A[Audio Generator Adapter]
-  O --> D[DSP & Mastering]
-  D --> T[WAV / FFmpeg MP3]
-  T --> S[Task Store e streaming]
-  S --> C
-  O -. opcional .-> X[Demucs / Stems]
+  C[Cliente Web/Mobile/CLI] --> G[API Gateway]
+  G --> Q[TaskStore]
+  Q --> O[Multimedia Orchestrator]
+  O --> I[Ingestão segura]
+  I --> P[AudioProcessor]
+  P --> V[Análise e referência]
+  I --> T[Transcrição sidecar/Faster-Whisper]
+  T --> M[Maestro Agent]
+  M --> R[Rhythm & Groove]
+  R --> A[Audio Generator Adapter]
+  A --> D[DSP & Mastering]
+  D --> X[WAV / FFmpeg MP3]
+  O --> J[Transcript/Metadata sidecars]
+  X --> S[data/output]
+  J --> S
+  S --> H[Delivery API]
+  H --> C
+  Q --> W[WebSocket de progresso]
+  W --> C
+  O -. opcional .-> Z[Demucs / Stems]
   A -. opcional .-> N[MusicGen / Bark / Lyria adapter]
 ```
 
@@ -29,6 +39,9 @@ flowchart LR
 | `AudioGenerator` | Plano musical | Matriz PCM | Contrato para modelos |
 | `DSP` | PCM | PCM masterizado | Funcional, NumPy |
 | `StemSeparator` | Arquivo de áudio | Mapa de stems | Contrato opcional |
+| `AudioProcessor` | Arquivo multimídia | PCM + `AudioAnalysis` | WAV local; formatos extras via SoundFile/FFmpeg |
+| `Transcriber` | Áudio + backend | `TranscriptResult` | Sidecar funcional; Faster-Whisper opcional |
+| `MultimediaOrchestrator` | `MultimediaRequest` | Áudio + JSON + metadados | Funcional em MVP |
 | `Transcoder` | PCM/WAV | WAV/MP3 | WAV funcional; MP3 via FFmpeg |
 | `TaskStore` | Estado de pipeline | Snapshot e eventos | Em memória no MVP |
 | API | JSON/WebSocket | JSON/arquivo | Funcional |
@@ -40,6 +53,10 @@ flowchart LR
 3. O orquestrador cria a grade de groove, chama o gerador configurado e aplica masterização conservadora.
 4. O transcodificador grava WAV e, quando solicitado e disponível, chama FFmpeg para MP3 CBR de 320 kbps.
 5. O `TaskStore` atualiza progresso; a API expõe polling e WebSocket para o cliente.
+
+## Fluxo multimídia
+
+A central multimídia segue o mesmo contrato de tarefa, mas adiciona ingestão, análise e transcrição antes da geração. `POST /v1/orchestrate` resolve referências apenas em diretórios permitidos, usa `AudioProcessor` para obter métricas técnicas, escolhe o backend de transcrição e converte o texto em contexto para o Maestro. O resultado publica áudio, transcrição e metadados como artefatos separados. O fluxo completo, os estados e os perfis de dependência estão em [`multimedia-architecture.md`](multimedia-architecture.md).
 
 ## Segurança e licenciamento
 

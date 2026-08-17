@@ -1,0 +1,4 @@
+-r audio.txt
+faster-whisper>=1.0
+
+# FFmpeg is still required by many non-WAV inputs and should be installed at OS level.

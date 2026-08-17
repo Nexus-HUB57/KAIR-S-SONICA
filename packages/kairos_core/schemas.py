@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -72,6 +72,7 @@ class TaskSnapshot(BaseModel):
     progress: Progress
     artifact_url: str | None = None
     error: str | None = None
+    result: dict[str, Any] | None = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -95,3 +96,42 @@ class PersonaResponse(BaseModel):
     output_contract: list[str]
     guardrails: list[str]
     system_prompt: str
+
+
+class MultimediaRequest(BaseModel):
+    prompt: str | None = Field(default=None, max_length=2_000)
+    audio_path: str | None = Field(default=None, max_length=500)
+    transcribe: bool = True
+    transcription_backend: Literal["sidecar", "faster-whisper"] | None = None
+    transcription_model: str | None = Field(default=None, min_length=1, max_length=80)
+    transcription_language: str | None = Field(default=None, max_length=16)
+    analyze_audio: bool = True
+    generate_audio: bool = True
+    genre: str = Field(default="Trap Soul", min_length=1, max_length=120)
+    bpm: int = Field(default=140, ge=40, le=240)
+    key: str = Field(default="C#", min_length=1, max_length=8)
+    scale: str = Field(default="minor", min_length=1, max_length=24)
+    lyrics: str | None = Field(default=None, max_length=20_000)
+    duration_seconds: float = Field(default=8.0, ge=1.0, le=120.0)
+    swing: float = Field(default=0.60, ge=0.50, le=0.67)
+    humanize_ms: float = Field(default=6.0, ge=0.0, le=30.0)
+    sample_rate: int = Field(default=44_100, ge=8_000, le=96_000)
+    output_format: Literal["wav", "mp3"] = "wav"
+    stems: bool = False
+    seed: int | None = Field(default=None, ge=0, le=2**31 - 1)
+
+    @field_validator("scale")
+    @classmethod
+    def normalize_multimedia_scale(cls, value: str) -> str:
+        value = value.strip().lower()
+        aliases = {"m": "minor", "min": "minor", "maj": "major"}
+        return aliases.get(value, value)
+
+
+class MultimediaResult(BaseModel):
+    task_id: str
+    status: Literal["PENDING", "RUNNING", "SUCCEEDED", "FAILED"]
+    artifact_url: str | None = None
+    transcript_url: str | None = None
+    metadata_url: str | None = None
+    result: dict[str, Any] | None = None

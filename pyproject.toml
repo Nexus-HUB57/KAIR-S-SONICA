@@ -23,6 +23,17 @@ audio = [
   "pedalboard>=0.9",
   "pydub>=0.25",
   "soundfile>=0.12",
+  "essentia>=2.3.3",
+]
+transcription = [
+  "faster-whisper>=1.0",
+]
+multimedia = [
+  "librosa>=0.10",
+  "pedalboard>=0.9",
+  "pydub>=0.25",
+  "soundfile>=0.12",
+  "faster-whisper>=1.0",
 ]
 ml = [
   "torch>=2.1",

@@ -1,0 +1,22 @@
+{
+  "prompt": "Reimaginar a referência como Trap Soul noturno, com groove atrás do tempo",
+  "audio_path": "reference.wav",
+  "transcribe": true,
+  "transcription_backend": "sidecar",
+  "transcription_model": "small",
+  "transcription_language": "pt",
+  "analyze_audio": true,
+  "generate_audio": true,
+  "genre": "Trap Soul",
+  "bpm": 140,
+  "key": "C#",
+  "scale": "minor",
+  "lyrics": null,
+  "duration_seconds": 8,
+  "swing": 0.6,
+  "humanize_ms": 6,
+  "sample_rate": 44100,
+  "output_format": "wav",
+  "stems": false,
+  "seed": 42
+}
