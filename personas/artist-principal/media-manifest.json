@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "persona": "kairos.khairus_the_dragon",
+  "bundle_root": "personas/artist-principal/media",
+  "canonical_sources": {
+    "images": "assets/persona",
+    "audio": "assets/audio",
+    "asset_catalog": "docs/ktd-asset-catalog.md",
+    "asset_inventory": "data/ktd/asset-inventory.json"
+  },
+  "official_voice_reference": "media/audio/references/kairos-rapid-rap-flow-demo-en-v3.mp3",
+  "status_policy": "Cópias de distribuição do persona; a aprovação continua governada pelo manifesto principal de KTD.",
+  "counts": {
+    "images": 8,
+    "audio_references": 11,
+    "audio_releases": 8,
+    "audio_trials": 3,
+    "total": 30
+  },
+  "images": [
+    "media/images/artista-principal-diamante.png",
+    "media/images/kairos-persona.png",
+    "media/images/ktd-expression-rooftop.png",
+    "media/images/ktd-expression-stage.png",
+    "media/images/ktd-expression-street.png",
+    "media/images/ktd-expression-studio.png",
+    "media/images/ktd-physical-turnaround-sheet.png",
+    "media/images/ktd-visual-master.png"
+  ],
+  "audio": {
+    "references": [
+      "media/audio/references/artista-principal-voz-demo.wav",
+      "media/audio/references/kairos-rapid-rap-flow-demo-en-v3.mp3",
+      "media/audio/references/kairos-voice-direction-demo-en-v2.mp3",
+      "media/audio/references/kairos-voice-direction-demo-en.mp3",
+      "media/audio/references/ktd-boom-bap-trial-route-1-bed-v2.wav",
+      "media/audio/references/ktd-boom-bap-trial-route-2-bed-v2.wav",
+      "media/audio/references/ktd-boom-bap-trial-route-3-bed-v2.wav",
+      "media/audio/references/ktd-conscious-aggressive-trap-proof-bed-v1.wav",
+      "media/audio/references/ktd-modern-trap-comparison-bed-v1.wav",
+      "media/audio/references/ktd-old-school-boom-bap-beat-v1.mp3",
+      "media/audio/references/ktd-vocal-rough-take-v2.wav"
+    ],
+    "releases": [
+      "media/audio/releases/ktd-conscious-aggressive-trap-official-vocal-proof-v1.mp3",
+      "media/audio/releases/ktd-conscious-aggressive-trap-official-vocal-proof-v1.wav",
+      "media/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.mp3",
+      "media/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.wav",
+      "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.mp3",
+      "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.wav",
+      "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.mp3",
+      "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.wav"
+    ],
+    "trials": [
+      "media/audio/trials/ktd-boom-bap-trial-route-1-mix-v2.wav",
+      "media/audio/trials/ktd-boom-bap-trial-route-2-mix-v2.wav",
+      "media/audio/trials/ktd-boom-bap-trial-route-3-mix-v2.wav"
+    ]
+  }
+}

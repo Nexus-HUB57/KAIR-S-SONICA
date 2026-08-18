@@ -148,7 +148,9 @@
     "launch_roadmap": "docs/ktd-launch-roadmap.md",
     "launch_research": "docs/ktd-launch-research.md",
     "asset_catalog": "docs/ktd-asset-catalog.md",
-    "asset_inventory": "data/ktd/asset-inventory.json"
+    "asset_inventory": "data/ktd/asset-inventory.json",
+    "media_bundle": "personas/artist-principal/media-manifest.json",
+    "media_bundle_root": "personas/artist-principal/media"
   },
   "originality_guardrails": [
     "Não reproduzir rosto, corpo, voz ou identidade de pessoa real.",

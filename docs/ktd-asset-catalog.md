@@ -1,6 +1,6 @@
 # Catálogo oficial de ativos de KTD
 
-A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 22 áudios rastreados, totalizando 30 ativos no Git. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
+A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 22 áudios rastreados, totalizando 30 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 30 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
 
 ## Regra de leitura
 
@@ -72,6 +72,8 @@ Nenhum desses arquivos é faixa oficialmente lançada. O status de promoção de
 | Aprovação vocal | `docs/ktd-vocal-approval.md` |
 | Parâmetros de mix | `docs/ktd-official-vocal-mix.md` |
 | Manifesto executável | `personas/artist-principal/manifest.json` |
+| Bundle do persona | `personas/artist-principal/media-manifest.json` |
+| Diretório do bundle | `personas/artist-principal/media/` |
 
 ## Procedimento de atualização
 

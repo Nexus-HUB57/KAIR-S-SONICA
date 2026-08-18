@@ -4,7 +4,7 @@
 
 A auditoria de 18 de agosto de 2026 confirmou que o repositório já contém os ativos visuais e sonoros disponíveis para o persona KTD. Foram encontrados **8 arquivos de imagem** em `assets/persona` e **22 arquivos de áudio** em `assets/audio`, totalizando **30 ativos rastreados pelo Git**. Não há arquivos de imagem ou áudio não rastreados dentro dessas pastas, e `main` está sincronizada com `origin/main`.
 
-Nenhum arquivo foi duplicado, excluído ou substituído nesta auditoria. Os ativos rejeitados e históricos continuam no catálogo com status separado, para impedir que sejam promovidos acidentalmente como referências oficiais.
+Nenhum arquivo foi duplicado, excluído ou substituído na fonte canônica. Para atender à organização solicitada em `personas/artist-principal`, os mesmos 30 ativos foram copiados sem alteração de conteúdo para `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`; como os blobs são idênticos, o Git reutiliza o conteúdo por hash. Os ativos rejeitados e históricos continuam no catálogo com status separado, para impedir que sejam promovidos acidentalmente como referências oficiais.
 
 ## Imagens rastreadas
 
@@ -41,3 +41,4 @@ Novos ativos devem ser colocados em `assets/persona` ou `assets/audio`, receber 
 - Inventário técnico com hashes: [`data/ktd/asset-inventory.json`](../data/ktd/asset-inventory.json)
 - Script de inventário: [`scripts/build_ktd_asset_inventory.py`](../scripts/build_ktd_asset_inventory.py)
 - Manifesto de KTD: [`personas/artist-principal/manifest.json`](../personas/artist-principal/manifest.json)
+- Bundle de mídia do persona: [`personas/artist-principal/media-manifest.json`](../personas/artist-principal/media-manifest.json)
