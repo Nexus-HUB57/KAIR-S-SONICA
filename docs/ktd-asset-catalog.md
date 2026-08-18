@@ -1,6 +1,6 @@
 # Catálogo oficial de ativos de KTD
 
-A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 22 áudios rastreados, totalizando 30 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 30 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
+A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 25 áudios rastreados, totalizando 33 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 33 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
 
 ## Regra de leitura
 
@@ -42,6 +42,18 @@ Toda imagem nova deve preservar heterocromia, cabeça raspada, barba, riscos dou
 | Histórico não aprovado | `assets/audio/trials/ktd-boom-bap-trial-route-1-mix-v2.wav` | Mix feito com voz rejeitada |
 | Histórico não aprovado | `assets/audio/trials/ktd-boom-bap-trial-route-2-mix-v2.wav` | Mix feito com voz rejeitada |
 | Histórico não aprovado | `assets/audio/trials/ktd-boom-bap-trial-route-3-mix-v2.wav` | Mix feito com voz rejeitada |
+
+## Single de estreia — UNLEASH THE DRAGON
+
+| Estado | Ativo | Função |
+| --- | --- | --- |
+| Candidato | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-bed-v1.wav` | Base inédita do manifesto de estreia |
+| Candidato | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.wav` | Prova de arranjo com a voz oficial |
+| Candidato | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.mp3` | Versão de escuta da prova de arranjo |
+| Documento | `docs/ktd-debut-single-concept.md` | Conceito, critérios e arquitetura |
+| Documento | `docs/ktd-debut-single-lyrics.md` | Letra original e direção de performance |
+| Documento | `docs/ktd-debut-single-production.md` | Registro técnico, DSP e status |
+| Script | `scripts/render_ktd_debut_single.py` | Render reproduzível da prova |
 
 ## Mixes candidatos com voz oficial
 

@@ -207,6 +207,36 @@
       "duration_seconds": 130.0
     },
     {
+      "path": "assets/audio/releases/ktd-debut-single-unleash-the-dragon-bed-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 25855566,
+      "sha256": "b89d9e41091c68b53085a8b4905814155e463e77af5434b1bdd8f107c175b749",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 146.573061
+    },
+    {
+      "path": "assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6002982,
+      "sha256": "38bdcd0d9b9ef94710af89dad5f90210f4381785f5e97b83da4270f7b73edbfa",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 150.047347
+    },
+    {
+      "path": "assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 26460078,
+      "sha256": "ae921f34e92450a1bdb6edfcdeec20a00c18ac1b43629904cab2c2f0531ce37b",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 150.0
+    },
+    {
       "path": "assets/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.mp3",
       "category": "candidate_audio_release",
       "bytes": 5510836,

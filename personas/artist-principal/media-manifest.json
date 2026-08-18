@@ -13,9 +13,9 @@
   "counts": {
     "images": 8,
     "audio_references": 11,
-    "audio_releases": 8,
+    "audio_releases": 11,
     "audio_trials": 3,
-    "total": 30
+    "total": 33
   },
   "images": [
     "media/images/artista-principal-diamante.png",
@@ -49,7 +49,10 @@
       "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.mp3",
       "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.wav",
       "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.mp3",
-      "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.wav"
+      "media/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.wav",
+      "media/audio/releases/ktd-debut-single-unleash-the-dragon-bed-v1.wav",
+      "media/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.wav",
+      "media/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.mp3"
     ],
     "trials": [
       "media/audio/trials/ktd-boom-bap-trial-route-1-mix-v2.wav",
