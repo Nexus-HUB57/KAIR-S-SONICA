@@ -247,6 +247,16 @@
       "duration_seconds": 148.845667
     },
     {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-beat-reference-fit-v3.wav",
+      "category": "candidate_audio_release",
+      "bytes": 29635244,
+      "sha256": "53fda32fcadbaa72856728e41d6817d70ed436dfb1a18a8fb889bba6d48fd689",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.0
+    },
+    {
       "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-bed-v1.wav",
       "category": "candidate_audio_release",
       "bytes": 29518926,
@@ -271,6 +281,26 @@
       "category": "candidate_audio_release",
       "bytes": 29635278,
       "sha256": "e4f6478b8c8659d84746dbbe0ec421e9e3f82b98ff1ebfd3c402b4031a362f37",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.0
+    },
+    {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6722917,
+      "sha256": "c3a960c30919455ecd9a5be356dfb45465aacc5fd352b31579913478e4a0fa8a",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.045714
+    },
+    {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 29635278,
+      "sha256": "7d14d88282382fb229230c3ab693acc0fe59ef8ed3d09c400aaaa8d5e8dc16d9",
       "codec": "pcm_s16le",
       "sample_rate": 44100,
       "channels": 2,

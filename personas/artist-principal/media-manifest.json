@@ -13,9 +13,9 @@
   "counts": {
     "images": 8,
     "audio_references": 11,
-    "audio_releases": 15,
+    "audio_releases": 18,
     "audio_trials": 3,
-    "total": 37
+    "total": 40
   },
   "images": [
     "media/images/artista-principal-diamante.png",
@@ -56,7 +56,10 @@
       "media/audio/releases/ktd-debut-single-unleash-the-dragon-vocal-take-v2.wav",
       "media/audio/releases/ktd-main-single-fire-in-the-flood-bed-v1.wav",
       "media/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav",
-      "media/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3"
+      "media/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3",
+      "media/audio/releases/ktd-main-single-fire-in-the-flood-beat-reference-fit-v3.wav",
+      "media/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.wav",
+      "media/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.mp3"
     ],
     "trials": [
       "media/audio/trials/ktd-boom-bap-trial-route-1-mix-v2.wav",
