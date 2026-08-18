@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Master Oficial v4</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding-top: 60px;
+            position: relative;
+        }
+        .header {
+            padding-left: 80px;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .accent {
+            color: #daa520;
+        }
+        .header-line {
+            width: 80px;
+            height: 4px;
+            background-color: #8b0000;
+            margin-top: 15px;
+        }
+        .content-wrapper {
+            display: flex;
+            padding: 0 80px;
+            gap: 60px;
+        }
+        .left-col {
+            flex: 1;
+        }
+        .right-col {
+            flex: 1;
+        }
+        .info-block {
+            margin-bottom: 40px;
+        }
+        .info-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #daa520;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .info-text {
+            font-size: 18px;
+            color: #cccccc;
+            line-height: 1.6;
+            padding-left: 45px;
+        }
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .metrics-table th, .metrics-table td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid #333333;
+        }
+        .metrics-table th {
+            font-size: 16px;
+            color: #8b0000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .metrics-table td {
+            font-size: 20px;
+            color: #ffffff;
+        }
+        .metrics-table tr:last-child td {
+            border-bottom: none;
+        }
+        .highlight-cell {
+            color: #daa520 !important;
+            font-weight: bold;
+        }
+        .footer-tag {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            font-size: 14px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Master <span class="accent">Oficial v4</span></h1>
+            <div class="header-line"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="left-col">
+                <div class="info-block">
+                    <div class="info-title"><i class="fas fa-headphones"></i> Revisão do DJ Káiros</div>
+                    <div class="info-text">A versão final foi auditada para garantir inteligibilidade, pocket rítmico e segurança técnica nas plataformas digitais.</div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title"><i class="fas fa-lock"></i> Preservação Total</div>
+                    <div class="info-text">Tratamento vocal, melodia de fundo, arranjo, afinação e imagem estéreo foram 100% mantidos da mix v3 aprovada.</div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title"><i class="fas fa-sliders-h"></i> Ajuste Cirúrgico</div>
+                    <div class="info-text">Aplicação exclusiva de um ganho global de <strong>-0,9 dB</strong> para aumentar a margem contra picos intersample (True Peak).</div>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Métrica Técnica</th>
+                            <th>Medição v4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Loudness Integrado</td>
+                            <td class="highlight-cell">-13.94 LUFS</td>
+                        </tr>
+                        <tr>
+                            <td>True Peak (WAV)</td>
+                            <td class="highlight-cell">-1.43 dBTP</td>
+                        </tr>
+                        <tr>
+                            <td>True Peak (MP3)</td>
+                            <td class="highlight-cell">-1.29 dBTP</td>
+                        </tr>
+                        <tr>
+                            <td>Loudness Range (LRA)</td>
+                            <td>4.10 LU</td>
+                        </tr>
+                        <tr>
+                            <td>Duração Final</td>
+                            <td>2:48 (168s)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer-tag">FIRE IN THE FLOOD</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Identidade Visual e Roadmap</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding-top: 60px;
+            position: relative;
+        }
+        .header {
+            padding-left: 80px;
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .accent {
+            color: #daa520;
+        }
+        .header-line {
+            width: 80px;
+            height: 4px;
+            background-color: #8b0000;
+            margin-top: 15px;
+        }
+        .content-wrapper {
+            display: flex;
+            padding: 0 80px;
+            gap: 60px;
+        }
+        .left-col {
+            flex: 0 0 40%;
+            display: flex;
+            flex-direction: column;
+        }
+        .right-col {
+            flex: 0 0 55%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ktd-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border: 2px solid #333333;
+            margin-bottom: 20px;
+        }
+        .identity-list {
+            list-style: none;
+        }
+        .identity-list li {
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .identity-list i {
+            color: #8b0000;
+            font-size: 14px;
+        }
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        .roadmap-number {
+            font-size: 36px;
+            font-weight: 900;
+            color: #daa520;
+            margin-right: 25px;
+            line-height: 1;
+        }
+        .roadmap-text h3 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .roadmap-text p {
+            font-size: 18px;
+            color: #aaaaaa;
+            line-height: 1.5;
+        }
+        .footer-tag {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            font-size: 14px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Identidade e <span class="accent">Roadmap</span></h1>
+            <div class="header-line"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="left-col">
+                <img src="/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-expression-street.png" alt="KTD Expression" class="ktd-img">
+                <ul class="identity-list">
+                    <li><i class="fas fa-square"></i> Kháirus the Dragon (KTD)</li>
+                    <li><i class="fas fa-square"></i> Rap Cinematográfico de Rua</li>
+                    <li><i class="fas fa-square"></i> Presença Humana Realista</li>
+                    <li><i class="fas fa-square"></i> Tatuagens e Identidade Imutáveis</li>
+                </ul>
+            </div>
+
+            <div class="right-col">
+                <div class="roadmap-item">
+                    <div class="roadmap-number">01</div>
+                    <div class="roadmap-text">
+                        <h3>Distribuição Oficial</h3>
+                        <p>Envio da master v4 e metadados para as plataformas de streaming, com ISRC e UPC definitivos atribuídos pelo selo.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-number">02</div>
+                    <div class="roadmap-text">
+                        <h3>Descoberta em Vídeo Curto</h3>
+                        <p>Foco no hook original ("Fire in the flood — I keep the flame alive") para campanhas de formato curto e engajamento direto.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-number">03</div>
+                    <div class="roadmap-text">
+                        <h3>Playlist de Lançamento</h3>
+                        <p>Produção das próximas faixas do manifesto: "DRAGON IN THE MIRROR", "SIX NAMES" e "GOLDEN SCARS".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-tag">FIRE IN THE FLOOD</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# 1 - FIRE IN THE FLOOD
+
+Fire in the flood represents a pivotal moment in our catalog, bringing together street narrative and precise sonic engineering. Kháirus the Dragon anchors this release under the KAIR-S-SONICA banner with master version four. Let us explore the journey that shaped this single from concept to final release.
+
+# 2 - A Jornada da Faixa
+
+Building this track took deliberate artistic choices across every production phase. We locked in the core narrative and vocal melody early, anchoring the rhythm to ninety-four beats per minute. DJ Káiros refined the final master to ensure clean distribution without losing any emotional weight. Now let us examine the technical specifications behind this final version.
+
+# 3 - Master Oficial v4
+
+Version four brings absolute sonic stability to the release. We kept every element of the approved mix intact, from vocal tuning to the stereo image. The only adjustment is a surgical reduction of minus zero point nine decibels to protect against intersample peaks. Looking at the metrics, we hit minus thirteen point ninety-four LUFS with true peaks safely controlled. These numbers guarantee clean translation across all major streaming services.
+
+# 4 - Metadados e Distribuição
+
+Getting the metadata right protects our rights and ensures proper platform delivery. The track is registered as hip hop and rap, carrying an explicit content tag based on the lyric sheet. For our checklist, we are currently waiting on official ISRC assignment through authorized registrars. Legal credits and high resolution audio files are fully validated and ready for upload.
+
+# 5 - Identidade Visual e Roadmap
+
+Our visual identity centers on Kháirus the Dragon with realistic human presence and immutable street markings. The distribution roadmap starts with delivering the final master and metadata to streaming platforms. Next, we drive discovery through short form video campaigns focusing on the core hook. This sets the foundation for upcoming manifesto tracks like Dragon in the Mirror and Six Names.

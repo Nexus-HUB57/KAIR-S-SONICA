@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Metadados e Distribuição</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding-top: 60px;
+            position: relative;
+        }
+        .header {
+            padding-left: 80px;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .accent {
+            color: #daa520;
+        }
+        .header-line {
+            width: 80px;
+            height: 4px;
+            background-color: #8b0000;
+            margin-top: 15px;
+        }
+        .content-wrapper {
+            display: flex;
+            padding: 0 80px;
+            gap: 80px;
+        }
+        .col {
+            flex: 1;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #333333;
+            padding-top: 10px;
+        }
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .icon-container {
+            width: 40px;
+            font-size: 24px;
+            padding-top: 2px;
+        }
+        .icon-done {
+            color: #daa520;
+        }
+        .icon-pending {
+            color: #8b0000;
+        }
+        .text-container {
+            flex: 1;
+        }
+        .item-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        .item-desc {
+            font-size: 18px;
+            color: #cccccc;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #daa520;
+            font-weight: bold;
+        }
+        .footer-tag {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            font-size: 14px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Metadados e <span class="accent">Distribuição</span></h1>
+            <div class="header-line"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="col">
+                <div class="section-title">Informações da Faixa</div>
+
+                <div class="list-item">
+                    <div class="icon-container icon-done"><i class="fas fa-check-square"></i></div>
+                    <div class="text-container">
+                        <div class="item-title">Título e Artista</div>
+                        <div class="item-desc">FIRE IN THE FLOOD<br>Kháirus the Dragon (KTD)</div>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="icon-container icon-done"><i class="fas fa-check-square"></i></div>
+                    <div class="text-container">
+                        <div class="item-title">Gênero e Formato</div>
+                        <div class="item-desc">Hip-Hop / Rap<br>Single (1 Faixa)</div>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="icon-container icon-pending"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="text-container">
+                        <div class="item-title">Conteúdo Explícito</div>
+                        <div class="item-desc">A letra contém ocorrência explícita. <span class="highlight">Requer marcação "Explicit"</span> no distribuidor.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="section-title">Checklist de Lançamento</div>
+
+                <div class="list-item">
+                    <div class="icon-container icon-pending"><i class="fas fa-barcode"></i></div>
+                    <div class="text-container">
+                        <div class="item-title">ISRC e UPC</div>
+                        <div class="item-desc"><span class="highlight">Pendente de atribuição oficial.</span> O código ISRC deve ser gerado pelo registrante autorizado (IFPI), não usar ID interno.</div>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="icon-container icon-pending"><i class="fas fa-file-signature"></i></div>
+                    <div class="text-container">
+                        <div class="item-title">Créditos Legais</div>
+                        <div class="item-desc">Confirmar nomes legais para composição (KTD) e produção/master (DJ Káiros / KAIR-S-SONICA).</div>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="icon-container icon-done"><i class="fas fa-file-audio"></i></div>
+                    <div class="text-container">
+                        <div class="item-title">Arquivos Entregues</div>
+                        <div class="item-desc">Master WAV (PCM s16le, 44.1kHz) e MP3 (320kbps) validados e prontos para upload.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-tag">FIRE IN THE FLOOD</div>
+    </div>
+</body>
+</html>

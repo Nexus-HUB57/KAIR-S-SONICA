@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "release_type": "single",
+  "release_status": "approved_for_distribution",
+  "internal_release_id": "KAIR-KTD-FITF-V4-2026",
+  "title": "FIRE IN THE FLOOD",
+  "version_title": "",
+  "primary_artist": "Kháirus the Dragon",
+  "artist_alias": "KTD",
+  "language": "en-US",
+  "genre": "Hip-Hop/Rap",
+  "explicit_content": true,
+  "explicit_content_note": "Confirmar a classificação explicit no distribuidor; a letra contém uma ocorrência explícita.",
+  "bpm": 94,
+  "key": "D minor",
+  "duration_seconds_wav": 168.0,
+  "duration_seconds_mp3": 168.045714,
+  "release_date": null,
+  "territories": [],
+  "label": "KAIR-S-SONICA",
+  "label_confirmation_required": true,
+  "copyright": {
+    "p_line": null,
+    "c_line": null,
+    "master_owner": null,
+    "publisher": null,
+    "writer_legal_names": [],
+    "split_sheet_status": "pending_confirmation"
+  },
+  "identifiers": {
+    "isrc": null,
+    "isrc_status": "pending_official_assignment",
+    "isrc_note": "Não preencher com o identificador interno; solicitar ou confirmar o ISRC com o titular/registrante/distribuidor.",
+    "upc_ean": null,
+    "internal_id": "KAIR-KTD-FITF-V4-2026"
+  },
+  "credits": {
+    "main_artist": "Kháirus the Dragon (KTD)",
+    "lyrics": ["KTD / Kháirus the Dragon — confirmar nomes legais"],
+    "composition": ["Titular da obra — confirmar nomes legais e splits"],
+    "production": ["DJ Káiros / KAIR-S-SONICA"],
+    "arrangement": ["DJ Káiros / KAIR-S-SONICA"],
+    "vocal_treatment_and_mix": ["DJ Káiros / KAIR-S-SONICA"],
+    "mastering": ["DJ Káiros / KAIR-S-SONICA"],
+    "label": ["KAIR-S-SONICA — confirmar entidade legal"]
+  },
+  "files": {
+    "wav": {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "duration_seconds": 168.0,
+      "sha256": "a8668295687effed989121e58cead63fa00d951aff9a8335ff2065f0edd44229"
+    },
+    "mp3": {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.mp3",
+      "codec": "mp3",
+      "bitrate_kbps": 320,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "duration_seconds": 168.045714,
+      "sha256": "29c97dc68f487d945c6d0de02a88988ac41bd8fe3a9f56efaea6f743ab9ca208"
+    }
+  },
+  "mastering": {
+    "source_master": "v1-reference-aligned-mix-v3",
+    "final_master": "v1-reference-aligned-mix-v4",
+    "change_type": "global_gain_trim_only",
+    "gain_change_db": -0.9,
+    "integrated_loudness_lufs": -13.94,
+    "loudness_range_lu": 4.1,
+    "true_peak_wav_dbtp": -1.43,
+    "true_peak_mp3_dbtp": -1.29,
+    "vocal_and_melody_preserved": true,
+    "timing_changed": false,
+    "pitch_changed": false,
+    "arrangement_changed": false
+  },
+  "distribution_checklist": {
+    "artist_spelling_confirmed": false,
+    "title_confirmed": true,
+    "explicit_flag_confirmed": false,
+    "release_date_confirmed": false,
+    "legal_credits_confirmed": false,
+    "splits_confirmed": false,
+    "master_owner_confirmed": false,
+    "isrc_assigned": false,
+    "upc_assigned": false,
+    "territories_confirmed": false
+  },
+  "references": [
+    "https://isrc.ifpi.org/isrc-standard/isrc-structure",
+    "https://isrc.ifpi.org/why-use-isrc/using-isrc",
+    "https://www.ifpi.org/wp-content/uploads/2021/02/ISRC_Handbook.pdf"
+  ]
+}

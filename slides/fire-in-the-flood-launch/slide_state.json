@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "title": "FIRE IN THE FLOOD",
+    "created": 1787092524.451,
+    "last_updated": 1787092606.284,
+    "total_slides": 5
+  },
+  "slides": [
+    {
+      "id": "slide_1_capa",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_jornada",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_v4_master",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_metadados",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_identidade",
+      "state": "edited",
+      "pageNum": 5
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_capa",
+      "title": "FIRE IN THE FLOOD",
+      "summary": "Capa do lançamento do single de Kháirus the Dragon (KTD).",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "slide_2_jornada",
+      "title": "A Jornada da Faixa",
+      "summary": "Resumo das fases: conceito, letra, melodia V1, correção do groove e masterização final v4.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "slide_3_v4_master",
+      "title": "Master Oficial v4",
+      "summary": "Detalhes da masterização pré-lançamento do DJ Káiros: redução global de -0,9 dB para distribuição segura.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "slide_4_metadados",
+      "title": "Metadados e Distribuição",
+      "summary": "Checklist de lançamento: ISRC, créditos legais, marcação explícita e entrega do WAV/MP3.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "slide_5_identidade",
+      "title": "Identidade Visual e Roadmap",
+      "summary": "Apresentação da identidade de KTD e os próximos passos do lançamento.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}

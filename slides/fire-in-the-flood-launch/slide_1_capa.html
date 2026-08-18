@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FIRE IN THE FLOOD</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .bg-element {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,10,10,1) 0%, rgba(139,0,0,0.8) 100%);
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+        .ktd-image {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 600px;
+            width: auto;
+            object-fit: contain;
+            z-index: 2;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 20px rgba(218,165,32,0.3));
+        }
+        .content {
+            position: relative;
+            z-index: 3;
+            padding-left: 100px;
+            width: 60%;
+        }
+        h1 {
+            font-size: 84px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+        .accent {
+            color: #daa520; /* Gold */
+        }
+        h2 {
+            font-size: 36px;
+            font-weight: 300;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+        .divider {
+            width: 150px;
+            height: 4px;
+            background-color: #8b0000; /* Dark Red */
+            margin-bottom: 40px;
+        }
+        .artist {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #daa520;
+        }
+        .tagline {
+            position: absolute;
+            bottom: 40px;
+            left: 100px;
+            font-size: 16px;
+            color: #666666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-element"></div>
+        <img src="/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-visual-master.png" alt="KTD" class="ktd-image">
+
+        <div class="content">
+            <h1>FIRE IN<br>THE <span class="accent">FLOOD</span></h1>
+            <div class="divider"></div>
+            <h2>Masterização e Lançamento</h2>
+            <div class="artist">Kháirus the Dragon (KTD)</div>
+        </div>
+
+        <div class="tagline">KAIR-S-SONICA | V4 Official Master</div>
+    </div>
+</body>
+</html>
