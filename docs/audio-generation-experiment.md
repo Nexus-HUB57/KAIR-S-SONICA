@@ -22,6 +22,8 @@ A voz oficial de KTD é `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`. Ela
 | 6. Beat separado — rota 3 | `assets/audio/ktd-boom-bap-trial-route-3-bed-v2.wav` | Base híbrida boom bap com variações de arranjo | Batida considerada boa; requer nova voz oficial antes de qualquer aprovação |
 | 7. Mixes de teste 1–3 | `assets/audio/trials/ktd-boom-bap-trial-route-{1,2,3}-mix-v2.wav` | Mixes integrados com `ktd-vocal-rough-take-v2.wav` | Não aprovados; a voz usada foi rejeitada, mas as bases permanecem aproveitáveis |
 | 8. Novo mix com voz oficial | `assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.{wav,mp3}` | Base da rota 2 integrada exclusivamente com `kairos-rapid-rap-flow-demo-en-v3.mp3` | Candidato pendente de aprovação humana |
+| 9. Comparação trap moderna | `assets/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.{wav,mp3}` | Base trap original com a mesma cadeia DSP e compressão paralela, usando a voz oficial | Candidato pendente de aprovação humana |
+| 10. Prova trap consciente/agressiva | `assets/audio/releases/ktd-conscious-aggressive-trap-official-vocal-proof-v1.{wav,mp3}` | Base original com ponte emocional e motivo melódico, integrada à referência vocal oficial | Candidato pendente de aprovação humana; letra documentada separadamente |
 
 ## Critérios de aprovação
 
@@ -35,4 +37,4 @@ A rota deve ser representada como tarefa multimídia no core do Káiros, com `ar
 
 ## Estado atual
 
-As três bases boom bap novas foram consideradas boas como material rítmico de teste. A referência vocal oficial permanece `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`. A tomada `ktd-vocal-rough-take-v2.wav` e os três mixes derivados dela estão rejeitados para uso artístico. O novo mix em `assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.{wav,mp3}` usa a referência oficial e permanece pendente de aprovação humana.
+As três bases boom bap novas foram consideradas boas como material rítmico de teste. A referência vocal oficial permanece `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`. A tomada `ktd-vocal-rough-take-v2.wav` e os três mixes derivados dela estão rejeitados para uso artístico. O novo mix boom bap, a comparação trap moderna e a prova trap consciente/agressiva usam a referência oficial processada pela cadeia DSP/paralela e permanecem pendentes de aprovação humana. A letra melódica de protesto está em `docs/ktd-conscious-aggressive-trap-proof.md`; a tentativa de faixa vocal neural integrada falhou e não foi promovida.

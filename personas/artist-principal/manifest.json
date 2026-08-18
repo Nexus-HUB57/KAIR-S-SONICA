@@ -106,6 +106,10 @@
     "official_vocal_mix_candidate_mp3": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.mp3",
     "official_vocal_mix_alternative_saturated_parallel_wav": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.wav",
     "official_vocal_mix_alternative_saturated_parallel_mp3": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.mp3",
+    "modern_trap_comparison_bed": "assets/audio/ktd-modern-trap-comparison-bed-v1.wav",
+    "modern_trap_official_vocal_mix": "assets/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.mp3",
+    "conscious_aggressive_trap_bed": "assets/audio/ktd-conscious-aggressive-trap-proof-bed-v1.wav",
+    "conscious_aggressive_trap_official_vocal_proof": "assets/audio/releases/ktd-conscious-aggressive-trap-official-vocal-proof-v1.mp3",
     "official_vocal_mix_candidate_status": "pending_human_approval",
     "rejected_old_school_beat": "assets/audio/ktd-old-school-boom-bap-beat-v1.mp3",
     "voice_demo_previous": "assets/audio/kairos-voice-direction-demo-en-v2.mp3",
@@ -121,7 +125,9 @@
     "consolidated_specification": "docs/ktd-specification.md",
     "voice_profile": "personas/artist-principal/voice-profile.md",
     "vocal_approval_record": "docs/ktd-vocal-approval.md",
-    "official_mix_record": "docs/ktd-official-vocal-mix.md"
+    "official_mix_record": "docs/ktd-official-vocal-mix.md",
+    "trap_reference_analysis": "docs/ktd-trap-reference-analysis.md",
+    "conscious_trap_proof_record": "docs/ktd-conscious-aggressive-trap-proof.md"
   },
   "originality_guardrails": [
     "Não reproduzir rosto, corpo, voz ou identidade de pessoa real.",
