@@ -1,5 +1,7 @@
 # Catálogo oficial de ativos de KTD
 
+A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 22 áudios rastreados, totalizando 30 ativos no Git. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
+
 ## Regra de leitura
 
 O catálogo separa quatro estados: **oficial/aprovado**, **candidato**, **rejeitado** e **histórico**. Um arquivo rejeitado não deve ser apagado quando sua preservação ajuda a explicar uma decisão, mas também não pode ser usado como referência de identidade ou promovido por engano.
@@ -73,4 +75,4 @@ Nenhum desses arquivos é faixa oficialmente lançada. O status de promoção de
 
 ## Procedimento de atualização
 
-Ao adicionar um ativo, registrar caminho, função, versão, origem, referência utilizada, status de aprovação, hash e decisão humana. Não substituir um arquivo aprovado por um candidato. Não apagar um rejeitado quando ele for necessário para auditoria. Não promover um candidato apenas porque o arquivo existe ou porque uma métrica automática atribuiu uma pontuação alta.
+Ao adicionar um ativo, registrar caminho, função, versão, origem, referência utilizada, status de aprovação, hash e decisão humana. Depois, regenerar `data/ktd/asset-inventory.json` com `scripts/build_ktd_asset_inventory.py` e revisar `docs/ktd-assets-upload-audit.md` quando a contagem ou o estado do catálogo mudar. Não substituir um arquivo aprovado por um candidato. Não apagar um rejeitado quando ele for necessário para auditoria. Não promover um candidato apenas porque o arquivo existe ou porque uma métrica automática atribuiu uma pontuação alta.
