@@ -247,6 +247,36 @@
       "duration_seconds": 148.845667
     },
     {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-bed-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 29518926,
+      "sha256": "35f33a51cf8fd232b67ee9519783d050e4ab6ccc81c0a825009c856032b0e68a",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 167.340408
+    },
+    {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6722917,
+      "sha256": "b269f850c2ededaaccaeb82ed0baa2c4099298f7ef5453ebe8f3d7370dcfd225",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.045714
+    },
+    {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 29635278,
+      "sha256": "e4f6478b8c8659d84746dbbe0ec421e9e3f82b98ff1ebfd3c402b4031a362f37",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.0
+    },
+    {
       "path": "assets/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.mp3",
       "category": "candidate_audio_release",
       "bytes": 5510836,

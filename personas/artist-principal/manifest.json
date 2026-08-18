@@ -111,7 +111,14 @@
       "official_vocal_arrangement_proof_wav": "assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.wav",
       "official_vocal_arrangement_proof_mp3": "assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.mp3",
       "vocal_take_v2": "assets/audio/releases/ktd-debut-single-unleash-the-dragon-vocal-take-v2.wav",
-      "vocal_take_v2_validation": "docs/ktd-debut-single-vocal-take-validation.md"
+      "vocal_take_v2_validation": "docs/ktd-debut-single-vocal-take-validation.md",
+      "main_single_rework_concept": "docs/ktd-main-single-rework-concept.md",
+      "main_single_rework_lyrics": "docs/ktd-main-single-rework-lyrics.md",
+      "main_single_reference_analysis": "docs/ktd-main-single-reference-analysis.md",
+      "main_single_rework_production": "docs/ktd-main-single-fire-in-the-flood-production.md",
+      "main_single_rework_bed": "assets/audio/releases/ktd-main-single-fire-in-the-flood-bed-v1.wav",
+      "main_single_rework_arrangement_proof_wav": "assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav",
+      "main_single_rework_arrangement_proof_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3"
     },
     "primary_discovery_format": "short_form_video_with_original_hook",
     "approval_rule": "Nenhuma faixa é promovida sem aprovação humana de KTD",
