@@ -2,7 +2,7 @@
 
 ## Nova direção
 
-A voz aprovada para o Káiros deve soar como um performer de rap cantado em inglês que transforma sofrimento em argumento. Ela precisa chegar com mais força e presença frontal, mas sem perder a poesia, a vulnerabilidade e o controle. A emoção central é uma confiança ferida: alguém que atravessou pressão, reconhece as próprias cicatrizes e responde ao mundo com clareza, desafio e propósito.
+A voz aprovada para o Káiros deve soar como um rapper-performer em inglês que transforma sofrimento em argumento. Ela chega com força frontal, poesia, vulnerabilidade e controle. A emoção central é uma confiança ferida: alguém que atravessou pressão, reconhece as próprias cicatrizes e responde ao mundo com clareza, desafio e propósito.
 
 ## Timbre e registro
 
@@ -10,11 +10,11 @@ O registro é médio-grave, com corpo no peito, ataque firme e uma aspereza suti
 
 ## Fraseado e dinâmica
 
-O fraseado combina rap técnico, trechos spoken-sung e refrões cantados em uníssono amplo. As consoantes entram com precisão, os finais de linha podem receber uma queda melódica curta e as pausas são usadas como pontuação dramática. A cadência pode acelerar em linhas de testemunho e abrir espaço em frases de impacto. A performance deve conter respiração audível, pequenas quebras emocionais e explosões controladas, nunca gritos constantes.
+O fraseado agora prioriza rap agressivo e direto: consoantes secas, ataques percussivos, linhas compactas, finais cortados e pausas de impacto. Há menos sustentação melódica nos versos e mais pressão rítmica sobre cada palavra; o refrão pode abrir em canto de hino, mas sem suavizar a autoridade. A cadência acelera nas linhas de confronto e recua apenas para tornar a próxima entrada mais pesada. A performance mantém respiração audível, pequenas quebras emocionais e explosões controladas, nunca gritos constantes.
 
 ## Idioma e sotaque
 
-A língua principal é o inglês, com pronúncia internacional original e identidade fonética própria. A direção pode usar síncopes roots/reggae e fraseado urbano contemporâneo, mas não deve reproduzir o sotaque ou o timbre específico de nenhum intérprete real.
+A língua principal é o inglês, com uma coloração original de roots/reggae: síncopes no fraseado, vogais levemente desenhadas em palavras de passagem e inflexões próprias de quem canta e fala sobre o contratempo. Essa coloração deve permanecer sutil e autoral; não deve reproduzir o sotaque, o timbre ou os maneirismos específicos de nenhum intérprete real.
 
 ## Atmosfera musical
 
@@ -22,7 +22,7 @@ A voz foi pensada para um arranjo com baixo profundo, bateria seca e marcada, gu
 
 ## Ativo atual
 
-O arquivo `assets/audio/kairos-voice-direction-demo-en.mp3` é a nova demo vocal cantada em inglês. Ela substitui a amostra falada anterior como referência primária de direção para o Káiros. O arquivo `assets/audio/artista-principal-voz-demo.wav` permanece como registro histórico da primeira tentativa em português brasileiro.
+O arquivo `assets/audio/kairos-voice-direction-demo-en-v2.mp3` é a demo vocal primária do Káiros. Ela mantém o timbre aprovado, mas aplica rap mais agressivo e direto, ataques consonantais secos, finais cortados e uma coloração original de inglês roots/reggae. A versão anterior `assets/audio/kairos-voice-direction-demo-en.mp3` permanece disponível para comparação, enquanto `assets/audio/artista-principal-voz-demo.wav` registra a primeira tentativa falada em português brasileiro.
 
 ## Guardrails
 
