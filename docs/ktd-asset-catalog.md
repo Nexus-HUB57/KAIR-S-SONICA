@@ -1,6 +1,6 @@
 # Catálogo oficial de ativos de KTD
 
-A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 32 áudios rastreados, totalizando 40 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 40 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
+A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 35 áudios rastreados, totalizando 43 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 43 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
 
 ## Regra de leitura
 
@@ -57,6 +57,10 @@ Toda imagem nova deve preservar heterocromia, cabeça raspada, barba, riscos dou
 | Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-beat-reference-fit-v3.wav` | Nova base em 136 BPM / halftime 68 BPM |
 | Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.wav` | Mix com ducking sidechain e referência vocal oficial |
 | Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.mp3` | Escuta da nova mixagem |
+| Referência congelada | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav` | Melodia V1 aprovada |
+| Candidato técnico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-vocal-isolated-stem-v1.wav` | Stem derivado da V1 para troca de beat |
+| Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.wav` | V1 intacta sobre o novo beat |
+| Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.mp3` | Escuta da mix corrigida |
 | Documento | `docs/ktd-debut-single-concept.md` | Conceito, critérios e arquitetura |
 | Documento | `docs/ktd-debut-single-lyrics.md` | Letra original e direção de performance |
 | Documento | `docs/ktd-debut-single-production.md` | Registro técnico, DSP e status |

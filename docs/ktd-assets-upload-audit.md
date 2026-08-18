@@ -2,9 +2,9 @@
 
 ## Resultado
 
-A auditoria de 18 de agosto de 2026 confirmou que o repositório já contém os ativos visuais e sonoros disponíveis para o persona KTD. Foram encontrados **8 arquivos de imagem** em `assets/persona` e **32 arquivos de áudio** em `assets/audio`, totalizando **40 ativos rastreados pelo Git** após a inclusão da nova base reference-fit de FIRE IN THE FLOOD. Não há arquivos de imagem ou áudio não rastreados dentro dessas pastas, e `main` está sincronizada com `origin/main`.
+A auditoria de 18 de agosto de 2026 confirmou que o repositório já contém os ativos visuais e sonoros disponíveis para o persona KTD. Foram encontrados **8 arquivos de imagem** em `assets/persona` e **35 arquivos de áudio** em `assets/audio`, totalizando **43 ativos rastreados pelo Git** após a inclusão do stem V1 e da mix corrigida de FIRE IN THE FLOOD. Não há arquivos de imagem ou áudio não rastreados dentro dessas pastas, e `main` está sincronizada com `origin/main`.
 
-Nenhum arquivo foi duplicado, excluído ou substituído na fonte canônica. Para atender à organização solicitada em `personas/artist-principal`, os mesmos 40 ativos foram copiados sem alteração de conteúdo para `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`; como os blobs são idênticos, o Git reutiliza o conteúdo por hash. Os ativos rejeitados e históricos continuam no catálogo com status separado, para impedir que sejam promovidos acidentalmente como referências oficiais.
+Nenhum arquivo foi duplicado, excluído ou substituído na fonte canônica. Para atender à organização solicitada em `personas/artist-principal`, os mesmos 43 ativos foram copiados sem alteração de conteúdo para `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`; como os blobs são idênticos, o Git reutiliza o conteúdo por hash. Os ativos rejeitados e históricos continuam no catálogo com status separado, para impedir que sejam promovidos acidentalmente como referências oficiais.
 
 ## Imagens rastreadas
 
@@ -28,7 +28,7 @@ A referência vocal oficial permanece `assets/audio/kairos-rapid-rap-flow-demo-e
 | Vozes e referências | `artista-principal-voz-demo.wav`, `kairos-rapid-rap-flow-demo-en-v3.mp3`, `kairos-voice-direction-demo-en-v2.mp3`, `kairos-voice-direction-demo-en.mp3`, `ktd-vocal-rough-take-v2.wav` |
 | Bases boom bap | `ktd-boom-bap-trial-route-1-bed-v2.wav`, `ktd-boom-bap-trial-route-2-bed-v2.wav`, `ktd-boom-bap-trial-route-3-bed-v2.wav`, `ktd-old-school-boom-bap-beat-v1.mp3` |
 | Bases trap | `ktd-modern-trap-comparison-bed-v1.wav`, `ktd-conscious-aggressive-trap-proof-bed-v1.wav` |
-| Mixes candidatos | Arquivos em `assets/audio/releases/`, incluindo boom bap, trap moderno, provas do single de estreia, FIRE IN THE FLOOD original e a nova versão reference-fit |
+| Mixes candidatos | Arquivos em `assets/audio/releases/`, incluindo boom bap, trap moderno, FIRE IN THE FLOOD original, reference-fit e V1 rebeat |
 | Mixes históricos | Arquivos em `assets/audio/trials/`, produzidos em rotas anteriores e mantidos apenas para auditoria |
 
 ## Política de povoamento

@@ -123,7 +123,12 @@
       "main_single_reference_fit_production": "docs/ktd-fire-in-the-flood-reference-fit-production.md",
       "main_single_reference_fit_bed": "assets/audio/releases/ktd-main-single-fire-in-the-flood-beat-reference-fit-v3.wav",
       "main_single_reference_fit_mix_wav": "assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.wav",
-      "main_single_reference_fit_mix_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.mp3"
+      "main_single_reference_fit_mix_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.mp3",
+      "main_single_v1_melody_lock": "docs/ktd-fire-in-the-flood-v1-melody-lock.md",
+      "main_single_v1_vocal_stem": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-vocal-isolated-stem-v1.wav",
+      "main_single_v1_rebeat_production": "docs/ktd-fire-in-the-flood-v1-rebeat-production.md",
+      "main_single_v1_rebeat_wav": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.wav",
+      "main_single_v1_rebeat_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.mp3"
     },
     "primary_discovery_format": "short_form_video_with_original_hook",
     "approval_rule": "Nenhuma faixa é promovida sem aprovação humana de KTD",
