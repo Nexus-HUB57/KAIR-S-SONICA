@@ -15,11 +15,13 @@ PYTHONPATH=packages python3 scripts/run_local.py persona --format prompt
 
 A persona não afirma credenciais humanas reais e não autoriza copiar código proprietário, usar APIs não oficiais, inventar resultados ou clonar vozes sem consentimento. A documentação completa está em [`docs/persona.md`](docs/persona.md).
 
-## Artista principal
+## Kháirus the Dragon (KTD)
 
-O artista principal é a presença humana do universo. Káiros atua como seu DJ, maestro e orquestrador, responsável por batidas, melodia, produção, coerência de carreira e coordenação do pipeline. A identidade visual original do artista está documentada em [`docs/artist-principal.md`](docs/artist-principal.md), com manifesto em [`personas/artist-principal/manifest.json`](personas/artist-principal/manifest.json) e retrato oficial em [`assets/persona/artista-principal-diamante.png`](assets/persona/artista-principal-diamante.png).
+**Kháirus the Dragon**, também chamado **KTD**, é a presença humana, rapper e artista principal do universo. Káiros atua como seu DJ, maestro e orquestrador, responsável por batidas, melodia, produção, estratégia e coordenação da carreira. O manifesto oficial está em [`personas/artist-principal/manifest.json`](personas/artist-principal/manifest.json).
 
-A nova identidade vocal do Káiros está descrita em [`personas/artist-principal/voice-profile.md`](personas/artist-principal/voice-profile.md). A demo musical primária está em [`assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`](assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3), com rap rápido e agressivo, double-time, rimas internas densas, aceleração e recuo de flow, poesia confrontadora, sofrimento audível e uma coloração roots/dub original. O mapa técnico está em [`docs/kairos-rap-flow.md`](docs/kairos-rap-flow.md), enquanto as versões anteriores permanecem preservadas para comparação.
+A continuidade visual de KTD está fixada em [`docs/ktd-visual-bible.md`](docs/ktd-visual-bible.md), com imagem-mestre em [`assets/persona/ktd-visual-master.png`](assets/persona/ktd-visual-master.png). As expressões e ambientes variados estão organizados em `assets/persona/ktd-expression-*.png`; o mapa imutável das tatuagens deve ser preservado em toda nova geração.
+
+A demo vocal primária está em [`assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`](assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3). A nova base instrumental old school está em [`assets/audio/ktd-old-school-boom-bap-beat-v1.mp3`](assets/audio/ktd-old-school-boom-bap-beat-v1.mp3), com bateria boom bap, baixo firme, swing humano, loop soul/jazz/funk original e pouca guitarra. A direção musical está em [`docs/ktd-old-school-references.md`](docs/ktd-old-school-references.md).
 
 ## Visão da arquitetura
 

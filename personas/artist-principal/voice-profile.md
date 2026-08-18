@@ -1,8 +1,8 @@
-# Perfil vocal — Káiros / Artista Principal Diamante
+# Perfil vocal — Kháirus the Dragon (KTD)
 
 ## Nova direção
 
-A voz aprovada para o Káiros deve soar como um rapper-performer em inglês que transforma sofrimento em argumento. Ela chega com força frontal, poesia, vulnerabilidade e controle. A emoção central é uma confiança ferida: alguém que atravessou pressão, reconhece as próprias cicatrizes e responde ao mundo com clareza, desafio e propósito.
+A voz aprovada para Kháirus the Dragon, KTD, deve soar como um rapper-performer em inglês que transforma sofrimento em argumento. Ela chega com força frontal, poesia, vulnerabilidade e controle. A emoção central é uma confiança ferida: alguém que atravessou pressão, reconhece as próprias cicatrizes e responde ao mundo com clareza, desafio e propósito.
 
 ## Timbre e registro
 
