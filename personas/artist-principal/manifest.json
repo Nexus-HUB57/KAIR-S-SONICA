@@ -15,8 +15,9 @@
   },
   "assets": {
     "primary_portrait": "assets/persona/artista-principal-diamante.png",
-    "voice_demo": "assets/audio/kairos-voice-direction-demo-en-v2.mp3",
-    "voice_demo_previous": "assets/audio/kairos-voice-direction-demo-en.mp3",
+    "voice_demo": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+    "voice_demo_previous": "assets/audio/kairos-voice-direction-demo-en-v2.mp3",
+    "voice_demo_previous_v1": "assets/audio/kairos-voice-direction-demo-en.mp3",
     "voice_demo_legacy": "assets/audio/artista-principal-voz-demo.wav",
     "visual_bible": "docs/artist-principal.md",
     "voice_profile": "personas/artist-principal/voice-profile.md"
@@ -25,10 +26,10 @@
     "language": "en-US",
     "delivery": "more aggressive, direct, poetic, confrontational and wounded, with controlled authority",
     "texture": "approved mid-low baritone with warm chest resonance, restrained weathered edge and dry close-mic presence",
-    "pacing": "hard consonant attacks, clipped endings, tight pocket, emphatic pauses and controlled bursts of pressure",
+    "pacing": "rapid-fire double-time bursts, hard consonant attacks, clipped endings, half-time resets, emphatic pauses and controlled surges",
     "voice_model": "original_music_vocal_demo",
-    "musical_color": "direct rap cadence with original roots-informed English inflection, offbeat syncopation and spacious dub atmosphere",
-    "originality": "original English vocal performance, no imitation of a real singer"
+    "musical_color": "fast aggressive rap with dense internal rhymes, variable flow, original roots-informed English inflection and spacious dub atmosphere",
+    "originality": "original English rap performance and lyrics, no imitation of a real rapper or recognizable flow"
   },
   "relationship_to_kairos": {
     "artist": "voz, corpo, presença pública e direção humana",

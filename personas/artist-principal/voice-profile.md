@@ -22,7 +22,9 @@ A voz foi pensada para um arranjo com baixo profundo, bateria seca e marcada, gu
 
 ## Ativo atual
 
-O arquivo `assets/audio/kairos-voice-direction-demo-en-v2.mp3` é a demo vocal primária do Káiros. Ela mantém o timbre aprovado, mas aplica rap mais agressivo e direto, ataques consonantais secos, finais cortados e uma coloração original de inglês roots/reggae. A versão anterior `assets/audio/kairos-voice-direction-demo-en.mp3` permanece disponível para comparação, enquanto `assets/audio/artista-principal-voz-demo.wav` registra a primeira tentativa falada em português brasileiro.
+O arquivo `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3` é a demo musical primária do Káiros. Ela mantém o timbre aprovado e leva o rap para uma performance mais rápida e agressiva, com double-time, rimas internas densas, acelerações em rajadas, resets em half-time, pausas de impacto e redução momentânea para expor o sofrimento antes de uma nova explosão. A versão v2 `assets/audio/kairos-voice-direction-demo-en-v2.mp3` permanece disponível para comparação, assim como a primeira demo v1 e o registro falado em português.
+
+O mapa técnico completo está em [`docs/kairos-rap-flow.md`](../../docs/kairos-rap-flow.md). A agressividade é cênica e poética: usa metáforas de pressão, cicatriz, ferro e sobrevivência sem violência gráfica, ameaças reais ou discurso de ódio.
 
 ## Guardrails
 
