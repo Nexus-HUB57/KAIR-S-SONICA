@@ -15,6 +15,12 @@ PYTHONPATH=packages python3 scripts/run_local.py persona --format prompt
 
 A persona não afirma credenciais humanas reais e não autoriza copiar código proprietário, usar APIs não oficiais, inventar resultados ou clonar vozes sem consentimento. A documentação completa está em [`docs/persona.md`](docs/persona.md).
 
+## Artista principal
+
+O artista principal é a presença humana do universo. Káiros atua como seu DJ, maestro e orquestrador, responsável por batidas, melodia, produção, coerência de carreira e coordenação do pipeline. A identidade visual original do artista está documentada em [`docs/artist-principal.md`](docs/artist-principal.md), com manifesto em [`personas/artist-principal/manifest.json`](personas/artist-principal/manifest.json) e retrato oficial em [`assets/persona/artista-principal-diamante.png`](assets/persona/artista-principal-diamante.png).
+
+A voz original do artista está descrita em [`personas/artist-principal/voice-profile.md`](personas/artist-principal/voice-profile.md). A primeira amostra falada em português brasileiro está em [`assets/audio/artista-principal-voz-demo.wav`](assets/audio/artista-principal-voz-demo.wav), com timbre grave, quente, controlado e levemente áspero, sem imitar nenhuma pessoa real.
+
 ## Visão da arquitetura
 
 | Camada | Responsabilidade | Implementação inicial | Extensão prevista |

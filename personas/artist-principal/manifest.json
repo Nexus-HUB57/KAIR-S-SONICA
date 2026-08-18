@@ -1,0 +1,40 @@
+{
+  "id": "kairos.artist_principal.diamante",
+  "name": "Artista Principal Diamante",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "role": "Artista principal do universo KAIR-S-SONICA",
+  "orchestrator": "kairos.aai_apo",
+  "visual_identity": {
+    "presentation": "homem negro adulto, presença atlética e compacta, cabeça raspada, barba longa e cheia",
+    "signature": "heterocromia natural: um olho cor de mel e um olho azul-claro",
+    "eyebrows": "sobrancelhas alinhadas com riscos dourados",
+    "tattoo_system": "garras do dragão de sete cabeças Diamante no peito, composição continuada nas costas e braços com carpas, cerejeiras, samurais e molduras old school americanas",
+    "tattoo_palette": ["charcoal-black", "gold", "muted-blue", "blue-gray"],
+    "visual_style": "retrato humano realista, cinematográfico, editorial musical, iluminação âmbar e azul"
+  },
+  "assets": {
+    "primary_portrait": "assets/persona/artista-principal-diamante.png",
+    "voice_demo": "assets/audio/artista-principal-voz-demo.wav",
+    "visual_bible": "docs/artist-principal.md",
+    "voice_profile": "personas/artist-principal/voice-profile.md"
+  },
+  "voice_identity": {
+    "language": "pt-BR",
+    "delivery": "grave, quente, controlada, íntima e cinematográfica",
+    "texture": "aveludada com leve aspereza natural",
+    "pacing": "lento e confiante, com pausas deliberadas",
+    "voice_model": "Algenib",
+    "originality": "amostra sintética original, sem imitação de pessoa real"
+  },
+  "relationship_to_kairos": {
+    "artist": "voz, corpo, presença pública e direção humana",
+    "kairos": "DJ, maestro, produtor e orquestrador de batidas, melodia, carreira e coerência do universo"
+  },
+  "originality_guardrails": [
+    "Não reproduzir rosto ou identidade de pessoa real.",
+    "Usar referências de biotipo apenas como direção ampla, nunca como cópia de aparência.",
+    "Preservar a heterocromia, o sistema de tatuagens e os riscos dourados como âncoras de continuidade.",
+    "Não incluir texto, logotipo ou watermark no retrato oficial."
+  ]
+}
