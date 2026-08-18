@@ -62,6 +62,7 @@ def classify(path: Path) -> str:
     name = path.name.lower()
     approved_release_markers = (
         "ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3",
+        "ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4",
     )
     rejected_release_markers = (
         "ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1",

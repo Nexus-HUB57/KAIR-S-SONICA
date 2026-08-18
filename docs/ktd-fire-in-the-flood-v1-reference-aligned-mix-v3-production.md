@@ -2,11 +2,11 @@
 
 ## Status
 
-**Aprovada humanamente por KTD.** Esta é a versão promovida nesta etapa do single principal. A aprovação cobre os arquivos WAV e MP3 da mix `v1-reference-aligned-mix-v3`.
+**Aprovada humanamente como versão anterior de produção e mantida para rollback.** Após a revisão final do DJ Káiros, a master oficial de distribuição passou a ser a v4, com redução global de −0,9 dB. A aprovação histórica cobre os arquivos WAV e MP3 da mix `v1-reference-aligned-mix-v3`.
 
 As provas `official-vocal-arrangement-proof-v1.wav/.mp3` foram **reprovadas como mixes** e permanecem no catálogo apenas para auditoria histórica. A decisão de reprovação não altera o bloqueio artístico da letra e da melodia V1; significa que aquele arranjo/mix específico não deve ser promovido.
 
-## Arquivos promovidos
+## Arquivos aprovados historicamente / rollback
 
 | Arquivo | Função | Estado |
 | --- | --- | --- |
@@ -52,4 +52,4 @@ Os arquivos aprovados foram verificados com `ffprobe`:
 | WAV | 168,000 s | PCM s16le | 44.100 Hz | 2 |
 | MP3 | 168,046 s | MP3 | 44.100 Hz | 2 |
 
-A aprovação humana de KTD prevalece sobre qualquer classificação automática. O inventário, o catálogo, o README, o manifesto de KTD e o manifesto do bundle apontam a mix v3 como o ativo promovido.
+A aprovação humana de KTD prevalece sobre qualquer classificação automática. A v3 permanece versionada como rollback; o inventário, o catálogo, o README, o manifesto de KTD e o manifesto do bundle apontam a v4 como o master oficial de distribuição.

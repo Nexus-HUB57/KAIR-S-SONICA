@@ -2,9 +2,9 @@
 
 ## Resultado
 
-A auditoria de 18 de agosto de 2026 foi atualizada após a aprovação humana da mix v3 de FIRE IN THE FLOOD. Foram encontrados **8 arquivos de imagem** em `assets/persona` e **38 arquivos de áudio** em `assets/audio`, totalizando **46 ativos canônicos** no bundle do persona. A mix `v1-reference-aligned-mix-v3.wav/.mp3` está promovida; as provas `official-vocal-arrangement-proof-v1.wav/.mp3` permanecem versionadas, mas marcadas como reprovadas históricas. Não há arquivos de imagem ou áudio pendentes dentro das pastas oficiais, e `main` será sincronizada com `origin/main` após a publicação desta atualização.
+A auditoria de 18 de agosto de 2026 foi atualizada após a revisão final do DJ Káiros. Foram encontrados **8 arquivos de imagem** em `assets/persona` e **40 arquivos de áudio** em `assets/audio`, totalizando **48 ativos canônicos** no bundle do persona. A mix `v1-reference-aligned-mix-v4.wav/.mp3` é a master oficial de distribuição; a v3 permanece aprovada como rollback histórico; as provas `official-vocal-arrangement-proof-v1.wav/.mp3` permanecem versionadas, mas marcadas como reprovadas históricas. Não há arquivos de imagem ou áudio pendentes dentro das pastas oficiais, e `main` será sincronizada com `origin/main` após a publicação desta atualização.
 
-Nenhum ativo histórico foi apagado ou substituído na fonte canônica. Para atender à organização solicitada em `personas/artist-principal`, os mesmos 46 ativos foram copiados sem alteração de conteúdo para `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`; como os blobs são idênticos, o Git reutiliza o conteúdo por hash. Os ativos rejeitados e históricos continuam no catálogo com status separado, para impedir que sejam promovidos acidentalmente como referências oficiais.
+Nenhum ativo histórico foi apagado ou substituído na fonte canônica. Para atender à organização solicitada em `personas/artist-principal`, os mesmos 48 ativos foram copiados sem alteração de conteúdo para `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`; como os blobs são idênticos, o Git reutiliza o conteúdo por hash. Os ativos rejeitados e históricos continuam no catálogo com status separado, para impedir que sejam promovidos acidentalmente como referências oficiais.
 
 ## Imagens rastreadas
 
@@ -29,7 +29,8 @@ A referência vocal oficial permanece `assets/audio/kairos-rapid-rap-flow-demo-e
 | Bases boom bap | `ktd-boom-bap-trial-route-1-bed-v2.wav`, `ktd-boom-bap-trial-route-2-bed-v2.wav`, `ktd-boom-bap-trial-route-3-bed-v2.wav`, `ktd-old-school-boom-bap-beat-v1.mp3` |
 | Bases trap | `ktd-modern-trap-comparison-bed-v1.wav`, `ktd-conscious-aggressive-trap-proof-bed-v1.wav` |
 | Mixes candidatos | Arquivos em `assets/audio/releases/`, incluindo boom bap, trap moderno, FIRE IN THE FLOOD original e reference-fit |
-| FIRE IN THE FLOOD aprovado | `ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav/.mp3`, com groove fonte correspondente; letra e melodia de fundo preservadas |
+| FIRE IN THE FLOOD master oficial | `ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav/.mp3`, com margem de pico revisada; letra e melodia de fundo preservadas |
+| FIRE IN THE FLOOD rollback | `ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav/.mp3`, aprovado anteriormente e preservado para comparação |
 | FIRE IN THE FLOOD reprovado histórico | `official-vocal-arrangement-proof-v1.wav/.mp3` e `v1-rebeat-v1.wav/.mp3`; mantidos apenas para auditoria |
 | Mixes históricos | Arquivos em `assets/audio/trials/`, produzidos em rotas anteriores e mantidos apenas para auditoria |
 

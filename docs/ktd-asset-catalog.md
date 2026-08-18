@@ -61,8 +61,10 @@ Toda imagem nova deve preservar heterocromia, cabeça raspada, barba, riscos dou
 | Candidato técnico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-vocal-isolated-stem-v1.wav` | Stem derivado da V1 para troca de beat |
 | Reprovado — histórico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.wav` | Tentativa anterior; beat/mixagem desencontrados e corpo melódico insuficiente |
 | Reprovado — histórico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.mp3` | Escuta da tentativa anterior reprovada |
-| Aprovado humanamente | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav` | Mix aprovada: letra e melodia preservadas, groove novo alinhado à V1 |
-| Aprovado humanamente | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.mp3` | Escuta da mix aprovada |
+| Aprovado humanamente — rollback | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav` | Mix aprovada anterior; preservada para comparação e rollback |
+| Aprovado humanamente — rollback | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.mp3` | Escuta da mix aprovada anterior |
+| Master oficial de distribuição | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav` | Mix v4 com margem de pico revisada pelo DJ Káiros |
+| Master oficial de distribuição | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.mp3` | Escuta MP3 da master v4 |
 | Documento | `docs/ktd-debut-single-concept.md` | Conceito, critérios e arquitetura |
 | Documento | `docs/ktd-debut-single-lyrics.md` | Letra original e direção de performance |
 | Documento | `docs/ktd-debut-single-production.md` | Registro técnico, DSP e status |

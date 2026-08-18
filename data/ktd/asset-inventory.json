@@ -357,6 +357,26 @@
       "duration_seconds": 168.0
     },
     {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.mp3",
+      "category": "approved_audio_release",
+      "bytes": 6722917,
+      "sha256": "29c97dc68f487d945c6d0de02a88988ac41bd8fe3a9f56efaea6f743ab9ca208",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.045714
+    },
+    {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
+      "category": "approved_audio_release",
+      "bytes": 29635278,
+      "sha256": "a8668295687effed989121e58cead63fa00d951aff9a8335ff2065f0edd44229",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.0
+    },
+    {
       "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-vocal-isolated-stem-v1.wav",
       "category": "candidate_audio_source",
       "bytes": 29635244,
