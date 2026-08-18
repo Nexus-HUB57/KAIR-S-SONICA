@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_default_persona_has_stable_identity_and_guardrails() -> None:
     assert DEFAULT_PERSONA.id == "kairos.aai_apo"
-    assert DEFAULT_PERSONA.version == "1.0.0"
+    assert DEFAULT_PERSONA.version == "2.0.0"
     assert "Maestro Layer" in DEFAULT_PERSONA.roles
     assert any("proprietário" in rule for rule in DEFAULT_PERSONA.guardrails)
     assert "Você é Káiros" in DEFAULT_PERSONA.system_prompt

@@ -93,6 +93,8 @@ class MultimediaOrchestrator:
             lyrics = request.lyrics or (transcript.text if transcript else None)
             track_request = TrackRequest(
                 prompt=prompt,
+                route_id=request.route_id,
+                artist_id=request.artist_id,
                 genre=request.genre,
                 bpm=request.bpm,
                 key=request.key,
@@ -112,6 +114,10 @@ class MultimediaOrchestrator:
 
         metadata = {
             "task_id": task_id,
+            "orchestrator_id": "kairos.aai_apo",
+            "orchestrator_role": "creative_minister_maestro_dj_ai",
+            "artist_id": request.artist_id,
+            "route_id": request.route_id,
             "input_path": str(input_path) if input_path else None,
             "analysis": analysis.to_dict() if analysis else None,
             "transcription": transcript.to_dict() if transcript else None,

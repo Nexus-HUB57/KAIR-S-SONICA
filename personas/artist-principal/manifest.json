@@ -3,18 +3,94 @@
   "legacy_id": "kairos.artist_principal.diamante",
   "name": "Kháirus the Dragon",
   "alias": "KTD",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "primary_language": "en-US",
   "documentation_language": "pt-BR",
-  "role": "Artista principal, rapper e presença humana do universo KAIR-S-SONICA",
+  "role": "Artista principal, rapper e presença humana original do universo KAIR-S-SONICA",
   "orchestrator": "kairos.aai_apo",
+  "manifest_status": "active",
+  "creative_mission": "Transformar dor, confronto e resistência em rap original, agressivo e poético, com presença humana realista e uma assinatura sonora boom bap old school.",
+  "physical_identity": {
+    "age_visual": 34,
+    "height_cm": 188,
+    "height_imperial": "6 ft 2 in",
+    "weight_kg": 100,
+    "weight_imperial": "220 lb",
+    "build": "compact athletic performer",
+    "skin": "deep brown",
+    "head": "shaved",
+    "beard": "long full black beard, approximately 20 cm / 8 in",
+    "eyes": {
+      "left": "honey-amber",
+      "right": "pale clear-blue",
+      "continuity_rule": "heterochromia is immutable in every visual asset"
+    },
+    "eyebrows": "aligned eyebrows with restrained gold slits",
+    "shoe_size": {
+      "us": 12,
+      "eu": 46
+    },
+    "reference_document": "docs/ktd-physical-spec.md"
+  },
   "visual_identity": {
-    "presentation": "homem negro adulto, presença atlética e compacta, cabeça raspada, barba longa e cheia",
-    "signature": "heterocromia natural: um olho cor de mel e um olho azul-claro",
-    "eyebrows": "sobrancelhas alinhadas com riscos dourados",
-    "tattoo_system": "garras do dragão de sete cabeças Diamante no peito, composição continuada nas costas e braços com carpas, cerejeiras, samurais e molduras old school americanas",
-    "tattoo_palette": ["charcoal-black", "gold", "muted-blue", "blue-gray"],
-    "visual_style": "retrato humano realista, cinematográfico, editorial musical, iluminação âmbar e azul"
+    "presentation": "original fictional Black adult man with realistic human proportions, compact athletic presence, shaved head and long full beard",
+    "signature": "natural heterochromia: left honey-amber eye and right pale clear-blue eye",
+    "eyebrows": "aligned eyebrows with two restrained gold slits",
+    "tattoo_system": {
+      "status": "immutable",
+      "central_dragon": "seven claws at the center of the chest, a connected Diamante dragon descends through the abdomen, and the full seven-headed dragon closes across the back",
+      "left_arm": "koi fish, waves and cherry blossoms",
+      "right_arm": "stylized samurai armor and oriental clouds",
+      "framing": "subtle old-school American tattoo framing without changing the core symbols",
+      "palette": ["charcoal-black", "deep-gray", "restrained-gold", "muted-blue", "blue-gray"],
+      "continuity_rule": "never invent, remove, relocate or redraw the tattoo map between approved views"
+    },
+    "visual_style": "realistic human portraiture, cinematic editorial music photography, amber and blue accent lighting when atmospheric, neutral technical lighting for sheets and turnarounds",
+    "expression_range": ["focused", "contemplative", "wounded", "confrontational", "spontaneously joyful", "stage-intense"],
+    "identity_guardrail": "do not imitate a real person or reproduce a recognizable celebrity likeness"
+  },
+  "voice_identity": {
+    "status": "approved_reference_locked",
+    "official_reference": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+    "official_reference_rule": "Esta é a única referência vocal aprovada para a identidade de KTD; novas faixas devem preservar seu timbre, presença, agressividade, poesia, double-time, resets em half-time e articulação frontal.",
+    "rejected_reference": "assets/audio/ktd-vocal-rough-take-v2.wav",
+    "rejected_reference_reason": "Desaprovada: voz abafada, lenta, sem autenticidade e sem as características oficiais de KTD; preservar somente para auditoria histórica e nunca usar como referência de geração.",
+    "language": "English, en-US",
+    "delivery": "aggressive, direct, poetic, confrontational and wounded, with controlled authority",
+    "timbre": "mid-low baritone with warm chest resonance, restrained weathered edge and dry close-mic presence",
+    "texture": "human, grounded, slightly rough, intimate in the bridge and forceful in the verses",
+    "pacing": "rapid-fire double-time bursts, hard consonant attacks, clipped endings, half-time resets, emphatic pauses and controlled surges",
+    "accent_color": "original roots-informed English inflection used as a broad musical color, never as an imitation of a living artist",
+    "performance_arc": "front-facing authority in verses, short chant-like signature in the hook, exposed suffering in the bridge, double-time release in the final verse",
+    "approved_reference": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+    "originality": "original vocal identity, performance direction and lyrics; no imitation of a real rapper, recognizable flow or protected recording",
+    "mixing_rule": "Não usar tomadas rejeitadas para conduzir a voz final; a referência oficial deve permanecer audível, agressiva, articulada, autêntica e musicalmente frontal"
+  },
+  "music_identity": {
+    "primary_genre": "American old-school rap / swung boom bap",
+    "tempo_range_bpm": "96-112",
+    "preferred_test_centers_bpm": [98, 104, 110],
+    "groove": "human swing, syncopated pocket, kick and bass conversation, snare with physical crack on beats 2 and 4",
+    "core_instrumentation": ["dry punchy kick", "cracked snare", "weighty bass", "steady swung hi-hats", "original short soul-jazz-funk texture", "brief scratch accents"],
+    "guitar": "almost absent; only occasional restrained rhythmic cut",
+    "vocal_position": "KTD remains clearly frontal and intelligible above the beat",
+    "arrangement": ["four-bar texture and scratch intro", "direct verse one", "short chant hook", "higher-pressure verse two", "reduced-kick exposed bridge", "double-time final verse and dry cut"],
+    "lyric_policy": "English lyrics must be original, poetic and confrontational without graphic violence, real threats or hate speech",
+    "negative_constraints": ["no instrumental-only result when requesting a full song", "no pop chorus", "no straight un swung drums", "no guitar-led arrangement", "no copied sample, melody, lyric, face, voice or flow"],
+    "approval_standard": "A track is not approved until the vocal and instrumental are integrated, the groove is danceable and swung, the kick/snare/bass pocket is convincing, the mix leaves space for rapid rhymes and KTD stays in front"
+  },
+  "orchestration_contract": {
+    "orchestrator_id": "kairos.aai_apo",
+    "kairos_role": "ministro criativo e maestro DJ/IA: recebe a intenção, planeja a forma, coordena ritmo, melodia, voz, DSP, mix/master, observabilidade e entrega",
+    "ktd_role": "voz, corpo, presença pública, interpretação, identidade visual e decisão artística final",
+    "handoff": ["Káiros cria o plano", "agentes de ritmo e arranjo constroem a base", "agente vocal conduz a performance", "DSP e mix/master preservam inteligibilidade", "KTD ou operador autorizado registra aprovação ou rejeição"],
+    "approval_authority": "A aprovação humana do ativo prevalece sobre qualquer score automático",
+    "metadata_required": ["task_id", "route_id", "prompt", "bpm", "key", "scale", "duration_seconds", "swing", "humanize_ms", "voice_reference", "artifact_path", "approval_status", "rejection_reason"]
+  },
+  "generation_routes": {
+    "route_1": "full_song_vocal_first",
+    "route_2": "boom_bap_beat_first_then_voice",
+    "route_3": "orchestrator_hybrid_production"
   },
   "assets": {
     "primary_portrait": "assets/persona/artista-principal-diamante.png",
@@ -30,31 +106,23 @@
     "voice_demo_previous": "assets/audio/kairos-voice-direction-demo-en-v2.mp3",
     "voice_demo_previous_v1": "assets/audio/kairos-voice-direction-demo-en.mp3",
     "voice_demo_legacy": "assets/audio/artista-principal-voz-demo.wav",
+    "rejected_rough_vocal_take": "assets/audio/ktd-vocal-rough-take-v2.wav",
     "visual_bible": "docs/ktd-visual-bible.md",
+    "physical_spec": "docs/ktd-physical-spec.md",
     "legacy_visual_bible": "docs/artist-principal.md",
     "music_direction": "docs/ktd-old-school-references.md",
     "approved_track_spec": "docs/ktd-approved-track.md",
     "audio_experiment_report": "docs/audio-generation-experiment.md",
     "consolidated_specification": "docs/ktd-specification.md",
-    "voice_profile": "personas/artist-principal/voice-profile.md"
-  },
-  "voice_identity": {
-    "language": "en-US",
-    "delivery": "more aggressive, direct, poetic, confrontational and wounded, with controlled authority",
-    "texture": "approved mid-low baritone with warm chest resonance, restrained weathered edge and dry close-mic presence",
-    "pacing": "rapid-fire double-time bursts, hard consonant attacks, clipped endings, half-time resets, emphatic pauses and controlled surges",
-    "voice_model": "original_music_vocal_demo",
-    "musical_color": "fast aggressive rap with dense internal rhymes, variable flow, original roots-informed English inflection; next production target is swung old-school boom bap with drums and bass foregrounded",
-    "originality": "original English rap performance and lyrics, no imitation of a real rapper or recognizable flow"
-  },
-  "relationship_to_kairos": {
-    "artist": "voz, corpo, presença pública e direção humana",
-    "kairos": "DJ, maestro, produtor e orquestrador de batidas, melodia, carreira e coerência do universo"
+    "voice_profile": "personas/artist-principal/voice-profile.md",
+    "vocal_approval_record": "docs/ktd-vocal-approval.md"
   },
   "originality_guardrails": [
-    "Não reproduzir rosto ou identidade de pessoa real.",
-    "Usar referências de biotipo apenas como direção ampla, nunca como cópia de aparência.",
+    "Não reproduzir rosto, corpo, voz ou identidade de pessoa real.",
+    "Usar referências de biotipo, gênero musical e sotaque apenas como direção abstrata, nunca como cópia.",
     "Preservar a heterocromia, o sistema de tatuagens e os riscos dourados como âncoras de continuidade.",
-    "Não incluir texto, logotipo ou watermark no retrato oficial."
+    "Não usar sample, melodia, letra, flow ou gravação reconhecível de terceiros.",
+    "Não incluir texto, logotipo ou watermark em retratos oficiais salvo quando a peça for explicitamente uma ficha técnica.",
+    "Tratar a decisão humana de aprovação como a autoridade final do catálogo."
   ]
 }

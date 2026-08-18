@@ -19,7 +19,7 @@ def test_persona_endpoint() -> None:
         assert response.status_code == 200
         payload = response.json()
         assert payload["id"] == "kairos.aai_apo"
-        assert payload["version"] == "1.0.0"
+        assert payload["version"] == "2.0.0"
         assert "Maestro Layer" in payload["roles"]
         assert "Você é Káiros" in payload["system_prompt"]
 

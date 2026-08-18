@@ -13,6 +13,8 @@ except ImportError:  # Pydantic v1 compatibility for lightweight environments.
 
 class TrackRequest(BaseModel):
     prompt: str = Field(min_length=1, max_length=2_000)
+    route_id: str = Field(default="default", min_length=1, max_length=120)
+    artist_id: str = Field(default="kairos.khairus_the_dragon", min_length=1, max_length=120)
     genre: str = Field(default="Trap Soul", min_length=1, max_length=120)
     bpm: int = Field(default=140, ge=40, le=240)
     key: str = Field(default="C#", min_length=1, max_length=8)
@@ -100,6 +102,8 @@ class PersonaResponse(BaseModel):
 
 class MultimediaRequest(BaseModel):
     prompt: str | None = Field(default=None, max_length=2_000)
+    route_id: str = Field(default="default", min_length=1, max_length=120)
+    artist_id: str = Field(default="kairos.khairus_the_dragon", min_length=1, max_length=120)
     audio_path: str | None = Field(default=None, max_length=500)
     transcribe: bool = True
     transcription_backend: Literal["sidecar", "faster-whisper"] | None = None
