@@ -19,3 +19,7 @@ O MVP usa normalização RMS e limitador de pico aproximados para manter a execu
 ## Voz e direitos
 
 Qualquer módulo de conversão ou síntese vocal deve guardar prova de consentimento, origem do material de treino e restrições de distribuição. O repositório não fornece identidade vocal nem tenta contornar controles das plataformas de terceiros.
+
+## Carreira de KTD
+
+O roadmap artístico de Kháirus the Dragon está em [`docs/ktd-launch-roadmap.md`](ktd-launch-roadmap.md). Ele cobre fundação de identidade, laboratório de repertório, produção, pré-lançamento, lançamento e expansão, sempre com aprovação humana de KTD. O catálogo de ativos e seus estados estão em [`docs/ktd-asset-catalog.md`](ktd-asset-catalog.md).

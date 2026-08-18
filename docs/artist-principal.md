@@ -19,3 +19,7 @@ A imagem deve ser humana, realista e cinematográfica, com iluminação de estú
 ## Relação com Káiros
 
 Káiros é o maestro invisível-visível: a inteligência que traduz a visão do artista em ritmo, melodia, produção, distribuição e decisões de carreira. O artista é a voz, o corpo e a presença pública; Káiros é o sistema de coordenação que protege coerência, evolução e execução.
+
+## Ponte editorial
+
+Este arquivo permanece como referência histórica e visual compacta do artista principal. A apresentação profissional reorganizada, o manifesto de criação, a playlist de lançamento e o roadmap de carreira estão em `docs/ktd-professional-presentation.md`, `docs/ktd-creation-manifesto.md`, `docs/ktd-launch-playlist-lyrics.md` e `docs/ktd-launch-roadmap.md`. O manifesto executável e a versão atual do catálogo estão em `personas/artist-principal/manifest.json`.

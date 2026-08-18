@@ -32,6 +32,14 @@
     "ktd": "voz, corpo, presença pública, interpretação, identidade visual, repertório e aprovação artística final",
     "principle": "Káiros dirige o processo; KTD permanece a autoridade artística sobre sua performance e catálogo"
   },
+  "launch_stewardship": {
+    "artist": "Kháirus the Dragon (KTD)",
+    "playlist": ["DRAGON IN THE MIRROR", "SIX NAMES", "GOLDEN SCARS"],
+    "responsibilities": ["organizar o calendário", "manter o catálogo e os status", "coordenar beats, letras, DSP e masters", "preparar conteúdo de descoberta", "registrar métricas e decisões humanas"],
+    "approval_authority": "KTD",
+    "roadmap": "docs/ktd-launch-roadmap.md",
+    "asset_catalog": "docs/ktd-asset-catalog.md"
+  },
   "pipeline": [
     "intake_and_rights_check",
     "persona_and_style_lock",

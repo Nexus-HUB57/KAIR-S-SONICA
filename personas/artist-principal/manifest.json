@@ -3,7 +3,7 @@
   "legacy_id": "kairos.artist_principal.diamante",
   "name": "Kháirus the Dragon",
   "alias": "KTD",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "primary_language": "en-US",
   "documentation_language": "pt-BR",
   "role": "Artista principal, rapper e presença humana original do universo KAIR-S-SONICA",
@@ -92,6 +92,20 @@
     "route_2": "boom_bap_beat_first_then_voice",
     "route_3": "orchestrator_hybrid_production"
   },
+  "launch_strategy": {
+    "status": "pre_release_foundation",
+    "playlist_title": "KTD — The Dragon Learns to Sing",
+    "playlist_tracks": [
+      "DRAGON IN THE MIRROR",
+      "SIX NAMES",
+      "GOLDEN SCARS"
+    ],
+    "primary_discovery_format": "short_form_video_with_original_hook",
+    "approval_rule": "Nenhuma faixa é promovida sem aprovação humana de KTD",
+    "roadmap_document": "docs/ktd-launch-roadmap.md",
+    "lyrics_document": "docs/ktd-launch-playlist-lyrics.md",
+    "research_document": "docs/ktd-launch-research.md"
+  },
   "assets": {
     "primary_portrait": "assets/persona/artista-principal-diamante.png",
     "visual_master": "assets/persona/ktd-visual-master.png",
@@ -127,7 +141,14 @@
     "vocal_approval_record": "docs/ktd-vocal-approval.md",
     "official_mix_record": "docs/ktd-official-vocal-mix.md",
     "trap_reference_analysis": "docs/ktd-trap-reference-analysis.md",
-    "conscious_trap_proof_record": "docs/ktd-conscious-aggressive-trap-proof.md"
+    "conscious_trap_proof_record": "docs/ktd-conscious-aggressive-trap-proof.md",
+    "creation_manifest": "docs/ktd-creation-manifesto.md",
+    "professional_presentation": "docs/ktd-professional-presentation.md",
+    "launch_playlist_lyrics": "docs/ktd-launch-playlist-lyrics.md",
+    "launch_roadmap": "docs/ktd-launch-roadmap.md",
+    "launch_research": "docs/ktd-launch-research.md",
+    "asset_catalog": "docs/ktd-asset-catalog.md",
+    "asset_inventory": "data/ktd/asset-inventory.json"
   },
   "originality_guardrails": [
     "Não reproduzir rosto, corpo, voz ou identidade de pessoa real.",

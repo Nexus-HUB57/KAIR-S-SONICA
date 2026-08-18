@@ -31,6 +31,16 @@ Para comparação, a mesma cadeia DSP da variação boom bap foi aplicada à bas
 
 Nenhum ativo é promovido automaticamente: as provas trap permanecem candidatas pendentes de escuta e aprovação humana. A referência vocal oficial continua sendo `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`; a tomada rejeitada não foi reutilizada.
 
+## Pacote profissional de lançamento de KTD
+
+A referência histórica original foi preservada integralmente em [`Artistics_References_KTD`](Artistics_References_KTD). O manifesto de criação está em [`docs/ktd-creation-manifesto.md`](docs/ktd-creation-manifesto.md) e a apresentação profissional, em formato de press kit, está em [`docs/ktd-professional-presentation.md`](docs/ktd-professional-presentation.md). Esses documentos preservam a história de origem, a transformação do crime e da violência em disciplina, a responsabilidade com seis irmãos, a fé, o ativismo, a filantropia, a identidade visual e a relação entre KTD e Káiros, com linguagem editorial mais clara e profissional.
+
+A playlist de lançamento foi estruturada em três letras inéditas: [`docs/ktd-launch-playlist-lyrics.md`](docs/ktd-launch-playlist-lyrics.md) contém **DRAGON IN THE MIRROR**, **SIX NAMES** e **GOLDEN SCARS**. Cada faixa possui hook original, recorte de 15–30 segundos, direção de andamento, identidade emocional e regras de produção. Os hooks foram pensados para serem memoráveis e legíveis em vídeo curto, sem promessa de viralização ou cópia de tendências existentes.
+
+O roadmap de carreira está em [`docs/ktd-launch-roadmap.md`](docs/ktd-launch-roadmap.md), com fases de fundação, laboratório, produção, pré-lançamento, estreia e expansão. O catálogo de imagens, voz, bases, mixes e documentos está em [`docs/ktd-asset-catalog.md`](docs/ktd-asset-catalog.md). O inventário técnico reproduzível com hashes, dimensões, duração, codec e classificação está em [`data/ktd/asset-inventory.json`](data/ktd/asset-inventory.json), gerado por [`scripts/build_ktd_asset_inventory.py`](scripts/build_ktd_asset_inventory.py). A pesquisa de contexto sobre descoberta musical em vídeo curto, com fontes do TikTok/Luminate e Billboard, está em [`docs/ktd-launch-research.md`](docs/ktd-launch-research.md).
+
+O manifesto JSON de KTD foi atualizado para a versão `4.0.0`, com a playlist, o status de pré-lançamento e os novos documentos. O manifesto de Káiros registra sua responsabilidade como ministro criativo, maestro DJ/IA e steward do catálogo, preservando KTD como autoridade artística final.
+
 ## Visão da arquitetura
 
 | Camada | Responsabilidade | Implementação inicial | Extensão prevista |
@@ -85,7 +95,7 @@ Não coloque chaves, tokens ou arquivos de modelos no Git. Copie `.env.example` 
 
 ## Roadmap
 
-O próximo ciclo deve adicionar persistência de tarefas, Redis ou outro broker, autenticação, armazenamento de objetos, métricas, streaming PCM por WebSocket e adaptadores testados para modelos open-source com licenças compatíveis. A política de integração está documentada em [`docs/roadmap.md`](docs/roadmap.md).
+O roadmap técnico do organismo — persistência, workers, autenticação, storage, métricas e adaptadores — está em [`docs/roadmap.md`](docs/roadmap.md). O roadmap artístico e de lançamento de KTD está em [`docs/ktd-launch-roadmap.md`](docs/ktd-launch-roadmap.md), com gates humanos para música, imagem, direitos, conteúdo e distribuição.
 
 ## Referências técnicas
 

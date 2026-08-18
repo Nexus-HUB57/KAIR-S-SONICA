@@ -1,0 +1,300 @@
+{
+  "schema_version": "1.0.0",
+  "generated_by": "scripts/build_ktd_asset_inventory.py",
+  "persona": "kairos.khairus_the_dragon",
+  "official_voice_reference": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+  "records": [
+    {
+      "path": "assets/persona/artista-principal-diamante.png",
+      "category": "official_visual_reference",
+      "bytes": 5234380,
+      "sha256": "4ee921580b9705d9ad60801bca46260fca9ef964aabe2c6bf6ee79d96aa6f39f",
+      "width": 1664,
+      "height": 2080,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/persona/kairos-persona.png",
+      "category": "historical_or_supporting",
+      "bytes": 4683697,
+      "sha256": "6fef9417fe89112d342645588621eceee4df16975488c281df545cf465ee49cf",
+      "width": 1664,
+      "height": 2080,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/persona/ktd-expression-rooftop.png",
+      "category": "official_visual_reference",
+      "bytes": 4578473,
+      "sha256": "9da51852d389529a91efa933e950924485329e17894d30d6bbdfc3925b78062e",
+      "width": 1536,
+      "height": 2304,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/persona/ktd-expression-stage.png",
+      "category": "official_visual_reference",
+      "bytes": 4892923,
+      "sha256": "c8ebf8cf918329e998282bae69b59491e0ce8c7b0a73d6c3465667359376a8db",
+      "width": 1536,
+      "height": 2304,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/persona/ktd-expression-street.png",
+      "category": "official_visual_reference",
+      "bytes": 5364916,
+      "sha256": "49ad4abb548675e2ae012e68a86b65de612a8996765c282d7952b2f2902b9f0f",
+      "width": 1536,
+      "height": 2304,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/persona/ktd-expression-studio.png",
+      "category": "official_visual_reference",
+      "bytes": 5290814,
+      "sha256": "cf4e1d2c5c931a38c04905cf442965d99c7aa090947a59029abcb1cbaf86287f",
+      "width": 1536,
+      "height": 2304,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/persona/ktd-physical-turnaround-sheet.png",
+      "category": "official_visual_reference",
+      "bytes": 4102692,
+      "sha256": "1310e0d18b80e0914c5fa607cc5c727d0bb7b76215416024c932e7442e92175f",
+      "width": 2560,
+      "height": 1440,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/persona/ktd-visual-master.png",
+      "category": "official_visual_reference",
+      "bytes": 4726326,
+      "sha256": "741e8eaaa78cd7bc9a607b89eca7c3081e9f94e3f515a83405f5798a736f74bd",
+      "width": 1664,
+      "height": 2080,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/audio/artista-principal-voz-demo.wav",
+      "category": "historical_or_supporting",
+      "bytes": 2121644,
+      "sha256": "d17499e275db8ad16c13251b6875e01bdd3683a6852b06bc1e978f86428b4b00",
+      "codec": "pcm_s16le",
+      "sample_rate": 24000,
+      "channels": 1,
+      "duration_seconds": 44.2
+    },
+    {
+      "path": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+      "category": "official_vocal_reference",
+      "bytes": 3305220,
+      "sha256": "6403a522b2e946804715b07d5fee1a3db7582a8b1f888de3fccccd5651cc5fcd",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 137.7175
+    },
+    {
+      "path": "assets/audio/kairos-voice-direction-demo-en-v2.mp3",
+      "category": "historical_or_supporting",
+      "bytes": 1818121,
+      "sha256": "319712d870812157e9b20706e925e0a84347dfca3b2775258dffc69c9ccb1634",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 75.755042
+    },
+    {
+      "path": "assets/audio/kairos-voice-direction-demo-en.mp3",
+      "category": "historical_or_supporting",
+      "bytes": 1845706,
+      "sha256": "c0c067e8dd65a8a41f77a14f1cce42651d4fafa868a0b8a4b8b36045f856e75d",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 76.904417
+    },
+    {
+      "path": "assets/audio/ktd-boom-bap-trial-route-1-bed-v2.wav",
+      "category": "candidate_audio_source",
+      "bytes": 2114036,
+      "sha256": "8ebe5b0dd2929fd68047d1d89ead9b0692613f50063745c72fe3166aba979e44",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 88.084833
+    },
+    {
+      "path": "assets/audio/ktd-boom-bap-trial-route-2-bed-v2.wav",
+      "category": "candidate_audio_source",
+      "bytes": 2100244,
+      "sha256": "f9540a4767a7b422e3c67eb4297cd95357cafe84dcb8e03faad414b07ba32e31",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 87.510167
+    },
+    {
+      "path": "assets/audio/ktd-boom-bap-trial-route-3-bed-v2.wav",
+      "category": "candidate_audio_source",
+      "bytes": 2109648,
+      "sha256": "4489ba905159f05da80aeff6a75fe9c6422c486c5e1753eb121d486e7a0923d1",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 87.902
+    },
+    {
+      "path": "assets/audio/ktd-conscious-aggressive-trap-proof-bed-v1.wav",
+      "category": "candidate_audio_source",
+      "bytes": 22932044,
+      "sha256": "7b621efb9e863f1257e367461e3b095d1ae82bc0da87ca96267f750983b078a7",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 130.0
+    },
+    {
+      "path": "assets/audio/ktd-modern-trap-comparison-bed-v1.wav",
+      "category": "candidate_audio_source",
+      "bytes": 24343244,
+      "sha256": "3fc13a6d36559561e4df3fa56cab5b2b46a6fb5519ce59c1979f23d538421123",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 138.0
+    },
+    {
+      "path": "assets/audio/ktd-old-school-boom-bap-beat-v1.mp3",
+      "category": "rejected_or_audit",
+      "bytes": 2131590,
+      "sha256": "00da6e93692775b3dcc8ee4f6147a0dad5dd5b13034cd8b8b8200313f4185b08",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 88.81625
+    },
+    {
+      "path": "assets/audio/ktd-vocal-rough-take-v2.wav",
+      "category": "rejected_or_audit",
+      "bytes": 5633324,
+      "sha256": "99f9ae8a9ebc5e53568e98ba7a49e6da3f7dd20325bb3c228ed2fde3aaaf796e",
+      "codec": "pcm_s16le",
+      "sample_rate": 24000,
+      "channels": 1,
+      "duration_seconds": 117.36
+    },
+    {
+      "path": "assets/audio/releases/ktd-conscious-aggressive-trap-official-vocal-proof-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 5202591,
+      "sha256": "69e9e3c8584d0c016cca9e8a07c8b5cb191fad3b5419ccb8fc8ce80a1af57252",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 130.037551
+    },
+    {
+      "path": "assets/audio/releases/ktd-conscious-aggressive-trap-official-vocal-proof-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 22932078,
+      "sha256": "ae07f7e553753148803febef43c9c17d238c1f04f0c18da3c1058f20c030213f",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 130.0
+    },
+    {
+      "path": "assets/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 5510836,
+      "sha256": "feedbf06eb81729d5d07e02441c3f2fec79510846cc82f8bd9369c45af46f06a",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 137.743673
+    },
+    {
+      "path": "assets/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.wav",
+      "category": "candidate_audio_release",
+      "bytes": 24293446,
+      "sha256": "3db84d04def8d6278bf0809a69422b188cf30fec61435c1eb28a60277879cc00",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 137.717506
+    },
+    {
+      "path": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 5510836,
+      "sha256": "762764448073e6c1298e51f915120b02a35e1c3d043824ff6efe45fb08e9c982",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 137.743673
+    },
+    {
+      "path": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1-saturated-parallel.wav",
+      "category": "candidate_audio_release",
+      "bytes": 24293446,
+      "sha256": "bb3c9f38ebe097988b2996454fadeb82c802b9bac28f12f871f961b86e6267e6",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 137.717506
+    },
+    {
+      "path": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 5510836,
+      "sha256": "ba87287503fdbaa38d5c64b88163774719adf0a6d48bd3e011b48640831d8223",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 137.743673
+    },
+    {
+      "path": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 24293446,
+      "sha256": "82922b3718649494e053c64d6df5a6da56d39167c60fea88dfd9288ad90f0e89",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 137.717506
+    },
+    {
+      "path": "assets/audio/trials/ktd-boom-bap-trial-route-1-mix-v2.wav",
+      "category": "candidate_audio_source",
+      "bytes": 20702382,
+      "sha256": "05d119b708e892e690caae3c904eeca612039e2b044bf759c457d52d4f3e54c0",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 117.36
+    },
+    {
+      "path": "assets/audio/trials/ktd-boom-bap-trial-route-2-mix-v2.wav",
+      "category": "candidate_audio_source",
+      "bytes": 20702382,
+      "sha256": "076f0171314c388a55248b0c290990b6ec77955dcf54dfec281d2e5d4b0b8a16",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 117.36
+    },
+    {
+      "path": "assets/audio/trials/ktd-boom-bap-trial-route-3-mix-v2.wav",
+      "category": "candidate_audio_source",
+      "bytes": 20702382,
+      "sha256": "f6fe4494c5e99ee5ca3a07db3506578b35d3d799ef54a0382c30d5398753417a",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 117.36
+    }
+  ]
+}
