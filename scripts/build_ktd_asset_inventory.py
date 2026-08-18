@@ -60,12 +60,28 @@ def audio_metadata(path: Path) -> dict[str, object]:
 
 def classify(path: Path) -> str:
     name = path.name.lower()
-    if "rejected" in name or "rough" in name or "old-school-boom-bap-beat-v1" in name:
+    approved_release_markers = (
+        "ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3",
+    )
+    rejected_release_markers = (
+        "ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1",
+        "ktd-main-single-fire-in-the-flood-v1-rebeat-v1",
+    )
+    if any(marker in name for marker in approved_release_markers):
+        return "approved_audio_release"
+    if (
+        any(marker in name for marker in rejected_release_markers)
+        or "rejected" in name
+        or "rough" in name
+        or "old-school-boom-bap-beat-v1" in name
+    ):
         return "rejected_or_audit"
     if "visual-master" in name or "physical-turnaround" in name or "expression-" in name or "artista-principal-diamante" in name:
         return "official_visual_reference"
     if "kairos-rapid-rap-flow-demo-en-v3" in name:
         return "official_vocal_reference"
+    if "reference-aligned-groove-v1" in name or "vocal-isolated-stem-v1" in name:
+        return "candidate_audio_source"
     if "releases" in path.parts:
         return "candidate_audio_release"
     if "trials" in path.parts or "bed" in name:

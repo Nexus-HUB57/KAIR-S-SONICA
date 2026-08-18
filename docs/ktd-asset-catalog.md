@@ -52,15 +52,17 @@ Toda imagem nova deve preservar heterocromia, cabeça raspada, barba, riscos dou
 | Candidato | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.mp3` | Versão de escuta da prova de arranjo |
 | Candidato auditado | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-vocal-take-v2.wav` | Audição vocal; não cumpre a letra literal |
 | Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-bed-v1.wav` | Base inédita do single principal refeito |
-| Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav` | Prova de arranjo com a referência vocal oficial |
-| Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3` | Escuta do novo arranjo |
+| Reprovado — histórico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav` | Prova de arranjo V1 reprovada humanamente |
+| Reprovado — histórico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3` | Escuta da prova V1 reprovada humanamente |
 | Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-beat-reference-fit-v3.wav` | Nova base em 136 BPM / halftime 68 BPM |
 | Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.wav` | Mix com ducking sidechain e referência vocal oficial |
 | Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-reference-fit-v1.mp3` | Escuta da nova mixagem |
-| Referência congelada | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav` | Melodia V1 aprovada |
+| Melodia congelada / arquivo de mix reprovado | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav` | A melodia V1 permanece congelada; a prova de arranjo deste arquivo foi reprovada humanamente |
 | Candidato técnico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-vocal-isolated-stem-v1.wav` | Stem derivado da V1 para troca de beat |
-| Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.wav` | V1 intacta sobre o novo beat |
-| Candidato | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.mp3` | Escuta da mix corrigida |
+| Reprovado — histórico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.wav` | Tentativa anterior; beat/mixagem desencontrados e corpo melódico insuficiente |
+| Reprovado — histórico | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.mp3` | Escuta da tentativa anterior reprovada |
+| Aprovado humanamente | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav` | Mix aprovada: letra e melodia preservadas, groove novo alinhado à V1 |
+| Aprovado humanamente | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.mp3` | Escuta da mix aprovada |
 | Documento | `docs/ktd-debut-single-concept.md` | Conceito, critérios e arquitetura |
 | Documento | `docs/ktd-debut-single-lyrics.md` | Letra original e direção de performance |
 | Documento | `docs/ktd-debut-single-production.md` | Registro técnico, DSP e status |

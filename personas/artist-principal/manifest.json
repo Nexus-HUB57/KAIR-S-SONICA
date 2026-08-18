@@ -119,6 +119,11 @@
       "main_single_rework_bed": "assets/audio/releases/ktd-main-single-fire-in-the-flood-bed-v1.wav",
       "main_single_rework_arrangement_proof_wav": "assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav",
       "main_single_rework_arrangement_proof_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3",
+      "main_single_rework_arrangement_proof_status": "rejected_human_historical",
+      "main_single_rework_approved_mix_wav": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav",
+      "main_single_rework_approved_mix_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.mp3",
+      "main_single_rework_approved_mix_status": "approved_human",
+      "main_single_rework_approved_mix_production": "docs/ktd-fire-in-the-flood-v1-reference-aligned-mix-v3-production.md",
       "main_single_reference_fit_analysis": "docs/ktd-fire-in-the-flood-rhythm-reference-analysis.md",
       "main_single_reference_fit_production": "docs/ktd-fire-in-the-flood-reference-fit-production.md",
       "main_single_reference_fit_bed": "assets/audio/releases/ktd-main-single-fire-in-the-flood-beat-reference-fit-v3.wav",
@@ -128,7 +133,8 @@
       "main_single_v1_vocal_stem": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-vocal-isolated-stem-v1.wav",
       "main_single_v1_rebeat_production": "docs/ktd-fire-in-the-flood-v1-rebeat-production.md",
       "main_single_v1_rebeat_wav": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.wav",
-      "main_single_v1_rebeat_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.mp3"
+      "main_single_v1_rebeat_mp3": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-rebeat-v1.mp3",
+      "main_single_v1_rebeat_status": "rejected_human_historical"
     },
     "primary_discovery_format": "short_form_video_with_original_hook",
     "approval_rule": "Nenhuma faixa é promovida sem aprovação humana de KTD",

@@ -29,6 +29,8 @@ O instrumental sofre ducking sidechain acionado pela V1, com threshold 0,075, ra
 
 A separação de stem foi usada somente para tornar possível a troca do acompanhamento sem deslocar a performance. O stem preserva a mesma duração de 168 segundos e o mesmo posicionamento temporal da V1. A qualidade do isolamento deve ser avaliada por escuta humana; qualquer artefato de separação impede que o arquivo seja promovido a master definitivo.
 
-## Status
+## Status histórico
 
-A mix está classificada como **candidata de produção**. Ela deve ser comparada diretamente com a V1 original. O critério de aprovação é simples: a melodia deve soar idêntica, mas o beat deve parecer mais contextualizado, mais firme no grid e menos desencontrado com a voz. Nenhuma mudança melódica será aceita nesta etapa.
+Esta tentativa `v1-rebeat-v1` foi **reprovada humanamente** porque a mixagem continuou desencontrada e não preservou adequadamente o corpo melódico percebido. Ela permanece versionada para auditoria, mas não é um ativo promovido.
+
+A mix aprovada que substitui esta abordagem está documentada em [`docs/ktd-fire-in-the-flood-v1-reference-aligned-mix-v3-production.md`](ktd-fire-in-the-flood-v1-reference-aligned-mix-v3-production.md). A aprovação humana cobre `v1-reference-aligned-mix-v3.wav` e `v1-reference-aligned-mix-v3.mp3`. Nenhum arquivo histórico foi apagado.
