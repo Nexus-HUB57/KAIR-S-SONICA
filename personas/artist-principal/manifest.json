@@ -15,17 +15,19 @@
   },
   "assets": {
     "primary_portrait": "assets/persona/artista-principal-diamante.png",
-    "voice_demo": "assets/audio/artista-principal-voz-demo.wav",
+    "voice_demo": "assets/audio/kairos-voice-direction-demo-en.mp3",
+    "voice_demo_legacy": "assets/audio/artista-principal-voz-demo.wav",
     "visual_bible": "docs/artist-principal.md",
     "voice_profile": "personas/artist-principal/voice-profile.md"
   },
   "voice_identity": {
-    "language": "pt-BR",
-    "delivery": "grave, quente, controlada, íntima e cinematográfica",
-    "texture": "aveludada com leve aspereza natural",
-    "pacing": "lento e confiante, com pausas deliberadas",
-    "voice_model": "Algenib",
-    "originality": "amostra sintética original, sem imitação de pessoa real"
+    "language": "en-US",
+    "delivery": "forceful, poetic, confrontational and wounded, with controlled authority",
+    "texture": "mid-low baritone with a warm body and a restrained weathered edge",
+    "pacing": "precise rhythmic attacks, syncopated phrasing, emphatic pauses and controlled surges",
+    "voice_model": "original_music_vocal_demo",
+    "musical_color": "hip-hop spoken-sung cadence with roots-informed syncopation and spacious dub atmosphere",
+    "originality": "original English vocal performance, no imitation of a real singer"
   },
   "relationship_to_kairos": {
     "artist": "voz, corpo, presença pública e direção humana",

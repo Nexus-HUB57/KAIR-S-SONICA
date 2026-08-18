@@ -19,7 +19,7 @@ A persona não afirma credenciais humanas reais e não autoriza copiar código p
 
 O artista principal é a presença humana do universo. Káiros atua como seu DJ, maestro e orquestrador, responsável por batidas, melodia, produção, coerência de carreira e coordenação do pipeline. A identidade visual original do artista está documentada em [`docs/artist-principal.md`](docs/artist-principal.md), com manifesto em [`personas/artist-principal/manifest.json`](personas/artist-principal/manifest.json) e retrato oficial em [`assets/persona/artista-principal-diamante.png`](assets/persona/artista-principal-diamante.png).
 
-A voz original do artista está descrita em [`personas/artist-principal/voice-profile.md`](personas/artist-principal/voice-profile.md). A primeira amostra falada em português brasileiro está em [`assets/audio/artista-principal-voz-demo.wav`](assets/audio/artista-principal-voz-demo.wav), com timbre grave, quente, controlado e levemente áspero, sem imitar nenhuma pessoa real.
+A nova identidade vocal do Káiros está descrita em [`personas/artist-principal/voice-profile.md`](personas/artist-principal/voice-profile.md). A demo primária cantada em inglês está em [`assets/audio/kairos-voice-direction-demo-en.mp3`](assets/audio/kairos-voice-direction-demo-en.mp3), com presença forte, rap cantado, poesia confrontadora, sofrimento audível e atmosfera roots/dub original. A primeira amostra falada em português foi preservada como [`assets/audio/artista-principal-voz-demo.wav`](assets/audio/artista-principal-voz-demo.wav).
 
 ## Visão da arquitetura
 
