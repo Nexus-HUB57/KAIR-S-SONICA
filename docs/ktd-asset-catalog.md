@@ -1,6 +1,6 @@
 # Catálogo oficial de ativos de KTD
 
-A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 25 áudios rastreados, totalizando 33 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 33 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
+A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 26 áudios rastreados, totalizando 34 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 34 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
 
 ## Regra de leitura
 
@@ -50,6 +50,7 @@ Toda imagem nova deve preservar heterocromia, cabeça raspada, barba, riscos dou
 | Candidato | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-bed-v1.wav` | Base inédita do manifesto de estreia |
 | Candidato | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.wav` | Prova de arranjo com a voz oficial |
 | Candidato | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.mp3` | Versão de escuta da prova de arranjo |
+| Candidato auditado | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-vocal-take-v2.wav` | Audição vocal; não cumpre a letra literal |
 | Documento | `docs/ktd-debut-single-concept.md` | Conceito, critérios e arquitetura |
 | Documento | `docs/ktd-debut-single-lyrics.md` | Letra original e direção de performance |
 | Documento | `docs/ktd-debut-single-production.md` | Registro técnico, DSP e status |

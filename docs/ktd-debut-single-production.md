@@ -14,7 +14,9 @@ A faixa está classificada como **candidato a single de estreia / prova de arran
 | Voz oficial | `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3` | referência aprovada |
 | Letra nova | `docs/ktd-debut-single-lyrics.md` | composição original |
 | Conceito | `docs/ktd-debut-single-concept.md` | direção de lançamento |
-| Render reproduzível | `scripts/render_ktd_debut_single.py` | script técnico |
+| Render reproduzível | `scripts/render_ktd_debut_single.py` | Render reproduzível da prova |
+| Tomada vocal v2 | `assets/audio/releases/ktd-debut-single-unleash-the-dragon-vocal-take-v2.wav` | Candidato de audição; letra não literal |
+| Validação da tomada | `docs/ktd-debut-single-vocal-take-validation.md` | Diferenças objetivas da transcrição |
 
 ## Direção musical
 
@@ -30,7 +32,7 @@ A voz oficial é tratada com high-pass em 65 Hz, low-pass em 12.500 Hz e compres
 
 A referência `kairos-rapid-rap-flow-demo-en-v3.mp3` continua sendo a única referência vocal aprovada. A tomada `ktd-vocal-rough-take-v2.wav` não foi utilizada. O resultado atual não deve ser anunciado como “a nova gravação vocal oficial de KTD”: ele é uma prova de arranjo para validar pocket, impacto, duração, dinâmica e direção de produção.
 
-Para o lançamento definitivo, a etapa seguinte é gravar ou aprovar uma tomada nova sobre a letra de `docs/ktd-debut-single-lyrics.md`, preservando o timbre e a entrega da referência oficial sem clonar intérpretes reais. A promoção do single depende dessa aprovação humana.
+Uma nova tentativa vocal v2 foi gerada, mas a validação identificou repetições, palavras alteradas, redução da ponte e uma chamada incompleta no hook final. O relatório objetivo está em `docs/ktd-debut-single-vocal-take-validation.md`; a tomada serve para avaliar timbre e energia, não para integração literal. Para o lançamento definitivo, a etapa seguinte continua sendo gravar ou aprovar uma tomada nova sobre a letra de `docs/ktd-debut-single-lyrics.md`, preservando o timbre e a entrega da referência oficial sem clonar intérpretes reais. A promoção do single depende dessa aprovação humana.
 
 ## Critérios de escuta
 

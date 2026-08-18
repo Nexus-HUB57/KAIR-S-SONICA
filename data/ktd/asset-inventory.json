@@ -237,6 +237,16 @@
       "duration_seconds": 150.0
     },
     {
+      "path": "assets/audio/releases/ktd-debut-single-unleash-the-dragon-vocal-take-v2.wav",
+      "category": "candidate_audio_release",
+      "bytes": 3572296,
+      "sha256": "dab9c7f2df547adf8200a98f9ae7fe9849e91daaeeacee02b499cf056037a4dd",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 148.845667
+    },
+    {
       "path": "assets/audio/releases/ktd-modern-trap-official-vocal-mix-v1-saturated-parallel.mp3",
       "category": "candidate_audio_release",
       "bytes": 5510836,
