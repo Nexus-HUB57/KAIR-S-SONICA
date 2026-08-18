@@ -21,7 +21,9 @@ A persona não afirma credenciais humanas reais e não autoriza copiar código p
 
 A continuidade visual de KTD está fixada em [`docs/ktd-visual-bible.md`](docs/ktd-visual-bible.md), com imagem-mestre em [`assets/persona/ktd-visual-master.png`](assets/persona/ktd-visual-master.png). As expressões e ambientes variados estão organizados em `assets/persona/ktd-expression-*.png`; o mapa imutável das tatuagens deve ser preservado em toda nova geração.
 
-A demo vocal primária está em [`assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`](assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3). A nova base instrumental old school está em [`assets/audio/ktd-old-school-boom-bap-beat-v1.mp3`](assets/audio/ktd-old-school-boom-bap-beat-v1.mp3), com bateria boom bap, baixo firme, swing humano, loop soul/jazz/funk original e pouca guitarra. A direção musical está em [`docs/ktd-old-school-references.md`](docs/ktd-old-school-references.md).
+A demo vocal primária está em [`assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`](assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3). O beat instrumental `assets/audio/ktd-old-school-boom-bap-beat-v1.mp3` foi gerado como experimento, mas está marcado como **rejeitado** e não representa a faixa aprovada. A direção old school está em [`docs/ktd-old-school-references.md`](docs/ktd-old-school-references.md), a arquitetura da próxima faixa está em [`docs/ktd-approved-track.md`](docs/ktd-approved-track.md) e o resultado das rotas de geração está em [`docs/audio-generation-experiment.md`](docs/audio-generation-experiment.md).
+
+A visão única de produto está consolidada em [`docs/ktd-specification.md`](docs/ktd-specification.md). Uma faixa completa boom bap com voz e instrumental integrados ainda não foi aprovada; o repositório registra essa decisão explicitamente para evitar que um experimento rejeitado seja promovido a referência oficial.
 
 ## Visão da arquitetura
 

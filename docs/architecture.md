@@ -58,6 +58,10 @@ flowchart LR
 
 A central multimídia segue o mesmo contrato de tarefa, mas adiciona ingestão, análise e transcrição antes da geração. `POST /v1/orchestrate` resolve referências apenas em diretórios permitidos, usa `AudioProcessor` para obter métricas técnicas, escolhe o backend de transcrição e converte o texto em contexto para o Maestro. O resultado publica áudio, transcrição e metadados como artefatos separados. O fluxo completo, os estados e os perfis de dependência estão em [`multimedia-architecture.md`](multimedia-architecture.md).
 
+## Controle artístico KTD
+
+No domínio de produto, **KTD — Kháirus the Dragon** é a persona artística humana e **Káiros** é o DJ-maestro que orquestra produção, carreira e pipeline. A continuidade visual é controlada por `docs/ktd-visual-bible.md`; a voz, o flow e o histórico de versões estão em `personas/artist-principal/voice-profile.md` e no manifesto JSON. A geração de áudio possui um gate de aprovação humana: uma saída instrumental ou uma tentativa tecnicamente válida não se torna referência oficial enquanto o artista não aprovar groove, voz, pocket, mixagem e integração.
+
 ## Segurança e licenciamento
 
 A base não inclui pesos de modelos, credenciais, scraping de plataformas fechadas ou código proprietário. Cada integração de modelo deverá declarar licença, origem do checkpoint, formato de entrada, consumo de VRAM e política de uso de voz. O adaptador de voz deve exigir autorização explícita para qualquer identidade vocal; este repositório apenas reserva o contrato técnico.

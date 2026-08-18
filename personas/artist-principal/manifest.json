@@ -24,13 +24,17 @@
     "stage_performance": "assets/persona/ktd-expression-stage.png",
     "street_expression": "assets/persona/ktd-expression-street.png",
     "voice_demo": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
-    "old_school_beat": "assets/audio/ktd-old-school-boom-bap-beat-v1.mp3",
+    "approved_vocal_demo": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+    "rejected_old_school_beat": "assets/audio/ktd-old-school-boom-bap-beat-v1.mp3",
     "voice_demo_previous": "assets/audio/kairos-voice-direction-demo-en-v2.mp3",
     "voice_demo_previous_v1": "assets/audio/kairos-voice-direction-demo-en.mp3",
     "voice_demo_legacy": "assets/audio/artista-principal-voz-demo.wav",
     "visual_bible": "docs/ktd-visual-bible.md",
     "legacy_visual_bible": "docs/artist-principal.md",
     "music_direction": "docs/ktd-old-school-references.md",
+    "approved_track_spec": "docs/ktd-approved-track.md",
+    "audio_experiment_report": "docs/audio-generation-experiment.md",
+    "consolidated_specification": "docs/ktd-specification.md",
     "voice_profile": "personas/artist-principal/voice-profile.md"
   },
   "voice_identity": {
@@ -39,7 +43,7 @@
     "texture": "approved mid-low baritone with warm chest resonance, restrained weathered edge and dry close-mic presence",
     "pacing": "rapid-fire double-time bursts, hard consonant attacks, clipped endings, half-time resets, emphatic pauses and controlled surges",
     "voice_model": "original_music_vocal_demo",
-    "musical_color": "fast aggressive rap with dense internal rhymes, variable flow, original roots-informed English inflection and spacious dub atmosphere",
+    "musical_color": "fast aggressive rap with dense internal rhymes, variable flow, original roots-informed English inflection; next production target is swung old-school boom bap with drums and bass foregrounded",
     "originality": "original English rap performance and lyrics, no imitation of a real rapper or recognizable flow"
   },
   "relationship_to_kairos": {
