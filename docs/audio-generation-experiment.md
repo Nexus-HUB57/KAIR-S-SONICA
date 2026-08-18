@@ -21,6 +21,7 @@ A voz oficial de KTD é `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`. Ela
 | 5. Beat separado — rota 2 | `assets/audio/ktd-boom-bap-trial-route-2-bed-v2.wav` | Base boom bap gerada com pocket mais pesado | Batida considerada boa; requer nova voz oficial antes de qualquer aprovação |
 | 6. Beat separado — rota 3 | `assets/audio/ktd-boom-bap-trial-route-3-bed-v2.wav` | Base híbrida boom bap com variações de arranjo | Batida considerada boa; requer nova voz oficial antes de qualquer aprovação |
 | 7. Mixes de teste 1–3 | `assets/audio/trials/ktd-boom-bap-trial-route-{1,2,3}-mix-v2.wav` | Mixes integrados com `ktd-vocal-rough-take-v2.wav` | Não aprovados; a voz usada foi rejeitada, mas as bases permanecem aproveitáveis |
+| 8. Novo mix com voz oficial | `assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.{wav,mp3}` | Base da rota 2 integrada exclusivamente com `kairos-rapid-rap-flow-demo-en-v3.mp3` | Candidato pendente de aprovação humana |
 
 ## Critérios de aprovação
 
@@ -34,4 +35,4 @@ A rota deve ser representada como tarefa multimídia no core do Káiros, com `ar
 
 ## Estado atual
 
-As três bases boom bap novas foram consideradas boas como material rítmico de teste. A referência vocal oficial permanece `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`. A tomada `ktd-vocal-rough-take-v2.wav` e os três mixes derivados dela estão rejeitados para uso artístico. O próximo passo de produção é regravar ou integrar a voz oficial de KTD às bases preservadas, sem reutilizar a tomada abafada.
+As três bases boom bap novas foram consideradas boas como material rítmico de teste. A referência vocal oficial permanece `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`. A tomada `ktd-vocal-rough-take-v2.wav` e os três mixes derivados dela estão rejeitados para uso artístico. O novo mix em `assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.{wav,mp3}` usa a referência oficial e permanece pendente de aprovação humana.

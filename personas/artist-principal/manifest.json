@@ -102,6 +102,9 @@
     "street_expression": "assets/persona/ktd-expression-street.png",
     "voice_demo": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
     "approved_vocal_demo": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+    "official_vocal_mix_candidate_wav": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.wav",
+    "official_vocal_mix_candidate_mp3": "assets/audio/releases/ktd-old-school-boom-bap-official-vocal-mix-v1.mp3",
+    "official_vocal_mix_candidate_status": "pending_human_approval",
     "rejected_old_school_beat": "assets/audio/ktd-old-school-boom-bap-beat-v1.mp3",
     "voice_demo_previous": "assets/audio/kairos-voice-direction-demo-en-v2.mp3",
     "voice_demo_previous_v1": "assets/audio/kairos-voice-direction-demo-en.mp3",
@@ -115,7 +118,8 @@
     "audio_experiment_report": "docs/audio-generation-experiment.md",
     "consolidated_specification": "docs/ktd-specification.md",
     "voice_profile": "personas/artist-principal/voice-profile.md",
-    "vocal_approval_record": "docs/ktd-vocal-approval.md"
+    "vocal_approval_record": "docs/ktd-vocal-approval.md",
+    "official_mix_record": "docs/ktd-official-vocal-mix.md"
   },
   "originality_guardrails": [
     "Não reproduzir rosto, corpo, voz ou identidade de pessoa real.",
