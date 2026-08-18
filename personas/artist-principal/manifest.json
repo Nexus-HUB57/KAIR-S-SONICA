@@ -19,6 +19,7 @@
   "assets": {
     "primary_portrait": "assets/persona/artista-principal-diamante.png",
     "visual_master": "assets/persona/ktd-visual-master.png",
+    "physical_turnaround_sheet": "assets/persona/ktd-physical-turnaround-sheet.png",
     "fullbody_rooftop": "assets/persona/ktd-expression-rooftop.png",
     "casual_studio": "assets/persona/ktd-expression-studio.png",
     "stage_performance": "assets/persona/ktd-expression-stage.png",
