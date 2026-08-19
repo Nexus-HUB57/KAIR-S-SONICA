@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-19T13:14:18.287690+00:00",
+  "generated_at_utc": "2026-08-19T13:30:51.445298+00:00",
   "algorithm": "SHA-256",
   "scope": "assets visual e vídeos do catálogo KAIR-S-SONICA",
   "files": [
@@ -122,6 +122,54 @@
       "sha256": "604c4427509c25cb79a8ff5a0749ebb7574e2f4f34a9d99249b6d8d84af51199",
       "category": "UNASSIGNED",
       "status": "unassigned"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-hybrid-procedural-8s-validation.mp4",
+      "extension": "mp4",
+      "bytes": 3342178,
+      "sha256": "740494abeb6d623508a238fc6004f5273ba66da9135889d2e1d38b5f0f1d5238",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-procedural-revision-v1.mp4",
+      "extension": "mp4",
+      "bytes": 2852174,
+      "sha256": "6bf09a19869c425e2324fceec29d67d5d47de962f93538755fdd2dfeebd2ad23",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-01-table-performance.png",
+      "extension": "png",
+      "bytes": 4461792,
+      "sha256": "2c3095525c2160cf7fdf7d909f42fc858b7c42650c727048373262fc852b3d25",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-02-candle-memory.png",
+      "extension": "png",
+      "bytes": 4202051,
+      "sha256": "69cbf2510ee885dc089afa5f5f874b1ec293a133b0c051c25a8f903ab8e1cc45",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-03-shared-meal.png",
+      "extension": "png",
+      "bytes": 5061043,
+      "sha256": "09b9a07641169c225a7a9a60a60b9f7033d56174711e2d5d3598df9dc654b7fb",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-04-six-lights.png",
+      "extension": "png",
+      "bytes": 4718272,
+      "sha256": "c691279dce65bbfc760b708a62e2f391b0a5cf3220dc010783e2eb646a4e0e28",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
     },
     {
       "path": "assets/video/promos/tour/initial-tour-01-reference.png",

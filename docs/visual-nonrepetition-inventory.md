@@ -1,6 +1,6 @@
 # Inventário visual de não repetição
 
-Gerado em UTC: `2026-08-19T13:14:18.287690+00:00`  
+Gerado em UTC: `2026-08-19T13:30:51.445298+00:00`  
 Algoritmo: `SHA-256`
 
 ## Regras por faixa
@@ -43,6 +43,12 @@ Status: **exclusive**
 | `assets/video/promos/golden-scars-v1-frame-the-whole-picture.mp4` | GOLDEN_SCARS | reserved | 2241859 | `0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a` |
 | `assets/video/promos/tiktok/fire-in-the-flood-ktd-approved-dynamic-8s.mp4` | GOLDEN_SCARS | reserved | 2246882 | `7a25ddeadda187b4cfdfb595d8b847ad2d9fa56740946de9b3844920b69c636b` |
 | `assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4` | UNASSIGNED | unassigned | 2323417 | `604c4427509c25cb79a8ff5a0749ebb7574e2f4f34a9d99249b6d8d84af51199` |
+| `assets/video/promos/tiktok/six-names-hybrid-procedural-8s-validation.mp4` | SIX_NAMES | exclusive | 3342178 | `740494abeb6d623508a238fc6004f5273ba66da9135889d2e1d38b5f0f1d5238` |
+| `assets/video/promos/tiktok/six-names-ktd-procedural-revision-v1.mp4` | SIX_NAMES | exclusive | 2852174 | `6bf09a19869c425e2324fceec29d67d5d47de962f93538755fdd2dfeebd2ad23` |
+| `assets/video/promos/tiktok/six-names-ktd-shot-01-table-performance.png` | SIX_NAMES | exclusive | 4461792 | `2c3095525c2160cf7fdf7d909f42fc858b7c42650c727048373262fc852b3d25` |
+| `assets/video/promos/tiktok/six-names-ktd-shot-02-candle-memory.png` | SIX_NAMES | exclusive | 4202051 | `69cbf2510ee885dc089afa5f5f874b1ec293a133b0c051c25a8f903ab8e1cc45` |
+| `assets/video/promos/tiktok/six-names-ktd-shot-03-shared-meal.png` | SIX_NAMES | exclusive | 5061043 | `09b9a07641169c225a7a9a60a60b9f7033d56174711e2d5d3598df9dc654b7fb` |
+| `assets/video/promos/tiktok/six-names-ktd-shot-04-six-lights.png` | SIX_NAMES | exclusive | 4718272 | `c691279dce65bbfc760b708a62e2f391b0a5cf3220dc010783e2eb646a4e0e28` |
 | `assets/video/promos/tour/initial-tour-01-reference.png` | GOLDEN_SCARS | reserved | 5221376 | `24267f7b40dde7bb9839e4157068ee6e3e051917f02fc01c1d55a46f573ab06d` |
 | `assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4` | GOLDEN_SCARS | reserved | 2241859 | `0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a` |
 | `assets/video/references/lyrics/song1-unleash-the-dragon-lyrics-reference.png` | UNLEASH_THE_DRAGON | exclusive | 4907782 | `89ffe68fd3e719f733d7091e4a8691df283a926e4fffa4e7f7eda7e6e434ccc3` |

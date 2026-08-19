@@ -95,18 +95,19 @@ def discover_images(image_dir: Path | None, explicit: list[Path] | None, forbidd
 
 
 def build_shots(images: list[Path], duration: float, bpm: float) -> list[Shot]:
-    beat = 60.0 / bpm
-    # Grade de 4 barras para um teaser de 8 s a 96 BPM: 0, 2.5, 5.0, 6.25 e 7.5.
-    boundaries = [0.0, 4 * beat, 8 * beat, 10 * beat, 12 * beat, duration]
-    boundaries[-1] = duration
-    motions = ["push_in", "pan_right", "tilt_up", "push_out", "pan_left"]
+    if len(images) < 4:
+        raise SystemExit("O teaser exige pelo menos quatro imagens distintas e sem repetição.")
+    # Cada imagem ocupa um plano único. A duração é distribuída entre os planos;
+    # os cortes permanecem regulares e podem ser ajustados pelo BPM no futuro.
+    shot_duration = duration / len(images)
+    motions = ["push_in", "pan_right", "tilt_up", "push_out", "pan_left", "tilt_down"]
     shots: list[Shot] = []
-    for index, (start, end) in enumerate(zip(boundaries, boundaries[1:])):
-        if end <= start:
-            continue
+    for index, image in enumerate(images):
+        start = index * shot_duration
+        end = duration if index == len(images) - 1 else (index + 1) * shot_duration
         shots.append(
             Shot(
-                image=images[index % len(images)],
+                image=image,
                 start=start,
                 end=end,
                 motion=motions[index % len(motions)],
@@ -207,7 +208,7 @@ def main() -> None:
         render_frames(shots, temp_dir, args.fps, (args.width, args.height))
         mux_video(temp_dir, args.audio, args.output, args.fps, args.duration)
     print(f"Render concluído: {args.output}")
-    print("Planos:")
+    print("Planos sem repetição:")
     for shot in shots:
         print(f"  {shot.start:05.2f}-{shot.end:05.2f}s | {shot.motion:9s} | {shot.image.name}")
 
