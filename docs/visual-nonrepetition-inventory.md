@@ -1,6 +1,6 @@
 # Inventário visual de não repetição
 
-Gerado em UTC: `2026-08-19T13:30:51.445298+00:00`  
+Gerado em UTC: `2026-08-19T14:02:48.396248+00:00`  
 Algoritmo: `SHA-256`
 
 ## Regras por faixa
@@ -49,9 +49,15 @@ Status: **exclusive**
 | `assets/video/promos/tiktok/six-names-ktd-shot-02-candle-memory.png` | SIX_NAMES | exclusive | 4202051 | `69cbf2510ee885dc089afa5f5f874b1ec293a133b0c051c25a8f903ab8e1cc45` |
 | `assets/video/promos/tiktok/six-names-ktd-shot-03-shared-meal.png` | SIX_NAMES | exclusive | 5061043 | `09b9a07641169c225a7a9a60a60b9f7033d56174711e2d5d3598df9dc654b7fb` |
 | `assets/video/promos/tiktok/six-names-ktd-shot-04-six-lights.png` | SIX_NAMES | exclusive | 4718272 | `c691279dce65bbfc760b708a62e2f391b0a5cf3220dc010783e2eb646a4e0e28` |
+| `assets/video/promos/tiktok/six-names-ktd-teaser-v2-8s.mp4` | SIX_NAMES | exclusive | 2852986 | `b175c36690207c7fd9cdab6002014ded87dfda93a314b78c2c2736a496c7d52d` |
 | `assets/video/promos/tour/initial-tour-01-reference.png` | GOLDEN_SCARS | reserved | 5221376 | `24267f7b40dde7bb9839e4157068ee6e3e051917f02fc01c1d55a46f573ab06d` |
 | `assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4` | GOLDEN_SCARS | reserved | 2241859 | `0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a` |
+| `assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png` | UNLEASH_THE_DRAGON | exclusive | 4995696 | `071b7c556ccc34b40359c34f94f7815a618c6775b2d569576efdeb1a79f7a408` |
+| `assets/video/references/lyrics/song1-unleash-the-dragon-ktd-performance.png` | UNLEASH_THE_DRAGON | exclusive | 4879049 | `ef25c595603bd5558d16ef5857f4ad7ce30c0d26f6e4e4a0709368e8176f1b57` |
 | `assets/video/references/lyrics/song1-unleash-the-dragon-lyrics-reference.png` | UNLEASH_THE_DRAGON | exclusive | 4907782 | `89ffe68fd3e719f733d7091e4a8691df283a926e4fffa4e7f7eda7e6e434ccc3` |
+| `assets/video/references/lyrics/song1-unleash-the-dragon-mic-grip.png` | UNLEASH_THE_DRAGON | exclusive | 4937691 | `a2162482a9a128173bad3cdb132c83317c63f47f2c0d9ab784f3ad9e6b459f90` |
+| `assets/video/references/lyrics/song1-unleash-the-dragon-shoes-cables.png` | UNLEASH_THE_DRAGON | exclusive | 4534996 | `7ce8ef8f3188ec7d69df7497a5c4deffc36175bff6d0bafb43fa56fd1daf9270` |
+| `assets/video/references/lyrics/song1-unleash-the-dragon-stage-lights.png` | UNLEASH_THE_DRAGON | exclusive | 4664782 | `6c74de11652174525c7c70155610529c99b87f9ba03a923f99c8e3c8c21efb48` |
 | `assets/video/references/lyrics/song2-six-names-candle-hand.png` | SIX_NAMES | exclusive | 4479866 | `c0f591cdc5b291d0dcde39ad6262c01f528ceffdf475c54307d8b01cf48e6282` |
 | `assets/video/references/lyrics/song2-six-names-hands-together.png` | SIX_NAMES | exclusive | 4586111 | `8575705f18e40fee789e235629f024979fed8de06764365d83327877c7f19c3d` |
 | `assets/video/references/lyrics/song2-six-names-lyrics-reference.png` | SIX_NAMES | exclusive | 4206172 | `5c2a8fa621fe1be91ff8659d5b71f8758d5a518e7c937ceb66238db94db86439` |

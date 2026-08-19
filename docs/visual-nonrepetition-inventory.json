@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-19T13:30:51.445298+00:00",
+  "generated_at_utc": "2026-08-19T14:02:48.396248+00:00",
   "algorithm": "SHA-256",
   "scope": "assets visual e vídeos do catálogo KAIR-S-SONICA",
   "files": [
@@ -172,6 +172,14 @@
       "status": "exclusive"
     },
     {
+      "path": "assets/video/promos/tiktok/six-names-ktd-teaser-v2-8s.mp4",
+      "extension": "mp4",
+      "bytes": 2852986,
+      "sha256": "b175c36690207c7fd9cdab6002014ded87dfda93a314b78c2c2736a496c7d52d",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
       "path": "assets/video/promos/tour/initial-tour-01-reference.png",
       "extension": "png",
       "bytes": 5221376,
@@ -188,10 +196,50 @@
       "status": "reserved"
     },
     {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png",
+      "extension": "png",
+      "bytes": 4995696,
+      "sha256": "071b7c556ccc34b40359c34f94f7815a618c6775b2d569576efdeb1a79f7a408",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-ktd-performance.png",
+      "extension": "png",
+      "bytes": 4879049,
+      "sha256": "ef25c595603bd5558d16ef5857f4ad7ce30c0d26f6e4e4a0709368e8176f1b57",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
       "path": "assets/video/references/lyrics/song1-unleash-the-dragon-lyrics-reference.png",
       "extension": "png",
       "bytes": 4907782,
       "sha256": "89ffe68fd3e719f733d7091e4a8691df283a926e4fffa4e7f7eda7e6e434ccc3",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-mic-grip.png",
+      "extension": "png",
+      "bytes": 4937691,
+      "sha256": "a2162482a9a128173bad3cdb132c83317c63f47f2c0d9ab784f3ad9e6b459f90",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-shoes-cables.png",
+      "extension": "png",
+      "bytes": 4534996,
+      "sha256": "7ce8ef8f3188ec7d69df7497a5c4deffc36175bff6d0bafb43fa56fd1daf9270",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-stage-lights.png",
+      "extension": "png",
+      "bytes": 4664782,
+      "sha256": "6c74de11652174525c7c70155610529c99b87f9ba03a923f99c8e3c8c21efb48",
       "category": "UNLEASH_THE_DRAGON",
       "status": "exclusive"
     },
