@@ -10,6 +10,7 @@ build/
 *.egg-info/
 data/output/*
 data/uploads/*
+*.sqlite3
 !data/output/.gitkeep
 !data/uploads/.gitkeep
 node_modules/

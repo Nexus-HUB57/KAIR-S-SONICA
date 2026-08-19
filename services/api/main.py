@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import asyncio
+import json
+import sqlite3
 import threading
 from datetime import datetime, timezone
 from typing import Any
@@ -24,30 +26,70 @@ from kairos_core.schemas import (
 
 
 class TaskStore:
-    def __init__(self) -> None:
-        self._items: dict[str, TaskSnapshot] = {}
+    """Armazena snapshots em SQLite para sobreviver a reinícios do processo."""
+
+    def __init__(self, db_path) -> None:
+        self._db_path = db_path
         self._lock = threading.Lock()
+        self._db_path.parent.mkdir(parents=True, exist_ok=True)
+        with self._connect() as connection:
+            connection.execute(
+                "CREATE TABLE IF NOT EXISTS tasks (task_id TEXT PRIMARY KEY, snapshot TEXT NOT NULL)"
+            )
+
+    def _connect(self) -> sqlite3.Connection:
+        connection = sqlite3.connect(self._db_path, timeout=30)
+        connection.row_factory = sqlite3.Row
+        return connection
+
+    @staticmethod
+    def _encode(snapshot: TaskSnapshot) -> str:
+        return json.dumps(snapshot.model_dump(mode="json"), ensure_ascii=False)
+
+    @staticmethod
+    def _decode(payload: str) -> TaskSnapshot:
+        return TaskSnapshot.model_validate(json.loads(payload))
 
     def create(self, task_id: str) -> TaskSnapshot:
-        snapshot = TaskSnapshot(task_id=task_id, status="PENDING", progress=Progress(step="queued", percent=0, message="Tarefa enfileirada"))
-        with self._lock:
-            self._items[task_id] = snapshot
+        snapshot = TaskSnapshot(
+            task_id=task_id,
+            status="PENDING",
+            progress=Progress(step="queued", percent=0, message="Tarefa enfileirada"),
+        )
+        with self._lock, self._connect() as connection:
+            connection.execute(
+                "INSERT INTO tasks(task_id, snapshot) VALUES (?, ?) "
+                "ON CONFLICT(task_id) DO UPDATE SET snapshot = excluded.snapshot",
+                (task_id, self._encode(snapshot)),
+            )
         return snapshot
 
     def get(self, task_id: str) -> TaskSnapshot | None:
-        with self._lock:
-            return self._items.get(task_id)
+        with self._lock, self._connect() as connection:
+            row = connection.execute(
+                "SELECT snapshot FROM tasks WHERE task_id = ?", (task_id,)
+            ).fetchone()
+        return None if row is None else self._decode(row["snapshot"])
 
     def update(self, task_id: str, **changes: Any) -> TaskSnapshot:
-        with self._lock:
-            current = self._items[task_id]
-            updated = current.model_copy(update={**changes, "updated_at": datetime.now(timezone.utc)})
-            self._items[task_id] = updated
-            return updated
-
+        with self._lock, self._connect() as connection:
+            row = connection.execute(
+                "SELECT snapshot FROM tasks WHERE task_id = ?", (task_id,)
+            ).fetchone()
+            if row is None:
+                raise KeyError(task_id)
+            current = self._decode(row["snapshot"])
+            updated = current.model_copy(
+                update={**changes, "updated_at": datetime.now(timezone.utc)}
+            )
+            connection.execute(
+                "UPDATE tasks SET snapshot = ? WHERE task_id = ?",
+                (self._encode(updated), task_id),
+            )
+        return updated
 
 settings = Settings.from_env()
-store = TaskStore()
+store = TaskStore(settings.task_db_path)
 app = FastAPI(title="KAIR-S-SONICA API", version="0.1.0", description="Gateway do Agente Káiros")
 
 

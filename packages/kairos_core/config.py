@@ -12,6 +12,7 @@ class Settings:
     environment: str = "development"
     output_dir: Path = Path("data/output")
     upload_dir: Path = Path("data/uploads")
+    task_db_path: Path = Path("data/kairos_tasks.sqlite3")
     sample_rate: int = 44_100
     ffmpeg_bin: str = "ffmpeg"
     transcription_backend: str = "sidecar"
@@ -26,6 +27,7 @@ class Settings:
             environment=os.getenv("KAIROS_ENV", "development"),
             output_dir=Path(os.getenv("KAIROS_OUTPUT_DIR", "data/output")),
             upload_dir=Path(os.getenv("KAIROS_UPLOAD_DIR", "data/uploads")),
+            task_db_path=Path(os.getenv("KAIROS_TASK_DB_PATH", "data/kairos_tasks.sqlite3")),
             sample_rate=int(os.getenv("KAIROS_DEFAULT_SAMPLE_RATE", "44100")),
             ffmpeg_bin=os.getenv("KAIROS_FFMPEG_BIN", "ffmpeg"),
             transcription_backend=os.getenv("KAIROS_TRANSCRIPTION_BACKEND", "sidecar"),
