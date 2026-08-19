@@ -85,6 +85,14 @@ Toda imagem nova deve preservar heterocromia, cabeça raspada, barba, riscos dou
 
 Nenhum desses arquivos é faixa oficialmente lançada. O status de promoção depende de escuta humana, revisão de letra, créditos, arte, master, distribuição e decisão de KTD.
 
+## Vídeo — referência oficial fixa de desenvolvimento
+
+| Estado | Ativo | Função |
+| --- | --- | --- |
+| Oficial / referência fixa | `assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4` | Padrão obrigatório de desenvolvimento de todos os materiais MP4 do projeto (padrão KTD) |
+
+O vídeo acima foi confirmado por hash SHA-256 idêntico ao arquivo enviado para fixação e permanece a **referência única e fixa** que todo teaser e clipe MP4 deve seguir: vertical 720x1280 a 24 fps, 8 segundos, sujeito centralizado no terço vertical, push-in contínuo com hard cuts no downbeat, chiaroscuro com pretos densos e ausência de texto ou logo sobrepostos. A análise completa do padrão está em [`docs/ktd-approved-video-pattern-analysis.md`](ktd-approved-video-pattern-analysis.md) e as restrições de não repetição por faixa em [`docs/visual-nonrepetition-inventory.md`](visual-nonrepetition-inventory.md). A cópia promocional `assets/video/promos/golden-scars-v1-frame-the-whole-picture.mp4` possui o mesmo hash e continua reservada como peça de GOLDEN SCARS; o arquivo aprovado em `ktd-approved` permanece o cânone de desenvolvimento.
+
 ## Documentação de suporte
 
 | Área | Documento |
