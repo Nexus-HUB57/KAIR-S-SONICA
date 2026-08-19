@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-19T14:02:48.396248+00:00",
+  "generated_at_utc": "2026-08-19T16:08:28.962026+00:00",
   "algorithm": "SHA-256",
   "scope": "assets visual e vídeos do catálogo KAIR-S-SONICA",
   "files": [
@@ -188,12 +188,124 @@
       "status": "reserved"
     },
     {
+      "path": "assets/video/promos/unleash-the-dragon-full-music-video-v1.mp4",
+      "extension": "mp4",
+      "bytes": 67217242,
+      "sha256": "222828d477f27a09d549781f3a5c6cd4ae53c9ee14cce7dd3a37ac36cae860a9",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/promos/unleash-the-dragon-teaser-v1-8s.mp4",
+      "extension": "mp4",
+      "bytes": 4449984,
+      "sha256": "b46f1dc185b68a6cae13cc418b7d6ec86307b619d1451a8b89fa049456d10898",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
       "path": "assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4",
       "extension": "mp4",
       "bytes": 2241859,
       "sha256": "0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a",
       "category": "GOLDEN_SCARS",
       "status": "reserved"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-a1-dressing-room.png",
+      "extension": "png",
+      "bytes": 5109059,
+      "sha256": "ba7b77f2d05d5a2224ba517078ca4619ba4a3a0c37c3592a35fd2fb3eed54adc",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-a2-backstage-wall.png",
+      "extension": "png",
+      "bytes": 4926689,
+      "sha256": "794a6ea37d6d839e02beee8733f608683eb659237998b7a7cccdee2f7865df0f",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-b1-pick-grip.png",
+      "extension": "png",
+      "bytes": 4669094,
+      "sha256": "d19f6ef73c740cafa236e061dc33ebc2138760889f6a1983955c2d6231b40721",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-c1-back-shot.png",
+      "extension": "png",
+      "bytes": 4454811,
+      "sha256": "6d50ef99f557d1a6154399319eb9c6719aa50c611e7f61ec093034839d371daa",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-c2-face-close.png",
+      "extension": "png",
+      "bytes": 5446724,
+      "sha256": "66839e402db0a9359b26c0a70fc90f09ee607cc1a70be30096ebbbc8df5396c4",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-c3-hook-perf.png",
+      "extension": "png",
+      "bytes": 4853599,
+      "sha256": "480cba029a67ac277edfaf1464b69278f516227d1403e42babd6947457e95fb5",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-d1-amp-work.png",
+      "extension": "png",
+      "bytes": 4748011,
+      "sha256": "c1ee92bc7ca87de00982c699ac58a15befbc1ab42f40d3016dbd4f855b0b226b",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-d2-family-arms.png",
+      "extension": "png",
+      "bytes": 4372617,
+      "sha256": "4603408d72aadb5042139e1d3ffa7bcf22ba1715990b26e5392ca08529d860b2",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-e1-stage-edge.png",
+      "extension": "png",
+      "bytes": 4569576,
+      "sha256": "2921b49a315629838551f2463ac1fc93ebde7fb4f179c13d391d5f30668e84be",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-e2-crowd-silhouettes.png",
+      "extension": "png",
+      "bytes": 4457873,
+      "sha256": "eb31e64f895539a37930e0d8b89024dc7e80d7388000e6400f972cac321ff46e",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-f1-final-perf.png",
+      "extension": "png",
+      "bytes": 4955068,
+      "sha256": "8d497250758ca18e13994bf24852af2a24dae42c16bf1873d1a003fa4dfcbd91",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-f2-solo-mic.png",
+      "extension": "png",
+      "bytes": 4339192,
+      "sha256": "977ca6bd63a095506bc51d11e06463ef9d635a6c8d42cd2872e53b929cf81d8a",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
     },
     {
       "path": "assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png",

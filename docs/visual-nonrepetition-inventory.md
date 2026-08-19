@@ -1,6 +1,6 @@
 # Inventário visual de não repetição
 
-Gerado em UTC: `2026-08-19T14:02:48.396248+00:00`  
+Gerado em UTC: `2026-08-19T16:08:28.962026+00:00`  
 Algoritmo: `SHA-256`
 
 ## Regras por faixa
@@ -51,7 +51,21 @@ Status: **exclusive**
 | `assets/video/promos/tiktok/six-names-ktd-shot-04-six-lights.png` | SIX_NAMES | exclusive | 4718272 | `c691279dce65bbfc760b708a62e2f391b0a5cf3220dc010783e2eb646a4e0e28` |
 | `assets/video/promos/tiktok/six-names-ktd-teaser-v2-8s.mp4` | SIX_NAMES | exclusive | 2852986 | `b175c36690207c7fd9cdab6002014ded87dfda93a314b78c2c2736a496c7d52d` |
 | `assets/video/promos/tour/initial-tour-01-reference.png` | GOLDEN_SCARS | reserved | 5221376 | `24267f7b40dde7bb9839e4157068ee6e3e051917f02fc01c1d55a46f573ab06d` |
+| `assets/video/promos/unleash-the-dragon-full-music-video-v1.mp4` | UNLEASH_THE_DRAGON | exclusive | 67217242 | `222828d477f27a09d549781f3a5c6cd4ae53c9ee14cce7dd3a37ac36cae860a9` |
+| `assets/video/promos/unleash-the-dragon-teaser-v1-8s.mp4` | UNLEASH_THE_DRAGON | exclusive | 4449984 | `b46f1dc185b68a6cae13cc418b7d6ec86307b619d1451a8b89fa049456d10898` |
 | `assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4` | GOLDEN_SCARS | reserved | 2241859 | `0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a` |
+| `assets/video/references/lyrics/song1-fullmv-scene-a1-dressing-room.png` | UNLEASH_THE_DRAGON | exclusive | 5109059 | `ba7b77f2d05d5a2224ba517078ca4619ba4a3a0c37c3592a35fd2fb3eed54adc` |
+| `assets/video/references/lyrics/song1-fullmv-scene-a2-backstage-wall.png` | UNLEASH_THE_DRAGON | exclusive | 4926689 | `794a6ea37d6d839e02beee8733f608683eb659237998b7a7cccdee2f7865df0f` |
+| `assets/video/references/lyrics/song1-fullmv-scene-b1-pick-grip.png` | UNLEASH_THE_DRAGON | exclusive | 4669094 | `d19f6ef73c740cafa236e061dc33ebc2138760889f6a1983955c2d6231b40721` |
+| `assets/video/references/lyrics/song1-fullmv-scene-c1-back-shot.png` | UNLEASH_THE_DRAGON | exclusive | 4454811 | `6d50ef99f557d1a6154399319eb9c6719aa50c611e7f61ec093034839d371daa` |
+| `assets/video/references/lyrics/song1-fullmv-scene-c2-face-close.png` | UNLEASH_THE_DRAGON | exclusive | 5446724 | `66839e402db0a9359b26c0a70fc90f09ee607cc1a70be30096ebbbc8df5396c4` |
+| `assets/video/references/lyrics/song1-fullmv-scene-c3-hook-perf.png` | UNLEASH_THE_DRAGON | exclusive | 4853599 | `480cba029a67ac277edfaf1464b69278f516227d1403e42babd6947457e95fb5` |
+| `assets/video/references/lyrics/song1-fullmv-scene-d1-amp-work.png` | UNLEASH_THE_DRAGON | exclusive | 4748011 | `c1ee92bc7ca87de00982c699ac58a15befbc1ab42f40d3016dbd4f855b0b226b` |
+| `assets/video/references/lyrics/song1-fullmv-scene-d2-family-arms.png` | UNLEASH_THE_DRAGON | exclusive | 4372617 | `4603408d72aadb5042139e1d3ffa7bcf22ba1715990b26e5392ca08529d860b2` |
+| `assets/video/references/lyrics/song1-fullmv-scene-e1-stage-edge.png` | UNLEASH_THE_DRAGON | exclusive | 4569576 | `2921b49a315629838551f2463ac1fc93ebde7fb4f179c13d391d5f30668e84be` |
+| `assets/video/references/lyrics/song1-fullmv-scene-e2-crowd-silhouettes.png` | UNLEASH_THE_DRAGON | exclusive | 4457873 | `eb31e64f895539a37930e0d8b89024dc7e80d7388000e6400f972cac321ff46e` |
+| `assets/video/references/lyrics/song1-fullmv-scene-f1-final-perf.png` | UNLEASH_THE_DRAGON | exclusive | 4955068 | `8d497250758ca18e13994bf24852af2a24dae42c16bf1873d1a003fa4dfcbd91` |
+| `assets/video/references/lyrics/song1-fullmv-scene-f2-solo-mic.png` | UNLEASH_THE_DRAGON | exclusive | 4339192 | `977ca6bd63a095506bc51d11e06463ef9d635a6c8d42cd2872e53b929cf81d8a` |
 | `assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png` | UNLEASH_THE_DRAGON | exclusive | 4995696 | `071b7c556ccc34b40359c34f94f7815a618c6775b2d569576efdeb1a79f7a408` |
 | `assets/video/references/lyrics/song1-unleash-the-dragon-ktd-performance.png` | UNLEASH_THE_DRAGON | exclusive | 4879049 | `ef25c595603bd5558d16ef5857f4ad7ce30c0d26f6e4e4a0709368e8176f1b57` |
 | `assets/video/references/lyrics/song1-unleash-the-dragon-lyrics-reference.png` | UNLEASH_THE_DRAGON | exclusive | 4907782 | `89ffe68fd3e719f733d7091e4a8691df283a926e4fffa4e7f7eda7e6e434ccc3` |
