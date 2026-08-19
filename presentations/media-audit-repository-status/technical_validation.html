@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Validação técnica dos áudios</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0}
+.slide-container{width:1280px;min-height:720px;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;padding:48px 64px 0}
+.kicker{font:700 14px/1 "Courier New",monospace;color:#ff8c00;letter-spacing:2px;text-transform:uppercase}
+.title{font-size:52px;line-height:1;font-weight:900;letter-spacing:-2px;margin:18px 0 46px}
+.intro{font:17px/1.45 "Courier New",monospace;color:#333;max-width:860px;margin:0 0 34px}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #000;border-bottom:1px solid #000}
+.spec{min-height:215px;padding:28px 28px 0;border-right:1px solid #000}
+.spec:last-child{border-right:0}
+.spec h2{font-size:26px;line-height:1;margin:0 0 18px;font-weight:900}
+.spec .big{font-size:40px;line-height:1;font-weight:900;letter-spacing:-1px;color:#ff8c00;margin:0 0 12px}
+.spec p{font:15px/1.45 "Courier New",monospace;color:#333;margin:0}
+.duration{margin-top:38px;border-bottom:1px solid #000;padding-bottom:18px}
+.duration-head{font:700 13px/1 "Courier New",monospace;color:#777;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.rows{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.row{border-left:8px solid #000;padding:0 0 0 16px;min-height:72px}
+.row:nth-child(2){border-color:#ff8c00}.row:nth-child(3){border-color:#555}
+.row strong{display:block;font-size:19px;font-weight:900;margin-bottom:8px}.row span{font:14px/1.35 "Courier New",monospace;color:#333}
+.footer{font:14px/1.4 "Courier New",monospace;color:#333;margin-top:28px}.footer b{color:#000;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="kicker">03 / VERIFICAÇÃO DE FORMATO</div>
+<div class="title">Validação técnica dos áudios</div>
+<p class="intro">Todos os binários recém-importados foram reconhecidos por <b>file</b> e validados com <b>ffprobe</b>, sem falhas de leitura ou arquivos parciais.</p>
+<section class="specs">
+<div class="spec"><h2>WAV</h2><div class="big">44,1 kHz</div><p>PCM s16le<br>Estéreo · 16-bit<br>~1.411 kbps</p></div>
+<div class="spec"><h2>MP3</h2><div class="big">320 kbps</div><p>MPEG Layer III<br>Estéreo · 44,1 kHz<br>Bitrate consistente</p></div>
+<div class="spec"><h2>MP4</h2><div class="big">8,0 s</div><p>H.264 + AAC<br>720 × 1280<br>Vídeo vertical GOLDEN SCARS</p></div>
+</section>
+<section class="duration"><div class="duration-head">Faixas auditadas · duração observada</div><div class="rows"><div class="row"><strong>FIRE IN THE FLOOD</strong><span>168,0–168,05 segundos<br>pré-lançamento V4</span></div><div class="row"><strong>SIX NAMES</strong><span>159,7–165,2 segundos<br>original / rebuilt soul</span></div><div class="row"><strong>GOLDEN SCARS</strong><span>116,06–116,09 segundos<br>proof / pré-lançamento</span></div></div></section>
+<div class="footer"><b>Resultado:</b> arquivos reproduzíveis e tecnicamente íntegros; a auditoria não identificou corrupção de contêiner.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metadados e tags ID3</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0}
+.slide-container{width:1280px;min-height:720px;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;padding:48px 48px 0}
+.kicker{font:700 14px/1 "Courier New",monospace;letter-spacing:2px;color:#ff8c00;text-transform:uppercase}
+.title{font-size:52px;line-height:1;font-weight:900;letter-spacing:-2px;margin:18px 0 20px}
+.layout{display:grid;grid-template-columns:1.05fr 1.5fr 1.15fr;border-top:1px solid #000;border-bottom:1px solid #000}
+.overview{min-height:390px;padding:20px 20px 0 0;border-right:1px solid #000}
+.total{font-size:118px;line-height:.8;font-weight:900;letter-spacing:-7px;color:#000}.total span{color:#ff8c00}
+.total-label{font:700 16px/1.2 "Courier New",monospace;color:#333;margin-top:12px;text-transform:uppercase}
+.overview p{font:17px/1.45 "Courier New",monospace;color:#333;margin:20px 16px 0 0}
+.compare{padding:20px 16px 0;border-right:1px solid #000}.compare-row{padding:0 0 16px;margin-bottom:16px;border-bottom:1px solid #000}.compare-row:last-child{border-bottom:0}.format{font-size:28px;font-weight:900;margin-bottom:8px}.format em{font:700 14px "Courier New",monospace;color:#ff8c00;font-style:normal;float:right;text-transform:uppercase}.compare p{font:16px/1.45 "Courier New",monospace;color:#333;margin:0}.meter{height:12px;background:#000;margin-top:12px}.meter.orange{background:#ff8c00;width:72%}.meter.black{width:100%}
+.findings{padding:20px 0 0 16px}.findings h3{font-size:24px;margin:0 0 12px;font-weight:900}.tagline{font:18px/1.4 "Courier New",monospace;color:#333;margin-bottom:16px}.tagline strong{color:#000}.missing{font:15px/1.6 "Courier New",monospace;color:#333;border-top:1px solid #000;padding-top:12px;margin-top:12px}.missing b{color:#ff8c00}.recommendation{margin-top:20px;border-top:1px solid #000;padding-top:12px;font:16px/1.45 "Courier New",monospace;color:#333}.recommendation strong{font-family:Arial,sans-serif;color:#000}
+.footer{font:14px/1.3 "Courier New",monospace;color:#666;padding-top:12px}.footer b{color:#000}
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="kicker">05 / CATÁLOGO E DISTRIBUIÇÃO</div>
+<div class="title">Metadados e tags ID3</div>
+<div class="layout">
+<section class="overview">
+<div class="total">14<span>×</span></div>
+<div class="total-label">arquivos de áudio<br>analisados</div>
+<p>7 MP3 para escuta e distribuição preliminar.<br>7 WAV como masters de alta resolução.</p>
+</section>
+<section class="compare">
+<div class="compare-row"><div class="format">MP3 <em>7 arquivos</em></div><p>Estéreo · 44,1 kHz · aproximadamente 320 kbps</p><div class="meter orange"></div></div>
+<div class="compare-row"><div class="format">WAV <em>7 arquivos</em></div><p>PCM 16-bit · estéreo · 44,1 kHz · aproximadamente 1.411 kbps</p><div class="meter black"></div></div>
+<div class="tagline"><strong>Tag consistente:</strong> <span style="color:#ff8c00">encoder=Lavf60.16.100</span></div>
+</section>
+<section class="findings">
+<h3>O que falta</h3>
+<div class="missing"><b>MP3</b><br>título · artista · álbum<br>número de faixa · ano<br>gênero · copyright · ISRC</div>
+<div class="missing"><b>WAV</b><br>sem tags ID3, como esperado<br>metadados editoriais não gravados</div>
+<div class="recommendation"><strong>Recomendação</strong><br>Preencher os dados em cópias de distribuição. Manter os masters originais imutáveis e versionados.</div>
+</section>
+</div>
+<div class="footer"><b>Fonte:</b> docs/audio-metadata-id3-2026-08-19.md · hashes SHA-256 registrados no JSON de auditoria</div>
+</div>
+</body>
+</html>

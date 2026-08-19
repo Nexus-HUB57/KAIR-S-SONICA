@@ -1,0 +1,111 @@
+{
+  "project_info": {
+    "title": "KAIR-S-SONICA",
+    "created": 1787142471.353,
+    "last_updated": 1787142824.562,
+    "total_slides": 9
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "executive_summary",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "git_cicd",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "inventory",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "technical_validation",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "id3_metadata",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "traceability",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "next_decisions",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "closing",
+      "state": "edited",
+      "pageNum": 9
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "KAIR-S-SONICA",
+      "summary": "Auditoria de mídias importadas e estado atual do repositório, com data e subtítulo de integridade técnica.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "executive_summary",
+      "title": "Resumo executivo",
+      "summary": "15 mídias novas, aproximadamente 219 MB, commit 51fa31e e branch sincronizada.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "git_cicd",
+      "title": "Estado Git e CI/CD",
+      "summary": "Linha do tempo dos commits, estado remoto e ausência de workflows automatizados.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "inventory",
+      "title": "Inventário importado",
+      "summary": "Organização das mídias por FIRE IN THE FLOOD, SIX NAMES, GOLDEN SCARS e vídeo vertical.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "technical_validation",
+      "title": "Validação técnica dos áudios",
+      "summary": "Formatos, sample rate, bitrate e durações verificadas por file e ffprobe.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "id3_metadata",
+      "title": "Metadados e tags ID3",
+      "summary": "14 arquivos analisados, tags editoriais ausentes e recomendação de cópias de distribuição.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "traceability",
+      "title": "Rastreabilidade e integridade",
+      "summary": "Manifestos, hashes SHA-256 e política de preservação sem sobrescrita.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "next_decisions",
+      "title": "Próximas decisões",
+      "summary": "CI/CD, hashes, metadados, formatos sociais e separação de commits.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "closing",
+      "title": "Pronto para a próxima camada de lançamento",
+      "summary": "Repositório sincronizado, mídia rastreável e integridade confirmada.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}

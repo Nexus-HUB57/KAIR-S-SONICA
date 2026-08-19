@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pronto para a próxima camada de lançamento</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0}
+.slide-container{width:1280px;min-height:720px;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;padding-top:48px;padding-left:64px;padding-right:64px;overflow:hidden}
+.kicker{font:700 14px/1 "Courier New",monospace;letter-spacing:2px;color:#ff8c00;text-transform:uppercase}
+.main{display:grid;grid-template-columns:1fr 310px;column-gap:46px;margin-top:20px;border-top:1px solid #000;padding-top:20px}
+.title{font-size:70px;line-height:.94;font-weight:900;letter-spacing:-4px;margin:0;max-width:720px}
+.statement{font:22px/1.4 "Courier New",monospace;color:#333;margin-top:32px;max-width:700px}
+.statement strong{font-family:Arial,Helvetica,sans-serif;color:#000}
+.seal{border-left:12px solid #ff8c00;padding-top:6px;padding-left:24px;min-height:190px}
+.seal .label{font:700 13px/1.2 "Courier New",monospace;color:#777;letter-spacing:1px;text-transform:uppercase}
+.seal .value{font-size:35px;line-height:1.02;font-weight:900;margin-top:16px}
+.seal .sub{font:14px/1.4 "Courier New",monospace;color:#333;margin-top:18px}
+.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px;border-top:1px solid #000;border-bottom:1px solid #000;padding-top:12px;padding-bottom:12px}
+.check{min-height:108px;border-top:4px solid #000;padding-top:10px}
+.check:nth-child(2){border-color:#ff8c00}.check:nth-child(3){border-color:#555}
+.check .mark{font-size:28px;line-height:1;font-weight:900;color:#ff8c00;float:right}
+.check h3{font-size:20px;line-height:1.05;margin:0 0 10px;font-weight:900}
+.check p{font:14px/1.42 "Courier New",monospace;color:#333;margin:0;clear:both}
+.next{margin-top:14px;display:grid;grid-template-columns:200px 1fr;column-gap:18px;border-top:4px solid #ff8c00;padding-top:12px}
+.next .label{font:700 13px/1.2 "Courier New",monospace;color:#ff8c00;letter-spacing:1px;text-transform:uppercase}
+.next .text{font-size:21px;line-height:1.25;font-weight:900}
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="kicker">08 / ENCERRAMENTO DA AUDITORIA</div>
+<div class="main">
+  <section>
+    <h1 class="title">Pronto para a<br>próxima camada<br>de lançamento.</h1>
+    <p class="statement"><strong>Repositório sincronizado.</strong><br>Mídia rastreável. Integridade técnica confirmada.</p>
+  </section>
+  <section class="seal">
+    <div class="label">Estado atual</div>
+    <div class="value">READY<br>FOR NEXT</div>
+    <!-- removed sub-level technical detail to reduce overall height -->
+    <div class="checks">
+      <div class="check"><div class="mark">✓</div><h3>Importação</h3><p>15 mídias incorporadas sem sobrescrita.</p></div>
+      <div class="check"><div class="mark">✓</div><h3>Auditoria</h3><p>Hashes, formatos e metadados registrados.</p></div>
+      <div class="check"><div class="mark">→</div><h3>Próximo ciclo</h3><p>CI/CD mínimo e pacote de distribuição.</p></div>
+    </div>
+    <div class="next">
+      <div class="label">Próximo marco</div>
+      <div class="text">Automatizar a validação e transformar o catálogo em entrega repetível para a turnê inicial.</div>
+    </div>
+  </section>
+</div>
+</div>
+</body>
+</html>
