@@ -112,6 +112,24 @@ Nenhum desses arquivos é faixa oficialmente lançada. O status de promoção de
 
 O vídeo acima foi confirmado por hash SHA-256 idêntico ao arquivo enviado para fixação e permanece a **referência única e fixa** que todo teaser e clipe MP4 deve seguir: vertical 720x1280 a 24 fps, 8 segundos, sujeito centralizado no terço vertical, push-in contínuo com hard cuts no downbeat, chiaroscuro com pretos densos e ausência de texto ou logo sobrepostos. A análise completa do padrão está em [`docs/ktd-approved-video-pattern-analysis.md`](ktd-approved-video-pattern-analysis.md) e as restrições de não repetição por faixa em [`docs/visual-nonrepetition-inventory.md`](visual-nonrepetition-inventory.md). A cópia promocional `assets/video/promos/golden-scars-v1-frame-the-whole-picture.mp4` possui o mesmo hash e continua reservada como peça de GOLDEN SCARS; o arquivo aprovado em `ktd-approved` permanece o cânone de desenvolvimento.
 
+## Vídeos — status de todos os MP4 do repositório
+
+Esta tabela existe para eliminar divergências entre materiais aprovados e não aprovados. Nenhum arquivo listado como reprovado deve ser promovido, divulgado ou usado como insumo de novos materiais; a preservação serve à auditoria das decisões editoriais.
+
+| Estado | Ativo | Função |
+| --- | --- | --- |
+| Oficial / referência fixa | `assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4` | Cânone obrigatório de desenvolvimento de todos os materiais MP4 |
+| Oficial / peça da faixa | `assets/video/promos/golden-scars-v1-frame-the-whole-picture.mp4` | Mesmo hash do cânone; peça promocional de GOLDEN SCARS |
+| Aprovado em workflow (mux) | `assets/video/promos/tiktok/fire-in-the-flood-ktd-approved-dynamic-8s.mp4` | Teaser aprovado com a master mix-v4 |
+| Oficial / teaser | `assets/video/promos/fire-in-the-flood-v4-teaser-8s-vertical.mp4` | Teaser de FIRE IN THE FLOOD alinhado à mix v4 |
+| Candidato | `assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4` | Versão TikTok da faixa principal |
+| Candidato | `assets/video/promos/tiktok/six-names-ktd-teaser-v2-8s.mp4` | Teaser v2 de SIX NAMES com a master pre-release-v2 aprovada |
+| Candidato | `assets/video/promos/tiktok/six-names-ktd-procedural-revision-v1.mp4` | Revisão v1 do teaser de SIX NAMES |
+| Candidato técnico | `assets/video/promos/tiktok/six-names-hybrid-procedural-8s-validation.mp4` | Validação procedural híbrida |
+| **Reprovado** | `assets/video/promos/unleash-the-dragon-full-music-video-v1.mp4` | Clipe v1 reprovado em 2026-08-19 (slides estáticos, não contínuos); produção v2 em andamento (vide `docs/unleash-the-dragon-music-video-v2-full-script.md`) |
+| **Reprovado** | `assets/video/promos/unleash-the-dragon-teaser-v1-8s.mp4` | Teaser v1 reprovado junto ao clipe v1 |
+| Candidato — em geração | `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4` | Clipe real 1 (camarote) gerado e em revisão; clipes 2 e 3 serão gerados no reset do limite diário de vídeo |
+
 ## Documentação de suporte
 
 | Área | Documento |
