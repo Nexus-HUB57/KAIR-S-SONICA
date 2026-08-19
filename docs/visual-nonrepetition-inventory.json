@@ -1,0 +1,222 @@
+{
+  "generated_at_utc": "2026-08-19T13:14:18.287690+00:00",
+  "algorithm": "SHA-256",
+  "scope": "assets visual e vídeos do catálogo KAIR-S-SONICA",
+  "files": [
+    {
+      "path": "assets/persona/artista-principal-diamante.png",
+      "extension": "png",
+      "bytes": 5234380,
+      "sha256": "4ee921580b9705d9ad60801bca46260fca9ef964aabe2c6bf6ee79d96aa6f39f",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/persona/kairos-persona.png",
+      "extension": "png",
+      "bytes": 4683697,
+      "sha256": "6fef9417fe89112d342645588621eceee4df16975488c281df545cf465ee49cf",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/persona/ktd-expression-rooftop.png",
+      "extension": "png",
+      "bytes": 4578473,
+      "sha256": "9da51852d389529a91efa933e950924485329e17894d30d6bbdfc3925b78062e",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/persona/ktd-expression-stage.png",
+      "extension": "png",
+      "bytes": 4892923,
+      "sha256": "c8ebf8cf918329e998282bae69b59491e0ce8c7b0a73d6c3465667359376a8db",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/persona/ktd-expression-street.png",
+      "extension": "png",
+      "bytes": 5364916,
+      "sha256": "49ad4abb548675e2ae012e68a86b65de612a8996765c282d7952b2f2902b9f0f",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/persona/ktd-expression-studio.png",
+      "extension": "png",
+      "bytes": 5290814,
+      "sha256": "cf4e1d2c5c931a38c04905cf442965d99c7aa090947a59029abcb1cbaf86287f",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/persona/ktd-physical-turnaround-sheet.png",
+      "extension": "png",
+      "bytes": 4102692,
+      "sha256": "1310e0d18b80e0914c5fa607cc5c727d0bb7b76215416024c932e7442e92175f",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/persona/ktd-visual-master.png",
+      "extension": "png",
+      "bytes": 4726326,
+      "sha256": "741e8eaaa78cd7bc9a607b89eca7c3081e9f94e3f515a83405f5798a736f74bd",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/references/audio-hud.jpg",
+      "extension": "jpg",
+      "bytes": 95063,
+      "sha256": "d78063b5a1977178853a100d6c22f77ed5dd25af976e0f5b333475f77556349d",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/references/control-room.webp",
+      "extension": "webp",
+      "bytes": 208248,
+      "sha256": "6924a93fb88932188f98b77c0683f09706ae79ebb152cc57dd0c1e79f38bdaf7",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/references/frequency-analysis.png",
+      "extension": "png",
+      "bytes": 644316,
+      "sha256": "74b8e33f42756731a5d150dbdee9f7ec418010663b4a672c43d4cd9fc1ba1e9d",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/video/promos/fire-in-the-flood-v4-teaser-8s-vertical.mp4",
+      "extension": "mp4",
+      "bytes": 2320336,
+      "sha256": "b6b67328237a0ff9bc67d843201755ea94a1ba99c9fefeb0c2d672493ab20541",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/video/promos/golden-scars-v1-frame-the-whole-picture.mp4",
+      "extension": "mp4",
+      "bytes": 2241859,
+      "sha256": "0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a",
+      "category": "GOLDEN_SCARS",
+      "status": "reserved"
+    },
+    {
+      "path": "assets/video/promos/tiktok/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
+      "extension": "mp4",
+      "bytes": 2246882,
+      "sha256": "7a25ddeadda187b4cfdfb595d8b847ad2d9fa56740946de9b3844920b69c636b",
+      "category": "GOLDEN_SCARS",
+      "status": "reserved"
+    },
+    {
+      "path": "assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4",
+      "extension": "mp4",
+      "bytes": 2323417,
+      "sha256": "604c4427509c25cb79a8ff5a0749ebb7574e2f4f34a9d99249b6d8d84af51199",
+      "category": "UNASSIGNED",
+      "status": "unassigned"
+    },
+    {
+      "path": "assets/video/promos/tour/initial-tour-01-reference.png",
+      "extension": "png",
+      "bytes": 5221376,
+      "sha256": "24267f7b40dde7bb9839e4157068ee6e3e051917f02fc01c1d55a46f573ab06d",
+      "category": "GOLDEN_SCARS",
+      "status": "reserved"
+    },
+    {
+      "path": "assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4",
+      "extension": "mp4",
+      "bytes": 2241859,
+      "sha256": "0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a",
+      "category": "GOLDEN_SCARS",
+      "status": "reserved"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-lyrics-reference.png",
+      "extension": "png",
+      "bytes": 4907782,
+      "sha256": "89ffe68fd3e719f733d7091e4a8691df283a926e4fffa4e7f7eda7e6e434ccc3",
+      "category": "UNLEASH_THE_DRAGON",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-candle-hand.png",
+      "extension": "png",
+      "bytes": 4479866,
+      "sha256": "c0f591cdc5b291d0dcde39ad6262c01f528ceffdf475c54307d8b01cf48e6282",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-hands-together.png",
+      "extension": "png",
+      "bytes": 4586111,
+      "sha256": "8575705f18e40fee789e235629f024979fed8de06764365d83327877c7f19c3d",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-lyrics-reference.png",
+      "extension": "png",
+      "bytes": 4206172,
+      "sha256": "5c2a8fa621fe1be91ff8659d5b71f8758d5a518e7c937ceb66238db94db86439",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-six-plates.png",
+      "extension": "png",
+      "bytes": 5221742,
+      "sha256": "dd7c397cd93d444ed2234860d4d40c405d5fed343d9d9ab8908b758bf2bdf98c",
+      "category": "SIX_NAMES",
+      "status": "exclusive"
+    }
+  ],
+  "rules": {
+    "GOLDEN_SCARS": {
+      "status": "reserved",
+      "blocked_for": [
+        "UNLEASH_THE_DRAGON",
+        "SIX_NAMES"
+      ],
+      "restrictions": [
+        "Não reutilizar corredor industrial, rua chuvosa, porta metálica ou sujeito central.",
+        "Não reutilizar brilho azul nos olhos ou paleta cinza/preto/azul metálico.",
+        "Não reutilizar a mesma composição, enquadramento ou movimento do MP4 aprovado."
+      ]
+    },
+    "UNLEASH_THE_DRAGON": {
+      "status": "exclusive",
+      "allowed_for": [
+        "UNLEASH_THE_DRAGON"
+      ],
+      "restrictions": [
+        "Usar bastidor, porta de acesso ao palco, cabos, microfone, tênis e luz vermelho-âmbar.",
+        "Não usar seis pratos, mesa doméstica, vela familiar ou chuva industrial."
+      ]
+    },
+    "SIX_NAMES": {
+      "status": "exclusive",
+      "allowed_for": [
+        "SIX_NAMES"
+      ],
+      "restrictions": [
+        "Usar mesa doméstica, seis pratos, vela, mãos e memória familiar.",
+        "Não usar palco, porta metálica, corredor industrial, água, chuva ou olhos azuis."
+      ]
+    }
+  },
+  "limitations": [
+    "SHA-256 detecta duplicatas binárias exatas; não substitui revisão perceptual de imagens semelhantes.",
+    "Qualquer novo ativo deve ser classificado antes de entrar em um vídeo.",
+    "Arquivos UNASSIGNED exigem decisão editorial antes do uso em qualquer faixa."
+  ]
+}
