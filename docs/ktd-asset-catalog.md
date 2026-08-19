@@ -69,6 +69,25 @@ Toda imagem nova deve preservar heterocromia, cabeça raspada, barba, riscos dou
 | Documento | `docs/ktd-debut-single-lyrics.md` | Letra original e direção de performance |
 | Documento | `docs/ktd-debut-single-production.md` | Registro técnico, DSP e status |
 | Script | `scripts/render_ktd_debut_single.py` | Render reproduzível da prova |
+| Reprovado — histórico | `assets/video/promos/unleash-the-dragon-full-music-video-v1.mp4` | Clipe de slides de imagens estáticas reprovado humanamente (2026-08-19); produção v2 em andamento com vídeo real contínuo |
+
+## Segundo single — SIX NAMES
+
+| Estado | Ativo | Função |
+| --- | --- | --- |
+| **Aprovado humanamente em definitivo** | `assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-pre-release-v2.wav` | Master oficial definitiva (165,198 s, 96 BPM) — aprovado em 2026-08-19 |
+| **Aprovado humanamente em definitivo** | `assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-pre-release-v2.mp3` | Escuta MP3 da master definitiva |
+| Histórico não aprovado | `assets/audio/releases/ktd-second-single-six-names-original-proof-v1.wav` | Prova original v1 (159,713 s) |
+| Histórico não aprovado | `assets/audio/releases/ktd-second-single-six-names-v1-pre-release-master-v1.wav` | Master pré-release v1 |
+| Histórico não aprovado | `assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-proof-v2.wav` | Prova v2 anterior (hash difere da master definitiva) |
+
+## Terceiro single — GOLDEN SCARS
+
+| Estado | Ativo | Função |
+| --- | --- | --- |
+| **Aprovado humanamente em definitivo** | `assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1.wav` | Master oficial definitiva (116,062 s) — aprovado em 2026-08-19 |
+| **Aprovado humanamente em definitivo** | `assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1.mp3` | Escuta MP3 da master definitiva |
+| Histórico não aprovado | `assets/audio/releases/ktd-third-single-golden-scars-trend-proof-v3.wav` | Prova v3 anterior (hash difere da master definitiva) |
 
 ## Mixes candidatos com voz oficial
 
