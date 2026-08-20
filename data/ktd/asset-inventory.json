@@ -377,6 +377,26 @@
       "duration_seconds": 168.0
     },
     {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-pre-release-v4.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6722917,
+      "sha256": "29c97dc68f487d945c6d0de02a88988ac41bd8fe3a9f56efaea6f743ab9ca208",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.045714
+    },
+    {
+      "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-pre-release-v4.wav",
+      "category": "candidate_audio_release",
+      "bytes": 29635278,
+      "sha256": "a8668295687effed989121e58cead63fa00d951aff9a8335ff2065f0edd44229",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 168.0
+    },
+    {
       "path": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-vocal-isolated-stem-v1.wav",
       "category": "candidate_audio_source",
       "bytes": 29635244,
@@ -445,6 +465,126 @@
       "sample_rate": 44100,
       "channels": 2,
       "duration_seconds": 137.717506
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-original-proof-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6390640,
+      "sha256": "32ba936b4f2c65736aaf3aa9b910f7193c75258f1fc708af9a57e7f03aad4a93",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 159.738776
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-original-proof-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 28173390,
+      "sha256": "67f4db196c6f135a57b4f2180a25259179c918462bc5ae7c6a1f31f9bad54ada",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 159.712653
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-pre-release-v2.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6610068,
+      "sha256": "ffa5aa9198cd7d19f2323fa4c3d5f2a30fb8e5cae9e90aadad2f0779996b1751",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 165.22449
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-pre-release-v2.wav",
+      "category": "candidate_audio_release",
+      "bytes": 29141070,
+      "sha256": "4f0b53930b29361ba23c765a4f6df3a22f684918335d3568df7cd5eb329408d5",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 165.198367
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-proof-v2.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6610068,
+      "sha256": "8ad137de757e91d8b6b1e44ec5c58d42a1f57b59b9c49e1a80d9b3d73a5125c2",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 165.22449
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-proof-v2.wav",
+      "category": "candidate_audio_release",
+      "bytes": 29141070,
+      "sha256": "520de54a89f1fef5b9ceb8e057fc45fd8d479c819a86731e4f3bca4f5e468a17",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 165.198367
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-v1-pre-release-master-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 6390640,
+      "sha256": "96abaf4faba03006a43e7bac5fc0418e06a6ea9536154b7221eacdc3cfa84ca1",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 159.738776
+    },
+    {
+      "path": "assets/audio/releases/ktd-second-single-six-names-v1-pre-release-master-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 28173390,
+      "sha256": "41353645a137a2fd483523f06118532f1dc9fbb5f794c96a9957ab34200e1a5e",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 159.712653
+    },
+    {
+      "path": "assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 4644615,
+      "sha256": "eed1257ee42cff1ec5ec507b709eda2eaa1b5c92977ad76b2820ce33d2242230",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 116.088163
+    },
+    {
+      "path": "assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1.wav",
+      "category": "candidate_audio_release",
+      "bytes": 20473422,
+      "sha256": "8ff81301c8728e35ba228084825b3ee5c8c5d64f6a2ba5a8131e84dd1df617b8",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 116.062041
+    },
+    {
+      "path": "assets/audio/releases/ktd-third-single-golden-scars-trend-proof-v3.mp3",
+      "category": "candidate_audio_release",
+      "bytes": 4644615,
+      "sha256": "c323daed5aea4341c56a21291f7d9f786998cb8fb1ecbef0c0a37a30243654ef",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 116.088163
+    },
+    {
+      "path": "assets/audio/releases/ktd-third-single-golden-scars-trend-proof-v3.wav",
+      "category": "candidate_audio_release",
+      "bytes": 20473422,
+      "sha256": "abe53d2aae8b2f2ebb4de6baa722ee07ecb903b43d99cff72592995ff1b0e195",
+      "codec": "pcm_s16le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 116.062041
     },
     {
       "path": "assets/audio/trials/ktd-boom-bap-trial-route-1-mix-v2.wav",
