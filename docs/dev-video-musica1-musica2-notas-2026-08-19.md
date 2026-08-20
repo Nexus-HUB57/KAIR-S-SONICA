@@ -53,3 +53,11 @@ O usuário enviou `/home/ubuntu/upload/1e81d8d0-9b6e-11f1-aa68-2f087827a151.mp4`
   12. song1-fullmv-scene-f1-final-perf.png (KTD de braços abertos na luz principal) — EXCELENTE
 - Keyframes do teaser v1 reutilizáveis (docs do roteiro: A1..F2 usa as 12 novas + as 5 do teaser: door-to-stage, shoes-cables, mic-grip, stage-lights, ktd-performance).
 - Próximo passo: criar scripts/render_ktd_full_video.py (adaptar render_ktd_six_names_hybrid.py; grade por BPM, fade final a preto no bloco F2), renderar, muxar, verificar 150,000 s, comitar e entregar. Output planejado: assets/video/promos/unleash-the-dragon-full-music-video-v1.mp4 + doc de revisão.
+
+## Tarefa atual (2026-08-19 ~19:45): clipe 1 real v2 = 10 s com trecho mais inspirador do áudio
+- Áudio de trabalho: assets/audio/releases/ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.wav (150 s, 102 BPM; NÃO é o definitivo — faixa sem áudio aprovado; mux = preview técnico pendente de aprovação).
+- Janela escolhida (RMS máx + hook mais inspirador): 28,500–38,500 s ("A hard truth rising when the soft words die... Kairos on the pulse... Every scar is a charge, every bar is a bid"). Alternativas: 60–70 s (double-time) e 135–150 s (fecho). Doc: docs/unleash-the-dragon-clip1-10s-audio-segment.md.
+- Clipe existente 8s: assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4 (camarote, já comitado, commit c53643b).
+- Plano: gerar NOVO clipe de 10 s (gemini-omni-flash-preview, portrait, 720p, 10 s, sem áudio, first frame = assets/video/references/lyrics/song1-fullmv-scene-a1-dressing-room.png) com nome assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s.mp4, muxar trecho 28,5–38,5 s com fade-out 0,5 s via ffmpeg, verificar ffprobe, comitar (adição segura), entregar.
+- ATENÇÃO: limite diário de geração de vídeo do plano gratuito = 1/dia. Hoje já foi usado 1 (o de 8 s). Se o call falhar por limite, relatar ao usuário.
+- Repositório remoto atualizado: últimos commits c53643b (clipe real 1), be26b72 (plano v2), 72da101 (aprovações áudios), ae2bb1d (clipe slides v1). Nunca force-push; pull --ff-only antes de commit.
