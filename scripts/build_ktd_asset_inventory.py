@@ -9,7 +9,7 @@ from PIL import Image, UnidentifiedImageError
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "ktd" / "asset-inventory.json"
-DIRECTORIES = [ROOT / "assets" / "persona", ROOT / "assets" / "audio"]
+DIRECTORIES = [ROOT / "assets" / "persona", ROOT / "assets" / "audio", ROOT / "assets" / "images"]
 
 
 def sha256(path: Path) -> str:

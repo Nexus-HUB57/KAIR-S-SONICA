@@ -615,6 +615,33 @@
       "sample_rate": 44100,
       "channels": 2,
       "duration_seconds": 117.36
+    },
+    {
+      "path": "assets/images/six-names-lyric-card-01.png",
+      "category": "historical_or_supporting",
+      "bytes": 4083623,
+      "sha256": "5057bcaa44c2142614ea6027c2ff250e00ce9bd6cf338c10f7fbbbe57b0d38d6",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/images/six-names-lyric-card-02.png",
+      "category": "historical_or_supporting",
+      "bytes": 4133664,
+      "sha256": "24238811185c71b6f3fe37942dffb5c9eada2b4d90ca774d07f3d4a7d354fe31",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/images/six-names-official-cover.png",
+      "category": "historical_or_supporting",
+      "bytes": 4098834,
+      "sha256": "1f7db9f44938526f28748e9fd501cd63fec0b1c71bf6027fb9b8dd990f6f7bd4",
+      "width": 1920,
+      "height": 1920,
+      "format": "PNG"
     }
   ]
 }
