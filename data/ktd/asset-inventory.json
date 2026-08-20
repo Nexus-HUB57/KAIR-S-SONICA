@@ -690,6 +690,408 @@
       "width": 1920,
       "height": 1920,
       "format": "PNG"
+    },
+    {
+      "path": "assets/video/promos/fire-in-the-flood-v4-teaser-8s-vertical.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2320336,
+      "sha256": "b6b67328237a0ff9bc67d843201755ea94a1ba99c9fefeb0c2d672493ab20541",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/golden-scars-v1-frame-the-whole-picture.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2241859,
+      "sha256": "0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/six-names-ktd-clip-table-candles-10s-with-audio.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 3469285,
+      "sha256": "c206f9c928ae4edd350034094fd7afbddeecd3539777642d54d222c6b3e974d4",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 10.0
+    },
+    {
+      "path": "assets/video/promos/six-names-ktd-clip-table-candles-10s.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2627806,
+      "sha256": "f8cfcadd6671867984d715e6fbbd2db24d644fe624d85c9b56fe5118750947e0",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 10.005
+    },
+    {
+      "path": "assets/video/promos/tiktok/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2246882,
+      "sha256": "7a25ddeadda187b4cfdfb595d8b847ad2d9fa56740946de9b3844920b69c636b",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2323417,
+      "sha256": "604c4427509c25cb79a8ff5a0749ebb7574e2f4f34a9d99249b6d8d84af51199",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-hybrid-procedural-8s-validation.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 3342178,
+      "sha256": "740494abeb6d623508a238fc6004f5273ba66da9135889d2e1d38b5f0f1d5238",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-procedural-revision-v1.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2852174,
+      "sha256": "6bf09a19869c425e2324fceec29d67d5d47de962f93538755fdd2dfeebd2ad23",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-01-table-performance.png",
+      "category": "historical_or_supporting",
+      "bytes": 4461792,
+      "sha256": "2c3095525c2160cf7fdf7d909f42fc858b7c42650c727048373262fc852b3d25",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-02-candle-memory.png",
+      "category": "historical_or_supporting",
+      "bytes": 4202051,
+      "sha256": "69cbf2510ee885dc089afa5f5f874b1ec293a133b0c051c25a8f903ab8e1cc45",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-03-shared-meal.png",
+      "category": "historical_or_supporting",
+      "bytes": 5061043,
+      "sha256": "09b9a07641169c225a7a9a60a60b9f7033d56174711e2d5d3598df9dc654b7fb",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-shot-04-six-lights.png",
+      "category": "historical_or_supporting",
+      "bytes": 4718272,
+      "sha256": "c691279dce65bbfc760b708a62e2f391b0a5cf3220dc010783e2eb646a4e0e28",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/promos/tiktok/six-names-ktd-teaser-v2-8s.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2852986,
+      "sha256": "b175c36690207c7fd9cdab6002014ded87dfda93a314b78c2c2736a496c7d52d",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/tour/initial-tour-01-reference.png",
+      "category": "historical_or_supporting",
+      "bytes": 5221376,
+      "sha256": "24267f7b40dde7bb9839e4157068ee6e3e051917f02fc01c1d55a46f573ab06d",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/promos/unleash-the-dragon-full-music-video-v1.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 67217242,
+      "sha256": "222828d477f27a09d549781f3a5c6cd4ae53c9ee14cce7dd3a37ac36cae860a9",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 150.0
+    },
+    {
+      "path": "assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s-with-audio.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 3833854,
+      "sha256": "1b518db13ca7eba75a9dcdc365bfa4c2d975278a922b59471f67877439b8eeed",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 10.0
+    },
+    {
+      "path": "assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2634004,
+      "sha256": "554b19e9c93513e2064db6407633aaf8b0145389307103f275a7f62de05c1bc3",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 10.005
+    },
+    {
+      "path": "assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2075228,
+      "sha256": "32d15018193f887039768dc7cccf0b2658cd7a3b3d621fc01845393b264c310e",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/promos/unleash-the-dragon-teaser-v1-8s.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 4449984,
+      "sha256": "b46f1dc185b68a6cae13cc418b7d6ec86307b619d1451a8b89fa049456d10898",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/references/ktd-approved/golden-scars-v1-frame-the-whole-picture-approved.mp4",
+      "category": "historical_or_supporting",
+      "bytes": 2241859,
+      "sha256": "0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a",
+      "width": 720,
+      "height": 1280,
+      "codec": "h264",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-a1-dressing-room.png",
+      "category": "historical_or_supporting",
+      "bytes": 5109059,
+      "sha256": "ba7b77f2d05d5a2224ba517078ca4619ba4a3a0c37c3592a35fd2fb3eed54adc",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-a2-backstage-wall.png",
+      "category": "historical_or_supporting",
+      "bytes": 4926689,
+      "sha256": "794a6ea37d6d839e02beee8733f608683eb659237998b7a7cccdee2f7865df0f",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-b1-pick-grip.png",
+      "category": "historical_or_supporting",
+      "bytes": 4669094,
+      "sha256": "d19f6ef73c740cafa236e061dc33ebc2138760889f6a1983955c2d6231b40721",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-c1-back-shot.png",
+      "category": "historical_or_supporting",
+      "bytes": 4454811,
+      "sha256": "6d50ef99f557d1a6154399319eb9c6719aa50c611e7f61ec093034839d371daa",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-c2-face-close.png",
+      "category": "historical_or_supporting",
+      "bytes": 5446724,
+      "sha256": "66839e402db0a9359b26c0a70fc90f09ee607cc1a70be30096ebbbc8df5396c4",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-c3-hook-perf.png",
+      "category": "historical_or_supporting",
+      "bytes": 4853599,
+      "sha256": "480cba029a67ac277edfaf1464b69278f516227d1403e42babd6947457e95fb5",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-d1-amp-work.png",
+      "category": "historical_or_supporting",
+      "bytes": 4748011,
+      "sha256": "c1ee92bc7ca87de00982c699ac58a15befbc1ab42f40d3016dbd4f855b0b226b",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-d2-family-arms.png",
+      "category": "historical_or_supporting",
+      "bytes": 4372617,
+      "sha256": "4603408d72aadb5042139e1d3ffa7bcf22ba1715990b26e5392ca08529d860b2",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-e1-stage-edge.png",
+      "category": "historical_or_supporting",
+      "bytes": 4569576,
+      "sha256": "2921b49a315629838551f2463ac1fc93ebde7fb4f179c13d391d5f30668e84be",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-e2-crowd-silhouettes.png",
+      "category": "historical_or_supporting",
+      "bytes": 4457873,
+      "sha256": "eb31e64f895539a37930e0d8b89024dc7e80d7388000e6400f972cac321ff46e",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-f1-final-perf.png",
+      "category": "historical_or_supporting",
+      "bytes": 4955068,
+      "sha256": "8d497250758ca18e13994bf24852af2a24dae42c16bf1873d1a003fa4dfcbd91",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-fullmv-scene-f2-solo-mic.png",
+      "category": "historical_or_supporting",
+      "bytes": 4339192,
+      "sha256": "977ca6bd63a095506bc51d11e06463ef9d635a6c8d42cd2872e53b929cf81d8a",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png",
+      "category": "historical_or_supporting",
+      "bytes": 4995696,
+      "sha256": "071b7c556ccc34b40359c34f94f7815a618c6775b2d569576efdeb1a79f7a408",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-ktd-performance.png",
+      "category": "historical_or_supporting",
+      "bytes": 4879049,
+      "sha256": "ef25c595603bd5558d16ef5857f4ad7ce30c0d26f6e4e4a0709368e8176f1b57",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-lyrics-reference.png",
+      "category": "historical_or_supporting",
+      "bytes": 4907782,
+      "sha256": "89ffe68fd3e719f733d7091e4a8691df283a926e4fffa4e7f7eda7e6e434ccc3",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-mic-grip.png",
+      "category": "historical_or_supporting",
+      "bytes": 4937691,
+      "sha256": "a2162482a9a128173bad3cdb132c83317c63f47f2c0d9ab784f3ad9e6b459f90",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-shoes-cables.png",
+      "category": "historical_or_supporting",
+      "bytes": 4534996,
+      "sha256": "7ce8ef8f3188ec7d69df7497a5c4deffc36175bff6d0bafb43fa56fd1daf9270",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song1-unleash-the-dragon-stage-lights.png",
+      "category": "historical_or_supporting",
+      "bytes": 4664782,
+      "sha256": "6c74de11652174525c7c70155610529c99b87f9ba03a923f99c8e3c8c21efb48",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-candle-hand.png",
+      "category": "historical_or_supporting",
+      "bytes": 4479866,
+      "sha256": "c0f591cdc5b291d0dcde39ad6262c01f528ceffdf475c54307d8b01cf48e6282",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-hands-together.png",
+      "category": "historical_or_supporting",
+      "bytes": 4586111,
+      "sha256": "8575705f18e40fee789e235629f024979fed8de06764365d83327877c7f19c3d",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-lyrics-reference.png",
+      "category": "historical_or_supporting",
+      "bytes": 4206172,
+      "sha256": "5c2a8fa621fe1be91ff8659d5b71f8758d5a518e7c937ceb66238db94db86439",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-six-plates.png",
+      "category": "historical_or_supporting",
+      "bytes": 5221742,
+      "sha256": "dd7c397cd93d444ed2234860d4d40c405d5fed343d9d9ab8908b758bf2bdf98c",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/video/references/lyrics/song2-six-names-table-candles-v2.png",
+      "category": "historical_or_supporting",
+      "bytes": 4035824,
+      "sha256": "f4a58db3fa55f924a37f7f0b84427d16f2f8da07b10dcc09316007f35a1ffee6",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
     }
   ]
 }

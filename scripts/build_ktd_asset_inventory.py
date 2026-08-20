@@ -9,7 +9,7 @@ from PIL import Image, UnidentifiedImageError
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "ktd" / "asset-inventory.json"
-DIRECTORIES = [ROOT / "assets" / "persona", ROOT / "assets" / "audio", ROOT / "assets" / "images"]
+DIRECTORIES = [ROOT / "assets" / "persona", ROOT / "assets" / "audio", ROOT / "assets" / "images", ROOT / "assets" / "video"]
 
 
 def sha256(path: Path) -> str:
@@ -50,6 +50,36 @@ def audio_metadata(path: Path) -> dict[str, object]:
             "codec": stream.get("codec_name"),
             "sample_rate": int(stream["sample_rate"]) if stream.get("sample_rate") else None,
             "channels": int(stream["channels"]) if stream.get("channels") else None,
+        }
+        if format_data.get("duration"):
+            result["duration_seconds"] = round(float(format_data["duration"]), 6)
+        return result
+    except (OSError, subprocess.SubprocessError, ValueError, json.JSONDecodeError, KeyError, TypeError):
+        return {}
+
+
+def video_metadata(path: Path) -> dict[str, object]:
+    command = [
+        "ffprobe",
+        "-v",
+        "error",
+        "-show_entries",
+        "format=duration",
+        "-show_entries",
+        "stream=width,height,codec_name",
+        "-of",
+        "json",
+        str(path),
+    ]
+    try:
+        payload = json.loads(subprocess.check_output(command, text=True))
+        streams = payload.get("streams", [])
+        stream = streams[0] if streams else {}
+        format_data = payload.get("format", {})
+        result: dict[str, object] = {
+            "width": stream.get("width"),
+            "height": stream.get("height"),
+            "codec": stream.get("codec_name"),
         }
         if format_data.get("duration"):
             result["duration_seconds"] = round(float(format_data["duration"]), 6)
@@ -109,6 +139,8 @@ def main() -> None:
                 record.update(image_metadata(path))
             elif path.suffix.lower() in {".wav", ".mp3", ".flac", ".m4a"}:
                 record.update(audio_metadata(path))
+            elif path.suffix.lower() in {".mp4", ".mov", ".avi", ".mkv"}:
+                record.update(video_metadata(path))
             records.append(record)
     output = {
         "schema_version": "1.0.0",
