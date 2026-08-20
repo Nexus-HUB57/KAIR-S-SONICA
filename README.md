@@ -43,6 +43,12 @@ A master oficial de distribuição aprovada tecnicamente pelo DJ Káiros é [`as
 
 As provas `official-vocal-arrangement-proof-v1.mp3/.wav` foram **reprovadas humanamente** como mixes e permanecem no repositório apenas para auditoria histórica; a melodia V1 continua congelada como decisão artística, não como aprovação daquela mix. A tentativa `v1-rebeat-v1.mp3/.wav` também permanece histórica e reprovada. O beat reference-fit de 136 BPM e suas mixes anteriores não são usados pela versão promovida. **Nenhuma melodia, letra ou hook aprovados foi alterado.**
 
+### Videoclipe dinâmico de Fire in the Flood
+
+A direção atual do videoclipe segue exclusivamente o modelo vivo aprovado nos reels de lançamento: atuação contínua de KTD, câmera em movimento, cenários reativos, chuva, água, vapor, fogo, luzes e montagem narrativa. A versão baseada em imagens estáticas é histórica e não é a autoridade criativa.
+
+A decupagem oficial de 168 segundos está em [`docs/ktd-fire-in-the-flood-10s-scene-script-v1.md`](docs/ktd-fire-in-the-flood-10s-scene-script-v1.md), organizada em 16 cenas de 10 segundos mais um encerramento de 8 segundos. O manifest de produção está em [`data/releases/fire-in-the-flood-10s-scene-manifest-v1.json`](data/releases/fire-in-the-flood-10s-scene-manifest-v1.json), e a fila de prompts para geração posterior está em [`data/releases/fire-in-the-flood-10s-generation-queue-v1.json`](data/releases/fire-in-the-flood-10s-generation-queue-v1.json). O pipeline de montagem/mux com a master v4 é [`scripts/assemble_fire_in_the_flood_10s.py`](scripts/assemble_fire_in_the_flood_10s.py); o estado de geração desacoplada está documentado em [`docs/ktd-fire-in-the-flood-background-generation.md`](docs/ktd-fire-in-the-flood-background-generation.md).
+
 ## Pacote profissional de lançamento de KTD
 
 A referência histórica original foi preservada integralmente em [`Artistics_References_KTD`](Artistics_References_KTD). O manifesto de criação está em [`docs/ktd-creation-manifesto.md`](docs/ktd-creation-manifesto.md) e a apresentação profissional, em formato de press kit, está em [`docs/ktd-professional-presentation.md`](docs/ktd-professional-presentation.md). Esses documentos preservam a história de origem, a transformação do crime e da violência em disciplina, a responsabilidade com seis irmãos, a fé, o ativismo, a filantropia, a identidade visual e a relação entre KTD e Káiros, com linguagem editorial mais clara e profissional.
