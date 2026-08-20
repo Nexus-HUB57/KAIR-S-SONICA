@@ -128,7 +128,9 @@ Esta tabela existe para eliminar divergências entre materiais aprovados e não 
 | Candidato técnico | `assets/video/promos/tiktok/six-names-hybrid-procedural-8s-validation.mp4` | Validação procedural híbrida |
 | **Reprovado** | `assets/video/promos/unleash-the-dragon-full-music-video-v1.mp4` | Clipe v1 reprovado em 2026-08-19 (slides estáticos, não contínuos); produção v2 em andamento (vide `docs/unleash-the-dragon-music-video-v2-full-script.md`) |
 | **Reprovado** | `assets/video/promos/unleash-the-dragon-teaser-v1-8s.mp4` | Teaser v1 reprovado junto ao clipe v1 |
-| Candidato — em geração | `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4` | Clipe real 1 (camarote) gerado e em revisão; clipes 2 e 3 serão gerados no reset do limite diário de vídeo |
+| Histórico de workflow | `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4` | Clipe real 1 de 8 s (camarote); substituído pela versão 10 s |
+| **Aprovado em workflow (mux definitiva do clipe 1)** | `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s-with-audio.mp4` | Versão final de 10 s do camarote com o trecho 28,5–38,5 s do proof-v1 muxado (aprovação editorial 2026-08-19) |
+| Aprovado em workflow (mídia sem mux) | `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s.mp4` | Versão silenciosa de 10 s do camarote; clipes 2 e 3 serão gerados no reset do limite diário de vídeo |
 
 ## Documentação de suporte
 

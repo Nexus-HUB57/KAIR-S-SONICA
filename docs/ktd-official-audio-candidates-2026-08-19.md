@@ -54,3 +54,7 @@ O **vídeo de referência oficial fixa** também foi reconfirmado: `assets/video
 ### Regra processual adotada
 
 A partir desta data, **nenhum material novo (vídeo, teaser ou muxagem) é desenvolvido sem aprovação explícita prévia do usuário** para cada insumo (áudio, keyframe ou clipe), conforme instrução editorial.
+
+## DECISÃO EDITORIAL COMPLEMENTAR — LIBERAÇÃO DO CLIPE 1 (2026-08-19)
+
+O usuário aprovou oficialmente o clipe real de 10 s do camarote de UNLEASH THE DRAGON (`assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s.mp4`) e autorizou a **muxagem definitiva com o áudio de trabalho `ktd-debut-single-unleash-the-dragon-official-vocal-arrangement-proof-v1.wav`, trecho 28,5–38,5 s** (hook com maior energia RMS da faixa, verificado por transcrição). O arquivo muxado `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s-with-audio.mp4` é liberado como **versão final do clipe 1**. Fade-in de 0,3 s e fade-out de 0,5 s. A designação desta mixagem é pontual para o clipe 1; a aprovação de uma mixagem definitiva de distribuição da faixa continua pendente.
