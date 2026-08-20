@@ -617,6 +617,15 @@
       "duration_seconds": 117.36
     },
     {
+      "path": "assets/images/golden-scars-master-keyframe.png",
+      "category": "historical_or_supporting",
+      "bytes": 4651302,
+      "sha256": "c1e85b0a059daab7c8dad33f689842fb6b73573ee9c0f23b5d91efd6e2cc52a1",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
       "path": "assets/images/six-names-lyric-card-01.png",
       "category": "historical_or_supporting",
       "bytes": 4083623,
