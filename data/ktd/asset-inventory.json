@@ -567,6 +567,18 @@
       "duration_seconds": 116.062041
     },
     {
+      "path": "assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1_transcription_20260820_175442.json",
+      "category": "candidate_audio_release",
+      "bytes": 6194,
+      "sha256": "bd196c29edee9a40bb3e978198e87153368fe0b89c04fcb1b6f1a77b9336f377"
+    },
+    {
+      "path": "assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1_transcription_20260820_175442.txt",
+      "category": "candidate_audio_release",
+      "bytes": 2343,
+      "sha256": "72131cd040c639a85a771234551b8d3be8c0279885fd803720d0e1b580acf9f9"
+    },
+    {
       "path": "assets/audio/releases/ktd-third-single-golden-scars-trend-proof-v3.mp3",
       "category": "candidate_audio_release",
       "bytes": 4644615,
@@ -617,12 +629,39 @@
       "duration_seconds": 117.36
     },
     {
+      "path": "assets/images/golden-scars-lyric-card-01.png",
+      "category": "historical_or_supporting",
+      "bytes": 1314332,
+      "sha256": "2e8a0eb40727fb220c2edc49f32a12c4f8595641a02c42c74278a99a22fa7af7",
+      "width": 768,
+      "height": 1344,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/images/golden-scars-lyric-card-02.png",
+      "category": "historical_or_supporting",
+      "bytes": 4020641,
+      "sha256": "9c0910eebc6f41b36f3b78d9709d9d81bb766ccfef00ae41093db8f8984bc1aa",
+      "width": 1440,
+      "height": 2560,
+      "format": "PNG"
+    },
+    {
       "path": "assets/images/golden-scars-master-keyframe.png",
       "category": "historical_or_supporting",
       "bytes": 4651302,
       "sha256": "c1e85b0a059daab7c8dad33f689842fb6b73573ee9c0f23b5d91efd6e2cc52a1",
       "width": 1440,
       "height": 2560,
+      "format": "PNG"
+    },
+    {
+      "path": "assets/images/golden-scars-official-cover.png",
+      "category": "historical_or_supporting",
+      "bytes": 4457036,
+      "sha256": "4ad81f72660ac5a7fa6dd902c8d0904b91454857bb72df17ee42667be020c12d",
+      "width": 1920,
+      "height": 1920,
       "format": "PNG"
     },
     {
