@@ -10,7 +10,8 @@ O clipe real de 10 s de SIX NAMES (`docs/six-names-clip-10s-production-pack.md`)
 | --- | --- | --- |
 | 1 | 2026-08-20 ~14:00 | Bloqueado (1/1 consumido) |
 | 2 | 2026-08-20 ~14:05 | Bloqueado (1/1 consumido) |
-| 3 | 2026-08-20 20:00 (esta verificação) | **Bloqueado — limite ainda não resetado** |
+| 3 | 2026-08-20 20:00 | Bloqueado (1/1 consumido) |
+| 4 | 2026-08-21 14:36 | Bloqueado (1/1 consumido) |
 
 ## Próximos passos
 
