@@ -61,3 +61,14 @@ O usuário enviou `/home/ubuntu/upload/1e81d8d0-9b6e-11f1-aa68-2f087827a151.mp4`
 - Plano: gerar NOVO clipe de 10 s (gemini-omni-flash-preview, portrait, 720p, 10 s, sem áudio, first frame = assets/video/references/lyrics/song1-fullmv-scene-a1-dressing-room.png) com nome assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room-10s.mp4, muxar trecho 28,5–38,5 s com fade-out 0,5 s via ffmpeg, verificar ffprobe, comitar (adição segura), entregar.
 - ATENÇÃO: limite diário de geração de vídeo do plano gratuito = 1/dia. Hoje já foi usado 1 (o de 8 s). Se o call falhar por limite, relatar ao usuário.
 - Repositório remoto atualizado: últimos commits c53643b (clipe real 1), be26b72 (plano v2), 72da101 (aprovações áudios), ae2bb1d (clipe slides v1). Nunca force-push; pull --ff-only antes de commit.
+
+## Tarefa atual (2026-08-19): clipe 10 s de SIX NAMES (música 2)
+- Keyframe regenerada com mapa correto de tatuagens: assets/video/references/lyrics/song2-six-names-table-candles-v2.png (1440x2560, 9:16). Verificada: 7 garras de diamante no peito, coluna de escamas central, sem barras horizontais. Mesa com 6 velas acesas, prato central com vela apagada nas mãos do KTD.
+- Próximo: gerar vídeo 10 s (gemini-omni-flash-preview, portrait, 720p, first frame = song2-six-names-table-candles-v2.png), prompt: acende vela central, acende as outras uma a uma, olha para a câmera, dolly-in, chiaroscuro, movimento contínuo.
+- Mux: python3 scripts/mux_utd_clip_audio.py <video_in> <out> 60 10 0.5 mas ATENÇÃO o script tem AUDIO hardcoded para proof-v1 da música 1 — precisa passar o WAV de SIX NAMES. Melhor: rodar ffmpeg direto com o WAV ktd-second-single-six-names-rebuilt-soul-pre-release-v2.wav, janela 60,0–70,0 s, fade-in 0,3, fade-out 0,5.
+- Saídas: assets/video/promos/six-names-ktd-clip-table-candles-10s.mp4 e ...-10s-with-audio.mp4.
+- Docs: roteiro em docs/six-names-clip-10s-script.md; auditoria tatuagens em docs/ktd-chest-tattoo-official-map-audit.md.
+- Último commit: 3949024. Push normal sempre; pull --ff-only antes. Limite diário de vídeo: tentar agora (resetou); se falhar, relatar.
+
+## Status do clipe de SIX NAMES 10 s (2026-08-20 14:05 UTC)
+A keyframe song2-six-names-table-candles-v2.png está pronta e aprovada visualmente (mapa de tatuagens correto). A geração de vídeo foi bloqueada duas vezes pelo limite diário do plano gratuito (1/1), que foi consumido ontem com o clipe de 10 s da música 1. O reset provavelmente ocorre em ~14:30 UTC de 20/08 ou 21/08. Tudo o que resta é: gerar o vídeo com o prompt já definido, muxar o trecho 60,0–70,0 s de assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-pre-release-v2.wav (fade-in 0,3 s, fade-out 0,5 s) via ffmpeg, salvar como assets/video/promos/six-names-ktd-clip-table-candles-10s.mp4 e ...-with-audio.mp4, comitar com pull --ff-only e push normal, e entregar. A keyframe nova e o doc de roteiro (docs/six-names-clip-10s-script.md) já documentam o estado.
