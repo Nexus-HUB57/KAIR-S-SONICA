@@ -1,0 +1,49 @@
+{
+  "project": "FIRE IN THE FLOOD",
+  "artist": "Kháirus the Dragon / KTD",
+  "version": "dynamic-v1",
+  "duration_seconds": 168,
+  "master_audio": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
+  "target_video": {
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "audio_sample_rate": 48000
+  },
+  "reference_videos": [
+    "assets/video/promos/tiktok/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
+    "assets/video/promos/six-names-ktd-clip-table-candles-10s-with-audio.mp4"
+  ],
+  "global_rules": {
+    "continuous_live_action_required": true,
+    "static_image_zoom_forbidden": true,
+    "preserve_ktd_identity": true,
+    "preserve_immutable_tattoo_map": true,
+    "no_text_or_logos_by_default": true,
+    "human_approval_required": true
+  },
+  "shots": [
+    {"id":"D01","start":0,"duration":8,"section":"intro","action":"KTD touches a rain-streaked window, then walks through shallow floodwater toward camera with an amber flame reflected in the glass.","keyframe":"assets/video/keyframes/ktd-fire-in-the-flood-walk-keyframe.png","output":"artifacts/video/dynamic-shots/fire-in-the-flood-d01-walk-8s.mp4","status":"generated"},
+    {"id":"D02","start":8,"duration":8,"section":"verse1","action":"KTD crosses a narrow corridor with water rising around his steps while the camera dollies backward.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d02-corridor-8s.mp4","status":"queued"},
+    {"id":"D03","start":16,"duration":8,"section":"verse1","action":"KTD holds a heavy metal door against the pressure of water and rain, breathing and refusing to release it.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d03-door-8s.mp4","status":"queued"},
+    {"id":"D04","start":24,"duration":8,"section":"verse1","action":"KTD walks through a harsh white institutional room while blurred silhouettes block the route and fluorescent light pulses.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d04-white-room-8s.mp4","status":"queued"},
+    {"id":"D05","start":32,"duration":8,"section":"verse1","action":"KTD marks a wet concrete wall with charcoal, taps the rhythm with his knuckles and begins to perform as dust and water move.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d05-wall-rhythm-8s.mp4","status":"queued"},
+    {"id":"D06","start":40,"duration":8,"section":"verse1","action":"KTD enters a recording booth, reaches for the microphone and moves through hanging audio cables as rain vibrates on the glass.","keyframe":"assets/video/keyframes/ktd-fire-in-the-flood-studio-keyframe.png","output":"artifacts/video/dynamic-shots/fire-in-the-flood-d06-studio-8s.mp4","status":"blocked_quota"},
+    {"id":"D07","start":48,"duration":8,"section":"lift","action":"KTD exits the booth into a flooded corridor; vapor and water advance while he keeps walking toward the amber light.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d07-lift-corridor-8s.mp4","status":"queued"},
+    {"id":"D08","start":56,"duration":8,"section":"hook1","action":"KTD power-walks through a rainy street carrying a small protected flame, with splashes and reflections moving on every step.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d08-hook-street-8s.mp4","status":"queued"},
+    {"id":"D09","start":64,"duration":8,"section":"hook1","action":"KTD climbs a wet platform inside a large warehouse while distant silhouettes rise in response behind him.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d09-warehouse-rise-8s.mp4","status":"queued"},
+    {"id":"D10","start":72,"duration":8,"section":"verse2","action":"KTD crosses a technical studio, activates a patchbay and sends a wave of LEDs through the room while performing.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d10-patchbay-8s.mp4","status":"queued"},
+    {"id":"D11","start":80,"duration":8,"section":"verse2","action":"KTD places a ladder against a flooded wall and helps an anonymous young silhouette climb to safety.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d11-ladder-8s.mp4","status":"queued"},
+    {"id":"D12","start":88,"duration":8,"section":"verse2","action":"On a rain-soaked rooftop KTD watches six distant lights activate across the city, then turns back to camera and walks.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d12-six-lights-8s.mp4","status":"queued"},
+    {"id":"D13","start":96,"duration":8,"section":"verse2","action":"KTD advances through a concrete tunnel in a continuous frontal dolly-back while lateral rain cuts across the frame.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d13-tunnel-performance-8s.mp4","status":"queued"},
+    {"id":"D14","start":104,"duration":8,"section":"verse2","action":"KTD returns to the flooded street, touches the water surface and splits the amber reflection into expanding circles.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d14-water-touch-8s.mp4","status":"queued"},
+    {"id":"D15","start":112,"duration":8,"section":"hook2","action":"KTD opens a heavy metal door into an amber exterior, the door impact lands on the beat and he answers the lens directly.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d15-door-response-8s.mp4","status":"queued"},
+    {"id":"D16","start":120,"duration":8,"section":"bridge","action":"KTD crosses a nearly empty wet room, slows, and places his forehead against rain-covered glass while breathing visibly.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d16-bridge-glass-8s.mp4","status":"queued"},
+    {"id":"D17","start":128,"duration":8,"section":"bridge","action":"Rain and tears mix on KTD's face; he lowers his eyes, closes them, then returns to a direct gaze as the light warms.","keyframe":"assets/video/keyframes/ktd-fire-in-the-flood-bridge-keyframe.png","output":"artifacts/video/dynamic-shots/fire-in-the-flood-d17-vulnerable-close-8s.mp4","status":"queued"},
+    {"id":"D18","start":136,"duration":8,"section":"bridge","action":"KTD crosses shallow water carrying a protected flame; droplets strike it and vapor rises as the camera arcs around him.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d18-vapor-flame-8s.mp4","status":"queued"},
+    {"id":"D19","start":144,"duration":8,"section":"final_hook","action":"KTD performs in the foreground of a wet warehouse stage while shadowed figures advance behind and amber lights react to the hook.","keyframe":"assets/video/keyframes/ktd-fire-in-the-flood-final-stage-keyframe.png","output":"artifacts/video/dynamic-shots/fire-in-the-flood-d19-final-stage-8s.mp4","status":"queued"},
+    {"id":"D20","start":152,"duration":8,"section":"final_hook","action":"KTD walks from a cold blue rooftop into an amber street through an organic match transition that preserves his step and shoulder motion.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d20-blue-to-amber-8s.mp4","status":"queued"},
+    {"id":"D21","start":160,"duration":8,"section":"outro","action":"The water settles; KTD opens his hand, the flame reflection disappears from the window and the final close holds on his heterochromatic eyes before black.","keyframe":null,"output":"artifacts/video/dynamic-shots/fire-in-the-flood-d21-outro-8s.mp4","status":"queued"}
+  ]
+}
