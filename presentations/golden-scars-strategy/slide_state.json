@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "title": "GOLDEN SCARS — Estratégia de Marketing",
+    "created": 1787249978.445,
+    "last_updated": 1787250033.127,
+    "total_slides": 5
+  },
+  "slides": [
+    {
+      "id": "slide_1_capa",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_posicionamento",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_musicalidade",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_cronograma",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_conteudo_governança",
+      "state": "edited",
+      "pageNum": 5
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_capa",
+      "title": "GOLDEN SCARS — Estratégia de Marketing",
+      "summary": "Capa da apresentação com o título principal e o posicionamento de manifesto artístico de KTD.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/images/golden-scars-lyric-card-01.png - Slide 1 displays the artist portrait and quotes 'They want the shine, not the scars - I bring both' exactly as rendered in Image 6."
+    },
+    {
+      "id": "slide_2_posicionamento",
+      "title": "Visão Geral e Posicionamento Artístico",
+      "summary": "Detalhamento do papel de Golden Scars como manifesto de consciência pública e maturidade de Kháirus the Dragon.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/images/six-names-lyric-card-02.png - Slide 2 discusses musical direction and features a lyric quote that matches the artistic imagery in Image 3."
+    },
+    {
+      "id": "slide_3_musicalidade",
+      "title": "Fundamentação e Direção Musical",
+      "summary": "Explicação da sonoridade híbrida (trap/boom bap) e os parâmetros musicais estratégicos da obra.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/images/six-names-lyric-card-01.png - Slide 3 covers rollout and lyric cards/teasers, fitting the candle/lyric card visual of Image 2."
+    },
+    {
+      "id": "slide_4_cronograma",
+      "title": "Cronograma Tático de Lançamento (D-15 a D+30)",
+      "summary": "Apresentação das fases da campanha, do pré-lançamento à consolidação pós-lançamento.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/images/golden-scars-lyric-card-02.png - Slide 4 discusses content strategy and community connection featuring the key catchphrase 'BRING THE TRUTH, BRING THE SCARS' as seen in Image 7."
+    },
+    {
+      "id": "slide_5_conteudo_governança",
+      "title": "Estratégia de Conteúdo e Governança de Ativos",
+      "summary": "Detalhamento da abordagem de autenticidade radical e o status dos ativos protegidos no repositório.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/images/golden-scars-master-keyframe.png - Slide 5 concludes with asset governance and brand identity, well-represented by the professional artist portrait in Image 4."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@900&family=Space+Mono:wght@500&display=swap');
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #121212;
+            color: #E8E9EB;
+            font-family: 'Space Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header-zone {
+            padding-top: 60px;
+            padding-left: 60px;
+            padding-right: 60px;
+            border-bottom: 2px dashed #C5A059;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 84px;
+            color: #C5A059;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+
+        .timeline-zone {
+            width: 60%;
+            padding-top: 40px;
+            padding-left: 60px;
+            padding-right: 40px;
+            border-right: 2px dashed #C5A059;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .timeline-item {
+            border-left: 4px solid #8B261A;
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        .phase-tag {
+            color: #C5A059;
+            font-weight: 900;
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .phase-desc {
+            font-size: 18px;
+            line-height: 1.4;
+            color: #E8E9EB;
+        }
+
+        .image-zone {
+            width: 40%;
+            padding-top: 40px;
+            padding-left: 40px;
+            padding-right: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .promo-image {
+            width: 380px;
+            height: 500px;
+            object-fit: cover;
+            border: 1px solid #C5A059;
+        }
+
+        .caption {
+            padding-top: 15px;
+            font-size: 12px;
+            color: #C5A059;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-zone">
+            <h1>CRONOGRAMA<br>TÁTICO</h1>
+        </div>
+        <div class="main-content">
+            <div class="timeline-zone">
+                <div class="timeline-item">
+                    <div class="phase-tag">D-15 a D-10: Aquecimento</div>
+                    <div class="phase-desc">Divulgação da capa oficial e lyric cards em teasers conceituais. Estabelecimento da estética chiaroscuro.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="phase-tag">D-Day: Lançamento</div>
+                    <div class="phase-desc">Liberação nas plataformas de streaming e estreia do clipe de 10s com áudio muxado no canal principal.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="phase-tag">D+1 a D+7: Engajamento</div>
+                    <div class="phase-desc">Campanha de cortes verticais (TikTok/Reels). Foco no hook social "Bring the truth, bring the scars".</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="phase-tag">D+8 a D+30: Expansão</div>
+                    <div class="phase-desc">Versões alternativas, instrumentais e acapellas. Análise de métricas de retenção e conversão.</div>
+                </div>
+            </div>
+            <div class="image-zone">
+                <img src="/home/ubuntu/KAIR-S-SONICA/assets/images/golden-scars-lyric-card-02.png" alt="Golden Scars Lyric Card" class="promo-image">
+                <div class="caption">Asset ID: GS-LC-02 / Twilight Silhouette</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

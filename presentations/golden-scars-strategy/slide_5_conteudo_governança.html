@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&family=Space+Mono:wght@500&display=swap');
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #121212;
+            color: #E8E9EB;
+            font-family: 'Space Mono', monospace;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            border-bottom: 2px dashed #C5A059;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 70px;
+            line-height: 1;
+            color: #C5A059;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .governance-zone {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .strategy-block {
+            border-left: 4px solid #8B261A;
+            padding-top: 10px;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            color: #C5A059;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .asset-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .asset-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 12px;
+            border-top: 1px dashed rgba(197, 160, 89, 0.2);
+            font-size: 18px;
+        }
+
+        .status-tag {
+            color: #8B261A;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            border: 1px solid #8B261A;
+            padding: 2px 8px;
+        }
+
+        .image-zone {
+            width: 40%;
+            border: 2px dashed #C5A059;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .master-image {
+            width: 448px;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .closing-statement {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 2px dashed #C5A059;
+            color: #C5A059;
+            font-size: 16px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h2>GOVERNANÇA</h2>
+        </div>
+        <div class="main-content">
+            <div class="governance-zone">
+                <div class="strategy-block">
+                    <h3>Autenticidade Radical</h3>
+                    <p>Rejeição de marketing tradicional em favor de narrativas de processo e conexão real com a comunidade.</p>
+                </div>
+                
+                <ul class="asset-list">
+                    <li class="asset-item">
+                        <span class="status-tag">Auditado</span>
+                        <span>Capa Oficial (1:1) - Golden Scars</span>
+                    </li>
+                    <li class="asset-item">
+                        <span class="status-tag">Auditado</span>
+                        <span>Lyric Cards (9:16) - Social Media</span>
+                    </li>
+                    <li class="asset-item">
+                        <span class="status-tag">Auditado</span>
+                        <span>Keyframe Mestre - Urban Twilight</span>
+                    </li>
+                    <li class="asset-item">
+                        <span class="status-tag">Sincronizado</span>
+                        <span>Repositório GitHub (Main Branch)</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="image-zone">
+                <img src="/home/ubuntu/KAIR-S-SONICA/assets/images/golden-scars-master-keyframe.png" alt="KTD Master Keyframe" class="master-image">
+            </div>
+        </div>
+        <div class="closing-statement">
+            FORTUNA ARTÍSTICA PROTEGIDA E EM EXPANSÃO / KAIR-S-SONICA 2026
+        </div>
+    </div>
+</body>
+</html>

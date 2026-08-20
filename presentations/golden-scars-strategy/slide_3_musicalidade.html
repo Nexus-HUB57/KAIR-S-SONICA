@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&family=Space+Mono:wght@500&display=swap');
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #121212;
+            color: #E8E9EB;
+            font-family: 'Space Mono', monospace;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            border-bottom: 2px dashed #C5A059;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 80px;
+            line-height: 1;
+            color: #C5A059;
+            text-transform: uppercase;
+        }
+
+        .content-grid {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .data-zone {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
+            font-size: 18px;
+        }
+
+        th {
+            color: #C5A059;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .chart-container {
+            height: 250px;
+            margin-top: 20px;
+            border: 1px solid rgba(139, 38, 26, 0.5);
+            padding: 10px;
+        }
+
+        .image-zone {
+            width: 40%;
+            border: 2px dashed #C5A059;
+            height: 520px;
+            overflow: hidden;
+        }
+
+        .side-image {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h2>MUSICALIDADE</h2>
+        </div>
+        <div class="content-grid">
+            <div class="data-zone">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parâmetro</th>
+                            <th>Direção Técnica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gênero</td>
+                            <td>Trap / Boom Bap Híbrido</td>
+                        </tr>
+                        <tr>
+                            <td>Andamento</td>
+                            <td>110 BPM</td>
+                        </tr>
+                        <tr>
+                            <td>Tom Central</td>
+                            <td>Dó sustenido menor (C#m)</td>
+                        </tr>
+                        <tr>
+                            <td>Hook Social</td>
+                            <td>"Bring the truth, bring the scars"</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="chart-container">
+                    <canvas id="energyChart"></canvas>
+                </div>
+            </div>
+            <div class="image-zone">
+                <img src="/home/ubuntu/KAIR-S-SONICA/assets/images/six-names-lyric-card-01.png" alt="Candle Lyric Card" class="side-image">
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('energyChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Intro', 'Verse 1', 'Hook', 'Verse 2', 'Bridge', 'Outro'],
+                datasets: [{
+                    label: 'Energia RMS (Projetada)',
+                    data: [0.12, 0.20, 0.28, 0.22, 0.18, 0.15],
+                    backgroundColor: '#8B261A',
+                    borderColor: '#C5A059',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(232, 233, 235, 0.1)' } },
+                    x: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#E8E9EB', font: { family: 'Space Mono' } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
