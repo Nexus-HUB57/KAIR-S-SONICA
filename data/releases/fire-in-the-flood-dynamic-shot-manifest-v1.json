@@ -2,6 +2,8 @@
   "project": "FIRE IN THE FLOOD",
   "artist": "Kháirus the Dragon / KTD",
   "version": "dynamic-v1",
+  "status": "historical_8s_cut_superseded",
+  "superseded_by": "data/releases/fire-in-the-flood-10s-scene-manifest-v1.json",
   "duration_seconds": 168,
   "master_audio": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
   "target_video": {
