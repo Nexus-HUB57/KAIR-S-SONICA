@@ -55,6 +55,15 @@ class Settings:
     agentic_external_tools_enabled: bool = False
     artistic_island_enabled: bool = True
     instrument_atlas_path: Path = Path("config/instrument_atlas.yaml")
+    studio_master_enabled: bool = True
+    canon_index_path: Path = Path("config/canon_index.yaml")
+    instrumentation_repertoire_path: Path = Path("config/instrumentation_repertoire.yaml")
+    studio_master_max_input_samples: int = 250_000
+    studio_master_memory_enabled: bool = False
+    studio_master_memory_path: Path = Path("data/studio-master/artist-memory.jsonl")
+    studio_master_auto_retrain_enabled: bool = False
+    studio_master_retrain_manifest_path: Path = Path("data/studio-master/retrain-manifest.json")
+    studio_master_analytics_path: Path = Path("data/production_history.json")
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -137,6 +146,38 @@ class Settings:
             in {"1", "true", "yes", "on"},
             instrument_atlas_path=Path(
                 os.getenv("KAIROS_INSTRUMENT_ATLAS_PATH", "config/instrument_atlas.yaml")
+            ),
+            studio_master_enabled=os.getenv("KAIROS_STUDIO_MASTER_ENABLED", "true").lower()
+            in {"1", "true", "yes", "on"},
+            canon_index_path=Path(
+                os.getenv("KAIROS_CANON_INDEX_PATH", "config/canon_index.yaml")
+            ),
+            instrumentation_repertoire_path=Path(
+                os.getenv(
+                    "KAIROS_INSTRUMENTATION_REPERTOIRE_PATH",
+                    "config/instrumentation_repertoire.yaml",
+                )
+            ),
+            studio_master_max_input_samples=int(
+                os.getenv("KAIROS_STUDIO_MASTER_MAX_INPUT_SAMPLES", "250000")
+            ),
+            studio_master_memory_enabled=os.getenv("KAIROS_STUDIO_MASTER_MEMORY_ENABLED", "false").lower()
+            in {"1", "true", "yes", "on"},
+            studio_master_memory_path=Path(
+                os.getenv("KAIROS_STUDIO_MASTER_MEMORY_PATH", "data/studio-master/artist-memory.jsonl")
+            ),
+            studio_master_auto_retrain_enabled=os.getenv(
+                "KAIROS_STUDIO_MASTER_AUTO_RETRAIN_ENABLED", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
+            studio_master_retrain_manifest_path=Path(
+                os.getenv(
+                    "KAIROS_STUDIO_MASTER_RETRAIN_MANIFEST_PATH",
+                    "data/studio-master/retrain-manifest.json",
+                )
+            ),
+            studio_master_analytics_path=Path(
+                os.getenv("KAIROS_STUDIO_MASTER_ANALYTICS_PATH", "data/production_history.json")
             ),
         )
 

@@ -130,6 +130,44 @@ app.innerHTML = `
         </div>
         <div id="island-chain" class="island-chain"><div class="empty-state">Escolha um instrumento para visualizar a cadeia de processamento.</div></div>
       </div>
+      <div class="studio-master-panel">
+        <div class="tracks-head"><div><p class="eyebrow">STUDIOMASTER / GROOVE INTELLIGENCE</p><h3>Command deck responsivo</h3></div><span id="studio-master-status" class="chip">offline</span></div>
+        <p class="studio-subtitle">Faça a base respirar com o flow: primeiro analise o take, depois aprove o plano e ajuste o pocket ao vivo.</p>
+        <div class="studio-master-grid">
+          <label>Família de produção<select id="studio-master-style"><option value="boom_bap">Boom bap</option><option value="brazilian_funk_heavy">Funk brasileiro pesado</option><option value="brazilian_funk_swing">Funk brasileiro suingado</option><option value="vocal_focus">Foco vocal</option></select></label>
+          <label>Padrão canônico<select id="studio-master-canon"><option value="">Selecionando cânone…</option></select></label>
+          <label>BPM<input id="studio-master-bpm" type="number" min="40" max="240" value="140" /></label>
+          <label>Swing ratio<input id="studio-master-swing" type="number" min="0.5" max="0.67" step="0.01" value="0.60" /></label>
+          <label class="toggle-control"><span>Grid follow</span><input id="studio-master-grid-follow" type="checkbox" checked /></label>
+          <button id="studio-master-analyze" type="button">Analisar take ativo</button>
+          <button id="studio-master-plan" class="button-secondary" type="button">Gerar plano responsivo</button>
+        </div>
+        <div class="performance-deck">
+          <div><p class="eyebrow">LIVE PERFORMANCE</p><strong id="studio-master-pocket">Pocket aguardando análise</strong><span id="studio-master-flow-note">Nenhum mapa de flow carregado.</span></div>
+          <div class="performance-actions"><button id="studio-master-boost" class="performance-button" type="button">Boost punchline</button><button id="studio-master-push" class="performance-button" type="button">Propor ao cânone</button></div>
+        </div>
+        <div id="studio-master-plan-view" class="studio-master-plan"><div class="empty-state">O plano responsivo aprovado aparecerá aqui. Nenhuma alteração automática será enviada ao worker.</div></div>
+        <div class="studio-master-2-panel">
+          <div class="tracks-head"><div><p class="eyebrow">STUDIOMASTER 2.0 / CONTROL ROOM</p><h3>Arquitetura, assinatura e lançamento</h3></div><span id="studio-master-2-status" class="chip">aguardando</span></div>
+          <p class="studio-subtitle">Transforme a ideia em proposta de arranjo, expressão e distribuição sem ocultar a revisão do operador.</p>
+          <div class="studio-master-2-grid">
+            <label>Humor do arranjo<select id="studio-arrangement-mood"><option value="energetic">Energético</option><option value="focused">Focado</option><option value="reflective">Reflexivo</option><option value="cinematic">Cinemático</option></select></label>
+            <label>Barras<input id="studio-arrangement-bars" type="number" min="4" max="256" value="32" /></label>
+            <label>Intensidade Káiros<input id="studio-signature-intensity" type="range" min="0" max="1" step="0.01" value="0.65" /></label>
+            <label>Destino do Modo Káiros<select id="studio-signature-target"><option value="audio_input">Áudio importado</option><option value="mix_bus">Mix bus</option><option value="vocal_bus">Vocal bus</option></select></label>
+          </div>
+          <div class="studio-master-2-actions">
+            <button id="studio-arrangement-plan" type="button">Propor arranjo</button>
+            <button id="studio-signature-plan" class="button-secondary" type="button">Propor Modo Káiros</button>
+            <button id="studio-viral-plan" class="button-secondary" type="button">Planejar clip 15s</button>
+          </div>
+          <div class="studio-master-2-readouts">
+            <article><span class="eyebrow">ANALYTICS</span><strong id="studio-analytics-readout">histórico vazio</strong><p id="studio-analytics-note">Nenhuma produção registrada no caminho configurado.</p></article>
+            <article><span class="eyebrow">AUTO-RETRAINING</span><strong id="studio-retraining-readout">desligado</strong><p id="studio-retraining-note">Aguardando manifesto e aprovação.</p></article>
+          </div>
+          <div id="studio-master-2-output" class="studio-master-plan"><div class="empty-state">As propostas 2.0 aparecerão aqui e nunca publicarão ou treinarão automaticamente.</div></div>
+        </div>
+      </div>
     </section>
 
     <section id="status" class="card status" aria-live="polite">
@@ -180,6 +218,39 @@ const islandReference = document.querySelector('#island-reference');
 const islandPlanButton = document.querySelector('#island-plan');
 const islandChain = document.querySelector('#island-chain');
 const islandStatus = document.querySelector('#island-status');
+const studioMaster = {
+  canon: [],
+  flow: null,
+  plan: null,
+  socket: null,
+  sessionId: `studio-${crypto.randomUUID()}`,
+};
+const studioMasterStatus = document.querySelector('#studio-master-status');
+const studioMasterStyle = document.querySelector('#studio-master-style');
+const studioMasterCanon = document.querySelector('#studio-master-canon');
+const studioMasterBpm = document.querySelector('#studio-master-bpm');
+const studioMasterSwing = document.querySelector('#studio-master-swing');
+const studioMasterGridFollow = document.querySelector('#studio-master-grid-follow');
+const studioMasterAnalyze = document.querySelector('#studio-master-analyze');
+const studioMasterPlanButton = document.querySelector('#studio-master-plan');
+const studioMasterBoost = document.querySelector('#studio-master-boost');
+const studioMasterPush = document.querySelector('#studio-master-push');
+const studioMasterPocket = document.querySelector('#studio-master-pocket');
+const studioMasterFlowNote = document.querySelector('#studio-master-flow-note');
+const studioMasterPlanView = document.querySelector('#studio-master-plan-view');
+const studioMaster2Status = document.querySelector('#studio-master-2-status');
+const studioArrangementMood = document.querySelector('#studio-arrangement-mood');
+const studioArrangementBars = document.querySelector('#studio-arrangement-bars');
+const studioSignatureIntensity = document.querySelector('#studio-signature-intensity');
+const studioSignatureTarget = document.querySelector('#studio-signature-target');
+const studioArrangementButton = document.querySelector('#studio-arrangement-plan');
+const studioSignatureButton = document.querySelector('#studio-signature-plan');
+const studioViralButton = document.querySelector('#studio-viral-plan');
+const studioAnalyticsReadout = document.querySelector('#studio-analytics-readout');
+const studioAnalyticsNote = document.querySelector('#studio-analytics-note');
+const studioRetrainingReadout = document.querySelector('#studio-retraining-readout');
+const studioRetrainingNote = document.querySelector('#studio-retraining-note');
+const studioMaster2Output = document.querySelector('#studio-master-2-output');
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -589,6 +660,227 @@ async function requestIslandPlan() {
 
 islandPlanButton.addEventListener('click', requestIslandPlan);
 loadIslandInstruments();
+
+function setStudioMasterStatus(label, active = false) {
+  studioMasterStatus.className = `chip${active ? ' live-chip' : ''}`;
+  studioMasterStatus.textContent = label;
+}
+
+function renderStudioMasterFlow(flow) {
+  const swing = Number(flow.swing_ratio || 0.5);
+  const swingMs = Number(flow.mean_offset_ms || 0);
+  const culture = (flow.culture || []).slice(0, 2).map((item) => `${item.label} ${(Number(item.probability) * 100).toFixed(0)}%`).join(' · ');
+  studioMasterPocket.textContent = `${(Number(flow.bpm) || 140).toFixed(1)} BPM · swing ${(swing * 100).toFixed(1)}%`;
+  studioMasterFlowNote.textContent = `${flow.onsets?.length || 0} onsets · offset médio ${swingMs.toFixed(1)} ms · ${culture || 'cultura pendente'}`;
+  setStudioMasterStatus('flow carregado', true);
+}
+
+function renderStudioMasterPlan(plan) {
+  studioMaster.plan = plan;
+  const timing = plan.timing || {};
+  const warnings = (plan.warnings || []).map((warning) => `<p>! ${escapeHtml(warning)}</p>`).join('');
+  studioMasterPocket.textContent = `${Number(timing.bpm || 140).toFixed(1)} BPM · ${(Number(timing.swing_ms || 0)).toFixed(1)} ms off-beat`;
+  studioMasterFlowNote.textContent = `${escapeHtml(plan.canon?.name || 'cânone próximo')} · ${timing.grid_follow ? 'grid follow ativo' : 'tempo preservado'}`;
+  studioMasterPlanView.innerHTML = `<div class="studio-master-plan-summary"><span><strong>${escapeHtml(plan.style)}</strong> · ${escapeHtml(plan.repertoire?.id || 'repertório')}</span><span>${escapeHtml(plan.status)}</span></div><div class="studio-master-plan-grid"><span>Canon<strong>${escapeHtml(plan.canon?.name || '—')}</strong></span><span>Swing<strong>${(Number(timing.swing_ratio || 0.5) * 100).toFixed(1)}%</strong></span><span>Vocal focus<strong>${plan.vocal_focus?.enabled ? 'sidechain ativo' : 'desligado'}</strong></span><span>Handoff<strong>${plan.handoff?.approval_required ? 'aprovação requerida' : 'não aplicável'}</strong></span></div>${warnings ? `<div class="chain-warning">${warnings}</div>` : ''}`;
+  setStudioMasterStatus('plano pronto', true);
+}
+
+function connectStudioMasterPerformance() {
+  if (studioMaster.socket && [WebSocket.OPEN, WebSocket.CONNECTING].includes(studioMaster.socket.readyState)) return;
+  studioMaster.socket = new WebSocket(`${WS_BASE}/ws/studio-master/${encodeURIComponent(studioMaster.sessionId)}/performance`);
+  studioMaster.socket.onopen = () => setStudioMasterStatus('performance ativa', true);
+  studioMaster.socket.onmessage = (event) => {
+    const payload = JSON.parse(event.data);
+    if (payload.event === 'command_error') {
+      setStudioMasterStatus('comando recusado');
+      studioFeedback.textContent = payload.error;
+      return;
+    }
+    const state = payload.state || {};
+    studioMasterGridFollow.checked = Boolean(state.grid_follow);
+    studioMasterBpm.value = Number(state.bpm || 140).toFixed(1);
+    studioMasterSwing.value = Number(state.swing_ratio || 0.60).toFixed(2);
+    studioMasterPocket.textContent = `${Number(state.bpm || 140).toFixed(1)} BPM · ${(Number(state.swing_ms || 0)).toFixed(1)} ms swing`;
+    if (state.status === 'PENDING_APPROVAL') studioFeedback.textContent = 'Proposta criada para revisão; nenhum arquivo foi persistido.';
+    if (state.last_action === 'BOOST_PUNCHLINE') studioFeedback.textContent = `Punchline: +${Number(state.punchline_boost_db || 0).toFixed(1)} dB · reverb -${Number(state.reverb_reduction_db || 0).toFixed(1)} dB`;
+    setStudioMasterStatus(state.status === 'PENDING_APPROVAL' ? 'aguarda aprovação' : 'performance ativa', true);
+  };
+  studioMaster.socket.onerror = () => setStudioMasterStatus('WebSocket indisponível');
+  studioMaster.socket.onclose = () => { studioMaster.socket = null; setStudioMasterStatus('performance offline'); };
+}
+
+function sendStudioMasterCommand(command) {
+  connectStudioMasterPerformance();
+  if (studioMaster.socket?.readyState !== WebSocket.OPEN) {
+    studioFeedback.textContent = 'Conectando o command deck; tente novamente em um instante.';
+    return;
+  }
+  studioMaster.socket.send(JSON.stringify(command));
+}
+
+function activeStudioTrack() {
+  return studio.tracks.find((track) => track.id === studio.activeTrackId) || studio.tracks[0];
+}
+
+async function analyzeStudioMasterTake() {
+  const track = activeStudioTrack();
+  if (!track) { studioFeedback.textContent = 'Grave ou importe um take antes de analisar o flow.'; return; }
+  studioMasterAnalyze.disabled = true;
+  setStudioMasterStatus('analisando…');
+  try {
+    const source = track.buffer.getChannelData(0);
+    const stride = Math.max(1, Math.ceil(source.length / 200000));
+    const samples = Array.from({ length: Math.ceil(source.length / stride) }, (_, index) => Number(source[index * stride] || 0));
+    const response = await fetch(`${API_BASE}/v1/studio-master/groove/analyze`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ samples, sample_rate: Math.ceil(track.buffer.sampleRate / stride), bpm: Number(studioMasterBpm.value || 140), canon_id: studioMasterCanon.value || null }) });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.detail || 'Falha ao analisar take');
+    studioMaster.flow = payload;
+    renderStudioMasterFlow(payload);
+    studioFeedback.textContent = `Flow analisado: ${payload.onsets?.length || 0} onsets · cânone próximo ${payload.canon_match || 'não identificado'}.`;
+  } catch (error) {
+    setStudioMasterStatus('erro');
+    studioFeedback.textContent = error.message;
+  } finally {
+    studioMasterAnalyze.disabled = false;
+  }
+}
+
+async function requestStudioMasterPlan() {
+  studioMasterPlanButton.disabled = true;
+  setStudioMasterStatus('planejando…');
+  try {
+    const response = await fetch(`${API_BASE}/v1/studio-master/responsive-plan`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ style: studioMasterStyle.value, canon_id: studioMasterCanon.value || null, bpm: Number(studioMasterBpm.value || 140), swing_ratio: Number(studioMasterSwing.value || 0.60), grid_follow: studioMasterGridFollow.checked, flow: studioMaster.flow }) });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.detail || 'Falha ao gerar plano responsivo');
+    renderStudioMasterPlan(payload);
+    studioFeedback.textContent = 'Plano responsivo pronto para revisão; o pipeline não foi iniciado.';
+  } catch (error) {
+    setStudioMasterStatus('erro');
+    studioMasterPlanView.innerHTML = `<div class="empty-state">${escapeHtml(error.message)}</div>`;
+  } finally {
+    studioMasterPlanButton.disabled = false;
+  }
+}
+
+async function loadStudioMasterCatalog() {
+  try {
+    const [canonResponse, repertoireResponse] = await Promise.all([fetch(`${API_BASE}/v1/studio-master/canon`), fetch(`${API_BASE}/v1/studio-master/repertoire`)]);
+    if (!canonResponse.ok || !repertoireResponse.ok) throw new Error('StudioMaster indisponível');
+    const canonPayload = await canonResponse.json();
+    const repertoirePayload = await repertoireResponse.json();
+    studioMaster.canon = canonPayload.entries || [];
+    studioMasterCanon.innerHTML = `<option value="">Mais próximo por BPM/swing</option>${studioMaster.canon.map((entry) => `<option value="${escapeHtml(entry.id)}">${escapeHtml(entry.name)} · ${escapeHtml(entry.region)}</option>`).join('')}`;
+    setStudioMasterStatus(`${studioMaster.canon.length} padrões`, true);
+    if (repertoirePayload.profiles?.length) studioMasterFlowNote.textContent = `${repertoirePayload.profiles.length} perfis instrumentais · command deck pronto.`;
+    connectStudioMasterPerformance();
+  } catch (error) {
+    setStudioMasterStatus('offline');
+    studioMasterFlowNote.textContent = error.message;
+  }
+}
+
+function setStudioMaster2Status(label, active = false) {
+  studioMaster2Status.className = `chip${active ? ' live-chip' : ''}`;
+  studioMaster2Status.textContent = label;
+}
+
+function renderStudioMaster2Output(payload, mode) {
+  const warnings = (payload.warnings || []).map((warning) => `<p>! ${escapeHtml(warning)}</p>`).join('');
+  if (mode === 'arrangement') {
+    const sections = (payload.sections || []).map((section) => `<span class="arrangement-pill"><strong>${escapeHtml(section.id)}</strong> ${section.bars} bars · ${(Number(section.energy) * 100).toFixed(0)}%</span>`).join('');
+    studioMaster2Output.innerHTML = `<div class="studio-master-plan-summary"><span><strong>${escapeHtml(payload.style)}</strong> · ${escapeHtml(payload.mood)}</span><span>${escapeHtml(payload.status)}</span></div><div class="arrangement-pills">${sections}</div>${warnings ? `<div class="chain-warning">${warnings}</div>` : ''}`;
+  } else if (mode === 'signature') {
+    const chain = (payload.chain || []).map((step) => `<article class="chain-step"><span class="chain-order">•</span><div><strong>${escapeHtml(step.algorithm)}</strong><p>${escapeHtml(step.rationale)}</p></div><code>${escapeHtml(JSON.stringify(step.parameters))}</code></article>`).join('');
+    studioMaster2Output.innerHTML = `<div class="studio-master-plan-summary"><span><strong>Modo Káiros</strong> · ${escapeHtml(payload.target)}</span><span>${escapeHtml(payload.status)}</span></div>${chain}${warnings ? `<div class="chain-warning">${warnings}</div>` : ''}`;
+  } else {
+    studioMaster2Output.innerHTML = `<div class="studio-master-plan-summary"><span><strong>Clip social</strong> · ${escapeHtml(payload.platform)}</span><span>${escapeHtml(payload.status)}</span></div><div class="studio-master-plan-grid"><span>Canvas<strong>${payload.canvas?.width} × ${payload.canvas?.height}</strong></span><span>Duração<strong>${payload.duration_seconds}s</strong></span><span>Render<strong>${escapeHtml(payload.render?.adapter || 'adapter')}</strong></span><span>Publicação<strong>bloqueada</strong></span></div>${warnings ? `<div class="chain-warning">${warnings}</div>` : ''}`;
+  }
+  setStudioMaster2Status('proposta pronta', true);
+}
+
+async function requestStudioMaster2(path, body, mode) {
+  setStudioMaster2Status('calculando…');
+  try {
+    const response = await fetch(`${API_BASE}${path}`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.detail || 'Falha ao gerar proposta');
+    renderStudioMaster2Output(payload, mode);
+    studioFeedback.textContent = 'Proposta 2.0 pronta para revisão; nenhum arquivo, treino ou publicação foi iniciado.';
+  } catch (error) {
+    setStudioMaster2Status('erro');
+    studioMaster2Output.innerHTML = `<div class="empty-state">${escapeHtml(error.message)}</div>`;
+  }
+}
+
+function requestArrangementPlan() {
+  studioArrangementButton.disabled = true;
+  requestStudioMaster2('/v1/studio-master/arrangement', {
+    style: studioMasterStyle.value,
+    mood: studioArrangementMood.value,
+    bpm: Number(studioMasterBpm.value || 140),
+    total_bars: Number(studioArrangementBars.value || 32),
+    key: form.elements.key?.value || 'C#',
+  }, 'arrangement').finally(() => { studioArrangementButton.disabled = false; });
+}
+
+function requestSignaturePlan() {
+  studioSignatureButton.disabled = true;
+  requestStudioMaster2('/v1/studio-master/signature-plan', {
+    intensity: Number(studioSignatureIntensity.value),
+    vocal_presence: studioMasterStyle.value === 'vocal_focus' ? 0.9 : 0.7,
+    low_end_focus: studioMasterStyle.value === 'brazilian_funk_heavy' ? 0.85 : 0.65,
+    spatial_depth: 0.35,
+    target: studioSignatureTarget.value,
+  }, 'signature').finally(() => { studioSignatureButton.disabled = false; });
+}
+
+function requestViralClipPlan() {
+  studioViralButton.disabled = true;
+  requestStudioMaster2('/v1/studio-master/viral-clip-plan', {
+    title: 'DJ Káiros | StudioMaster',
+    duration_seconds: 15,
+    aspect_ratio: '9:16',
+    platform: 'generic',
+    audio_asset_id: null,
+  }, 'viral').finally(() => { studioViralButton.disabled = false; });
+}
+
+async function loadStudioMaster2Status() {
+  try {
+    const [analyticsResponse, retrainingResponse, adaptersResponse] = await Promise.all([
+      fetch(`${API_BASE}/v1/studio-master/analytics`),
+      fetch(`${API_BASE}/v1/studio-master/retraining`),
+      fetch(`${API_BASE}/v1/studio-master/adapters`),
+    ]);
+    if (!analyticsResponse.ok || !retrainingResponse.ok || !adaptersResponse.ok) throw new Error('status 2.0 indisponível');
+    const analytics = await analyticsResponse.json();
+    const retraining = await retrainingResponse.json();
+    const adapters = await adaptersResponse.json();
+    const mos = analytics.average_mos == null ? 'MOS pendente' : `MOS médio ${Number(analytics.average_mos).toFixed(2)}`;
+    studioAnalyticsReadout.textContent = `${analytics.total_productions} produções · ${mos}`;
+    studioAnalyticsNote.textContent = Object.entries(analytics.genres || {}).map(([genre, count]) => `${genre}: ${count}`).join(' · ') || 'Sem histórico de produção.';
+    studioRetrainingReadout.textContent = retraining.status === 'DISABLED' ? 'desligado' : retraining.status.toLowerCase();
+    studioRetrainingNote.textContent = retraining.warnings?.[0] || 'Manifesto não disponível.';
+    const available = (adapters.adapters || []).filter((adapter) => adapter.available).length;
+    setStudioMaster2Status(`${available}/${(adapters.adapters || []).length} adapters detectados`, true);
+  } catch (error) {
+    setStudioMaster2Status('status offline');
+    studioAnalyticsNote.textContent = error.message;
+  }
+}
+
+studioMasterAnalyze.addEventListener('click', () => analyzeStudioMasterTake());
+studioMasterPlanButton.addEventListener('click', () => requestStudioMasterPlan());
+studioMasterGridFollow.addEventListener('change', () => sendStudioMasterCommand({ action: 'SET_GRID_FOLLOW', value: studioMasterGridFollow.checked }));
+studioMasterSwing.addEventListener('change', () => sendStudioMasterCommand({ action: 'SET_SWING', value: studioMasterSwing.value }));
+studioMasterBpm.addEventListener('change', () => sendStudioMasterCommand({ action: 'SET_BPM', bpm: Number(studioMasterBpm.value) }));
+studioMasterBoost.addEventListener('click', () => sendStudioMasterCommand({ action: 'BOOST_PUNCHLINE', value: true }));
+studioMasterPush.addEventListener('click', () => sendStudioMasterCommand({ action: 'PUSH_TO_LIBRARY', reference_id: studioMasterCanon.value || null }));
+studioArrangementButton.addEventListener('click', requestArrangementPlan);
+studioSignatureButton.addEventListener('click', requestSignaturePlan);
+studioViralButton.addEventListener('click', requestViralClipPlan);
+loadStudioMasterCatalog();
+loadStudioMaster2Status();
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();

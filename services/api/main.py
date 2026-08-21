@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
+import numpy as np
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -43,7 +44,47 @@ from kairos_core.schemas import (
     TrackRequest,
     VideoRequest,
 )
+from kairos_core.studio_master import (
+    ArrangementArchitect,
+    ArrangementPlan,
+    ArrangementRequest,
+    AutoRetrainGuard,
+    AutoRetrainStatus,
+    CanonIndex,
+    DeterministicGrooveExtractor,
+    DuckingPreviewRequest,
+    GrooveAnalyzeRequest,
+    GrooveDna,
+    HumanExpressionEngine,
+    HumanExpressionRequest,
+    HumanExpressionResult,
+    HumToMidiRequest,
+    HumToMidiResult,
+    HumToMidiSketcher,
+    KairosSignaturePlanner,
+    LocalArtistMemory,
+    MemoryFeedbackRequest,
+    OptionalAdapterRegistry,
+    PerceptualValidator,
+    PerformanceCommand,
+    PerformanceController,
+    ProductionAnalytics,
+    ProductionHistoryStore,
+    ProductionRecordRequest,
+    ReferenceMasteringAdapter,
+    RepertoireCatalog,
+    ResponsiveMixPlan,
+    ResponsivePlanRequest,
+    SignalHealthRequest,
+    SignatureModePlan,
+    SignatureModeRequest,
+    SpectralDucker,
+    StudioMasterPlanner,
+    ViralClipPlanner,
+    ViralClipPlanRequest,
+)
 from kairos_core.video.orchestrator import VideoOrchestrator
+from pydantic import ValidationError
 
 
 class TaskStore:
@@ -187,6 +228,25 @@ agentic_orchestrator = AgenticOrchestrator(
     memory=ProjectMemory(settings.agentic_memory_dir),
 )
 artistic_island = SkillGenerator(atlas_path=settings.instrument_atlas_path)
+canon_index = CanonIndex.load(settings.canon_index_path)
+repertoire_catalog = RepertoireCatalog.load(settings.instrumentation_repertoire_path)
+studio_master = StudioMasterPlanner(canon_index, repertoire_catalog)
+performance_controller = PerformanceController()
+arrangement_architect = ArrangementArchitect()
+human_expression_engine = HumanExpressionEngine()
+hum_to_midi_sketcher = HumToMidiSketcher()
+kairos_signature_planner = KairosSignaturePlanner()
+spectral_ducker = SpectralDucker()
+perceptual_validator = PerceptualValidator()
+optional_adapter_registry = OptionalAdapterRegistry()
+reference_mastering_adapter = ReferenceMasteringAdapter()
+artist_memory = LocalArtistMemory(settings.studio_master_memory_path, enabled=settings.studio_master_memory_enabled)
+auto_retrain_guard = AutoRetrainGuard(
+    settings.studio_master_retrain_manifest_path,
+    enabled=settings.studio_master_auto_retrain_enabled,
+)
+viral_clip_planner = ViralClipPlanner()
+production_history = ProductionHistoryStore(settings.studio_master_analytics_path)
 
 
 def _native_checkpoint_ready() -> bool:
@@ -409,6 +469,256 @@ def artistic_island_mix_plan(request: MixPlanRequest) -> MixPlan:
         return artistic_island.generate_chain(request)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.get("/v1/studio-master/capabilities")
+def studio_master_capabilities() -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        return {"schema_version": 1, "name": "kairos-studiomaster", "enabled": False}
+    payload = studio_master.capabilities()
+    payload.update(
+        {
+            "canon_entries": len(studio_master.canon_entries()),
+            "repertoire_profiles": len(studio_master.repertoire_profiles()),
+        }
+    )
+    return payload
+
+
+@app.get("/v1/studio-master/canon")
+def studio_master_canon() -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return {"schema_version": 1, "entries": studio_master.canon_entries()}
+
+
+@app.get("/v1/studio-master/repertoire")
+def studio_master_repertoire() -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return {"schema_version": 1, "profiles": studio_master.repertoire_profiles()}
+
+
+@app.post("/v1/studio-master/groove/analyze", response_model=GrooveDna)
+def studio_master_analyze(request: GrooveAnalyzeRequest) -> GrooveDna:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    if len(request.samples) > settings.studio_master_max_input_samples:
+        raise HTTPException(status_code=413, detail="A forma de onda excede o limite configurado")
+    try:
+        return DeterministicGrooveExtractor(canon_index).extract(
+            request.samples,
+            sample_rate=request.sample_rate,
+            bpm=request.bpm,
+            canon_id=request.canon_id,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/v1/studio-master/responsive-plan", response_model=ResponsiveMixPlan)
+def studio_master_responsive_plan(request: ResponsivePlanRequest) -> ResponsiveMixPlan:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    try:
+        return studio_master.responsive_plan(request)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.get("/v1/studio-master/adapters")
+def studio_master_adapters() -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return {"schema_version": 1, "adapters": optional_adapter_registry.capabilities()}
+
+
+@app.get("/v1/studio-master/retraining", response_model=AutoRetrainStatus)
+def studio_master_retraining() -> AutoRetrainStatus:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return auto_retrain_guard.status()
+
+
+@app.post("/v1/studio-master/viral-clip-plan")
+def studio_master_viral_clip_plan(request: ViralClipPlanRequest) -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return viral_clip_planner.plan(request)
+
+
+@app.post("/v1/studio-master/arrangement", response_model=ArrangementPlan)
+def studio_master_arrangement(request: ArrangementRequest) -> ArrangementPlan:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return arrangement_architect.build(request)
+
+
+@app.post("/v1/studio-master/expression", response_model=HumanExpressionResult)
+def studio_master_expression(request: HumanExpressionRequest) -> HumanExpressionResult:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return human_expression_engine.apply(request)
+
+
+@app.post("/v1/studio-master/hum-to-midi", response_model=HumToMidiResult)
+def studio_master_hum_to_midi(request: HumToMidiRequest) -> HumToMidiResult:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return hum_to_midi_sketcher.convert(request)
+
+
+@app.post("/v1/studio-master/signature-plan", response_model=SignatureModePlan)
+def studio_master_signature_plan(request: SignatureModeRequest) -> SignatureModePlan:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return kairos_signature_planner.plan(request)
+
+
+@app.post("/v1/studio-master/ducking/preview")
+def studio_master_ducking_preview(request: DuckingPreviewRequest) -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    try:
+        preview = spectral_ducker.preview(
+            np.asarray(request.mix_bus, dtype=np.float32),
+            np.asarray(request.reference_track, dtype=np.float32),
+            strength=request.strength,
+            window_size=request.window_size,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {
+        "schema_version": 1,
+        "method": preview.method,
+        "strength": preview.strength,
+        "audio": preview.audio.tolist(),
+        "warnings": list(preview.warnings),
+    }
+
+
+@app.post("/v1/studio-master/perceptual/score")
+def studio_master_perceptual_score(request: SignalHealthRequest) -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    try:
+        report = perceptual_validator.predict(
+            np.asarray(request.samples, dtype=np.float32), target_score=request.target_score
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return asdict(report) | {"optimization": perceptual_validator.optimization_plan(report, target_score=request.target_score)}
+
+
+@app.post("/v1/studio-master/memory/feedback")
+def studio_master_memory_feedback(request: MemoryFeedbackRequest) -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    if not settings.studio_master_memory_enabled:
+        raise HTTPException(status_code=503, detail="Memória do artista desabilitada")
+    return artist_memory.store_feedback(
+        request.context,
+        request.adjustments,
+        project_id=request.project_id,
+    )
+
+
+@app.post("/v1/studio-master/analytics/record")
+def studio_master_record(request: ProductionRecordRequest) -> dict[str, object]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    try:
+        return production_history.append(
+            {
+                "task_id": request.task_id,
+                "genre": request.genre,
+                "bpm": request.bpm,
+                "mos_score": request.mos_score,
+                "master_asset_id": request.master_asset_id,
+            },
+            approved=request.approved,
+        )
+    except PermissionError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.get("/v1/studio-master/analytics", response_model=ProductionAnalytics)
+def studio_master_analytics() -> ProductionAnalytics:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    path = settings.studio_master_analytics_path
+    if not path.exists():
+        return ProductionAnalytics(
+            source="empty",
+            total_productions=0,
+            average_mos=None,
+            auto_retrain={
+                "enabled": settings.studio_master_auto_retrain_enabled,
+                "ready": False,
+                "reason": "history file not found",
+            },
+        )
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise HTTPException(status_code=422, detail=f"Histórico inválido: {exc}") from exc
+    records = payload if isinstance(payload, list) else payload.get("productions", [])
+    if not isinstance(records, list):
+        raise HTTPException(status_code=422, detail="Histórico deve ser uma lista de produções")
+    mos_values = [float(item["mos_score"]) for item in records if isinstance(item, dict) and item.get("mos_score") is not None]
+    genres: dict[str, int] = {}
+    for item in records:
+        if isinstance(item, dict):
+            genre = str(item.get("genre") or "unknown")
+            genres[genre] = genres.get(genre, 0) + 1
+    return ProductionAnalytics(
+        source="production_history",
+        total_productions=len(records),
+        average_mos=round(sum(mos_values) / len(mos_values), 4) if mos_values else None,
+        genres=genres,
+        latest=[item for item in records[-20:] if isinstance(item, dict)],
+        auto_retrain={
+            "enabled": settings.studio_master_auto_retrain_enabled,
+            "ready": False,
+            "reason": "manual approval and dataset manifest required",
+        },
+    )
+
+
+@app.get("/v1/studio-master/performance/{session_id}")
+def studio_master_performance_state(session_id: str) -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    if not 1 <= len(session_id) <= 120:
+        raise HTTPException(status_code=422, detail="session_id inválido")
+    return performance_controller.get(session_id).model_dump(mode="json")
+
+
+@app.websocket("/ws/studio-master/{session_id}/performance")
+async def studio_master_performance(websocket: WebSocket, session_id: str) -> None:
+    if not settings.studio_master_enabled or not 1 <= len(session_id) <= 120:
+        await websocket.close(code=1008, reason="StudioMaster desabilitado ou sessão inválida")
+        return
+    await websocket.accept()
+    await websocket.send_json(
+        {"event": "performance_state", "state": performance_controller.get(session_id).model_dump(mode="json")}
+    )
+    try:
+        while True:
+            payload = await websocket.receive_json()
+            try:
+                command = PerformanceCommand.model_validate(payload)
+                state = performance_controller.apply(session_id, command)
+            except (ValidationError, ValueError) as exc:
+                await websocket.send_json({"event": "command_error", "error": str(exc)})
+                continue
+            await websocket.send_json(
+                {"event": "performance_state", "state": state.model_dump(mode="json")}
+            )
+    except WebSocketDisconnect:
+        return
 
 
 @app.get("/v1/agents/capabilities")
