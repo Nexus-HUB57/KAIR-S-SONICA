@@ -1,0 +1,73 @@
+{
+  "project": "FIRE IN THE FLOOD",
+  "cut": "existing-materials-preview-v5",
+  "status": "deduplicated_phrase_locked_preview",
+  "duration_seconds": 25.10,
+  "audio_master": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
+  "target": {"width": 720, "height": 1280, "aspect_ratio": "9:16", "fps": 24, "audio_sample_rate": 44100},
+  "generation_policy": "No new video generation; use existing live-action MP4s only.",
+  "creative_rule": "No stills, visualizers or repeated shots in the active cut.",
+  "audio_rule": "Strip source audio and mux the master v4 from 00:00 to 25.10 as one continuous soundtrack.",
+  "sync_rule": "Cut points follow detected phrase starts in the v4 transcription, then quantize to the nearest 24 fps frame.",
+  "frame_quantization": {"fps": 24, "total_frames": 602, "effective_duration_seconds": 25.083333},
+  "removed_duplicate": {
+    "former_id": "M03",
+    "source": "assets/video/aprovados/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
+    "reason": "Its corridor-to-street walking action duplicates the entrance/corridor visual language already present in M01 and M02.",
+    "action": "Excluded from the active cut and retained only as historical approved reference."
+  },
+  "rejected_materials": [
+    {
+      "source": "assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4",
+      "reason": "Static photograph/visualizer with animated grain, flicker and text cards.",
+      "action": "Excluded from all development cuts."
+    }
+  ],
+  "shots": [
+    {
+      "id": "M01",
+      "timeline_start": 0.00,
+      "timeline_end": 7.76,
+      "duration": 7.76,
+      "frame_start": 0,
+      "frame_count": 186,
+      "quantized_start": 0.0,
+      "quantized_end": 7.75,
+      "source": "assets/video/inputs/fire-in-the-flood-entrance-attached-8s.mp4",
+      "source_start": 0.00,
+      "source_type": "user_attached_entrance_scene",
+      "sync_anchor": "00:00.18 — I hear the lock click.",
+      "transition_out": "Cut at 00:07.76, the start of I walk in with the wound...; preserve the forward tracking direction."
+    },
+    {
+      "id": "M02",
+      "timeline_start": 7.76,
+      "timeline_end": 17.099,
+      "duration": 9.339,
+      "frame_start": 186,
+      "frame_count": 224,
+      "quantized_start": 7.75,
+      "quantized_end": 17.083333,
+      "source": "artifacts/video/dynamic-shots/fire-in-the-flood-s01-10s.mp4",
+      "source_start": 0.00,
+      "source_type": "new_dynamic_portrait_proof",
+      "sync_anchor": "00:07.76 — I walk in with the wound and I leave with a name.",
+      "transition_out": "Cut at 00:17.099, the start of I write like lightning...; let the hand/wall action carry the cut."
+    },
+    {
+      "id": "M03",
+      "timeline_start": 17.099,
+      "timeline_end": 25.10,
+      "duration": 8.001,
+      "frame_start": 410,
+      "frame_count": 192,
+      "quantized_start": 17.083333,
+      "quantized_end": 25.083333,
+      "source": "artifacts/video/dynamic-shots/fire-in-the-flood-v2-D01-walk.mp4",
+      "source_start": 0.00,
+      "source_type": "existing_dynamic_flame_rain_walk",
+      "sync_anchor": "00:17.099 — I write like lightning, strike through silence.",
+      "transition_out": "Preview endpoint at 00:25.10; next cut should begin at the phrase Not blood, just bars that bruise the lie."
+    }
+  ]
+}

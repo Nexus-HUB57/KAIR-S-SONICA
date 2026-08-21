@@ -1,12 +1,12 @@
 {
   "project": "FIRE IN THE FLOOD",
   "cut": "existing-materials-preview-v4",
-  "status": "dynamic_only_duplicate_removed",
+  "status": "historical_duplicate_scene_do_not_use",
   "duration_seconds": 34.0,
   "audio_master": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
   "target": {"width": 720, "height": 1280, "aspect_ratio": "9:16", "fps": 24, "audio_sample_rate": 44100},
   "generation_policy": "No new video generation; FFmpeg assembly and normalization only.",
-  "creative_rule": "Use only existing live-action MP4s. Keyframes, visualizers and still images are excluded from the cut.",
+  "creative_rule": "HISTORICAL ONLY. Do not use this manifest: its former M03 duplicates the entrance/corridor progression. Current development must use data/releases/fire-in-the-flood-existing-materials-cut-v5.json.",
   "audio_rule": "Strip source audio from every clip and mux the first 34 seconds of the v4 master as one continuous soundtrack.",
   "removed_duplicate": {
     "source": "artifacts/video/dynamic-shots/fire-in-the-flood-d01-walk-8s.mp4",
@@ -21,7 +21,7 @@
       "analysis": "artifacts/video/validation/rejected-static-penultimate-analysis.md"
     }
   ],
-  "coverage_note": "This is a 34-second material assembly preview, not the complete lyric-locked 168-second music video. It uses one copy of each distinct active visual source and does not relabel the material as the missing S02–S05 scenes.",
+  "coverage_note": "HISTORICAL PREVIEW ONLY. Do not insert this cut into development because its former M03 duplicates the entrance/corridor progression. Use v5, which removes that source and applies phrase-locked frame cuts.",
   "shots": [
     {
       "id": "M01",
