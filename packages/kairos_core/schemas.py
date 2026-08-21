@@ -163,6 +163,20 @@ class MultimediaRequest(BaseModel):
         return aliases.get(value, value)
 
 
+class ComplementaryPlanRequest(BaseModel):
+    """Pedido síncrono de pré-produção; não inicia geração."""
+
+    prompt: str = Field(min_length=1, max_length=4_000)
+    duration_seconds: float = Field(default=15.0, gt=0, le=600.0)
+    aspect_ratio: Literal["9:16", "16:9", "1:1"] = "9:16"
+    resolution: Literal["540P", "720P"] = "720P"
+    fps: int = Field(default=24, ge=1, le=120)
+    scene_seconds: float = Field(default=5.0, gt=0, le=60.0)
+    audio_mode: str = Field(default="external-slot", min_length=1, max_length=80)
+    media_mode: str = Field(default="generated-or-stock-slot", min_length=1, max_length=120)
+    seed: int | None = Field(default=None, ge=0, le=2**32 - 2)
+
+
 class MultimediaResult(BaseModel):
     task_id: str
     status: Literal["PENDING", "RUNNING", "SUCCEEDED", "FAILED"]

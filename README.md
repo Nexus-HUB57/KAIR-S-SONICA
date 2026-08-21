@@ -134,6 +134,25 @@ python3 scripts/provision_skyreels.py \\
 
 O comando é protegido por lock e pode ser repetido. Sem `--download`, ele apenas valida a instalação local. O token, se necessário, deve existir somente na variável `HF_TOKEN`; o script grava apenas o nome da variável e a revisão no manifesto.
 
+### Núcleo complementar de desenvolvimento audiovisual
+
+A arquitetura audiovisual proposta no anexo foi incorporada como um núcleo complementar de planejamento e handoff. Ela não cria uma segunda API Flask, não substitui o `TaskStore`, não troca o worker e não instala MoviePy/gTTS/Pexels no caminho obrigatório. O endpoint `GET /v1/complementary/capabilities` descreve a camada; `POST /v1/complementary/plan` divide o briefing em cenas e produz templates que podem ser revisados antes de encaminhar cenas para `/v1/video/generate` e áudio para `/v1/orchestrate`.
+
+```bash
+curl http://localhost:8000/v1/complementary/capabilities
+curl -X POST http://localhost:8000/v1/complementary/plan \
+  -H 'Content-Type: application/json' \
+  -d '{"prompt":"chuva neon em videoclipe vertical","duration_seconds":10,"scene_seconds":5,"seed":42}'
+```
+
+Para testar o fluxo completo de descoberta e probes sem GPU, credenciais ou internet, use o Compose local com mocks internos:
+
+```bash
+./scripts/test_agents_compose.sh
+```
+
+Esse comando usa `docker-compose.agents.local.yml`, sobe o gateway em `http://localhost:8001`, simula o SkyReels Space e o LlamaGen dentro da rede Docker, verifica os dois probes e desmonta os containers. O Compose GPU continua independente e é reservado à inferência real com CUDA/checkpoints.
+
 ### Agregador de agentes externos
 
 O catálogo de agentes é consultado sem rede em [`GET /v1/agents/capabilities`](docs/api.md), que lista `skyreels-native`, `skyreels-space` e `llamagen` com skills, algoritmos, operações, origem e prontidão. Os agentes remotos são **desabilitados por padrão**; o catálogo não faz upload, não cria gerações e não consome serviços externos.
