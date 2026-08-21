@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg && rm -r
 WORKDIR /app
 COPY pyproject.toml README.md LICENSE ./
 COPY packages ./packages
+COPY config ./config
 COPY services ./services
 COPY data ./data
 RUN pip install --no-cache-dir -e .

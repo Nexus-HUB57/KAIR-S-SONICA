@@ -9,6 +9,8 @@ services:
       KAIROS_FFMPEG_BIN: ffmpeg
       KAIROS_FFPROBE_BIN: ffprobe
       KAIROS_CORS_ORIGINS: ${KAIROS_CORS_ORIGINS:-http://localhost:8080}
+      KAIROS_ARTISTIC_ISLAND_ENABLED: ${KAIROS_ARTISTIC_ISLAND_ENABLED:-true}
+      KAIROS_INSTRUMENT_ATLAS_PATH: /app/config/instrument_atlas.yaml
     ports:
       - "8000:8000"
     volumes:

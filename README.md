@@ -171,6 +171,12 @@ O workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) existente foi 
 
 Para executar o Compose GPU em um host NVIDIA/CUDA com checkpoints já provisionados, use `./scripts/test_agents_gpu_compose.sh`. O script verifica `nvidia-smi`, Compose v2, readiness do backend native, capacidades do vídeo, catálogo agentico e o modo contract-first. Probes remotos ficam desligados por padrão; para testar o SkyReels Space após revisar a integração, defina `KAIROS_AGENT_AGGREGATOR_ENABLED=true`, `KAIROS_SKYREELS_SPACE_ENABLED=true` e `KAIROS_RUN_EXTERNAL_PROBES=true`. O probe LlamaGen exige adicionalmente `KAIROS_LLAMAGEN_ENABLED=true` e `LLAMAGEN_API_KEY` fornecida pelo secret manager.
 
+### Ilha de Produção Artística do DJ Káiros
+
+A Ilha Artística amplia o estúdio com o Atlas inicial em [`config/instrument_atlas.yaml`](config/instrument_atlas.yaml), 12 contratos de algoritmos-base e um `SkillGenerator` que produz cadeias de 5–15 etapas. Os endpoints `GET /v1/artistic-island/capabilities`, `GET /v1/artistic-island/instruments` e `POST /v1/artistic-island/mix-plan` são `plan-first`: exibem perfis, racional e parâmetros sem carregar plugins, consultar RAG externo, processar stems ou criar tarefas.
+
+O painel `SKILL CHAIN / ATLAS` está dentro do estúdio e permite selecionar instrumento, contexto e referência. O `NumpyChainExecutor` é um preview determinístico opcional para arrays mono/estéreo; Dynamic EQ, spectral balancing, pitch/formant e HRTF continuam como contratos até adapters explícitos. Consulte [`docs/artistic-production-island.md`](docs/artistic-production-island.md) para limites, proveniência e roadmap.
+
 ### Estúdio de Gravação e Mixagem do DJ / Produtor Káiros
 
 A primeira console do estúdio está disponível no `web-client`: captura via microfone, importação de takes, waveform de monitoramento, volume, panorama, mute, solo, reprodução de mix e exportação de bounce WAV. O áudio permanece local no navegador e não cria tarefas automaticamente. O contrato e o roadmap estão em [`docs/recording-mixing-studio.md`](docs/recording-mixing-studio.md); a próxima fase deve adicionar upload autenticado e handoff explícito para o pipeline de áudio.
