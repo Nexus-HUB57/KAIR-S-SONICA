@@ -4,3 +4,4 @@ outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-harmonic-fusion-mast
 outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-late-harmonic-fusion-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-plus2-late-harmonic-fusion-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-plus5-late-harmonic-fusion-master.wav filter=lfs diff=lfs merge=lfs -text
+outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-plus7-progressive-fusion-master.wav filter=lfs diff=lfs merge=lfs -text
