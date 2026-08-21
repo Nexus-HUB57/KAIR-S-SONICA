@@ -1,0 +1,2702 @@
+{
+  "run_id": "82828eaadd7f4071b038e076df9943eb",
+  "project_id": "ktd-single-04-old-school-rap",
+  "status": "READY_FOR_APPROVAL",
+  "roles": [
+    {
+      "agent": "ceo",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "strategy",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.588954+00:00",
+      "output": {
+        "project_name": "Desenvolver O Quarto Single De Rap",
+        "briefing": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+        "objective": "Produzir pacote audiovisual revisável e encaminhável aos pipelines KAIR.",
+        "risk_gates": [
+          "human_or_operator_approval",
+          "ffprobe_before_publish",
+          "no_secret_or_weight_in_git"
+        ],
+        "iteration_budget": 2
+      }
+    },
+    {
+      "agent": "cco",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "creative_direction",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589121+00:00",
+      "output": {
+        "mood": "warm-kinetic",
+        "palette": [
+          "carbon black",
+          "electric cyan",
+          "warm amber"
+        ],
+        "visual_rules": [
+          "no watermark",
+          "no accidental text",
+          "identity continuity",
+          "controlled motion"
+        ],
+        "negative_prompt": "low quality, flicker, malformed anatomy, random text, watermark"
+      }
+    },
+    {
+      "agent": "rag",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "retrieval",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589124+00:00",
+      "output": {
+        "query": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+        "moments": [],
+        "retrieval_mode": "disabled-by-external-tools-gate",
+        "provenance_required": true
+      }
+    },
+    {
+      "agent": "scriptwriter",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "scene_plan",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589349+00:00",
+      "output": {
+        "plan_id": "cap-9ae9ed73ca3f8721",
+        "architecture": "complementary-audiovisual-core.v1",
+        "role": "planning-and-handoff",
+        "prompt": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+        "duration_seconds": 120.0,
+        "aspect_ratio": "16:9",
+        "resolution": "720P",
+        "fps": 24,
+        "audio": {
+          "mode": "old-school-rap-development",
+          "status": "slot-only",
+          "source": "external-or-existing-audio-pipeline",
+          "handoff": "POST /v1/orchestrate"
+        },
+        "media": {
+          "mode": "no-external-media",
+          "status": "slot-only",
+          "pexels": {
+            "enabled": false,
+            "secret_env": "PEXELS_API_KEY"
+          },
+          "download_policy": "not-executed-by-planner"
+        },
+        "scenes": [
+          {
+            "scene_id": "cap-9ae9ed73ca3f8721-s01",
+            "order": 1,
+            "start_seconds": 0.0,
+            "end_seconds": 30.0,
+            "prompt": "Scene 1/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "visual_sources": [
+              "skyreels-native",
+              "skyreels-space",
+              "pexels-slot"
+            ],
+            "agent_handoff": [
+              "skyreels-native",
+              "skyreels-space"
+            ],
+            "video_request_template": {
+              "prompt": "Scene 1/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+              "mode": "t2v",
+              "engine": "diffusion_forcing",
+              "backend": "native",
+              "resolution": "720P",
+              "fps": 24,
+              "duration_seconds": 30.0,
+              "seed": 20260821,
+              "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+              "complementary_scene_id": "cap-9ae9ed73ca3f8721-s01"
+            }
+          },
+          {
+            "scene_id": "cap-9ae9ed73ca3f8721-s02",
+            "order": 2,
+            "start_seconds": 30.0,
+            "end_seconds": 60.0,
+            "prompt": "Scene 2/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "visual_sources": [
+              "skyreels-native",
+              "skyreels-space",
+              "pexels-slot"
+            ],
+            "agent_handoff": [
+              "skyreels-native",
+              "skyreels-space"
+            ],
+            "video_request_template": {
+              "prompt": "Scene 2/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+              "mode": "t2v",
+              "engine": "diffusion_forcing",
+              "backend": "native",
+              "resolution": "720P",
+              "fps": 24,
+              "duration_seconds": 30.0,
+              "seed": 20260821,
+              "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+              "complementary_scene_id": "cap-9ae9ed73ca3f8721-s02"
+            }
+          },
+          {
+            "scene_id": "cap-9ae9ed73ca3f8721-s03",
+            "order": 3,
+            "start_seconds": 60.0,
+            "end_seconds": 90.0,
+            "prompt": "Scene 3/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "visual_sources": [
+              "skyreels-native",
+              "skyreels-space",
+              "pexels-slot"
+            ],
+            "agent_handoff": [
+              "skyreels-native",
+              "skyreels-space"
+            ],
+            "video_request_template": {
+              "prompt": "Scene 3/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+              "mode": "t2v",
+              "engine": "diffusion_forcing",
+              "backend": "native",
+              "resolution": "720P",
+              "fps": 24,
+              "duration_seconds": 30.0,
+              "seed": 20260821,
+              "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+              "complementary_scene_id": "cap-9ae9ed73ca3f8721-s03"
+            }
+          },
+          {
+            "scene_id": "cap-9ae9ed73ca3f8721-s04",
+            "order": 4,
+            "start_seconds": 90.0,
+            "end_seconds": 120.0,
+            "prompt": "Scene 4/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "visual_sources": [
+              "skyreels-native",
+              "skyreels-space",
+              "pexels-slot"
+            ],
+            "agent_handoff": [
+              "skyreels-native",
+              "skyreels-space"
+            ],
+            "video_request_template": {
+              "prompt": "Scene 4/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+              "mode": "t2v",
+              "engine": "diffusion_forcing",
+              "backend": "native",
+              "resolution": "720P",
+              "fps": 24,
+              "duration_seconds": 30.0,
+              "seed": 20260821,
+              "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+              "complementary_scene_id": "cap-9ae9ed73ca3f8721-s04"
+            }
+          }
+        ],
+        "handoff": {
+          "video": "POST /v1/video/generate",
+          "audio_visual": "POST /v1/orchestrate",
+          "agents": "GET /v1/agents/capabilities",
+          "probe": "GET /v1/agents/{agent_name}/probe",
+          "promotion": "existing-task-store-and-ffprobe-gates"
+        },
+        "guardrails": [
+          "complementary layer does not replace the KAIR gateway",
+          "complementary layer does not replace the persistent worker",
+          "external services remain disabled until explicit operator enablement",
+          "secrets and model weights never belong in Git",
+          "planner never downloads media or models"
+        ]
+      }
+    },
+    {
+      "agent": "dop",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "storyboard",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589354+00:00",
+      "output": {
+        "camera_language": "cinematic controlled movement",
+        "lighting": "motivated practicals with clean subject separation",
+        "aspect_ratio": "16:9",
+        "shots": [
+          {
+            "scene_index": 1,
+            "shot": "establishing-to-medium",
+            "motion": "slow push-in",
+            "lens": "35mm"
+          },
+          {
+            "scene_index": 2,
+            "shot": "establishing-to-medium",
+            "motion": "slow push-in",
+            "lens": "35mm"
+          },
+          {
+            "scene_index": 3,
+            "shot": "establishing-to-medium",
+            "motion": "slow push-in",
+            "lens": "35mm"
+          },
+          {
+            "scene_index": 4,
+            "shot": "establishing-to-medium",
+            "motion": "slow push-in",
+            "lens": "35mm"
+          }
+        ]
+      }
+    },
+    {
+      "agent": "sound_designer",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "audio_plan",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589672+00:00",
+      "output": {
+        "mode": "old-school-rap-development",
+        "duration_seconds": 120.0,
+        "mix_targets": {
+          "integrated_lufs": -14,
+          "true_peak_db": -1
+        },
+        "studio_master_plan": {
+          "schema_version": 1,
+          "status": "READY_FOR_APPROVAL",
+          "style": "boom_bap",
+          "canon": {
+            "id": "br_funk_mandelao",
+            "name": "Funk brasileiro pesado",
+            "region": "BRAZIL",
+            "bpm_range": [
+              125.0,
+              155.0
+            ],
+            "swing_ratio": 0.53,
+            "pattern": "grave contínuo; cortes secos; síncopa percussiva; transientes próximos",
+            "cultural_context": "Leitura abstrata do funk brasileiro contemporâneo.",
+            "source": "operator-curated; user brief pasted_content_13",
+            "rights_note": "Não usar nomes de artistas como preset de imitação; material precisa ser próprio/licenciado.",
+            "match_type": "nearest"
+          },
+          "repertoire": {
+            "id": "boom_bap_kit",
+            "style": "boom_bap",
+            "cultural_region": "US",
+            "description": "Kit seco e sincopado com espaço para voz e sample autorizado.",
+            "components": {
+              "kick": {
+                "engine": "synthesis",
+                "asset_ref": null,
+                "parameters": {
+                  "body_hz": 90,
+                  "click_hz": 3000,
+                  "decay_ms": 180
+                }
+              },
+              "snare": {
+                "engine": "synthesis",
+                "asset_ref": null,
+                "parameters": {
+                  "tone_hz": 190,
+                  "noise": 0.7,
+                  "decay_ms": 150
+                }
+              },
+              "hi_hat": {
+                "engine": "synthesis",
+                "asset_ref": null,
+                "parameters": {
+                  "decay_ms": 45,
+                  "velocity_curve": 0.42
+                }
+              },
+              "bass": {
+                "engine": "optional-synth",
+                "asset_ref": null,
+                "parameters": {
+                  "waveform": "sine",
+                  "saturation": 0.12
+                }
+              }
+            },
+            "source": "operator-curated; user brief pasted_content_14",
+            "rights_note": "Não inclui loops, presets comerciais ou samples.",
+            "mixing_chain": {
+              "id": "boom_bap",
+              "description": "Punch controlado, médios presentes e espaço para a voz.",
+              "target_lufs": -14,
+              "bus_processing": [
+                {
+                  "type": "eq",
+                  "bands": [
+                    {
+                      "freq": 100,
+                      "gain_db": 3
+                    },
+                    {
+                      "freq": 400,
+                      "gain_db": -2
+                    },
+                    {
+                      "freq": 3000,
+                      "gain_db": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "compressor",
+                  "threshold_db": -12,
+                  "ratio": 2.5,
+                  "attack_ms": 20,
+                  "release_ms": 150
+                }
+              ],
+              "track_processing": {
+                "kick": [
+                  {
+                    "type": "transient_shaper",
+                    "attack": 0.7
+                  }
+                ],
+                "lead_vocal": [
+                  {
+                    "type": "deesser",
+                    "frequency_hz": 7500,
+                    "threshold_db": -20
+                  }
+                ]
+              }
+            }
+          },
+          "timing": {
+            "bpm": 140.0,
+            "swing_ratio": 0.6,
+            "swing_ms": 42.8571,
+            "humanize_ms": 6,
+            "grid_follow": true,
+            "offbeat_policy": "follow_flow_then_apply_swing"
+          },
+          "vocal_focus": {
+            "enabled": true,
+            "sidechain": "multiband-keyed-by-lead-vocal",
+            "lead_vocal_chain": [
+              {
+                "type": "deesser",
+                "frequency_hz": 7500,
+                "threshold_db": -20
+              }
+            ],
+            "punchline": {
+              "enabled": true,
+              "gain_db": 3.0,
+              "reverb_reduction_db": 3.0,
+              "trigger": "explicit-performance-command"
+            }
+          },
+          "handoff": {
+            "target": "POST /v1/orchestrate",
+            "approval_required": true,
+            "request_patch": {
+              "bpm": 140,
+              "swing": 0.6,
+              "humanize_ms": 6,
+              "genre": "boom_bap",
+              "stems": true
+            }
+          },
+          "warnings": [
+            "Plano não renderiza áudio e não inicia uma tarefa automaticamente.",
+            "Use apenas samples, gravações e presets com procedência e licença verificáveis.",
+            "Grid follow está ativo, mas nenhum mapa de flow foi fornecido; o plano usa o swing declarado."
+          ],
+          "arrangement": {
+            "schema_version": 1,
+            "status": "READY_FOR_APPROVAL",
+            "method": "rule-based-arrangement/v1",
+            "style": "boom_bap",
+            "mood": "energetic",
+            "bpm": 140.0,
+            "total_bars": 32,
+            "key": "C#",
+            "sections": [
+              {
+                "id": "intro",
+                "bars": 4,
+                "energy": 0.3,
+                "instruments": [
+                  "piano",
+                  "hat",
+                  "pad"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 6560.0,
+                  "reverb_wet": 0.205,
+                  "drive": 0.094
+                }
+              },
+              {
+                "id": "verse_1",
+                "bars": 8,
+                "energy": 0.62,
+                "instruments": [
+                  "kick",
+                  "snare",
+                  "bass",
+                  "piano"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 12704.0,
+                  "reverb_wet": 0.317,
+                  "drive": 0.152
+                }
+              },
+              {
+                "id": "hook_1",
+                "bars": 8,
+                "energy": 0.88,
+                "instruments": [
+                  "kick",
+                  "snare",
+                  "bass",
+                  "piano",
+                  "pad"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 17696.0,
+                  "reverb_wet": 0.408,
+                  "drive": 0.198
+                }
+              },
+              {
+                "id": "verse_2",
+                "bars": 8,
+                "energy": 0.7,
+                "instruments": [
+                  "kick",
+                  "snare",
+                  "bass",
+                  "piano"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 14240.0,
+                  "reverb_wet": 0.345,
+                  "drive": 0.166
+                }
+              },
+              {
+                "id": "outro",
+                "bars": 4,
+                "energy": 0.22,
+                "instruments": [
+                  "piano",
+                  "pad"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 5024.0,
+                  "reverb_wet": 0.177,
+                  "drive": 0.08
+                }
+              }
+            ],
+            "warnings": [
+              "Arranjo é proposta macro e não substitui revisão musical.",
+              "Instrumentos com engine opcional exigem asset próprio/licenciado."
+            ]
+          },
+          "signature_plan": {
+            "schema_version": 1,
+            "status": "READY_FOR_APPROVAL",
+            "mode": "kairos_signature",
+            "target": "mix_bus",
+            "chain": [
+              {
+                "algorithm": "dynamic_eq",
+                "parameters": {
+                  "low_shelf_db": 3.19,
+                  "presence_db": 2.592,
+                  "air_db": 1.41
+                },
+                "rationale": "Grave controlado e inteligibilidade vocal, sem copiar uma curva externa.",
+                "execution_mode": "adapter-required"
+              },
+              {
+                "algorithm": "multiband_comp",
+                "parameters": {
+                  "low_ratio": 2.57,
+                  "mid_ratio": 2.28,
+                  "attack_ms": 5.4
+                },
+                "rationale": "Densidade musical com headroom preservado.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "harmonic_exciter",
+                "parameters": {
+                  "drive": 0.085,
+                  "mix": 0.24
+                },
+                "rationale": "Textura harmônica moderada e reproduzível.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "stereo_widener",
+                "parameters": {
+                  "width": 1.087,
+                  "low_mono_hz": 120
+                },
+                "rationale": "Espaço controlado com baixa frequência centrada.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "convolution_reverb",
+                "parameters": {
+                  "wet": 0.065,
+                  "pre_delay_ms": 28.5
+                },
+                "rationale": "Profundidade curta para não afastar a voz.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "limiter",
+                "parameters": {
+                  "ceiling_db": -1.0,
+                  "release_ms": 80
+                },
+                "rationale": "Teto de distribuição conservador e verificável.",
+                "execution_mode": "adapter-required"
+              }
+            ],
+            "guardrails": {
+              "max_true_peak_db": -1.0,
+              "reference_matching": false,
+              "source_imitation": false,
+              "automatic_file_write": false,
+              "approval_required": true
+            },
+            "provenance": {
+              "method": "kairos-signature-parametric/v1",
+              "source": "operator-configured production attributes",
+              "requires_operator_review": true
+            },
+            "warnings": [
+              "A assinatura é uma proposta paramétrica e não uma cópia de artista ou gravação.",
+              "O processamento de arquivo exige adapter DSP explícito e aprovação."
+            ]
+          },
+          "studio_master_2": {
+            "execution_mode": "plan-first",
+            "automatic_render": false,
+            "automatic_publish": false
+          }
+        },
+        "handoff": {
+          "from_agent": "sound_designer",
+          "to_agent": "audio_pipeline",
+          "kind": "multimedia_request",
+          "payload": {
+            "request": {
+              "prompt": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+              "route_id": "default",
+              "artist_id": "kairos.khairus_the_dragon",
+              "audio_path": null,
+              "transcribe": false,
+              "transcription_backend": null,
+              "transcription_model": null,
+              "transcription_language": null,
+              "analyze_audio": false,
+              "generate_audio": true,
+              "genre": "boom_bap",
+              "bpm": 140,
+              "key": "C#",
+              "scale": "minor",
+              "lyrics": null,
+              "duration_seconds": 120.0,
+              "swing": 0.6,
+              "humanize_ms": 6.0,
+              "sample_rate": 44100,
+              "output_format": "wav",
+              "stems": false,
+              "seed": 20260821
+            },
+            "studio_master_plan": {
+              "schema_version": 1,
+              "status": "READY_FOR_APPROVAL",
+              "style": "boom_bap",
+              "canon": {
+                "id": "br_funk_mandelao",
+                "name": "Funk brasileiro pesado",
+                "region": "BRAZIL",
+                "bpm_range": [
+                  125.0,
+                  155.0
+                ],
+                "swing_ratio": 0.53,
+                "pattern": "grave contínuo; cortes secos; síncopa percussiva; transientes próximos",
+                "cultural_context": "Leitura abstrata do funk brasileiro contemporâneo.",
+                "source": "operator-curated; user brief pasted_content_13",
+                "rights_note": "Não usar nomes de artistas como preset de imitação; material precisa ser próprio/licenciado.",
+                "match_type": "nearest"
+              },
+              "repertoire": {
+                "id": "boom_bap_kit",
+                "style": "boom_bap",
+                "cultural_region": "US",
+                "description": "Kit seco e sincopado com espaço para voz e sample autorizado.",
+                "components": {
+                  "kick": {
+                    "engine": "synthesis",
+                    "asset_ref": null,
+                    "parameters": {
+                      "body_hz": 90,
+                      "click_hz": 3000,
+                      "decay_ms": 180
+                    }
+                  },
+                  "snare": {
+                    "engine": "synthesis",
+                    "asset_ref": null,
+                    "parameters": {
+                      "tone_hz": 190,
+                      "noise": 0.7,
+                      "decay_ms": 150
+                    }
+                  },
+                  "hi_hat": {
+                    "engine": "synthesis",
+                    "asset_ref": null,
+                    "parameters": {
+                      "decay_ms": 45,
+                      "velocity_curve": 0.42
+                    }
+                  },
+                  "bass": {
+                    "engine": "optional-synth",
+                    "asset_ref": null,
+                    "parameters": {
+                      "waveform": "sine",
+                      "saturation": 0.12
+                    }
+                  }
+                },
+                "source": "operator-curated; user brief pasted_content_14",
+                "rights_note": "Não inclui loops, presets comerciais ou samples.",
+                "mixing_chain": {
+                  "id": "boom_bap",
+                  "description": "Punch controlado, médios presentes e espaço para a voz.",
+                  "target_lufs": -14,
+                  "bus_processing": [
+                    {
+                      "type": "eq",
+                      "bands": [
+                        {
+                          "freq": 100,
+                          "gain_db": 3
+                        },
+                        {
+                          "freq": 400,
+                          "gain_db": -2
+                        },
+                        {
+                          "freq": 3000,
+                          "gain_db": 4
+                        }
+                      ]
+                    },
+                    {
+                      "type": "compressor",
+                      "threshold_db": -12,
+                      "ratio": 2.5,
+                      "attack_ms": 20,
+                      "release_ms": 150
+                    }
+                  ],
+                  "track_processing": {
+                    "kick": [
+                      {
+                        "type": "transient_shaper",
+                        "attack": 0.7
+                      }
+                    ],
+                    "lead_vocal": [
+                      {
+                        "type": "deesser",
+                        "frequency_hz": 7500,
+                        "threshold_db": -20
+                      }
+                    ]
+                  }
+                }
+              },
+              "timing": {
+                "bpm": 140.0,
+                "swing_ratio": 0.6,
+                "swing_ms": 42.8571,
+                "humanize_ms": 6,
+                "grid_follow": true,
+                "offbeat_policy": "follow_flow_then_apply_swing"
+              },
+              "vocal_focus": {
+                "enabled": true,
+                "sidechain": "multiband-keyed-by-lead-vocal",
+                "lead_vocal_chain": [
+                  {
+                    "type": "deesser",
+                    "frequency_hz": 7500,
+                    "threshold_db": -20
+                  }
+                ],
+                "punchline": {
+                  "enabled": true,
+                  "gain_db": 3.0,
+                  "reverb_reduction_db": 3.0,
+                  "trigger": "explicit-performance-command"
+                }
+              },
+              "handoff": {
+                "target": "POST /v1/orchestrate",
+                "approval_required": true,
+                "request_patch": {
+                  "bpm": 140,
+                  "swing": 0.6,
+                  "humanize_ms": 6,
+                  "genre": "boom_bap",
+                  "stems": true
+                }
+              },
+              "warnings": [
+                "Plano não renderiza áudio e não inicia uma tarefa automaticamente.",
+                "Use apenas samples, gravações e presets com procedência e licença verificáveis.",
+                "Grid follow está ativo, mas nenhum mapa de flow foi fornecido; o plano usa o swing declarado."
+              ],
+              "arrangement": {
+                "schema_version": 1,
+                "status": "READY_FOR_APPROVAL",
+                "method": "rule-based-arrangement/v1",
+                "style": "boom_bap",
+                "mood": "energetic",
+                "bpm": 140.0,
+                "total_bars": 32,
+                "key": "C#",
+                "sections": [
+                  {
+                    "id": "intro",
+                    "bars": 4,
+                    "energy": 0.3,
+                    "instruments": [
+                      "piano",
+                      "hat",
+                      "pad"
+                    ],
+                    "automation": {
+                      "filter_cutoff_hz": 6560.0,
+                      "reverb_wet": 0.205,
+                      "drive": 0.094
+                    }
+                  },
+                  {
+                    "id": "verse_1",
+                    "bars": 8,
+                    "energy": 0.62,
+                    "instruments": [
+                      "kick",
+                      "snare",
+                      "bass",
+                      "piano"
+                    ],
+                    "automation": {
+                      "filter_cutoff_hz": 12704.0,
+                      "reverb_wet": 0.317,
+                      "drive": 0.152
+                    }
+                  },
+                  {
+                    "id": "hook_1",
+                    "bars": 8,
+                    "energy": 0.88,
+                    "instruments": [
+                      "kick",
+                      "snare",
+                      "bass",
+                      "piano",
+                      "pad"
+                    ],
+                    "automation": {
+                      "filter_cutoff_hz": 17696.0,
+                      "reverb_wet": 0.408,
+                      "drive": 0.198
+                    }
+                  },
+                  {
+                    "id": "verse_2",
+                    "bars": 8,
+                    "energy": 0.7,
+                    "instruments": [
+                      "kick",
+                      "snare",
+                      "bass",
+                      "piano"
+                    ],
+                    "automation": {
+                      "filter_cutoff_hz": 14240.0,
+                      "reverb_wet": 0.345,
+                      "drive": 0.166
+                    }
+                  },
+                  {
+                    "id": "outro",
+                    "bars": 4,
+                    "energy": 0.22,
+                    "instruments": [
+                      "piano",
+                      "pad"
+                    ],
+                    "automation": {
+                      "filter_cutoff_hz": 5024.0,
+                      "reverb_wet": 0.177,
+                      "drive": 0.08
+                    }
+                  }
+                ],
+                "warnings": [
+                  "Arranjo é proposta macro e não substitui revisão musical.",
+                  "Instrumentos com engine opcional exigem asset próprio/licenciado."
+                ]
+              },
+              "signature_plan": {
+                "schema_version": 1,
+                "status": "READY_FOR_APPROVAL",
+                "mode": "kairos_signature",
+                "target": "mix_bus",
+                "chain": [
+                  {
+                    "algorithm": "dynamic_eq",
+                    "parameters": {
+                      "low_shelf_db": 3.19,
+                      "presence_db": 2.592,
+                      "air_db": 1.41
+                    },
+                    "rationale": "Grave controlado e inteligibilidade vocal, sem copiar uma curva externa.",
+                    "execution_mode": "adapter-required"
+                  },
+                  {
+                    "algorithm": "multiband_comp",
+                    "parameters": {
+                      "low_ratio": 2.57,
+                      "mid_ratio": 2.28,
+                      "attack_ms": 5.4
+                    },
+                    "rationale": "Densidade musical com headroom preservado.",
+                    "execution_mode": "numpy-preview-or-adapter"
+                  },
+                  {
+                    "algorithm": "harmonic_exciter",
+                    "parameters": {
+                      "drive": 0.085,
+                      "mix": 0.24
+                    },
+                    "rationale": "Textura harmônica moderada e reproduzível.",
+                    "execution_mode": "numpy-preview-or-adapter"
+                  },
+                  {
+                    "algorithm": "stereo_widener",
+                    "parameters": {
+                      "width": 1.087,
+                      "low_mono_hz": 120
+                    },
+                    "rationale": "Espaço controlado com baixa frequência centrada.",
+                    "execution_mode": "numpy-preview-or-adapter"
+                  },
+                  {
+                    "algorithm": "convolution_reverb",
+                    "parameters": {
+                      "wet": 0.065,
+                      "pre_delay_ms": 28.5
+                    },
+                    "rationale": "Profundidade curta para não afastar a voz.",
+                    "execution_mode": "numpy-preview-or-adapter"
+                  },
+                  {
+                    "algorithm": "limiter",
+                    "parameters": {
+                      "ceiling_db": -1.0,
+                      "release_ms": 80
+                    },
+                    "rationale": "Teto de distribuição conservador e verificável.",
+                    "execution_mode": "adapter-required"
+                  }
+                ],
+                "guardrails": {
+                  "max_true_peak_db": -1.0,
+                  "reference_matching": false,
+                  "source_imitation": false,
+                  "automatic_file_write": false,
+                  "approval_required": true
+                },
+                "provenance": {
+                  "method": "kairos-signature-parametric/v1",
+                  "source": "operator-configured production attributes",
+                  "requires_operator_review": true
+                },
+                "warnings": [
+                  "A assinatura é uma proposta paramétrica e não uma cópia de artista ou gravação.",
+                  "O processamento de arquivo exige adapter DSP explícito e aprovação."
+                ]
+              },
+              "studio_master_2": {
+                "execution_mode": "plan-first",
+                "automatic_render": false,
+                "automatic_publish": false
+              }
+            }
+          },
+          "requires_approval": true,
+          "schema_version": 1
+        }
+      }
+    },
+    {
+      "agent": "editor",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "edit_plan",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589674+00:00",
+      "output": {
+        "timeline": "scene-order-preserving",
+        "fps": 24,
+        "transitions": "cut-first; transitions only when motivated",
+        "validation": [
+          "ffprobe",
+          "duration",
+          "fps",
+          "non-empty-mp4"
+        ]
+      }
+    },
+    {
+      "agent": "vfx",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "visual_plan",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589720+00:00",
+      "output": {
+        "backend_handoff": "SkyReels CLI/native selected downstream by VideoRequest",
+        "effects": [
+          "atmospheric depth",
+          "controlled light bloom",
+          "temporal consistency"
+        ],
+        "scene_handoff_count": 4
+      }
+    },
+    {
+      "agent": "social",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "distribution_plan",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589723+00:00",
+      "output": {
+        "variants": [
+          {
+            "channel": "instagram-reels",
+            "aspect_ratio": "9:16",
+            "duration_limit_seconds": 90
+          },
+          {
+            "channel": "youtube-shorts",
+            "aspect_ratio": "9:16",
+            "duration_limit_seconds": 60
+          },
+          {
+            "channel": "tiktok",
+            "aspect_ratio": "9:16",
+            "duration_limit_seconds": 180
+          },
+          {
+            "channel": "youtube-landscape",
+            "aspect_ratio": "16:9",
+            "duration_limit_seconds": 600
+          }
+        ],
+        "caption_slots": true
+      }
+    },
+    {
+      "agent": "producer",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "production_plan",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589725+00:00",
+      "output": {
+        "phases": [
+          "brief",
+          "creative",
+          "research",
+          "scene-plan",
+          "audio",
+          "visual",
+          "edit",
+          "qa",
+          "delivery"
+        ],
+        "dependencies": [
+          "approved_video_handoffs",
+          "approved_audio_handoff",
+          "ffprobe_success"
+        ],
+        "submit_requested": false
+      }
+    },
+    {
+      "agent": "accessibility",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "accessibility_plan",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589727+00:00",
+      "output": {
+        "caption_formats": [
+          "srt",
+          "webvtt"
+        ],
+        "language": "pt-BR",
+        "include_speaker_labels": true,
+        "audio_description_slot": true
+      }
+    },
+    {
+      "agent": "qa",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "kind": "quality_review",
+      "status": "completed",
+      "timestamp": "2026-08-21T17:03:50.589731+00:00",
+      "output": {
+        "checks": [
+          {
+            "check": "all_12_roles_present",
+            "passed": true
+          },
+          {
+            "check": "video_handoffs_validate",
+            "passed": true
+          },
+          {
+            "check": "audio_handoff_valid",
+            "passed": true
+          },
+          {
+            "check": "external_generation_not_implicit",
+            "passed": true
+          },
+          {
+            "check": "ffprobe_gate_declared",
+            "passed": true
+          }
+        ],
+        "passed": true
+      }
+    }
+  ],
+  "artifacts": {
+    "strategy": {
+      "project_name": "Desenvolver O Quarto Single De Rap",
+      "briefing": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+      "objective": "Produzir pacote audiovisual revisável e encaminhável aos pipelines KAIR.",
+      "risk_gates": [
+        "human_or_operator_approval",
+        "ffprobe_before_publish",
+        "no_secret_or_weight_in_git"
+      ],
+      "iteration_budget": 2
+    },
+    "style_guide": {
+      "mood": "warm-kinetic",
+      "palette": [
+        "carbon black",
+        "electric cyan",
+        "warm amber"
+      ],
+      "visual_rules": [
+        "no watermark",
+        "no accidental text",
+        "identity continuity",
+        "controlled motion"
+      ],
+      "negative_prompt": "low quality, flicker, malformed anatomy, random text, watermark"
+    },
+    "retrieval": {
+      "query": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+      "moments": [],
+      "retrieval_mode": "disabled-by-external-tools-gate",
+      "provenance_required": true
+    },
+    "scene_plan": {
+      "plan_id": "cap-9ae9ed73ca3f8721",
+      "architecture": "complementary-audiovisual-core.v1",
+      "role": "planning-and-handoff",
+      "prompt": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+      "duration_seconds": 120.0,
+      "aspect_ratio": "16:9",
+      "resolution": "720P",
+      "fps": 24,
+      "audio": {
+        "mode": "old-school-rap-development",
+        "status": "slot-only",
+        "source": "external-or-existing-audio-pipeline",
+        "handoff": "POST /v1/orchestrate"
+      },
+      "media": {
+        "mode": "no-external-media",
+        "status": "slot-only",
+        "pexels": {
+          "enabled": false,
+          "secret_env": "PEXELS_API_KEY"
+        },
+        "download_policy": "not-executed-by-planner"
+      },
+      "scenes": [
+        {
+          "scene_id": "cap-9ae9ed73ca3f8721-s01",
+          "order": 1,
+          "start_seconds": 0.0,
+          "end_seconds": 30.0,
+          "prompt": "Scene 1/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "visual_sources": [
+            "skyreels-native",
+            "skyreels-space",
+            "pexels-slot"
+          ],
+          "agent_handoff": [
+            "skyreels-native",
+            "skyreels-space"
+          ],
+          "video_request_template": {
+            "prompt": "Scene 1/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "mode": "t2v",
+            "engine": "diffusion_forcing",
+            "backend": "native",
+            "resolution": "720P",
+            "fps": 24,
+            "duration_seconds": 30.0,
+            "seed": 20260821,
+            "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+            "complementary_scene_id": "cap-9ae9ed73ca3f8721-s01"
+          }
+        },
+        {
+          "scene_id": "cap-9ae9ed73ca3f8721-s02",
+          "order": 2,
+          "start_seconds": 30.0,
+          "end_seconds": 60.0,
+          "prompt": "Scene 2/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "visual_sources": [
+            "skyreels-native",
+            "skyreels-space",
+            "pexels-slot"
+          ],
+          "agent_handoff": [
+            "skyreels-native",
+            "skyreels-space"
+          ],
+          "video_request_template": {
+            "prompt": "Scene 2/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "mode": "t2v",
+            "engine": "diffusion_forcing",
+            "backend": "native",
+            "resolution": "720P",
+            "fps": 24,
+            "duration_seconds": 30.0,
+            "seed": 20260821,
+            "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+            "complementary_scene_id": "cap-9ae9ed73ca3f8721-s02"
+          }
+        },
+        {
+          "scene_id": "cap-9ae9ed73ca3f8721-s03",
+          "order": 3,
+          "start_seconds": 60.0,
+          "end_seconds": 90.0,
+          "prompt": "Scene 3/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "visual_sources": [
+            "skyreels-native",
+            "skyreels-space",
+            "pexels-slot"
+          ],
+          "agent_handoff": [
+            "skyreels-native",
+            "skyreels-space"
+          ],
+          "video_request_template": {
+            "prompt": "Scene 3/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "mode": "t2v",
+            "engine": "diffusion_forcing",
+            "backend": "native",
+            "resolution": "720P",
+            "fps": 24,
+            "duration_seconds": 30.0,
+            "seed": 20260821,
+            "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+            "complementary_scene_id": "cap-9ae9ed73ca3f8721-s03"
+          }
+        },
+        {
+          "scene_id": "cap-9ae9ed73ca3f8721-s04",
+          "order": 4,
+          "start_seconds": 90.0,
+          "end_seconds": 120.0,
+          "prompt": "Scene 4/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "visual_sources": [
+            "skyreels-native",
+            "skyreels-space",
+            "pexels-slot"
+          ],
+          "agent_handoff": [
+            "skyreels-native",
+            "skyreels-space"
+          ],
+          "video_request_template": {
+            "prompt": "Scene 4/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+            "mode": "t2v",
+            "engine": "diffusion_forcing",
+            "backend": "native",
+            "resolution": "720P",
+            "fps": 24,
+            "duration_seconds": 30.0,
+            "seed": 20260821,
+            "complementary_plan_id": "cap-9ae9ed73ca3f8721",
+            "complementary_scene_id": "cap-9ae9ed73ca3f8721-s04"
+          }
+        }
+      ],
+      "handoff": {
+        "video": "POST /v1/video/generate",
+        "audio_visual": "POST /v1/orchestrate",
+        "agents": "GET /v1/agents/capabilities",
+        "probe": "GET /v1/agents/{agent_name}/probe",
+        "promotion": "existing-task-store-and-ffprobe-gates"
+      },
+      "guardrails": [
+        "complementary layer does not replace the KAIR gateway",
+        "complementary layer does not replace the persistent worker",
+        "external services remain disabled until explicit operator enablement",
+        "secrets and model weights never belong in Git",
+        "planner never downloads media or models"
+      ]
+    },
+    "storyboard": {
+      "camera_language": "cinematic controlled movement",
+      "lighting": "motivated practicals with clean subject separation",
+      "aspect_ratio": "16:9",
+      "shots": [
+        {
+          "scene_index": 1,
+          "shot": "establishing-to-medium",
+          "motion": "slow push-in",
+          "lens": "35mm"
+        },
+        {
+          "scene_index": 2,
+          "shot": "establishing-to-medium",
+          "motion": "slow push-in",
+          "lens": "35mm"
+        },
+        {
+          "scene_index": 3,
+          "shot": "establishing-to-medium",
+          "motion": "slow push-in",
+          "lens": "35mm"
+        },
+        {
+          "scene_index": 4,
+          "shot": "establishing-to-medium",
+          "motion": "slow push-in",
+          "lens": "35mm"
+        }
+      ]
+    },
+    "audio_plan": {
+      "mode": "old-school-rap-development",
+      "duration_seconds": 120.0,
+      "mix_targets": {
+        "integrated_lufs": -14,
+        "true_peak_db": -1
+      },
+      "studio_master_plan": {
+        "schema_version": 1,
+        "status": "READY_FOR_APPROVAL",
+        "style": "boom_bap",
+        "canon": {
+          "id": "br_funk_mandelao",
+          "name": "Funk brasileiro pesado",
+          "region": "BRAZIL",
+          "bpm_range": [
+            125.0,
+            155.0
+          ],
+          "swing_ratio": 0.53,
+          "pattern": "grave contínuo; cortes secos; síncopa percussiva; transientes próximos",
+          "cultural_context": "Leitura abstrata do funk brasileiro contemporâneo.",
+          "source": "operator-curated; user brief pasted_content_13",
+          "rights_note": "Não usar nomes de artistas como preset de imitação; material precisa ser próprio/licenciado.",
+          "match_type": "nearest"
+        },
+        "repertoire": {
+          "id": "boom_bap_kit",
+          "style": "boom_bap",
+          "cultural_region": "US",
+          "description": "Kit seco e sincopado com espaço para voz e sample autorizado.",
+          "components": {
+            "kick": {
+              "engine": "synthesis",
+              "asset_ref": null,
+              "parameters": {
+                "body_hz": 90,
+                "click_hz": 3000,
+                "decay_ms": 180
+              }
+            },
+            "snare": {
+              "engine": "synthesis",
+              "asset_ref": null,
+              "parameters": {
+                "tone_hz": 190,
+                "noise": 0.7,
+                "decay_ms": 150
+              }
+            },
+            "hi_hat": {
+              "engine": "synthesis",
+              "asset_ref": null,
+              "parameters": {
+                "decay_ms": 45,
+                "velocity_curve": 0.42
+              }
+            },
+            "bass": {
+              "engine": "optional-synth",
+              "asset_ref": null,
+              "parameters": {
+                "waveform": "sine",
+                "saturation": 0.12
+              }
+            }
+          },
+          "source": "operator-curated; user brief pasted_content_14",
+          "rights_note": "Não inclui loops, presets comerciais ou samples.",
+          "mixing_chain": {
+            "id": "boom_bap",
+            "description": "Punch controlado, médios presentes e espaço para a voz.",
+            "target_lufs": -14,
+            "bus_processing": [
+              {
+                "type": "eq",
+                "bands": [
+                  {
+                    "freq": 100,
+                    "gain_db": 3
+                  },
+                  {
+                    "freq": 400,
+                    "gain_db": -2
+                  },
+                  {
+                    "freq": 3000,
+                    "gain_db": 4
+                  }
+                ]
+              },
+              {
+                "type": "compressor",
+                "threshold_db": -12,
+                "ratio": 2.5,
+                "attack_ms": 20,
+                "release_ms": 150
+              }
+            ],
+            "track_processing": {
+              "kick": [
+                {
+                  "type": "transient_shaper",
+                  "attack": 0.7
+                }
+              ],
+              "lead_vocal": [
+                {
+                  "type": "deesser",
+                  "frequency_hz": 7500,
+                  "threshold_db": -20
+                }
+              ]
+            }
+          }
+        },
+        "timing": {
+          "bpm": 140.0,
+          "swing_ratio": 0.6,
+          "swing_ms": 42.8571,
+          "humanize_ms": 6,
+          "grid_follow": true,
+          "offbeat_policy": "follow_flow_then_apply_swing"
+        },
+        "vocal_focus": {
+          "enabled": true,
+          "sidechain": "multiband-keyed-by-lead-vocal",
+          "lead_vocal_chain": [
+            {
+              "type": "deesser",
+              "frequency_hz": 7500,
+              "threshold_db": -20
+            }
+          ],
+          "punchline": {
+            "enabled": true,
+            "gain_db": 3.0,
+            "reverb_reduction_db": 3.0,
+            "trigger": "explicit-performance-command"
+          }
+        },
+        "handoff": {
+          "target": "POST /v1/orchestrate",
+          "approval_required": true,
+          "request_patch": {
+            "bpm": 140,
+            "swing": 0.6,
+            "humanize_ms": 6,
+            "genre": "boom_bap",
+            "stems": true
+          }
+        },
+        "warnings": [
+          "Plano não renderiza áudio e não inicia uma tarefa automaticamente.",
+          "Use apenas samples, gravações e presets com procedência e licença verificáveis.",
+          "Grid follow está ativo, mas nenhum mapa de flow foi fornecido; o plano usa o swing declarado."
+        ],
+        "arrangement": {
+          "schema_version": 1,
+          "status": "READY_FOR_APPROVAL",
+          "method": "rule-based-arrangement/v1",
+          "style": "boom_bap",
+          "mood": "energetic",
+          "bpm": 140.0,
+          "total_bars": 32,
+          "key": "C#",
+          "sections": [
+            {
+              "id": "intro",
+              "bars": 4,
+              "energy": 0.3,
+              "instruments": [
+                "piano",
+                "hat",
+                "pad"
+              ],
+              "automation": {
+                "filter_cutoff_hz": 6560.0,
+                "reverb_wet": 0.205,
+                "drive": 0.094
+              }
+            },
+            {
+              "id": "verse_1",
+              "bars": 8,
+              "energy": 0.62,
+              "instruments": [
+                "kick",
+                "snare",
+                "bass",
+                "piano"
+              ],
+              "automation": {
+                "filter_cutoff_hz": 12704.0,
+                "reverb_wet": 0.317,
+                "drive": 0.152
+              }
+            },
+            {
+              "id": "hook_1",
+              "bars": 8,
+              "energy": 0.88,
+              "instruments": [
+                "kick",
+                "snare",
+                "bass",
+                "piano",
+                "pad"
+              ],
+              "automation": {
+                "filter_cutoff_hz": 17696.0,
+                "reverb_wet": 0.408,
+                "drive": 0.198
+              }
+            },
+            {
+              "id": "verse_2",
+              "bars": 8,
+              "energy": 0.7,
+              "instruments": [
+                "kick",
+                "snare",
+                "bass",
+                "piano"
+              ],
+              "automation": {
+                "filter_cutoff_hz": 14240.0,
+                "reverb_wet": 0.345,
+                "drive": 0.166
+              }
+            },
+            {
+              "id": "outro",
+              "bars": 4,
+              "energy": 0.22,
+              "instruments": [
+                "piano",
+                "pad"
+              ],
+              "automation": {
+                "filter_cutoff_hz": 5024.0,
+                "reverb_wet": 0.177,
+                "drive": 0.08
+              }
+            }
+          ],
+          "warnings": [
+            "Arranjo é proposta macro e não substitui revisão musical.",
+            "Instrumentos com engine opcional exigem asset próprio/licenciado."
+          ]
+        },
+        "signature_plan": {
+          "schema_version": 1,
+          "status": "READY_FOR_APPROVAL",
+          "mode": "kairos_signature",
+          "target": "mix_bus",
+          "chain": [
+            {
+              "algorithm": "dynamic_eq",
+              "parameters": {
+                "low_shelf_db": 3.19,
+                "presence_db": 2.592,
+                "air_db": 1.41
+              },
+              "rationale": "Grave controlado e inteligibilidade vocal, sem copiar uma curva externa.",
+              "execution_mode": "adapter-required"
+            },
+            {
+              "algorithm": "multiband_comp",
+              "parameters": {
+                "low_ratio": 2.57,
+                "mid_ratio": 2.28,
+                "attack_ms": 5.4
+              },
+              "rationale": "Densidade musical com headroom preservado.",
+              "execution_mode": "numpy-preview-or-adapter"
+            },
+            {
+              "algorithm": "harmonic_exciter",
+              "parameters": {
+                "drive": 0.085,
+                "mix": 0.24
+              },
+              "rationale": "Textura harmônica moderada e reproduzível.",
+              "execution_mode": "numpy-preview-or-adapter"
+            },
+            {
+              "algorithm": "stereo_widener",
+              "parameters": {
+                "width": 1.087,
+                "low_mono_hz": 120
+              },
+              "rationale": "Espaço controlado com baixa frequência centrada.",
+              "execution_mode": "numpy-preview-or-adapter"
+            },
+            {
+              "algorithm": "convolution_reverb",
+              "parameters": {
+                "wet": 0.065,
+                "pre_delay_ms": 28.5
+              },
+              "rationale": "Profundidade curta para não afastar a voz.",
+              "execution_mode": "numpy-preview-or-adapter"
+            },
+            {
+              "algorithm": "limiter",
+              "parameters": {
+                "ceiling_db": -1.0,
+                "release_ms": 80
+              },
+              "rationale": "Teto de distribuição conservador e verificável.",
+              "execution_mode": "adapter-required"
+            }
+          ],
+          "guardrails": {
+            "max_true_peak_db": -1.0,
+            "reference_matching": false,
+            "source_imitation": false,
+            "automatic_file_write": false,
+            "approval_required": true
+          },
+          "provenance": {
+            "method": "kairos-signature-parametric/v1",
+            "source": "operator-configured production attributes",
+            "requires_operator_review": true
+          },
+          "warnings": [
+            "A assinatura é uma proposta paramétrica e não uma cópia de artista ou gravação.",
+            "O processamento de arquivo exige adapter DSP explícito e aprovação."
+          ]
+        },
+        "studio_master_2": {
+          "execution_mode": "plan-first",
+          "automatic_render": false,
+          "automatic_publish": false
+        }
+      },
+      "handoff": {
+        "from_agent": "sound_designer",
+        "to_agent": "audio_pipeline",
+        "kind": "multimedia_request",
+        "payload": {
+          "request": {
+            "prompt": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+            "route_id": "default",
+            "artist_id": "kairos.khairus_the_dragon",
+            "audio_path": null,
+            "transcribe": false,
+            "transcription_backend": null,
+            "transcription_model": null,
+            "transcription_language": null,
+            "analyze_audio": false,
+            "generate_audio": true,
+            "genre": "boom_bap",
+            "bpm": 140,
+            "key": "C#",
+            "scale": "minor",
+            "lyrics": null,
+            "duration_seconds": 120.0,
+            "swing": 0.6,
+            "humanize_ms": 6.0,
+            "sample_rate": 44100,
+            "output_format": "wav",
+            "stems": false,
+            "seed": 20260821
+          },
+          "studio_master_plan": {
+            "schema_version": 1,
+            "status": "READY_FOR_APPROVAL",
+            "style": "boom_bap",
+            "canon": {
+              "id": "br_funk_mandelao",
+              "name": "Funk brasileiro pesado",
+              "region": "BRAZIL",
+              "bpm_range": [
+                125.0,
+                155.0
+              ],
+              "swing_ratio": 0.53,
+              "pattern": "grave contínuo; cortes secos; síncopa percussiva; transientes próximos",
+              "cultural_context": "Leitura abstrata do funk brasileiro contemporâneo.",
+              "source": "operator-curated; user brief pasted_content_13",
+              "rights_note": "Não usar nomes de artistas como preset de imitação; material precisa ser próprio/licenciado.",
+              "match_type": "nearest"
+            },
+            "repertoire": {
+              "id": "boom_bap_kit",
+              "style": "boom_bap",
+              "cultural_region": "US",
+              "description": "Kit seco e sincopado com espaço para voz e sample autorizado.",
+              "components": {
+                "kick": {
+                  "engine": "synthesis",
+                  "asset_ref": null,
+                  "parameters": {
+                    "body_hz": 90,
+                    "click_hz": 3000,
+                    "decay_ms": 180
+                  }
+                },
+                "snare": {
+                  "engine": "synthesis",
+                  "asset_ref": null,
+                  "parameters": {
+                    "tone_hz": 190,
+                    "noise": 0.7,
+                    "decay_ms": 150
+                  }
+                },
+                "hi_hat": {
+                  "engine": "synthesis",
+                  "asset_ref": null,
+                  "parameters": {
+                    "decay_ms": 45,
+                    "velocity_curve": 0.42
+                  }
+                },
+                "bass": {
+                  "engine": "optional-synth",
+                  "asset_ref": null,
+                  "parameters": {
+                    "waveform": "sine",
+                    "saturation": 0.12
+                  }
+                }
+              },
+              "source": "operator-curated; user brief pasted_content_14",
+              "rights_note": "Não inclui loops, presets comerciais ou samples.",
+              "mixing_chain": {
+                "id": "boom_bap",
+                "description": "Punch controlado, médios presentes e espaço para a voz.",
+                "target_lufs": -14,
+                "bus_processing": [
+                  {
+                    "type": "eq",
+                    "bands": [
+                      {
+                        "freq": 100,
+                        "gain_db": 3
+                      },
+                      {
+                        "freq": 400,
+                        "gain_db": -2
+                      },
+                      {
+                        "freq": 3000,
+                        "gain_db": 4
+                      }
+                    ]
+                  },
+                  {
+                    "type": "compressor",
+                    "threshold_db": -12,
+                    "ratio": 2.5,
+                    "attack_ms": 20,
+                    "release_ms": 150
+                  }
+                ],
+                "track_processing": {
+                  "kick": [
+                    {
+                      "type": "transient_shaper",
+                      "attack": 0.7
+                    }
+                  ],
+                  "lead_vocal": [
+                    {
+                      "type": "deesser",
+                      "frequency_hz": 7500,
+                      "threshold_db": -20
+                    }
+                  ]
+                }
+              }
+            },
+            "timing": {
+              "bpm": 140.0,
+              "swing_ratio": 0.6,
+              "swing_ms": 42.8571,
+              "humanize_ms": 6,
+              "grid_follow": true,
+              "offbeat_policy": "follow_flow_then_apply_swing"
+            },
+            "vocal_focus": {
+              "enabled": true,
+              "sidechain": "multiband-keyed-by-lead-vocal",
+              "lead_vocal_chain": [
+                {
+                  "type": "deesser",
+                  "frequency_hz": 7500,
+                  "threshold_db": -20
+                }
+              ],
+              "punchline": {
+                "enabled": true,
+                "gain_db": 3.0,
+                "reverb_reduction_db": 3.0,
+                "trigger": "explicit-performance-command"
+              }
+            },
+            "handoff": {
+              "target": "POST /v1/orchestrate",
+              "approval_required": true,
+              "request_patch": {
+                "bpm": 140,
+                "swing": 0.6,
+                "humanize_ms": 6,
+                "genre": "boom_bap",
+                "stems": true
+              }
+            },
+            "warnings": [
+              "Plano não renderiza áudio e não inicia uma tarefa automaticamente.",
+              "Use apenas samples, gravações e presets com procedência e licença verificáveis.",
+              "Grid follow está ativo, mas nenhum mapa de flow foi fornecido; o plano usa o swing declarado."
+            ],
+            "arrangement": {
+              "schema_version": 1,
+              "status": "READY_FOR_APPROVAL",
+              "method": "rule-based-arrangement/v1",
+              "style": "boom_bap",
+              "mood": "energetic",
+              "bpm": 140.0,
+              "total_bars": 32,
+              "key": "C#",
+              "sections": [
+                {
+                  "id": "intro",
+                  "bars": 4,
+                  "energy": 0.3,
+                  "instruments": [
+                    "piano",
+                    "hat",
+                    "pad"
+                  ],
+                  "automation": {
+                    "filter_cutoff_hz": 6560.0,
+                    "reverb_wet": 0.205,
+                    "drive": 0.094
+                  }
+                },
+                {
+                  "id": "verse_1",
+                  "bars": 8,
+                  "energy": 0.62,
+                  "instruments": [
+                    "kick",
+                    "snare",
+                    "bass",
+                    "piano"
+                  ],
+                  "automation": {
+                    "filter_cutoff_hz": 12704.0,
+                    "reverb_wet": 0.317,
+                    "drive": 0.152
+                  }
+                },
+                {
+                  "id": "hook_1",
+                  "bars": 8,
+                  "energy": 0.88,
+                  "instruments": [
+                    "kick",
+                    "snare",
+                    "bass",
+                    "piano",
+                    "pad"
+                  ],
+                  "automation": {
+                    "filter_cutoff_hz": 17696.0,
+                    "reverb_wet": 0.408,
+                    "drive": 0.198
+                  }
+                },
+                {
+                  "id": "verse_2",
+                  "bars": 8,
+                  "energy": 0.7,
+                  "instruments": [
+                    "kick",
+                    "snare",
+                    "bass",
+                    "piano"
+                  ],
+                  "automation": {
+                    "filter_cutoff_hz": 14240.0,
+                    "reverb_wet": 0.345,
+                    "drive": 0.166
+                  }
+                },
+                {
+                  "id": "outro",
+                  "bars": 4,
+                  "energy": 0.22,
+                  "instruments": [
+                    "piano",
+                    "pad"
+                  ],
+                  "automation": {
+                    "filter_cutoff_hz": 5024.0,
+                    "reverb_wet": 0.177,
+                    "drive": 0.08
+                  }
+                }
+              ],
+              "warnings": [
+                "Arranjo é proposta macro e não substitui revisão musical.",
+                "Instrumentos com engine opcional exigem asset próprio/licenciado."
+              ]
+            },
+            "signature_plan": {
+              "schema_version": 1,
+              "status": "READY_FOR_APPROVAL",
+              "mode": "kairos_signature",
+              "target": "mix_bus",
+              "chain": [
+                {
+                  "algorithm": "dynamic_eq",
+                  "parameters": {
+                    "low_shelf_db": 3.19,
+                    "presence_db": 2.592,
+                    "air_db": 1.41
+                  },
+                  "rationale": "Grave controlado e inteligibilidade vocal, sem copiar uma curva externa.",
+                  "execution_mode": "adapter-required"
+                },
+                {
+                  "algorithm": "multiband_comp",
+                  "parameters": {
+                    "low_ratio": 2.57,
+                    "mid_ratio": 2.28,
+                    "attack_ms": 5.4
+                  },
+                  "rationale": "Densidade musical com headroom preservado.",
+                  "execution_mode": "numpy-preview-or-adapter"
+                },
+                {
+                  "algorithm": "harmonic_exciter",
+                  "parameters": {
+                    "drive": 0.085,
+                    "mix": 0.24
+                  },
+                  "rationale": "Textura harmônica moderada e reproduzível.",
+                  "execution_mode": "numpy-preview-or-adapter"
+                },
+                {
+                  "algorithm": "stereo_widener",
+                  "parameters": {
+                    "width": 1.087,
+                    "low_mono_hz": 120
+                  },
+                  "rationale": "Espaço controlado com baixa frequência centrada.",
+                  "execution_mode": "numpy-preview-or-adapter"
+                },
+                {
+                  "algorithm": "convolution_reverb",
+                  "parameters": {
+                    "wet": 0.065,
+                    "pre_delay_ms": 28.5
+                  },
+                  "rationale": "Profundidade curta para não afastar a voz.",
+                  "execution_mode": "numpy-preview-or-adapter"
+                },
+                {
+                  "algorithm": "limiter",
+                  "parameters": {
+                    "ceiling_db": -1.0,
+                    "release_ms": 80
+                  },
+                  "rationale": "Teto de distribuição conservador e verificável.",
+                  "execution_mode": "adapter-required"
+                }
+              ],
+              "guardrails": {
+                "max_true_peak_db": -1.0,
+                "reference_matching": false,
+                "source_imitation": false,
+                "automatic_file_write": false,
+                "approval_required": true
+              },
+              "provenance": {
+                "method": "kairos-signature-parametric/v1",
+                "source": "operator-configured production attributes",
+                "requires_operator_review": true
+              },
+              "warnings": [
+                "A assinatura é uma proposta paramétrica e não uma cópia de artista ou gravação.",
+                "O processamento de arquivo exige adapter DSP explícito e aprovação."
+              ]
+            },
+            "studio_master_2": {
+              "execution_mode": "plan-first",
+              "automatic_render": false,
+              "automatic_publish": false
+            }
+          }
+        },
+        "requires_approval": true,
+        "schema_version": 1
+      }
+    },
+    "edit_plan": {
+      "timeline": "scene-order-preserving",
+      "fps": 24,
+      "transitions": "cut-first; transitions only when motivated",
+      "validation": [
+        "ffprobe",
+        "duration",
+        "fps",
+        "non-empty-mp4"
+      ]
+    },
+    "vfx_plan": {
+      "backend_handoff": "SkyReels CLI/native selected downstream by VideoRequest",
+      "effects": [
+        "atmospheric depth",
+        "controlled light bloom",
+        "temporal consistency"
+      ],
+      "scene_handoff_count": 4
+    },
+    "distribution": {
+      "variants": [
+        {
+          "channel": "instagram-reels",
+          "aspect_ratio": "9:16",
+          "duration_limit_seconds": 90
+        },
+        {
+          "channel": "youtube-shorts",
+          "aspect_ratio": "9:16",
+          "duration_limit_seconds": 60
+        },
+        {
+          "channel": "tiktok",
+          "aspect_ratio": "9:16",
+          "duration_limit_seconds": 180
+        },
+        {
+          "channel": "youtube-landscape",
+          "aspect_ratio": "16:9",
+          "duration_limit_seconds": 600
+        }
+      ],
+      "caption_slots": true
+    },
+    "production": {
+      "phases": [
+        "brief",
+        "creative",
+        "research",
+        "scene-plan",
+        "audio",
+        "visual",
+        "edit",
+        "qa",
+        "delivery"
+      ],
+      "dependencies": [
+        "approved_video_handoffs",
+        "approved_audio_handoff",
+        "ffprobe_success"
+      ],
+      "submit_requested": false
+    },
+    "accessibility": {
+      "caption_formats": [
+        "srt",
+        "webvtt"
+      ],
+      "language": "pt-BR",
+      "include_speaker_labels": true,
+      "audio_description_slot": true
+    },
+    "quality": {
+      "checks": [
+        {
+          "check": "all_12_roles_present",
+          "passed": true
+        },
+        {
+          "check": "video_handoffs_validate",
+          "passed": true
+        },
+        {
+          "check": "audio_handoff_valid",
+          "passed": true
+        },
+        {
+          "check": "external_generation_not_implicit",
+          "passed": true
+        },
+        {
+          "check": "ffprobe_gate_declared",
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  },
+  "handoffs": [
+    {
+      "from_agent": "sound_designer",
+      "to_agent": "audio_pipeline",
+      "kind": "multimedia_request",
+      "payload": {
+        "request": {
+          "prompt": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+          "route_id": "default",
+          "artist_id": "kairos.khairus_the_dragon",
+          "audio_path": null,
+          "transcribe": false,
+          "transcription_backend": null,
+          "transcription_model": null,
+          "transcription_language": null,
+          "analyze_audio": false,
+          "generate_audio": true,
+          "genre": "boom_bap",
+          "bpm": 140,
+          "key": "C#",
+          "scale": "minor",
+          "lyrics": null,
+          "duration_seconds": 120.0,
+          "swing": 0.6,
+          "humanize_ms": 6.0,
+          "sample_rate": 44100,
+          "output_format": "wav",
+          "stems": false,
+          "seed": 20260821
+        },
+        "studio_master_plan": {
+          "schema_version": 1,
+          "status": "READY_FOR_APPROVAL",
+          "style": "boom_bap",
+          "canon": {
+            "id": "br_funk_mandelao",
+            "name": "Funk brasileiro pesado",
+            "region": "BRAZIL",
+            "bpm_range": [
+              125.0,
+              155.0
+            ],
+            "swing_ratio": 0.53,
+            "pattern": "grave contínuo; cortes secos; síncopa percussiva; transientes próximos",
+            "cultural_context": "Leitura abstrata do funk brasileiro contemporâneo.",
+            "source": "operator-curated; user brief pasted_content_13",
+            "rights_note": "Não usar nomes de artistas como preset de imitação; material precisa ser próprio/licenciado.",
+            "match_type": "nearest"
+          },
+          "repertoire": {
+            "id": "boom_bap_kit",
+            "style": "boom_bap",
+            "cultural_region": "US",
+            "description": "Kit seco e sincopado com espaço para voz e sample autorizado.",
+            "components": {
+              "kick": {
+                "engine": "synthesis",
+                "asset_ref": null,
+                "parameters": {
+                  "body_hz": 90,
+                  "click_hz": 3000,
+                  "decay_ms": 180
+                }
+              },
+              "snare": {
+                "engine": "synthesis",
+                "asset_ref": null,
+                "parameters": {
+                  "tone_hz": 190,
+                  "noise": 0.7,
+                  "decay_ms": 150
+                }
+              },
+              "hi_hat": {
+                "engine": "synthesis",
+                "asset_ref": null,
+                "parameters": {
+                  "decay_ms": 45,
+                  "velocity_curve": 0.42
+                }
+              },
+              "bass": {
+                "engine": "optional-synth",
+                "asset_ref": null,
+                "parameters": {
+                  "waveform": "sine",
+                  "saturation": 0.12
+                }
+              }
+            },
+            "source": "operator-curated; user brief pasted_content_14",
+            "rights_note": "Não inclui loops, presets comerciais ou samples.",
+            "mixing_chain": {
+              "id": "boom_bap",
+              "description": "Punch controlado, médios presentes e espaço para a voz.",
+              "target_lufs": -14,
+              "bus_processing": [
+                {
+                  "type": "eq",
+                  "bands": [
+                    {
+                      "freq": 100,
+                      "gain_db": 3
+                    },
+                    {
+                      "freq": 400,
+                      "gain_db": -2
+                    },
+                    {
+                      "freq": 3000,
+                      "gain_db": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "compressor",
+                  "threshold_db": -12,
+                  "ratio": 2.5,
+                  "attack_ms": 20,
+                  "release_ms": 150
+                }
+              ],
+              "track_processing": {
+                "kick": [
+                  {
+                    "type": "transient_shaper",
+                    "attack": 0.7
+                  }
+                ],
+                "lead_vocal": [
+                  {
+                    "type": "deesser",
+                    "frequency_hz": 7500,
+                    "threshold_db": -20
+                  }
+                ]
+              }
+            }
+          },
+          "timing": {
+            "bpm": 140.0,
+            "swing_ratio": 0.6,
+            "swing_ms": 42.8571,
+            "humanize_ms": 6,
+            "grid_follow": true,
+            "offbeat_policy": "follow_flow_then_apply_swing"
+          },
+          "vocal_focus": {
+            "enabled": true,
+            "sidechain": "multiband-keyed-by-lead-vocal",
+            "lead_vocal_chain": [
+              {
+                "type": "deesser",
+                "frequency_hz": 7500,
+                "threshold_db": -20
+              }
+            ],
+            "punchline": {
+              "enabled": true,
+              "gain_db": 3.0,
+              "reverb_reduction_db": 3.0,
+              "trigger": "explicit-performance-command"
+            }
+          },
+          "handoff": {
+            "target": "POST /v1/orchestrate",
+            "approval_required": true,
+            "request_patch": {
+              "bpm": 140,
+              "swing": 0.6,
+              "humanize_ms": 6,
+              "genre": "boom_bap",
+              "stems": true
+            }
+          },
+          "warnings": [
+            "Plano não renderiza áudio e não inicia uma tarefa automaticamente.",
+            "Use apenas samples, gravações e presets com procedência e licença verificáveis.",
+            "Grid follow está ativo, mas nenhum mapa de flow foi fornecido; o plano usa o swing declarado."
+          ],
+          "arrangement": {
+            "schema_version": 1,
+            "status": "READY_FOR_APPROVAL",
+            "method": "rule-based-arrangement/v1",
+            "style": "boom_bap",
+            "mood": "energetic",
+            "bpm": 140.0,
+            "total_bars": 32,
+            "key": "C#",
+            "sections": [
+              {
+                "id": "intro",
+                "bars": 4,
+                "energy": 0.3,
+                "instruments": [
+                  "piano",
+                  "hat",
+                  "pad"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 6560.0,
+                  "reverb_wet": 0.205,
+                  "drive": 0.094
+                }
+              },
+              {
+                "id": "verse_1",
+                "bars": 8,
+                "energy": 0.62,
+                "instruments": [
+                  "kick",
+                  "snare",
+                  "bass",
+                  "piano"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 12704.0,
+                  "reverb_wet": 0.317,
+                  "drive": 0.152
+                }
+              },
+              {
+                "id": "hook_1",
+                "bars": 8,
+                "energy": 0.88,
+                "instruments": [
+                  "kick",
+                  "snare",
+                  "bass",
+                  "piano",
+                  "pad"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 17696.0,
+                  "reverb_wet": 0.408,
+                  "drive": 0.198
+                }
+              },
+              {
+                "id": "verse_2",
+                "bars": 8,
+                "energy": 0.7,
+                "instruments": [
+                  "kick",
+                  "snare",
+                  "bass",
+                  "piano"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 14240.0,
+                  "reverb_wet": 0.345,
+                  "drive": 0.166
+                }
+              },
+              {
+                "id": "outro",
+                "bars": 4,
+                "energy": 0.22,
+                "instruments": [
+                  "piano",
+                  "pad"
+                ],
+                "automation": {
+                  "filter_cutoff_hz": 5024.0,
+                  "reverb_wet": 0.177,
+                  "drive": 0.08
+                }
+              }
+            ],
+            "warnings": [
+              "Arranjo é proposta macro e não substitui revisão musical.",
+              "Instrumentos com engine opcional exigem asset próprio/licenciado."
+            ]
+          },
+          "signature_plan": {
+            "schema_version": 1,
+            "status": "READY_FOR_APPROVAL",
+            "mode": "kairos_signature",
+            "target": "mix_bus",
+            "chain": [
+              {
+                "algorithm": "dynamic_eq",
+                "parameters": {
+                  "low_shelf_db": 3.19,
+                  "presence_db": 2.592,
+                  "air_db": 1.41
+                },
+                "rationale": "Grave controlado e inteligibilidade vocal, sem copiar uma curva externa.",
+                "execution_mode": "adapter-required"
+              },
+              {
+                "algorithm": "multiband_comp",
+                "parameters": {
+                  "low_ratio": 2.57,
+                  "mid_ratio": 2.28,
+                  "attack_ms": 5.4
+                },
+                "rationale": "Densidade musical com headroom preservado.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "harmonic_exciter",
+                "parameters": {
+                  "drive": 0.085,
+                  "mix": 0.24
+                },
+                "rationale": "Textura harmônica moderada e reproduzível.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "stereo_widener",
+                "parameters": {
+                  "width": 1.087,
+                  "low_mono_hz": 120
+                },
+                "rationale": "Espaço controlado com baixa frequência centrada.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "convolution_reverb",
+                "parameters": {
+                  "wet": 0.065,
+                  "pre_delay_ms": 28.5
+                },
+                "rationale": "Profundidade curta para não afastar a voz.",
+                "execution_mode": "numpy-preview-or-adapter"
+              },
+              {
+                "algorithm": "limiter",
+                "parameters": {
+                  "ceiling_db": -1.0,
+                  "release_ms": 80
+                },
+                "rationale": "Teto de distribuição conservador e verificável.",
+                "execution_mode": "adapter-required"
+              }
+            ],
+            "guardrails": {
+              "max_true_peak_db": -1.0,
+              "reference_matching": false,
+              "source_imitation": false,
+              "automatic_file_write": false,
+              "approval_required": true
+            },
+            "provenance": {
+              "method": "kairos-signature-parametric/v1",
+              "source": "operator-configured production attributes",
+              "requires_operator_review": true
+            },
+            "warnings": [
+              "A assinatura é uma proposta paramétrica e não uma cópia de artista ou gravação.",
+              "O processamento de arquivo exige adapter DSP explícito e aprovação."
+            ]
+          },
+          "studio_master_2": {
+            "execution_mode": "plan-first",
+            "automatic_render": false,
+            "automatic_publish": false
+          }
+        }
+      },
+      "requires_approval": true,
+      "schema_version": 1
+    },
+    {
+      "from_agent": "scriptwriter",
+      "to_agent": "vfx",
+      "kind": "video_request",
+      "payload": {
+        "scene_index": 1,
+        "request": {
+          "prompt": "Scene 1/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "mode": "t2v",
+          "engine": "diffusion_forcing",
+          "backend": "native",
+          "model_id": null,
+          "resolution": "720P",
+          "num_frames": null,
+          "base_num_frames": null,
+          "overlap_history": null,
+          "addnoise_condition": 20,
+          "ar_step": 0,
+          "causal_block_size": 1,
+          "inference_steps": 30,
+          "fps": 24,
+          "guidance_scale": 6.0,
+          "shift": 8.0,
+          "image_path": null,
+          "end_image_path": null,
+          "video_path": null,
+          "seed": 20260821,
+          "offload": true,
+          "prompt_enhancer": false,
+          "teacache": false,
+          "teacache_thresh": 0.2,
+          "use_ret_steps": false,
+          "use_usp": false
+        }
+      },
+      "requires_approval": true,
+      "schema_version": 1
+    },
+    {
+      "from_agent": "scriptwriter",
+      "to_agent": "vfx",
+      "kind": "video_request",
+      "payload": {
+        "scene_index": 2,
+        "request": {
+          "prompt": "Scene 2/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "mode": "t2v",
+          "engine": "diffusion_forcing",
+          "backend": "native",
+          "model_id": null,
+          "resolution": "720P",
+          "num_frames": null,
+          "base_num_frames": null,
+          "overlap_history": null,
+          "addnoise_condition": 20,
+          "ar_step": 0,
+          "causal_block_size": 1,
+          "inference_steps": 30,
+          "fps": 24,
+          "guidance_scale": 6.0,
+          "shift": 8.0,
+          "image_path": null,
+          "end_image_path": null,
+          "video_path": null,
+          "seed": 20260821,
+          "offload": true,
+          "prompt_enhancer": false,
+          "teacache": false,
+          "teacache_thresh": 0.2,
+          "use_ret_steps": false,
+          "use_usp": false
+        }
+      },
+      "requires_approval": true,
+      "schema_version": 1
+    },
+    {
+      "from_agent": "scriptwriter",
+      "to_agent": "vfx",
+      "kind": "video_request",
+      "payload": {
+        "scene_index": 3,
+        "request": {
+          "prompt": "Scene 3/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "mode": "t2v",
+          "engine": "diffusion_forcing",
+          "backend": "native",
+          "model_id": null,
+          "resolution": "720P",
+          "num_frames": null,
+          "base_num_frames": null,
+          "overlap_history": null,
+          "addnoise_condition": 20,
+          "ar_step": 0,
+          "causal_block_size": 1,
+          "inference_steps": 30,
+          "fps": 24,
+          "guidance_scale": 6.0,
+          "shift": 8.0,
+          "image_path": null,
+          "end_image_path": null,
+          "video_path": null,
+          "seed": 20260821,
+          "offload": true,
+          "prompt_enhancer": false,
+          "teacache": false,
+          "teacache_thresh": 0.2,
+          "use_ret_steps": false,
+          "use_usp": false
+        }
+      },
+      "requires_approval": true,
+      "schema_version": 1
+    },
+    {
+      "from_agent": "scriptwriter",
+      "to_agent": "vfx",
+      "kind": "video_request",
+      "payload": {
+        "scene_index": 4,
+        "request": {
+          "prompt": "Scene 4/4: Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido. Prioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real. Solicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.; continuous cinematic audiovisual treatment, no text, no watermark.",
+          "mode": "t2v",
+          "engine": "diffusion_forcing",
+          "backend": "native",
+          "model_id": null,
+          "resolution": "720P",
+          "num_frames": null,
+          "base_num_frames": null,
+          "overlap_history": null,
+          "addnoise_condition": 20,
+          "ar_step": 0,
+          "causal_block_size": 1,
+          "inference_steps": 30,
+          "fps": 24,
+          "guidance_scale": 6.0,
+          "shift": 8.0,
+          "image_path": null,
+          "end_image_path": null,
+          "video_path": null,
+          "seed": 20260821,
+          "offload": true,
+          "prompt_enhancer": false,
+          "teacache": false,
+          "teacache_thresh": 0.2,
+          "use_ret_steps": false,
+          "use_usp": false
+        }
+      },
+      "requires_approval": true,
+      "schema_version": 1
+    }
+  ],
+  "checkpoints": [
+    {
+      "stage": "strategy",
+      "status": "completed",
+      "owner": "ceo"
+    },
+    {
+      "stage": "creative",
+      "status": "completed",
+      "owner": "cco"
+    },
+    {
+      "stage": "script",
+      "status": "completed",
+      "owner": "scriptwriter"
+    }
+  ],
+  "approvals": [
+    {
+      "gate": "executive-approval",
+      "owner": "ceo",
+      "status": "required",
+      "reason": "Handoffs de geração e áudio devem ser aprovados antes da fila."
+    }
+  ],
+  "memory": {
+    "prior": [
+      {
+        "timestamp": "2026-08-21T17:03:24.516214+00:00",
+        "run_id": "0619ba5d6ae94f708b173a0852a6513e",
+        "role": "ceo",
+        "kind": "strategy",
+        "content": {
+          "project_name": "Desenvolver O Quarto Single De Rap",
+          "briefing": "Desenvolver o quarto single de rap old school de KTD sob coordenação do Maestro Layer Káiros. Este é um pacote inicial de composição e produção musical, não uma solicitação de vídeo final. A faixa deve usar linguagem old school: bateria marcada e humana, kick e snare presentes, baixo conversando com o bumbo, textura harmônica com caráter, espaço para rimas rápidas e vocal central com autoridade. O conceito precisa defender uma tese artística controversa e debatível, confrontando hipocrisia, pressão social, apagamento e exploração sem discurso de ódio, ameaça real, violência gráfica ou ataque a grupo protegido.\n\nPrioridade absoluta: criar um refrão muito forte, polêmico, poderoso e inspirador. O refrão deve ter uma frase central memorável, resposta rítmica clara, imagens fortes, cadência coletiva e uma virada que transforme pressão em autonomia, dignidade e movimento. A composição deve usar rimas internas, aliteração, métrica controlada, contrastes de densidade e espaço para interpretação autoral de KTD em registro médio-grave, com ataque firme e presença frontal, sem imitar qualquer artista real.\n\nSolicitar aos agentes: estratégia e tese do single; conceito e título provisório; refrão com alternativas; letra estruturada; análise de métrica e rimas; direção de beat old school; direção vocal e performance; plano de arranjo e mixagem; QA editorial, de segurança e de qualidade; memória de decisões e handoffs. Tratar o quarto single como uma nova obra autoral e manter todos os handoffs em READY_FOR_APPROVAL, sem criar tarefas de produção ainda.",
+          "objective": "Produzir pacote audiovisual revisável e encaminhável aos pipelines KAIR.",
+          "risk_gates": [
+            "human_or_operator_approval",
+            "ffprobe_before_publish",
+            "no_secret_or_weight_in_git"
+          ],
+          "iteration_budget": 2
+        }
+      }
+    ],
+    "latest": {
+      "timestamp": "2026-08-21T17:03:50.589735+00:00",
+      "run_id": "82828eaadd7f4071b038e076df9943eb",
+      "role": "qa",
+      "kind": "run_summary",
+      "content": {
+        "status": "READY_FOR_APPROVAL",
+        "handoff_count": 5
+      }
+    }
+  },
+  "invocation": {
+    "mode": "local-contract-first",
+    "external_tools": false,
+    "handoffs_submitted": false,
+    "briefing_file": "docs/singles/single-4-old-school-briefing.md"
+  }
+}
