@@ -8,3 +8,4 @@ outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-plus7-progressive-fu
 outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-plus10-progressive-fusion-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_7/no-one-saved-me-a-seat-v1-gospel-denouement-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_7/no-one-saved-me-a-seat-v1-gospel-denouement-plus5-subtle-master.wav filter=lfs diff=lfs merge=lfs -text
+outputs/single_7/no-one-saved-me-a-seat-v1-gospel-after-ktd-speech-master.wav filter=lfs diff=lfs merge=lfs -text
