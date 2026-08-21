@@ -50,6 +50,9 @@ class Settings:
     media_cache_dir: Path = Path("data/media-cache")
     media_cache_max_bytes: int = 100 * 1024 * 1024
     media_provider_order: tuple[str, ...] = ("pexels", "unsplash")
+    agentic_core_enabled: bool = True
+    agentic_memory_dir: Path = Path("data/agentic-memory")
+    agentic_external_tools_enabled: bool = False
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -121,6 +124,13 @@ class Settings:
             media_provider_order=cls._csv(
                 os.getenv("KAIROS_MEDIA_PROVIDER_ORDER", "pexels,unsplash")
             ),
+            agentic_core_enabled=os.getenv("KAIROS_AGENTIC_CORE_ENABLED", "true").lower()
+            in {"1", "true", "yes", "on"},
+            agentic_memory_dir=Path(os.getenv("KAIROS_AGENTIC_MEMORY_DIR", "data/agentic-memory")),
+            agentic_external_tools_enabled=os.getenv(
+                "KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
         )
 
     @staticmethod

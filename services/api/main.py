@@ -15,6 +15,8 @@ from uuid import uuid4
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from kairos_core.agentic import AgenticOrchestrator, AgenticRunRequest
+from kairos_core.agentic.memory import ProjectMemory
 from kairos_core.agents import AgentAggregator, ExternalAgentError
 from kairos_core.audio.orchestrator import MultimediaOrchestrator
 from kairos_core.audio.pipeline import AudioPipeline
@@ -179,6 +181,10 @@ settings = Settings.from_env()
 configure_logging(settings.log_level)
 store = TaskStore(settings.task_db_path)
 agent_aggregator = AgentAggregator(settings)
+agentic_orchestrator = AgenticOrchestrator(
+    settings,
+    memory=ProjectMemory(settings.agentic_memory_dir),
+)
 
 
 def _native_checkpoint_ready() -> bool:
@@ -347,6 +353,33 @@ def readiness() -> dict[str, Any]:
     return {"status": "ok", "checks": checks}
 
 
+@app.get("/v1/agentic/capabilities")
+def agentic_capabilities() -> dict[str, Any]:
+    return agentic_orchestrator.capabilities()
+
+
+@app.post("/v1/agentic/run")
+def agentic_run(request: AgenticRunRequest) -> dict[str, Any]:
+    if not settings.agentic_core_enabled:
+        raise HTTPException(status_code=503, detail="Núcleo agentico desabilitado")
+    if request.submit_handoffs and not request.approve_handoffs:
+        raise HTTPException(
+            status_code=409,
+            detail="Submissão agentica exige approve_handoffs=true",
+        )
+    try:
+        result = agentic_orchestrator.run(request)
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    payload = result.to_dict()
+    submissions: list[dict[str, str]] = []
+    if request.submit_handoffs:
+        submissions = _submit_agentic_handoffs(result.handoffs)
+        payload["status"] = "SUBMITTED"
+    payload["submissions"] = submissions
+    return payload
+
+
 @app.get("/v1/agents/capabilities")
 def agent_capabilities() -> dict[str, Any]:
     return agent_aggregator.catalog()
@@ -360,6 +393,32 @@ def probe_agent(agent_name: str) -> dict[str, Any]:
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     except (RuntimeError, ValueError) as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+def _submit_agentic_handoffs(handoffs: list[Any]) -> list[dict[str, str]]:
+    submissions: list[dict[str, str]] = []
+    for handoff in handoffs:
+        if handoff.kind == "video_request":
+            task_id = uuid4().hex
+            video_request = VideoRequest.model_validate(handoff.payload["request"])
+            store.create(task_id, job_kind="video", payload=video_request.model_dump(mode="json"))
+            if settings.worker_mode == "inline":
+                thread = threading.Thread(target=_run_video_task, args=(task_id, video_request), daemon=True)
+                thread.start()
+            submissions.append({"task_id": task_id, "kind": "video", "agent": handoff.to_agent})
+        elif handoff.kind == "multimedia_request":
+            task_id = uuid4().hex
+            multimedia_request = MultimediaRequest.model_validate(handoff.payload["request"])
+            store.create(task_id, job_kind="multimedia", payload=multimedia_request.model_dump(mode="json"))
+            if settings.worker_mode == "inline":
+                thread = threading.Thread(
+                    target=_run_multimedia_task,
+                    args=(task_id, multimedia_request),
+                    daemon=True,
+                )
+                thread.start()
+            submissions.append({"task_id": task_id, "kind": "multimedia", "agent": handoff.to_agent})
+    return submissions
 
 
 @app.get("/v1/complementary/capabilities")
