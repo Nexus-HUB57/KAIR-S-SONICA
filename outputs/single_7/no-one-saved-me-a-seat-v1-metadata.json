@@ -1,0 +1,59 @@
+{
+  "schema_version": "single7-no-one-saved-me-a-seat-v1",
+  "title": "No One Saved Me a Seat",
+  "artist": "KTD / Kháirus the Dragon",
+  "single": 7,
+  "status": "candidate_for_review",
+  "language": "English",
+  "bpm": 102,
+  "key": "E minor",
+  "generated_duration_seconds": 182.413061,
+  "style": "narrative KTD rap with dark soul/trap harmony, punchy hip-hop drums, melodic anthem chorus and social-critique storytelling",
+  "narrative": {
+    "social_pressure": "young people pressured to study, enter university and prove their worth",
+    "inequality": "perceived unequal access to money, contacts, quiet study space and institutional opportunities",
+    "government_claim": "framed as lived perception and social critique, not a factual accusation against a named government or institution",
+    "turn": "a minimal opportunity becomes discipline, a path and a changed history",
+    "inspiration": "starting from nothing, without patrons, against disbelief, while not romanticizing structural barriers"
+  },
+  "chorus": {
+    "hook": "No one saved me a seat — I built my own table.",
+    "support": "No one called me chosen — I made the impossible stable.",
+    "resolution": "From nothing, from nobody, from every no they gave, I took the chance they wouldn’t save and made a life from what I braved."
+  },
+  "performance": {
+    "verses": "firm narrative pocket with rising urgency and short double-time bursts",
+    "chorus": "wide melodic anthem with collective response",
+    "bridge": "half-time, honest and non-romanticizing",
+    "vocal": "medium-low, frontal, articulate, frustrated in verses and inspiring in chorus"
+  },
+  "mix_direction": {
+    "lead_vocal": "centered and forward",
+    "chorus": "wider doubles and group response",
+    "rhythm_section": "centered kick and bass, punchy snare",
+    "integrated_lufs_target": -14,
+    "true_peak_target_db": -1
+  },
+  "editorial_guardrails": [
+    "critique inequality without naming or defaming a specific government, party, university or person",
+    "do not claim effort alone solves structural barriers",
+    "do not devalue people who do not attend university",
+    "preserve the dignity of young people excluded from opportunity",
+    "human audition required before approval"
+  ],
+  "files": {
+    "raw_generation": "outputs/single_7/no-one-saved-me-a-seat-v1.wav",
+    "master_wav": "outputs/single_7/no-one-saved-me-a-seat-v1-master.wav",
+    "master_mp3": "outputs/single_7/no-one-saved-me-a-seat-v1-master.mp3",
+    "lyrics": "docs/singles/single-7-no-one-saved-me-a-seat-lyrics-v1.md",
+    "planning": "docs/singles/single-7-planning-v1.md"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "master_wav_sha256": "8bfc649a401f9f6cec54701aa567aa51e04fd855b311c9f5d91194108b97aea1",
+    "master_mp3_sha256": "42f210dbafc0118fdde0bdab765ca70d3599491a6c759cf77cd4bf7bbe6a867d"
+  },
+  "review_gate": "human_audition_required; candidate only"
+}
