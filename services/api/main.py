@@ -45,6 +45,7 @@ from kairos_core.schemas import (
     VideoRequest,
 )
 from kairos_core.studio_master import (
+    AdapterUnavailable,
     ArrangementArchitect,
     ArrangementPlan,
     ArrangementRequest,
@@ -71,6 +72,7 @@ from kairos_core.studio_master import (
     ProductionAnalytics,
     ProductionHistoryStore,
     ProductionRecordRequest,
+    RealAdapterRegistry,
     ReferenceMasteringAdapter,
     RepertoireCatalog,
     ResponsiveMixPlan,
@@ -239,6 +241,7 @@ kairos_signature_planner = KairosSignaturePlanner()
 spectral_ducker = SpectralDucker()
 perceptual_validator = PerceptualValidator()
 optional_adapter_registry = OptionalAdapterRegistry()
+real_adapter_registry = RealAdapterRegistry(settings)
 reference_mastering_adapter = ReferenceMasteringAdapter()
 artist_memory = LocalArtistMemory(settings.studio_master_memory_path, enabled=settings.studio_master_memory_enabled)
 auto_retrain_guard = AutoRetrainGuard(
@@ -531,6 +534,27 @@ def studio_master_adapters() -> dict[str, Any]:
     if not settings.studio_master_enabled:
         raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
     return {"schema_version": 1, "adapters": optional_adapter_registry.capabilities()}
+
+
+@app.get("/v1/studio-master/real-adapters/capabilities")
+def studio_master_real_adapter_capabilities() -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return {
+        "schema_version": 1,
+        "gate_enabled": settings.studio_master_real_adapters_enabled,
+        "adapters": real_adapter_registry.capabilities(),
+    }
+
+
+@app.get("/v1/studio-master/real-adapters/{adapter_id}/preflight")
+def studio_master_real_adapter_preflight(adapter_id: str) -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    try:
+        return real_adapter_registry.preflight(adapter_id)
+    except AdapterUnavailable as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 
 @app.get("/v1/studio-master/retraining", response_model=AutoRetrainStatus)

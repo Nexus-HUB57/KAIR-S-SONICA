@@ -190,6 +190,24 @@ curl -X POST http://localhost:8000/v1/studio-master/responsive-plan \
 
 O command deck usa `WS /ws/studio-master/{session_id}/performance` para `SET_SWING`, `SET_GRID_FOLLOW`, `SET_BPM`, `BOOST_PUNCHLINE`, `RESET` e `PUSH_TO_LIBRARY`. O último comando cria apenas uma proposta de metadados pendente de aprovação; não persiste áudio, MIDI ou samples. A documentação está em [`docs/studio-master-orchestration.md`](docs/studio-master-orchestration.md) e [`docs/api.md`](docs/api.md).
 
+### Adapters reais StudioMaster
+
+A branch `feat/studiomaster-real-adapters` inicia a camada executável dos adapters de [CREPE](https://github.com/marl/crepe), [Pedalboard](https://github.com/spotify/pedalboard), [FluidSynth](https://github.com/fluidsynth/fluidsynth), [Demucs](https://github.com/facebookresearch/demucs), [MOSNet](https://github.com/lochenchou/MOSNet) e [MoviePy](https://github.com/zulko/moviepy). Cada adapter faz import lazy e só pode executar quando o operador habilitar o gate global, incluir o ID na allowlist, aceitar a licença e fornecer manifesto de artefato com licença, checksum e origem quando houver modelo ou SoundFont.
+
+```bash
+# O caminho padrão continua sem adapters reais e sem downloads.
+KAIROS_STUDIO_MASTER_REAL_ADAPTERS_ENABLED=false
+KAIROS_STUDIO_MASTER_ACCEPTED_ADAPTER_LICENSES=
+KAIROS_STUDIO_MASTER_ENABLED_ADAPTER_IDS=
+
+curl http://localhost:8000/v1/studio-master/real-adapters/capabilities
+curl http://localhost:8000/v1/studio-master/real-adapters/moviepy/preflight
+```
+
+O preflight retorna `READY` ou `FALLBACK_ONLY` e explica dependência, versão, licença, risco, necessidade de GPU e fallback. CREPE retorna ao sketch hum-to-MIDI; Pedalboard retorna ao preview NumPy; FluidSynth retorna ao plano instrumental; Demucs retorna ao handoff de stems aprovados; MOSNet retorna ao score CPU; MoviePy retorna ao canvas browser. Demucs não baixa checkpoint sem `KAIROS_STUDIO_MASTER_ADAPTER_ALLOW_MODEL_DOWNLOAD=true`, e nenhum adapter promove arquivo sobre uma saída existente.
+
+As dependências são opcionais e devem ser instaladas em uma imagem/ambiente separado do caminho obrigatório. O manifesto e as condições de licença estão em [`config/studio_master_adapter_licenses.yaml`](config/studio_master_adapter_licenses.yaml) e [`docs/studio-master-adapter-licenses.md`](docs/studio-master-adapter-licenses.md). O código do adapter não inclui pesos, modelos, SoundFonts, fontes, plugins ou áudio privado; esses artefatos precisam permanecer fora do Git e ser referenciados por caminho aprovado e manifesto auditável.
+
 ### Estúdio de Gravação e Mixagem do DJ / Produtor Káiros
 
 A primeira console do estúdio está disponível no `web-client`: captura via microfone, importação de takes, waveform de monitoramento, volume, panorama, mute, solo, reprodução de mix e exportação de bounce WAV. O áudio permanece local no navegador e não cria tarefas automaticamente. O contrato e o roadmap estão em [`docs/recording-mixing-studio.md`](docs/recording-mixing-studio.md); a próxima fase deve adicionar upload autenticado e handoff explícito para o pipeline de áudio.
@@ -233,6 +251,15 @@ curl http://localhost:8000/v1/agents/llamagen/probe
 ## Carga e observabilidade
 
 O utilitário [`scripts/load_test_orchestrate.py`](scripts/load_test_orchestrate.py) submete tarefas concorrentes, acompanha cada `task_id` e grava latências, throughput, taxa de sucesso e resultados individuais em JSON. O cenário de referência usa 20 tarefas com concorrência 5; execute `make load` ou ajuste `REQUESTS` e `CONCURRENCY`. O relatório experimental está documentado em [`docs/load-testing.md`](docs/load-testing.md).
+
+Para o Command Deck Browser 2.0, use [`scripts/load_test_studio_master.py`](scripts/load_test_studio_master.py). O harness exercita capabilities, cânone, repertório, analytics, retraining, arranjo, assinatura, clip, plano responsivo, ducking, score técnico e WebSocket de performance. Ele mede p50/p95/p99 por rota, taxa de sucesso, throughput, handshake `101` e grava o JSON fora do repositório por padrão:
+
+```bash
+# API local em http://127.0.0.1:8000
+make load-studio-master STUDIO_ROUNDS=5 CONCURRENCY=10 STUDIO_WEBSOCKETS=5
+```
+
+O teste é de contrato e capacidade do gateway; não habilita adapters reais, não baixa modelos e não publica clips. Para uma medição real de browser, combine o harness com Chromium e o checklist visual de [`docs/command-deck-2-performance.md`](docs/command-deck-2-performance.md).
 
 ## Execução rápida
 

@@ -1,9 +1,11 @@
 PYTHON ?= python3
 
-.PHONY: install test lint run plan demo load persona-json persona-prompt clean
+.PHONY: install test lint run plan demo load load-studio-master persona-json persona-prompt clean
 
 REQUESTS ?= 20
 CONCURRENCY ?= 5
+STUDIO_ROUNDS ?= 5
+STUDIO_WEBSOCKETS ?= 5
 
 install:
 	$(PYTHON) -m pip install -e ".[dev]"
@@ -25,6 +27,9 @@ demo:
 
 load:
 	PYTHONPATH=packages $(PYTHON) scripts/load_test_orchestrate.py --requests $(REQUESTS) --concurrency $(CONCURRENCY)
+
+load-studio-master:
+	PYTHONPATH=packages $(PYTHON) scripts/load_test_studio_master.py --rounds $(STUDIO_ROUNDS) --concurrency $(CONCURRENCY) --websocket-clients $(STUDIO_WEBSOCKETS)
 
 persona-json:
 	PYTHONPATH=packages $(PYTHON) scripts/run_local.py persona --format json
