@@ -19,6 +19,8 @@ A música é tratada como 16 cenas de 10 segundos, entre 00:00 e 02:40, mais uma
 
 ## Regra de execução posterior
 
+A fila permanece em estado de gate porque a transcrição da master v4 não coincide com a letra canônica usada no roteiro. O fato está registrado em [`docs/ktd-fire-in-the-flood-manifest-lyric-alignment-audit-v1.md`](ktd-fire-in-the-flood-manifest-lyric-alignment-audit-v1.md) e no campo `alignment_review` do manifest. Os planos podem ser gerados como testes visuais, mas não devem ser promovidos a montagem lyric-locked até que KTD confirme a master correta ou a letra correspondente.
+
 Cada entrada da fila deve gerar um vídeo contínuo, sem áudio embutido, em portrait 9:16, 720×1280 e 24 fps, exatamente como os assets oficiais aprovados. A master v4 somente entra na etapa final, depois que os 17 vídeos forem verificados individualmente. O script de montagem recusa a execução quando existe cena ausente, duração divergente ou soma temporal diferente de 168 segundos.
 
 A fila é um artefato reprodutível de preparação; ela não executa chamadas de geração de vídeo de forma autônoma enquanto a sessão estiver inativa. Quando a geração estiver disponível, os arquivos deverão ser produzidos nos caminhos definidos no manifest e a montagem poderá ser iniciada com:

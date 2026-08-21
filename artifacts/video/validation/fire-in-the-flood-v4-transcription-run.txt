@@ -1,0 +1,121 @@
+Starting Speech-to-Text conversion...
+Audio file size (28.3MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 1411 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio saved to: assets/audio/releases/.ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_chunks_20260821_110806/downsampled_20260821_110806.mp3
+Downsampled audio file size is 2.56 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: assets/audio/releases/.ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_chunks_20260821_110806/downsampled_20260821_110806.mp3, file size: 2.56 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 168.0 seconds
+Language: eng
+Timestamped segments:
+[00:00.2 - 00:01.2] I hear the lock click.
+[00:01.2 - 00:02.9] I hear the clock tick.
+[00:02.9 - 00:05.3] Pressure made a language in, and I talk it.
+[00:05.3 - 00:07.8] No mask, no myth, no borrowed flame.
+[00:07.8 - 00:10.6] I walk in with the wound and I leave with a name.
+[00:10.6 - 00:14.7] I was built in the break where the brave get tested.
+[00:14.7 - 00:17.1] Every breath in the stress got sharp, got weapon.
+[00:17.1 - 00:19.7] I write like lightning, strike through silence.
+[00:19.7 - 00:22.1] Turned out the dust with a disciplined violence.
+[00:22.1 - 00:26.5] Not blood, just bars that bruise the lie.
+[00:26.5 - 00:29.0] A hard truth rising when the soft words die.
+[00:29.0 - 00:31.4] I bring quick wit, split-second switch.
+[00:31.4 - 00:33.4] Trip the rhythm, flip the script, never miss.
+[00:33.4 - 00:36.2] Kairos on the pulse, I am locked in the grid.
+[00:36.2 - 00:38.9] Every scar is a charge, every bar is a bid.
+[00:38.9 - 00:44.2] Slow down, let the room feel the weight.
+[00:44.2 - 00:50.0] One breath, then I open the gate.
+[00:50.0 - 00:53.2] I move too fast for the fear to frame me.
+[00:53.2 - 00:54.8] Move too fast for the fear to frame me.
+[00:54.8 - 00:57.9] Talk too sharp for the doubt to tame me.
+[00:57.9 - 00:59.3] Pressure made me.
+[00:59.3 - 01:02.2] They say I am finished.
+[01:02.2 - 01:04.7] The sound just changed me.
+[01:04.7 - 01:07.4] Now I cut through the clutter with a mutter then a thunder.
+[01:07.4 - 01:09.8] Double-time runner, no wonder they wonder.
+[01:09.8 - 01:12.4] I stack that syntax, snap back, backtrack.
+[01:12.4 - 01:15.0] Packs in the fast forward, no slack in the black track.
+[01:15.0 - 01:26.7] Now
+[01:26.7 - 01:30.1] I not chase crowns, I chase clear vision.
+[01:30.1 - 01:33.2] Turn every closed door's ice, clear vision.
+[01:33.2 - 01:36.0] Turn every closed door to a forced decision.
+[01:36.0 - 01:38.4] If the night wants proof, let the night take notes.
+[01:38.4 - 01:40.8] I carry hard hope in the back of my throat.
+[01:40.8 - 01:43.3] Halftime hear me, double-time fear me.
+[01:43.3 - 01:45.6] Halftime hear me, double-time fear me.
+[01:45.6 - 01:47.7] Not for harm, but the truth gets near me.
+[01:47.7 - 01:50.3] Not for harm, but the truth gets near me.
+[01:50.3 - 01:52.9] I bring the cold rain, the gold pain, the old flame.
+[01:52.9 - 01:56.2] Then I name every chain till it forgets my name.
+[01:56.2 - 02:02.1] Pain was a prison, I taught it a rhythm.
+[02:02.1 - 02:07.4] Silence was heavy, I learned how to lift it.
+[02:07.4 - 02:09.7] No pause, no pose, no borrowed code.
+[02:09.7 - 02:12.2] Banks load in the mode that I chose on the road.
+[02:12.2 - 02:14.6] Fast breath, fresh steps, raw text, no rest.
+[02:14.6 - 02:17.2] Kairos in the water, I am more than the test.
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_transcription_20260821_110817.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_transcription_20260821_110817.txt
+[2J[H[3Jmanus-speech-to-text assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav
+Starting Speech-to-Text conversion...
+Audio file size (28.3MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 1411 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio file size is 2.56 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: assets/audio/releases/.ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_chunks_20260821_110806/downsampled_20260821_110806.mp3, file size: 2.56 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.2 - 00:01.2] I hear the lock click.
+[00:01.2 - 00:02.9] I hear the clock tick.
+[00:02.9 - 00:05.3] Pressure made a language in, and I talk it.
+[00:05.3 - 00:07.8] No mask, no myth, no borrowed flame.
+[00:07.8 - 00:10.6] I walk in with the wound and I leave with a name.
+[00:10.6 - 00:14.7] I was built in the break where the brave get tested.
+[00:14.7 - 00:17.1] Every breath in the stress got sharp, got weapon.
+[00:17.1 - 00:19.7] I write like lightning, strike through silence.
+[00:19.7 - 00:22.1] Turned out the dust with a disciplined violence.
+[00:22.1 - 00:26.5] Not blood, just bars that bruise the lie.
+[00:26.5 - 00:29.0] A hard truth rising when the soft words die.
+[00:29.0 - 00:31.4] I bring quick wit, split-second switch.
+[00:31.4 - 00:33.4] Trip the rhythm, flip the script, never miss.
+[00:33.4 - 00:36.2] Kairos on the pulse, I am locked in the grid.
+[00:36.2 - 00:38.9] Every scar is a charge, every bar is a bid.
+[00:38.9 - 00:44.2] Slow down, let the room feel the weight.
+[00:44.2 - 00:50.0] One breath, then I open the gate.
+[00:50.0 - 00:53.2] I move too fast for the fear to frame me.
+[00:53.2 - 00:54.8] Move too fast for the fear to frame me.
+[00:54.8 - 00:57.9] Talk too sharp for the doubt to tame me.
+[00:57.9 - 00:59.3] Pressure made me.
+[00:59.3 - 01:02.2] They say I am finished.
+[01:02.2 - 01:04.7] The sound just changed me.
+[01:04.7 - 01:07.4] Now I cut through the clutter with a mutter then a thunder.
+[01:07.4 - 01:09.8] Double-time runner, no wonder they wonder.
+[01:09.8 - 01:12.4] I stack that syntax, snap back, backtrack.
+[01:12.4 - 01:15.0] Packs in the fast forward, no slack in the black track.
+[01:15.0 - 01:26.7] Now
+[01:26.7 - 01:30.1] I not chase crowns, I chase clear vision.
+[01:30.1 - 01:33.2] Turn every closed door's ice, clear vision.
+[01:33.2 - 01:36.0] Turn every closed door to a forced decision.
+[01:36.0 - 01:38.4] If the night wants proof, let the night take notes.
+[01:38.4 - 01:40.8] I carry hard hope in the back of my throat.
+[01:40.8 - 01:43.3] Halftime hear me, double-time fear me.
+[01:43.3 - 01:45.6] Halftime hear me, double-time fear me.
+[01:45.6 - 01:47.7] Not for harm, but the truth gets near me.
+[01:47.7 - 01:50.3] Not for harm, but the truth gets near me.
+[01:50.3 - 01:52.9] I bring the cold rain, the gold pain, the old flame.
+[01:52.9 - 01:56.2] Then I name every chain till it forgets my name.
+[01:56.2 - 02:02.1] Pain was a prison, I taught it a rhythm.
+[02:02.1 - 02:07.4] Silence was heavy, I learned how to lift it.
+[02:07.4 - 02:09.7] No pause, no pose, no borrowed code.
+[02:09.7 - 02:12.2] Banks load in the mode that I chose on the road.
+[02:12.2 - 02:14.6] Fast breath, fresh steps, raw text, no rest.
+[02:14.6 - 02:17.2] Kairos in the water, I am more than the test.
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_transcription_20260821_110817.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_transcription_20260821_110817.txt

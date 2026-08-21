@@ -27,6 +27,8 @@ def main() -> None:
     queue = {
         "project": manifest["project"],
         "version": "generation-queue-v1",
+        "status": manifest.get("status", "queued"),
+        "audio_alignment": manifest.get("alignment_review"),
         "duration_seconds": manifest["duration_seconds"],
         "model": "gemini-omni-flash-preview",
         "aspect_ratio": "portrait",
@@ -52,7 +54,7 @@ def main() -> None:
             "keyframe": scene["keyframe"],
             "output": scene["output"],
             "prompt": prompt,
-            "status": "queued",
+            "status": "blocked_audio_alignment" if manifest.get("status") == "blocked_pending_authoritative_vocal_master" else "queued",
         })
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(queue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
