@@ -77,3 +77,13 @@ A performance recebeu tratamento de pós-produção de prova com contraste ligei
 | Sequência v2 de prova — 24 s | `proof-only; real motion video pending` | Aprovável para revisão de identidade, enquadramento e ritmo; não para promoção final. |
 
 O montador agora possui o modo `--proof`, que aceita apenas registros `proof_identity_pass_keyframe` e grava `proof_only: true` no manifesto de saída. A montagem final continua exigindo clipes reais com movimento físico aprovado e não aceita os ativos de prova como substitutos promocionais.
+
+## Decisão editorial posterior — prova v2 reprovada
+
+A revisão da produção rejeitou a sequência v2 de 24 segundos porque apenas o primeiro bloco, o camarote, segue o padrão audiovisual estabelecido. Os blocos de porta e performance são imagens estáticas com movimento de câmera aplicado em pós-produção; isso não constitui movimento físico de personagem nem atende ao protocolo de qualidade criativa.
+
+A decisão substitui o status anterior da prova: os dois blocos estáticos e a montagem composta foram **retirados da rota de produção, movidos para quarentena e marcados como `rejected_static_proof`**. Eles não podem ser usados como clipes, referências promocionais ou base de aprovação de movimento.
+
+A primeira cena real permanece preservada como único ativo elegível do conjunto atual. A sequência v2 de 24 segundos deve ser reconstruída somente quando houver dois novos takes com movimento audiovisual real: a travessia de KTD da porta e a performance de KTD no palco. Cada take deverá passar por revisão quadro a quadro de identidade, heterocromia, tatuagens, boca, mãos, peso corporal, continuidade de luz e interação com o cenário.
+
+> **Regra de retomada:** não usar Ken Burns, zoom, pan ou qualquer deslocamento aplicado sobre imagem estática como substituto de geração de vídeo. A próxima tentativa deve entregar mudança corporal e espacial observável em cada trecho, com KTD preservado em todo o movimento.
