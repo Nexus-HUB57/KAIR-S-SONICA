@@ -165,6 +165,14 @@ make lint && make test
 
 O workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) existente foi ampliado apenas para abranger branches `feat/**` e `sync/**`, compilar `tools/` e validar os manifestos Compose. Nenhum workflow ou diretório de outro desenvolvedor é removido.
 
+### Validação no host GPU público
+
+Para executar o Compose GPU em um host NVIDIA/CUDA com checkpoints já provisionados, use `./scripts/test_agents_gpu_compose.sh`. O script verifica `nvidia-smi`, Compose v2, readiness do backend native, capacidades do vídeo, catálogo agentico e o modo contract-first. Probes remotos ficam desligados por padrão; para testar o SkyReels Space após revisar a integração, defina `KAIROS_AGENT_AGGREGATOR_ENABLED=true`, `KAIROS_SKYREELS_SPACE_ENABLED=true` e `KAIROS_RUN_EXTERNAL_PROBES=true`. O probe LlamaGen exige adicionalmente `KAIROS_LLAMAGEN_ENABLED=true` e `LLAMAGEN_API_KEY` fornecida pelo secret manager.
+
+### Estúdio de Gravação e Mixagem do DJ / Produtor Káiros
+
+A primeira console do estúdio está disponível no `web-client`: captura via microfone, importação de takes, waveform de monitoramento, volume, panorama, mute, solo, reprodução de mix e exportação de bounce WAV. O áudio permanece local no navegador e não cria tarefas automaticamente. O contrato e o roadmap estão em [`docs/recording-mixing-studio.md`](docs/recording-mixing-studio.md); a próxima fase deve adicionar upload autenticado e handoff explícito para o pipeline de áudio.
+
 ### Núcleo agentico end-to-end
 
 A equipe agentica dos anexos foi implementada como uma camada contract-first com 12 papéis: CEO, CCO, Roteirista, DoP, Designer de Som, Editor, VFX, Social, Produtor, RAG, Acessibilidade e QA. O orquestrador gera estratégia, cenas, storyboard, handoffs `VideoRequest`/`MultimediaRequest`, variantes sociais, plano de acessibilidade, memória de projeto e gates de qualidade sem exigir AutoGen, LangChain, Chroma ou um LLM para o caminho determinístico.

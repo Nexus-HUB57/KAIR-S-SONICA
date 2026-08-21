@@ -236,6 +236,25 @@ Resposta após aprovação e submissão:
 }
 ```
 
+## Validação no Compose GPU público
+
+No host NVIDIA/CUDA público, o fluxo completo de readiness e descoberta pode ser executado com:
+
+```bash
+./scripts/test_agents_gpu_compose.sh
+```
+
+O harness valida `nvidia-smi`, Docker Compose v2, o manifesto `docker-compose.gpu.yml`, `/ready`, `/health`, `/v1/video/capabilities`, `/v1/agents/capabilities` e `/v1/agentic/capabilities`. Por padrão, exige que o backend native esteja pronto, não faz chamadas a terceiros e mantém `KAIROS_RUN_EXTERNAL_PROBES=false`. Depois de revisar custo, procedência, retenção e credenciais, o operador pode habilitar os gates e executar os probes remotos:
+
+```bash
+KAIROS_AGENT_AGGREGATOR_ENABLED=true \\
+KAIROS_SKYREELS_SPACE_ENABLED=true \\
+KAIROS_RUN_EXTERNAL_PROBES=true \\
+./scripts/test_agents_gpu_compose.sh
+```
+
+O probe LlamaGen só é executado quando `KAIROS_LLAMAGEN_ENABLED=true` e `LLAMAGEN_API_KEY` estão presentes; `KAIROS_REQUIRE_LLAMAGEN_PROBE=true` transforma sua ausência em falha explícita. A chave é interpolada pelo ambiente do host, nunca colocada no Compose, na imagem ou no Git.
+
 ## `GET /v1/agents/capabilities`
 
 Retorna o catálogo versionado de agentes, skills, algoritmos e operações conhecidas pelo agregador. O endpoint não faz chamadas de rede, não dispara geração e informa explicitamente quais integrações estão habilitadas. Os agentes externos permanecem desabilitados por padrão.
