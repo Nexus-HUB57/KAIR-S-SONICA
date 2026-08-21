@@ -89,6 +89,22 @@ A tarefa expõe progresso por `GET /v1/tasks/{task_id}` e `WS /ws/tasks/{task_id
 
 O cliente web inclui um painel Live Ops que acompanha múltiplas tarefas pelo WebSocket, exibe progresso, estado de conexão, mensagens do worker e links para os artefatos. Execute-o com `cd web-client && npm install && npm run dev` e use `VITE_API_BASE` para apontar ao gateway.
 
+### Núcleo audiovisual SkyReels-V2
+
+O endpoint `POST /v1/video/generate` enfileira geração T2V, I2V, Diffusion Forcing, extensão de vídeo ou controle de frame inicial/final. O backend SkyReels é opcional, permanece desativado por padrão e é executado a partir de um clone independente configurado por `KAIROS_SKYREELS_REPO`; os pesos não são versionados no KAIR. A configuração completa, o mapeamento de parâmetros e os gates de segurança estão em [`docs/video-architecture.md`](docs/video-architecture.md).
+
+```bash
+# depois de validar CUDA, dependências, checkpoint e licença no ambiente de execução
+export KAIROS_ENABLE_SKYREELS=true
+export KAIROS_SKYREELS_REPO=/opt/models/SkyReels-V2
+export KAIROS_SKYREELS_MODEL_ID=/opt/models/SkyReels-V2/checkpoints/SkyReels-V2-DF-1.3B-540P
+curl -X POST http://localhost:8000/v1/video/generate \\
+  -H 'Content-Type: application/json' \\
+  -d '{"prompt":"A continuous cinematic live-action shot in rain, moving camera, no text, no watermark.","mode":"t2v","engine":"diffusion_forcing","resolution":"540P","num_frames":97,"seed":42}'
+```
+
+O estado da tarefa continua em `GET /v1/tasks/{task_id}` ou `WS /ws/tasks/{task_id}`, e o MP4 concluído é entregue em `GET /v1/video/{task_id}`. Falhas de configuração, checkpoint, GPU ou execução são retornadas como `FAILED`; o sistema não substitui uma falha real por um artefato procedural.
+
 ## Carga e observabilidade
 
 O utilitário [`scripts/load_test_orchestrate.py`](scripts/load_test_orchestrate.py) submete tarefas concorrentes, acompanha cada `task_id` e grava latências, throughput, taxa de sucesso e resultados individuais em JSON. O cenário de referência usa 20 tarefas com concorrência 5; execute `make load` ou ajuste `REQUESTS` e `CONCURRENCY`. O relatório experimental está documentado em [`docs/load-testing.md`](docs/load-testing.md).

@@ -20,6 +20,12 @@ class Settings:
     transcription_device: str = "cpu"
     transcription_compute_type: str = "int8"
     enable_external_models: bool = False
+    enable_skyreels: bool = False
+    skyreels_repo: Path | None = None
+    skyreels_model_id: str | None = None
+    skyreels_python: str = "python3"
+    skyreels_allow_model_download: bool = False
+    skyreels_timeout_seconds: int = 3_600
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -36,7 +42,21 @@ class Settings:
             transcription_compute_type=os.getenv("KAIROS_TRANSCRIPTION_COMPUTE_TYPE", "int8"),
             enable_external_models=os.getenv("KAIROS_ENABLE_EXTERNAL_MODELS", "false").lower()
             in {"1", "true", "yes", "on"},
+            enable_skyreels=os.getenv("KAIROS_ENABLE_SKYREELS", "false").lower()
+            in {"1", "true", "yes", "on"},
+            skyreels_repo=cls._optional_path(os.getenv("KAIROS_SKYREELS_REPO")),
+            skyreels_model_id=os.getenv("KAIROS_SKYREELS_MODEL_ID") or None,
+            skyreels_python=os.getenv("KAIROS_SKYREELS_PYTHON", "python3"),
+            skyreels_allow_model_download=os.getenv(
+                "KAIROS_SKYREELS_ALLOW_MODEL_DOWNLOAD", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
+            skyreels_timeout_seconds=int(os.getenv("KAIROS_SKYREELS_TIMEOUT_SECONDS", "3600")),
         )
+
+    @staticmethod
+    def _optional_path(raw_path: str | None) -> Path | None:
+        return Path(raw_path).expanduser() if raw_path else None
 
     def ensure_directories(self) -> None:
         self.output_dir.mkdir(parents=True, exist_ok=True)
