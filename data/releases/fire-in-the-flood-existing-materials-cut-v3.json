@@ -1,21 +1,21 @@
 {
   "project": "FIRE IN THE FLOOD",
-  "cut": "existing-materials-preview-v2",
-  "status": "historical_rejected_static_scene_do_not_use",
+  "cut": "existing-materials-preview-v3",
+  "status": "static_scene_excluded_dynamic_only",
   "duration_seconds": 42.0,
   "audio_master": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
   "target": {"width": 720, "height": 1280, "aspect_ratio": "9:16", "fps": 24, "audio_sample_rate": 44100},
   "generation_policy": "No new video generation; FFmpeg assembly and normalization only.",
-  "creative_rule": "HISTORICAL ONLY. Do not use this manifest: its former M04 is a rejected static visualizer. Current development must use data/releases/fire-in-the-flood-existing-materials-cut-v3.json.",
+  "creative_rule": "Use only existing live-action MP4s. Keyframes, visualizers and still images are excluded from the cut.",
   "audio_rule": "Strip source audio from every clip and mux the first 42 seconds of the v4 master as one continuous soundtrack.",
-  "coverage_note": "HISTORICAL PREVIEW ONLY. This cut must not be inserted into current development because M04 is a rejected static visualizer. Use v3, where the static source is explicitly excluded.",
-  "attached_input": {
-    "source": "assets/video/inputs/fire-in-the-flood-entrance-attached-8s.mp4",
-    "original_filename": "2026-08-20-200553278.mp4",
-    "duration_seconds": 8.0,
-    "sha256": "2e7ef291650f35f8273db111e5a9c66114abf76399b8222c77f0c3c98137d7c8",
-    "analysis": "artifacts/video/validation/fire-in-the-flood-entrance-attached-analysis.md"
-  },
+  "rejected_materials": [
+    {
+      "source": "assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4",
+      "reason": "Static photograph/visualizer with animated grain, flicker and text cards; explicitly rejected and excluded from all development cuts.",
+      "analysis": "artifacts/video/validation/rejected-static-penultimate-analysis.md"
+    }
+  ],
+  "coverage_note": "This is a material assembly preview, not the complete lyric-locked 168-second music video. M01 is the user-attached entrance scene; the remaining shots are existing dynamic Fire in the Flood materials and are not relabeled as S02–S05.",
   "shots": [
     {
       "id": "M01",
@@ -42,16 +42,16 @@
       "source": "assets/video/aprovados/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
       "source_type": "official_approved_dynamic_reel",
       "source_format": "720x1280",
-      "notes": "Existing approved-format Fire in the Flood reel; source audio is removed."
+      "notes": "Existing approved-format dynamic reel; source audio is removed."
     },
     {
       "id": "M04",
       "start": 26.0,
       "duration": 8.0,
-      "source": "assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4",
-      "source_type": "existing_dynamic_promo",
-      "source_format": "720x1280",
-      "notes": "Existing vertical Fire in the Flood promo; source audio is removed."
+      "source": "artifacts/video/dynamic-shots/fire-in-the-flood-v2-D01-walk.mp4",
+      "source_type": "existing_dynamic_landscape_proof_verticalized",
+      "source_format": "1280x720",
+      "notes": "Verified live-action walk with flame, rain, vapor and water ripples; normalized to portrait. It replaces the rejected static visualizer."
     },
     {
       "id": "M05",
