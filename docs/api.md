@@ -236,6 +236,20 @@ Resposta após aprovação e submissão:
 }
 ```
 
+## `GET /v1/artistic-island/capabilities`
+
+Retorna o estado do núcleo complementar da Ilha Artística, a origem do Atlas, o número de instrumentos, os 12 algoritmos-base registrados e o modo de execução. `enabled=true` significa que o planejador está disponível; não significa que plugins VST/AU/LV2, downloads, RAG externo ou DSP profissional estejam habilitados.
+
+## `GET /v1/artistic-island/instruments`
+
+Retorna os perfis normalizados do Atlas para a interface do estúdio. A resposta contém `instrument`, `family`, `roles`, `tags`, presets iniciais de EQ, compressão, espaço e dados vocais quando aplicáveis. Se `KAIROS_ARTISTIC_ISLAND_ENABLED=false`, a API retorna `503`.
+
+## `POST /v1/artistic-island/mix-plan`
+
+Gera uma cadeia de processamento revisável para um instrumento e contexto musical. O request aceita `instrument`, `context`, `prompt`, `max_steps` entre 5 e 15, `include_optional` e `reference_id` opcional. A resposta retorna `chain`, `master_bus`, `provenance` e `warnings`. Cada etapa contém `order`, `algorithm`, `parameters`, `rationale` e `execution_mode`.
+
+Este endpoint é síncrono e sem efeitos externos: não lê ou grava áudio, não carrega plugins, não consulta provedores e não cria uma entrada no `TaskStore`. Instrumento ausente no Atlas resulta em `422`; ilha desabilitada resulta em `503`.
+
 ## Validação no Compose GPU público
 
 No host NVIDIA/CUDA público, o fluxo completo de readiness e descoberta pode ser executado com:

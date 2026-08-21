@@ -53,6 +53,8 @@ class Settings:
     agentic_core_enabled: bool = True
     agentic_memory_dir: Path = Path("data/agentic-memory")
     agentic_external_tools_enabled: bool = False
+    artistic_island_enabled: bool = True
+    instrument_atlas_path: Path = Path("config/instrument_atlas.yaml")
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -131,6 +133,11 @@ class Settings:
                 "KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED", "false"
             ).lower()
             in {"1", "true", "yes", "on"},
+            artistic_island_enabled=os.getenv("KAIROS_ARTISTIC_ISLAND_ENABLED", "true").lower()
+            in {"1", "true", "yes", "on"},
+            instrument_atlas_path=Path(
+                os.getenv("KAIROS_INSTRUMENT_ATLAS_PATH", "config/instrument_atlas.yaml")
+            ),
         )
 
     @staticmethod

@@ -120,6 +120,16 @@ app.innerHTML = `
       </div>
       <div class="tracks-head"><div><p class="eyebrow">SESSION TRACKS</p><h3>Camadas da sessão</h3></div><span id="track-count" class="chip">0 takes</span></div>
       <div id="studio-tracks" class="studio-tracks"><div class="empty-state">Grave ou importe um take para começar a mixagem.</div></div>
+      <div class="island-panel">
+        <div class="tracks-head"><div><p class="eyebrow">SKILL CHAIN / ATLAS</p><h3>Ilha de Produção Artística</h3></div><span id="island-status" class="chip">plan-first</span></div>
+        <div class="island-grid">
+          <label>Instrumento<select id="island-instrument"><option value="lead_vocal">Carregando Atlas…</option></select></label>
+          <label>Contexto<select id="island-context"><option value="music">Música</option><option value="vocal">Vocal</option><option value="beat">Beat</option><option value="cinematic">Cinemático</option><option value="orchestra">Orquestra</option></select></label>
+          <label>Referência / preset<input id="island-reference" placeholder="opcional: ref-001" maxlength="160" /></label>
+          <button id="island-plan" type="button">Gerar cadeia sugerida</button>
+        </div>
+        <div id="island-chain" class="island-chain"><div class="empty-state">Escolha um instrumento para visualizar a cadeia de processamento.</div></div>
+      </div>
     </section>
 
     <section id="status" class="card status" aria-live="polite">
@@ -164,6 +174,12 @@ const studioTracks = document.querySelector('#studio-tracks');
 const trackCount = document.querySelector('#track-count');
 const masterMeter = document.querySelector('#master-meter');
 const masterDb = document.querySelector('#master-db');
+const islandInstrument = document.querySelector('#island-instrument');
+const islandContext = document.querySelector('#island-context');
+const islandReference = document.querySelector('#island-reference');
+const islandPlanButton = document.querySelector('#island-plan');
+const islandChain = document.querySelector('#island-chain');
+const islandStatus = document.querySelector('#island-status');
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -536,6 +552,43 @@ stopMix.addEventListener('click', stopStudioPlayback);
 bounceMix.addEventListener('click', () => bounceStudioMix().catch(() => { studioFeedback.textContent = 'Falha ao renderizar o bounce WAV.'; }));
 takeUpload.addEventListener('change', () => { const file = takeUpload.files?.[0]; if (file) addStudioTrack(file, file.name.replace(/\.[^.]+$/, '')).catch(() => { studioFeedback.textContent = 'Não foi possível carregar esse arquivo de áudio.'; }); takeUpload.value = ''; });
 clearStudio.addEventListener('click', () => { stopStudioPlayback(); studio.tracks.forEach((track) => URL.revokeObjectURL(track.url)); studio.tracks = []; studio.activeTrackId = null; renderStudioTracks(); studioTime.textContent = '00:00.000'; studioFeedback.textContent = 'Sessão limpa localmente.'; setStudioHealth('pronto'); });
+
+function renderIslandChain(payload) {
+  islandStatus.textContent = `${payload.chain.length} etapas`;
+  islandChain.innerHTML = `<div class="chain-summary"><span>${escapeHtml(payload.instrument)} · ${escapeHtml(payload.family)}</span><span>${escapeHtml(payload.source)}</span></div>${payload.chain.map((step) => `<article class="chain-step"><span class="chain-order">${String(step.order).padStart(2, '0')}</span><div><strong>${escapeHtml(step.algorithm.replaceAll('_', ' '))}</strong><p>${escapeHtml(step.rationale)}</p></div><code>${escapeHtml(JSON.stringify(step.parameters))}</code></article>`).join('')}<div class="chain-warning">${payload.warnings.map((warning) => `<p>! ${escapeHtml(warning)}</p>`).join('')}</div>`;
+}
+
+async function loadIslandInstruments() {
+  try {
+    const response = await fetch(`${API_BASE}/v1/artistic-island/instruments`);
+    if (!response.ok) throw new Error('Atlas indisponível');
+    const payload = await response.json();
+    islandInstrument.innerHTML = payload.instruments.map((instrument) => `<option value="${escapeHtml(instrument.name)}">${escapeHtml(instrument.name.replaceAll('_', ' '))} · ${escapeHtml(instrument.family)}</option>`).join('');
+    islandStatus.textContent = `${payload.instruments.length} perfis`;
+  } catch (error) {
+    islandStatus.textContent = 'offline';
+    islandChain.innerHTML = `<div class="empty-state">${escapeHtml(error.message)}. O endpoint de capabilities precisa estar ativo.</div>`;
+  }
+}
+
+async function requestIslandPlan() {
+  islandPlanButton.disabled = true;
+  islandStatus.textContent = 'calculando…';
+  try {
+    const response = await fetch(`${API_BASE}/v1/artistic-island/mix-plan`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ instrument: islandInstrument.value, context: islandContext.value, reference_id: islandReference.value || null, prompt: 'Plano de mixagem para a sessão Káiros', include_optional: true }) });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.detail || 'Falha ao gerar cadeia');
+    renderIslandChain(payload);
+  } catch (error) {
+    islandStatus.textContent = 'erro';
+    islandChain.innerHTML = `<div class="empty-state">${escapeHtml(error.message)}</div>`;
+  } finally {
+    islandPlanButton.disabled = false;
+  }
+}
+
+islandPlanButton.addEventListener('click', requestIslandPlan);
+loadIslandInstruments();
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();

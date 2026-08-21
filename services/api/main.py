@@ -18,6 +18,7 @@ from fastapi.responses import FileResponse
 from kairos_core.agentic import AgenticOrchestrator, AgenticRunRequest
 from kairos_core.agentic.memory import ProjectMemory
 from kairos_core.agents import AgentAggregator, ExternalAgentError
+from kairos_core.artistic_island import MixPlan, MixPlanRequest, SkillGenerator
 from kairos_core.audio.orchestrator import MultimediaOrchestrator
 from kairos_core.audio.pipeline import AudioPipeline
 from kairos_core.complementary import (
@@ -185,6 +186,7 @@ agentic_orchestrator = AgenticOrchestrator(
     settings,
     memory=ProjectMemory(settings.agentic_memory_dir),
 )
+artistic_island = SkillGenerator(atlas_path=settings.instrument_atlas_path)
 
 
 def _native_checkpoint_ready() -> bool:
@@ -378,6 +380,35 @@ def agentic_run(request: AgenticRunRequest) -> dict[str, Any]:
         payload["status"] = "SUBMITTED"
     payload["submissions"] = submissions
     return payload
+
+
+@app.get("/v1/artistic-island/capabilities")
+def artistic_island_capabilities() -> dict[str, Any]:
+    if not settings.artistic_island_enabled:
+        return {
+            "schema_version": 1,
+            "name": "kairos-artistic-production-island",
+            "enabled": False,
+            "replaces_existing_core": False,
+        }
+    return artistic_island.capabilities()
+
+
+@app.get("/v1/artistic-island/instruments")
+def artistic_island_instruments() -> dict[str, Any]:
+    if not settings.artistic_island_enabled:
+        raise HTTPException(status_code=503, detail="Ilha Artística desabilitada")
+    return {"schema_version": 1, "instruments": artistic_island.instruments()}
+
+
+@app.post("/v1/artistic-island/mix-plan", response_model=MixPlan)
+def artistic_island_mix_plan(request: MixPlanRequest) -> MixPlan:
+    if not settings.artistic_island_enabled:
+        raise HTTPException(status_code=503, detail="Ilha Artística desabilitada")
+    try:
+        return artistic_island.generate_chain(request)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
 @app.get("/v1/agents/capabilities")

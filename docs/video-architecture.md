@@ -84,6 +84,28 @@ flowchart LR
 
 A memória inicial é JSONL por projeto em `KAIROS_AGENTIC_MEMORY_DIR`, com janela recente e busca lexical substituíveis por um backend vetorial futuro. O RAG usa a cadeia Pexels/Unsplash apenas quando `KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED=true`; nenhum download é automático. O QA mantém gates de aprovação, `ffprobe`, artefato não vazio, ausência de watermark/texto acidental e promoção atômica.
 
+## Ilha de Produção Artística e StudioMaster
+
+A Ilha de Produção Artística do DJ Káiros é uma camada complementar ao estúdio de gravação/mixagem e ao orquestrador agentico. O Atlas `config/instrument_atlas.yaml` mantém perfis iniciais de instrumentos; o `SkillGenerator` transforma um perfil e um contexto em uma cadeia de 5–15 etapas; e o `NumpyChainExecutor` oferece um preview determinístico limitado para arrays mono/estéreo. Nenhuma dessas etapas substitui `MultimediaOrchestrator`, `AudioPipeline`, `TaskStore` ou os adapters SkyReels.
+
+```mermaid
+flowchart LR
+  B[Briefing musical / take local] --> I[Ilha Artística]
+  I --> A[Atlas de instrumentos]
+  I --> G[SkillGenerator]
+  G --> P[MixPlan revisável]
+  P --> N[Numpy preview opcional]
+  P --> D[Adapter DSP explícito]
+  D --> M[MultimediaRequest / TrackRequest]
+  M --> T[TaskStore + worker existente]
+  I --> S[Studio browser: takes, mix e bounce WAV]
+  R[RAG / IR / plugins] -. opt-in .-> D
+```
+
+A Ilha expõe `GET /v1/artistic-island/capabilities`, `GET /v1/artistic-island/instruments` e `POST /v1/artistic-island/mix-plan`. Os endpoints são `plan-first`: não carregam plugins, não baixam bibliotecas, não consultam provedores externos, não criam tarefas e não afirmam que o resultado é um master final. A execução DSP profissional, separação de stems, FluidSynth, VST3/AU/LV2, medição LUFS/true peak e RAG de referências devem ser adapters com capability e aprovação próprios.
+
+O primeiro Atlas inclui 18 perfis starter e 12 contratos algorítmicos. A expansão para mais instrumentos, IRs e bibliotecas deve ocorrer por commits de dados separados, com licença, origem e checksum quando aplicável. O diretório de samples, modelos e plugins não faz parte deste commit.
+
 ## Teste local com Docker Compose
 
 O arquivo `docker-compose.agents.local.yml` cria um ambiente isolado com o gateway, um mock do SkyReels Space e um mock do LlamaGen. O mock não acessa a internet, não contém credenciais reais e implementa apenas os endpoints necessários para descoberta/probe. O script `scripts/test_agents_compose.sh` sobe o stack, valida `/v1/complementary/capabilities`, `/v1/agents/capabilities`, os dois probes e `/v1/complementary/plan`, e desmonta os containers ao final.

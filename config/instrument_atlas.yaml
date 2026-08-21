@@ -1,0 +1,193 @@
+schema_version: 1
+name: kairos-instrument-atlas
+status: starter-atlas
+notes: >-
+  Perfis iniciais de produção. Valores são pontos de partida revisáveis, não presets
+  de plugins proprietários nem substituem escuta crítica e medição.
+instruments:
+  rhythm_section:
+    kick:
+      family: rhythm_section
+      roles: [low-end, transient]
+      tags: [kick, punch, sidechain-source]
+      eq_presets:
+        - {type: highpass, freq_hz: 24, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 60, gain_db: 2.0, q: 0.9}
+        - {type: peak, freq_hz: 280, gain_db: -2.5, q: 1.2}
+      compression: {threshold_db: -18, ratio: 4.0, attack_ms: 8, release_ms: 90, makeup_db: 0}
+      space: {reverb_send: 0.04, stereo_width: 0.7, depth_m: 1.5}
+    snare:
+      family: rhythm_section
+      roles: [rhythm, transient, presence]
+      tags: [snare, crack, clap]
+      eq_presets:
+        - {type: highpass, freq_hz: 90, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 190, gain_db: 1.5, q: 1.1}
+        - {type: peak, freq_hz: 4200, gain_db: 2.0, q: 1.0}
+      compression: {threshold_db: -20, ratio: 4.0, attack_ms: 6, release_ms: 120, makeup_db: 1}
+      space: {reverb_send: 0.16, stereo_width: 0.85, depth_m: 2.5}
+    clap:
+      family: rhythm_section
+      roles: [rhythm, presence]
+      tags: [clap, snap, stereo]
+      eq_presets:
+        - {type: highpass, freq_hz: 150, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 2400, gain_db: 1.5, q: 1.0}
+        - {type: highshelf, freq_hz: 8500, gain_db: 1.0, q: 0.7}
+      compression: {threshold_db: -22, ratio: 3.0, attack_ms: 10, release_ms: 130, makeup_db: 0}
+      space: {reverb_send: 0.2, stereo_width: 1.0, depth_m: 3.0}
+    hi_hat:
+      family: rhythm_section
+      roles: [rhythm, air]
+      tags: [hihat, shuffle, swing]
+      eq_presets:
+        - {type: highpass, freq_hz: 360, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 7000, gain_db: 1.5, q: 1.2}
+        - {type: highshelf, freq_hz: 12000, gain_db: 1.0, q: 0.7}
+      compression: {threshold_db: -26, ratio: 2.0, attack_ms: 3, release_ms: 80, makeup_db: 0}
+      space: {reverb_send: 0.08, stereo_width: 1.2, depth_m: 4.0}
+    808:
+      family: rhythm_section
+      roles: [low-end, bass, harmonic]
+      tags: [808, sub, slide]
+      eq_presets:
+        - {type: highpass, freq_hz: 20, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 52, gain_db: 2.0, q: 0.8}
+        - {type: peak, freq_hz: 260, gain_db: -2.0, q: 1.1}
+      compression: {threshold_db: -14, ratio: 3.0, attack_ms: 20, release_ms: 160, makeup_db: 0}
+      space: {reverb_send: 0.02, stereo_width: 0.2, depth_m: 1.0}
+  bass:
+    bass_synth:
+      family: bass
+      roles: [low-end, harmonic]
+      tags: [bass, mono, groove]
+      eq_presets:
+        - {type: highpass, freq_hz: 28, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 90, gain_db: 1.0, q: 0.9}
+        - {type: peak, freq_hz: 340, gain_db: -1.5, q: 1.2}
+      compression: {threshold_db: -18, ratio: 3.5, attack_ms: 18, release_ms: 140, makeup_db: 1}
+      space: {reverb_send: 0.03, stereo_width: 0.3, depth_m: 1.2}
+    sub_bass:
+      family: bass
+      roles: [sub, low-end]
+      tags: [sub, mono, headroom]
+      eq_presets:
+        - {type: highpass, freq_hz: 24, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 48, gain_db: 1.0, q: 0.8}
+      compression: {threshold_db: -16, ratio: 2.5, attack_ms: 25, release_ms: 180, makeup_db: 0}
+      space: {reverb_send: 0.0, stereo_width: 0.15, depth_m: 0.8}
+  melodic:
+    synth_pad:
+      family: melodic
+      roles: [harmony, atmosphere, width]
+      tags: [pad, synth, texture, cinematic]
+      eq_presets:
+        - {type: highpass, freq_hz: 120, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 650, gain_db: -1.5, q: 1.0}
+        - {type: highshelf, freq_hz: 9000, gain_db: 1.5, q: 0.7}
+      compression: {threshold_db: -24, ratio: 2.0, attack_ms: 30, release_ms: 220, makeup_db: 0}
+      space: {reverb_send: 0.34, stereo_width: 1.35, depth_m: 7.0}
+    piano:
+      family: melodic
+      roles: [harmony, transient, midrange]
+      tags: [piano, keys, chordal]
+      eq_presets:
+        - {type: highpass, freq_hz: 70, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 260, gain_db: -1.5, q: 1.0}
+        - {type: peak, freq_hz: 3000, gain_db: 1.0, q: 1.1}
+      compression: {threshold_db: -24, ratio: 2.5, attack_ms: 18, release_ms: 160, makeup_db: 0}
+      space: {reverb_send: 0.24, stereo_width: 1.0, depth_m: 5.0}
+    guitar:
+      family: melodic
+      roles: [harmony, texture, midrange]
+      tags: [guitar, pluck, rhythm]
+      eq_presets:
+        - {type: highpass, freq_hz: 90, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 280, gain_db: -1.0, q: 1.2}
+        - {type: peak, freq_hz: 2500, gain_db: 1.5, q: 1.0}
+      compression: {threshold_db: -22, ratio: 3.0, attack_ms: 12, release_ms: 150, makeup_db: 0}
+      space: {reverb_send: 0.2, stereo_width: 1.1, depth_m: 4.0}
+    strings:
+      family: melodic
+      roles: [harmony, atmosphere, depth]
+      tags: [strings, orchestral, sustain]
+      eq_presets:
+        - {type: highpass, freq_hz: 110, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 420, gain_db: -1.0, q: 1.0}
+        - {type: highshelf, freq_hz: 7000, gain_db: 1.0, q: 0.7}
+      compression: {threshold_db: -26, ratio: 2.0, attack_ms: 35, release_ms: 260, makeup_db: 0}
+      space: {reverb_send: 0.42, stereo_width: 1.25, depth_m: 9.0}
+  vocals:
+    lead_vocal:
+      family: vocals
+      roles: [lead, presence, intelligibility]
+      tags: [vocal, lead, deesser]
+      eq_presets:
+        - {type: highpass, freq_hz: 85, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 260, gain_db: -1.5, q: 1.1}
+        - {type: peak, freq_hz: 2800, gain_db: 1.5, q: 1.0}
+        - {type: highshelf, freq_hz: 10000, gain_db: 1.0, q: 0.7}
+      compression: {threshold_db: -20, ratio: 4.0, attack_ms: 5, release_ms: 80, makeup_db: 2}
+      space: {reverb_send: 0.15, stereo_width: 0.8, depth_m: 3.0}
+      vocal: {deesser_freq_hz: 7200, pitch_strength: 0.65, stack: false}
+    backing_vocal:
+      family: vocals
+      roles: [backing, width, harmony]
+      tags: [vocal, backing, stack, doubling]
+      eq_presets:
+        - {type: highpass, freq_hz: 120, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 320, gain_db: -2.0, q: 1.0}
+        - {type: peak, freq_hz: 4200, gain_db: 1.0, q: 1.0}
+      compression: {threshold_db: -24, ratio: 4.0, attack_ms: 4, release_ms: 90, makeup_db: 1}
+      space: {reverb_send: 0.34, stereo_width: 1.35, depth_m: 6.0}
+      vocal: {deesser_freq_hz: 6800, pitch_strength: 0.45, stack: true, voices: 4}
+    adlib:
+      family: vocals
+      roles: [texture, accent, width]
+      tags: [vocal, adlib, delay]
+      eq_presets:
+        - {type: highpass, freq_hz: 140, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 2400, gain_db: 1.0, q: 1.0}
+      compression: {threshold_db: -22, ratio: 3.5, attack_ms: 6, release_ms: 100, makeup_db: 1}
+      space: {reverb_send: 0.38, stereo_width: 1.5, depth_m: 7.0}
+      vocal: {deesser_freq_hz: 7000, pitch_strength: 0.4, stack: true, voices: 2}
+  orchestral_ensemble:
+    string_section:
+      family: orchestral_ensemble
+      roles: [harmony, depth, cinematic]
+      tags: [orchestra, strings, section]
+      eq_presets:
+        - {type: highpass, freq_hz: 90, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 300, gain_db: -1.0, q: 1.0}
+        - {type: highshelf, freq_hz: 8000, gain_db: 1.0, q: 0.7}
+      compression: {threshold_db: -28, ratio: 2.0, attack_ms: 40, release_ms: 280, makeup_db: 0}
+      space: {reverb_send: 0.48, stereo_width: 1.4, depth_m: 12.0}
+    brass_section:
+      family: orchestral_ensemble
+      roles: [accent, midrange, cinematic]
+      tags: [orchestra, brass, section]
+      eq_presets:
+        - {type: highpass, freq_hz: 100, gain_db: 0, q: 0.7}
+        - {type: peak, freq_hz: 450, gain_db: -1.5, q: 1.1}
+        - {type: peak, freq_hz: 3200, gain_db: 1.5, q: 1.0}
+      compression: {threshold_db: -26, ratio: 2.5, attack_ms: 25, release_ms: 220, makeup_db: 0}
+      space: {reverb_send: 0.38, stereo_width: 1.2, depth_m: 10.0}
+  textures:
+    foley_texture:
+      family: textures
+      roles: [texture, atmosphere]
+      tags: [foley, ambience, field-recording]
+      eq_presets:
+        - {type: highpass, freq_hz: 70, gain_db: 0, q: 0.7}
+        - {type: highshelf, freq_hz: 8500, gain_db: 1.0, q: 0.7}
+      compression: {threshold_db: -30, ratio: 2.0, attack_ms: 25, release_ms: 260, makeup_db: 0}
+      space: {reverb_send: 0.3, stereo_width: 1.3, depth_m: 8.0}
+    vinyl_noise:
+      family: textures
+      roles: [texture, ambience, lo-fi]
+      tags: [vinyl, noise, bed]
+      eq_presets:
+        - {type: highpass, freq_hz: 120, gain_db: 0, q: 0.7}
+        - {type: lowpass, freq_hz: 12500, gain_db: 0, q: 0.7}
+      compression: {threshold_db: -34, ratio: 1.5, attack_ms: 10, release_ms: 300, makeup_db: 0}
+      space: {reverb_send: 0.05, stereo_width: 1.1, depth_m: 5.0}
