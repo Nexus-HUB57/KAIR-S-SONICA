@@ -1,0 +1,162 @@
+{
+  "title": "UNLEASH THE DRAGON — real clips v2 work-in-progress",
+  "status": "proof-only; keyframe identity passed; real motion video pending",
+  "proof_only": true,
+  "audio": "intentionally omitted",
+  "identity_gate": {
+    "manifest": "data/ktd/song1-real-v2-identity-manifest.json",
+    "checked": [
+      {
+        "path": "assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4",
+        "record": {
+          "id": "UTD-RV2-C01",
+          "scene": "dressing-room",
+          "video": "assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4",
+          "status": "identity_pass_from_previous_review",
+          "face_identity": "pass",
+          "heterochromia": "pass",
+          "tattoos": "pass_with_partial_visibility",
+          "motion": "pass",
+          "sha256": "32d15018193f887039768dc7cccf0b2658cd7a3b3d621fc01845393b264c310e"
+        },
+        "sha256": "32d15018193f887039768dc7cccf0b2658cd7a3b3d621fc01845393b264c310e"
+      },
+      {
+        "path": "assets/video/promos/provas/unleash-the-dragon-realgclip-02-door-to-stage-ktd-lock-v2-proof-8s.mp4",
+        "record": {
+          "id": "UTD-RV2-C02-PROOF",
+          "scene": "door-to-stage-proof",
+          "video": "assets/video/promos/provas/unleash-the-dragon-realgclip-02-door-to-stage-ktd-lock-v2-proof-8s.mp4",
+          "keyframe": "assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage-ktd-lock-v2.png",
+          "status": "proof_identity_pass_keyframe",
+          "face_identity": "pass_on_keyframe",
+          "heterochromia": "pass_on_keyframe",
+          "tattoos": "pass_on_keyframe",
+          "motion": "camera_proof_only",
+          "sha256": "00a59739754be699af70465853369c03297225bb5edaddab1b46c6190046e9cf"
+        },
+        "sha256": "00a59739754be699af70465853369c03297225bb5edaddab1b46c6190046e9cf"
+      },
+      {
+        "path": "assets/video/promos/provas/unleash-the-dragon-realgclip-03-hook-perf-ktd-lock-v2-proof-8s.mp4",
+        "record": {
+          "id": "UTD-RV2-C03-PROOF",
+          "scene": "hook-performance-proof",
+          "video": "assets/video/promos/provas/unleash-the-dragon-realgclip-03-hook-perf-ktd-lock-v2-proof-8s.mp4",
+          "keyframe": "assets/video/references/lyrics/song1-fullmv-scene-c3-hook-perf.png",
+          "status": "proof_identity_pass_keyframe",
+          "face_identity": "pass_on_keyframe",
+          "heterochromia": "pass_on_keyframe",
+          "tattoos": "pass_on_keyframe",
+          "motion": "camera_proof_only; post_treatment_applied",
+          "sha256": "a86e49af80966aa6eaae3661a0da8650cd201a01a002c6f840d939bbdfa2ad1b"
+        },
+        "sha256": "a86e49af80966aa6eaae3661a0da8650cd201a01a002c6f840d939bbdfa2ad1b"
+      }
+    ]
+  },
+  "format": {
+    "width": 720,
+    "height": 1280,
+    "fps": 24,
+    "video_codec": "H.264",
+    "pixel_format": "yuv420p",
+    "crf": 18
+  },
+  "inputs": [
+    {
+      "path": "assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4",
+      "sha256": "32d15018193f887039768dc7cccf0b2658cd7a3b3d621fc01845393b264c310e",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 720,
+            "height": 1280,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "24/1"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "8.000000",
+          "size": "2075228"
+        }
+      }
+    },
+    {
+      "path": "assets/video/promos/provas/unleash-the-dragon-realgclip-02-door-to-stage-ktd-lock-v2-proof-8s.mp4",
+      "sha256": "00a59739754be699af70465853369c03297225bb5edaddab1b46c6190046e9cf",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 720,
+            "height": 1280,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "24/1"
+          }
+        ],
+        "format": {
+          "duration": "8.000000",
+          "size": "3213761"
+        }
+      }
+    },
+    {
+      "path": "assets/video/promos/provas/unleash-the-dragon-realgclip-03-hook-perf-ktd-lock-v2-proof-8s.mp4",
+      "sha256": "a86e49af80966aa6eaae3661a0da8650cd201a01a002c6f840d939bbdfa2ad1b",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 720,
+            "height": 1280,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "24/1"
+          }
+        ],
+        "format": {
+          "duration": "8.000000",
+          "size": "2805220"
+        }
+      }
+    }
+  ],
+  "output": {
+    "path": "assets/video/promos/provas/unleash-the-dragon-real-v2-identity-proof-24s.mp4",
+    "sha256": "f6ab01bbc94cb328e426d3f6ce3c4bbcd32b5ef7d80fe19eb786f5d9d13b0f83",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "24.000000",
+        "size": "8888900"
+      }
+    }
+  }
+}

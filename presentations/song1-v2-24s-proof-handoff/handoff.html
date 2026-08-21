@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Handoff: substituir prova por clipes reais</title>
+  <style>
+    body { margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #111318; color: #F5F2EA; font-family: Arial, Helvetica, sans-serif; }
+    .frame { width: 1160px; min-height: 560px; margin-left: 60px; margin-top: 8px; border-top: 3px solid #B45309; border-bottom: 3px solid #D1D5DB; }
+    .header { min-height: 90px; display: grid; grid-template-columns: 402px 1fr; column-gap: 20px; }
+    .eyebrow { padding-top: 25px; font-size: 14px; font-weight: 700; letter-spacing: 2.6px; color: #D97706; }
+    .title { margin-top: 15px; width: 380px; font-size: 43px; line-height: 0.96; letter-spacing: -2px; font-weight: 800; }
+    .intro { padding-top: 16px; width: 670px; font-size: 21px; line-height: 1.18; color: #CBD5E1; }
+    .intro strong { color: #F5F2EA; }
+
+    /* Steps compressed vertically */
+    .steps { min-height: 160px; display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid #475569; border-bottom: 1px solid #475569; }
+    .step { min-height: 160px; padding-top: 8px; }
+    .step + .step { border-left: 1px solid #475569; }
+    .step-inner { margin-left: 8px; margin-right: 8px; }
+    .step-number { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #D97706; }
+    .step-title { margin-top: 6px; font-size: 29px; line-height: 0.98; font-weight: 800; letter-spacing: -1px; }
+    .step-copy { margin-top: 8px; font-size: 16px; line-height: 1.18; color: #CBD5E1; }
+    .step-copy strong { color: #F5F2EA; }
+    .step-state { margin-top: 10px; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #D97706; }
+
+    /* Acceptance area tightened */
+    .acceptance { min-height: 80px; display: grid; grid-template-columns: 200px 1fr; column-gap: 16px; }
+    .acceptance-label { padding-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #D97706; }
+    .acceptance-content { padding-top: 8px; }
+    .criteria { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 12px; }
+    .criterion { min-height: 36px; border-top: 1px solid #475569; padding-top: 4px; }
+    .criterion-label { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; color: #D97706; }
+    .criterion-copy { margin-top: 3px; font-size: 14px; line-height: 1.12; color: #CBD5E1; }
+    .outcome { margin-top: 6px; font-size: 15px; line-height: 1.16; color: #CBD5E1; }
+    .outcome strong { color: #F5F2EA; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="frame">
+      <div class="header">
+        <section>
+          <div class="eyebrow">08 · HANDOFF OPERACIONAL</div>
+          <div class="title">Substituir prova por clipes reais</div>
+        </section>
+        <section class="intro">A próxima versão só avança quando os takes da porta e do palco forem gerados com <strong>o mesmo KTD em cada quadro</strong> e passarem pelo manifesto.</section>
+      </div>
+
+      <div class="steps">
+        <section class="step">
+          <div class="step-inner">
+            <div class="step-number">PASSO 01</div>
+            <div class="step-title">Gerar</div>
+            <div class="step-copy">Gerar a travessia da porta e a performance de palco a partir das referências aprovadas, sem reutilizar os ativos reprovados.</div>
+            <div class="step-state">MOVIMENTO FÍSICO REAL</div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="step-inner">
+            <div class="step-number">PASSO 02</div>
+            <div class="step-title">Validar</div>
+            <div class="step-copy">Revisar <strong>rosto, heterocromia, tatuagens, boca, mãos, passos e luz</strong> quadro a quadro; registrar hash no manifesto.</div>
+            <div class="step-state">IDENTITY PASS OBRIGATÓRIO</div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="step-inner">
+            <div class="step-number">PASSO 03</div>
+            <div class="step-title">Montar</div>
+            <div class="step-copy">Substituir as provas pelos dois takes aprovados, renderizar os 24 segundos e só depois avaliar a mixagem oficial.</div>
+            <div class="step-state">SEM ÁUDIO ATÉ APROVAÇÃO</div>
+          </div>
+        </section>
+      </div>
+
+      <div class="acceptance">
+        <div class="acceptance-label">PRÓXIMO ACEITE</div>
+        <div class="acceptance-content">
+          <div class="criteria">
+            <div class="criterion"><div class="criterion-label">IDENTIDADE</div><div class="criterion-copy">Mesmo rosto e mesmos olhos em toda a sequência.</div></div>
+            <div class="criterion"><div class="criterion-label">CORPO</div><div class="criterion-copy">Mapa de tatuagens e lateralidade sem mutação.</div></div>
+            <div class="criterion"><div class="criterion-label">MOVIMENTO</div><div class="criterion-copy">Respiração, boca, mãos e caminhada fisicamente contínuas.</div></div>
+          </div>
+          <div class="outcome"><strong>Saída final esperada:</strong> 24,000 segundos, 720×1280, 24 fps, H.264/yuv420p, três takes reais e mixagem aprovada editorialmente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
