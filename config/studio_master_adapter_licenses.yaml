@@ -1,0 +1,70 @@
+schema_version: 1
+policy: explicit_operator_acceptance
+last_reviewed: '2026-08-21'
+adapters:
+  crepe:
+    package: crepe
+    import_module: crepe
+    code_license: MIT
+    code_license_url: https://raw.githubusercontent.com/marl/crepe/master/LICENSE
+    source_url: https://github.com/marl/crepe
+    model_artifact_policy: external_model_provenance_required
+    requires_gpu: false
+    requires_external_asset: false
+    fallback: hum_to_midi_sketch
+    risk_level: model_and_dataset_review
+  pedalboard:
+    package: pedalboard
+    import_module: pedalboard
+    code_license: GPL-3.0-only
+    code_license_url: https://github.com/spotify/pedalboard/blob/main/LICENSE
+    source_url: https://github.com/spotify/pedalboard
+    model_artifact_policy: not_applicable
+    requires_gpu: false
+    requires_external_asset: optional_ir_or_plugin
+    fallback: numpy_dsp_preview
+    risk_level: copyleft_and_plugin_review
+  fluidsynth:
+    package: pyfluidsynth
+    import_module: fluidsynth
+    code_license: LGPL-2.1-or-later
+    code_license_url: https://github.com/FluidSynth/fluidsynth/blob/master/LICENSE
+    source_url: https://github.com/fluidsynth/fluidsynth
+    model_artifact_policy: soundfont_license_required
+    requires_gpu: false
+    requires_external_asset: soundfont_required
+    fallback: declarative_instrument_plan
+    risk_level: soundfont_provenance_review
+  demucs:
+    package: demucs
+    import_module: demucs
+    code_license: MIT
+    code_license_url: https://pypi.org/project/demucs/
+    source_url: https://github.com/facebookresearch/demucs
+    model_artifact_policy: checkpoint_and_dataset_provenance_required
+    requires_gpu: false
+    requires_external_asset: false
+    fallback: approved_stem_handoff
+    risk_level: model_and_dataset_review
+  mosnet:
+    package: mosnet
+    import_module: mosnet
+    code_license: MIT
+    code_license_url: https://github.com/lochenchou/MOSNet
+    source_url: https://github.com/lochenchou/MOSNet
+    model_artifact_policy: checkpoint_and_vcc2018_data_review_required
+    requires_gpu: false
+    requires_external_asset: false
+    fallback: technical_signal_health
+    risk_level: estimated_score_not_human_mos
+  moviepy:
+    package: moviepy
+    import_module: moviepy
+    code_license: MIT
+    code_license_url: https://github.com/zulko/moviepy
+    source_url: https://github.com/zulko/moviepy
+    model_artifact_policy: not_applicable
+    requires_gpu: false
+    requires_external_asset: approved_audio_or_video_required
+    fallback: browser_canvas_clip_plan
+    risk_level: ffmpeg_and_asset_review

@@ -64,6 +64,14 @@ class Settings:
     studio_master_auto_retrain_enabled: bool = False
     studio_master_retrain_manifest_path: Path = Path("data/studio-master/retrain-manifest.json")
     studio_master_analytics_path: Path = Path("data/production_history.json")
+    studio_master_real_adapters_enabled: bool = False
+    studio_master_adapter_licenses_path: Path = Path("config/studio_master_adapter_licenses.yaml")
+    studio_master_adapter_model_manifest_path: Path = Path("data/studio-master/model-manifest.json")
+    studio_master_adapter_assets_dir: Path = Path("data/approved-assets")
+    studio_master_adapter_output_dir: Path = Path("data/studio-master/adapter-output")
+    studio_master_adapter_allow_model_download: bool = False
+    studio_master_accepted_adapter_licenses: tuple[str, ...] = ()
+    studio_master_enabled_adapter_ids: tuple[str, ...] = ()
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -178,6 +186,41 @@ class Settings:
             ),
             studio_master_analytics_path=Path(
                 os.getenv("KAIROS_STUDIO_MASTER_ANALYTICS_PATH", "data/production_history.json")
+            ),
+            studio_master_real_adapters_enabled=os.getenv(
+                "KAIROS_STUDIO_MASTER_REAL_ADAPTERS_ENABLED", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
+            studio_master_adapter_licenses_path=Path(
+                os.getenv(
+                    "KAIROS_STUDIO_MASTER_ADAPTER_LICENSES_PATH",
+                    "config/studio_master_adapter_licenses.yaml",
+                )
+            ),
+            studio_master_adapter_model_manifest_path=Path(
+                os.getenv(
+                    "KAIROS_STUDIO_MASTER_ADAPTER_MODEL_MANIFEST_PATH",
+                    "data/studio-master/model-manifest.json",
+                )
+            ),
+            studio_master_adapter_assets_dir=Path(
+                os.getenv("KAIROS_STUDIO_MASTER_ADAPTER_ASSETS_DIR", "data/approved-assets")
+            ),
+            studio_master_adapter_output_dir=Path(
+                os.getenv(
+                    "KAIROS_STUDIO_MASTER_ADAPTER_OUTPUT_DIR",
+                    "data/studio-master/adapter-output",
+                )
+            ),
+            studio_master_adapter_allow_model_download=os.getenv(
+                "KAIROS_STUDIO_MASTER_ADAPTER_ALLOW_MODEL_DOWNLOAD", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
+            studio_master_accepted_adapter_licenses=cls._csv(
+                os.getenv("KAIROS_STUDIO_MASTER_ACCEPTED_ADAPTER_LICENSES", "")
+            ),
+            studio_master_enabled_adapter_ids=cls._csv(
+                os.getenv("KAIROS_STUDIO_MASTER_ENABLED_ADAPTER_IDS", "")
             ),
         )
 

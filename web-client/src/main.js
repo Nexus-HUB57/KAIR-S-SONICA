@@ -166,6 +166,12 @@ app.innerHTML = `
             <article><span class="eyebrow">AUTO-RETRAINING</span><strong id="studio-retraining-readout">desligado</strong><p id="studio-retraining-note">Aguardando manifesto e aprovação.</p></article>
           </div>
           <div id="studio-master-2-output" class="studio-master-plan"><div class="empty-state">As propostas 2.0 aparecerão aqui e nunca publicarão ou treinarão automaticamente.</div></div>
+          <div class="real-adapters-panel">
+            <div class="tracks-head"><div><p class="eyebrow">REAL ADAPTERS / PREFLIGHT</p><h3>Capacidades licenciadas</h3></div><span id="studio-real-adapters-status" class="chip">carregando</span></div>
+            <p class="studio-subtitle">A presença do pacote não habilita execução: cada adapter precisa de gate, allowlist, licença aceita e manifesto de artefato quando aplicável.</p>
+            <div class="real-adapters-toolbar"><button id="studio-real-adapters-refresh" class="button-secondary" type="button">Atualizar preflight</button><span id="studio-real-adapters-gate">gate global desligado</span></div>
+            <div id="studio-real-adapters-grid" class="real-adapters-grid"><div class="empty-state">Lendo capabilities do gateway…</div></div>
+          </div>
         </div>
       </div>
     </section>
@@ -251,6 +257,10 @@ const studioAnalyticsNote = document.querySelector('#studio-analytics-note');
 const studioRetrainingReadout = document.querySelector('#studio-retraining-readout');
 const studioRetrainingNote = document.querySelector('#studio-retraining-note');
 const studioMaster2Output = document.querySelector('#studio-master-2-output');
+const studioRealAdaptersStatus = document.querySelector('#studio-real-adapters-status');
+const studioRealAdaptersGate = document.querySelector('#studio-real-adapters-gate');
+const studioRealAdaptersRefresh = document.querySelector('#studio-real-adapters-refresh');
+const studioRealAdaptersGrid = document.querySelector('#studio-real-adapters-grid');
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -845,6 +855,39 @@ function requestViralClipPlan() {
   }, 'viral').finally(() => { studioViralButton.disabled = false; });
 }
 
+function renderRealAdapterCapabilities(payload) {
+  const adapters = payload.adapters || [];
+  studioRealAdaptersGate.textContent = payload.gate_enabled ? 'gate global ativo · allowlist e manifesto ainda obrigatórios' : 'gate global desligado';
+  studioRealAdaptersStatus.className = `chip${adapters.some((adapter) => adapter.enabled) ? ' live-chip' : ''}`;
+  studioRealAdaptersStatus.textContent = `${adapters.filter((adapter) => adapter.enabled).length}/${adapters.length} prontos`;
+  studioRealAdaptersGrid.innerHTML = adapters.map((adapter) => {
+    const license = adapter.license || {};
+    const state = adapter.operational_status || (adapter.enabled ? 'READY' : 'FALLBACK_ONLY');
+    return `<article class="real-adapter-card ${state === 'READY' ? 'ready' : 'fallback'}">
+      <div class="real-adapter-topline"><strong>${escapeHtml(adapter.adapter_id)}</strong><span>${escapeHtml(state)}</span></div>
+      <p>${escapeHtml(adapter.package)}${adapter.package_version ? ` · v${escapeHtml(adapter.package_version)}` : ''}</p>
+      <div class="real-adapter-meta"><span>License: ${escapeHtml(license.code_license || 'pendente')}</span><span>GPU: ${adapter.requires_gpu ? 'sim' : 'não'}</span></div>
+      <p class="real-adapter-reason">${escapeHtml(adapter.reason || 'Pronto para preflight.')}</p>
+      <code>fallback: ${escapeHtml(adapter.fallback || '—')}</code>
+    </article>`;
+  }).join('') || '<div class="empty-state">Nenhum adapter no manifesto.</div>';
+}
+
+async function loadRealAdapterCapabilities() {
+  studioRealAdaptersStatus.textContent = 'atualizando…';
+  try {
+    const response = await fetch(`${API_BASE}/v1/studio-master/real-adapters/capabilities`);
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.detail || 'capabilities reais indisponíveis');
+    renderRealAdapterCapabilities(payload);
+  } catch (error) {
+    studioRealAdaptersStatus.className = 'chip';
+    studioRealAdaptersStatus.textContent = 'offline';
+    studioRealAdaptersGate.textContent = error.message;
+    studioRealAdaptersGrid.innerHTML = `<div class="empty-state">${escapeHtml(error.message)}</div>`;
+  }
+}
+
 async function loadStudioMaster2Status() {
   try {
     const [analyticsResponse, retrainingResponse, adaptersResponse] = await Promise.all([
@@ -879,8 +922,10 @@ studioMasterPush.addEventListener('click', () => sendStudioMasterCommand({ actio
 studioArrangementButton.addEventListener('click', requestArrangementPlan);
 studioSignatureButton.addEventListener('click', requestSignaturePlan);
 studioViralButton.addEventListener('click', requestViralClipPlan);
+studioRealAdaptersRefresh.addEventListener('click', loadRealAdapterCapabilities);
 loadStudioMasterCatalog();
 loadStudioMaster2Status();
+loadRealAdapterCapabilities();
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();

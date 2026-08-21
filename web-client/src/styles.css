@@ -187,3 +187,21 @@ button:active { transform: scale(.97); transition: transform .16s cubic-bezier(.
 @media (max-width: 920px) { .studio-master-2-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .studio-master-2-grid, .studio-master-2-readouts { grid-template-columns: 1fr; } .studio-master-2-actions { display: grid; grid-template-columns: 1fr; } .studio-master-2-actions button { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+
+.real-adapters-panel { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(117,213,194,.14); }
+.real-adapters-toolbar { display: flex; align-items: center; gap: 12px; margin-top: 12px; color: #7f8ca6; font-size: .7rem; }
+.real-adapters-toolbar button { margin: 0; }
+.real-adapters-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin-top: 12px; }
+.real-adapter-card { min-width: 0; padding: 11px; border: 1px solid #303a54; border-radius: 12px; background: #101724; }
+.real-adapter-card.ready { border-color: rgba(117,213,194,.48); }
+.real-adapter-card.fallback { border-color: rgba(243,178,75,.28); }
+.real-adapter-topline { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.real-adapter-topline strong { color: #eef3fb; font-size: .76rem; }
+.real-adapter-topline span { color: #f3b24b; font-size: .56rem; font-weight: 800; letter-spacing: .08em; }
+.real-adapter-card.ready .real-adapter-topline span { color: #75d5c2; }
+.real-adapter-card p { margin: 6px 0; color: #8f9bb2; font-size: .65rem; line-height: 1.35; }
+.real-adapter-meta { display: flex; flex-wrap: wrap; gap: 6px; color: #c3a36b; font-size: .58rem; }
+.real-adapter-reason { min-height: 28px; }
+.real-adapter-card code { display: block; overflow: hidden; color: #75d5c2; font-size: .58rem; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 900px) { .real-adapters-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .real-adapters-toolbar { align-items: flex-start; flex-direction: column; } .real-adapters-grid { grid-template-columns: 1fr; } }

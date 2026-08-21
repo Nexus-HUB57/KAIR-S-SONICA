@@ -1,4 +1,12 @@
 from kairos_core.studio_master.adapters import OptionalAdapterRegistry
+from kairos_core.studio_master.adapters_real import (
+    AdapterCapability,
+    AdapterResult,
+    AdapterSpec,
+    AdapterUnavailable,
+    LicensePolicy,
+    RealAdapterRegistry,
+)
 from kairos_core.studio_master.arrangement import ArrangementArchitect
 from kairos_core.studio_master.artist_memory import LocalArtistMemory
 from kairos_core.studio_master.canon import CanonEntry, CanonIndex
@@ -47,6 +55,10 @@ from kairos_core.studio_master.v2_contracts import (
 from kairos_core.studio_master.viral import ViralClipPlanner
 
 __all__ = [
+    "AdapterCapability",
+    "AdapterResult",
+    "AdapterSpec",
+    "AdapterUnavailable",
     "ArrangementArchitect",
     "ArrangementPlan",
     "ArrangementRequest",
@@ -69,6 +81,7 @@ __all__ = [
     "HumanExpressionRequest",
     "HumanExpressionResult",
     "KairosSignaturePlanner",
+    "LicensePolicy",
     "LocalArtistMemory",
     "MemoryFeedbackRequest",
     "OnsetPoint",
@@ -80,6 +93,7 @@ __all__ = [
     "ProductionAnalytics",
     "ProductionHistoryStore",
     "ProductionRecordRequest",
+    "RealAdapterRegistry",
     "ReferenceMasteringAdapter",
     "RepertoireCatalog",
     "RepertoireProfile",
