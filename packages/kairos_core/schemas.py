@@ -106,6 +106,7 @@ class VideoRequest(BaseModel):
     prompt: str = Field(min_length=1, max_length=4_000)
     mode: Literal["t2v", "i2v", "extend", "start_end"] = "t2v"
     engine: Literal["diffusion_forcing", "standard"] = "diffusion_forcing"
+    backend: Literal["cli", "native"] = "cli"
     model_id: str | None = Field(default=None, min_length=1, max_length=500)
     resolution: Literal["540P", "720P"] = "540P"
     num_frames: int | None = Field(default=None, ge=1, le=1_457)

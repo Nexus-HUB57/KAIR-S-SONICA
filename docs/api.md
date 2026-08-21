@@ -89,6 +89,21 @@ A resposta inicial segue o mesmo contrato de tarefa:
 {"task_id":"...","status":"PENDING"}
 ```
 
+## `GET /v1/video/capabilities`
+
+Retorna os backends e modos disponíveis no processo atual. O campo `native.runtime` indica apenas se `torch` e `diffusers` podem ser importados; a prontidão completa de checkpoint e device continua sendo responsabilidade de `GET /ready`.
+
+```json
+{
+  "backends": {
+    "cli": {"enabled": true, "engine": ["standard", "diffusion_forcing"]},
+    "native": {"enabled": true, "engine": ["standard", "diffusion_forcing"], "runtime": true}
+  },
+  "modes": ["t2v", "i2v", "extend", "start_end"],
+  "default_backend": "native"
+}
+```
+
 ## `POST /v1/video/generate`
 
 Cria uma tarefa assíncrona para T2V, I2V, Diffusion Forcing, extensão ou controle de frame inicial/final. O backend exige `KAIROS_ENABLE_SKYREELS=true`, clone e checkpoint configurados; referências de imagem/vídeo só podem estar em `data/uploads` ou `data/output`.
@@ -98,6 +113,7 @@ Cria uma tarefa assíncrona para T2V, I2V, Diffusion Forcing, extensão ou contr
   "prompt": "A continuous cinematic live-action shot in rain, moving camera, no text, no watermark.",
   "mode": "i2v",
   "engine": "diffusion_forcing",
+  "backend": "native",
   "resolution": "540P",
   "image_path": "keyframe.png",
   "num_frames": 97,
@@ -107,7 +123,7 @@ Cria uma tarefa assíncrona para T2V, I2V, Diffusion Forcing, extensão ou contr
 }
 ```
 
-A resposta é `202 Accepted` com `task_id`. Em modo `inline`, a API inicia o worker local; em modo `queue`, apenas grava o payload no `TaskStore` e o processo `scripts/run_worker.py` reivindica e executa o job. O MP4 é validado com `ffprobe` antes de ser publicado.
+A resposta é `202 Accepted` com `task_id`. Em modo `inline`, a API inicia o worker local; em modo `queue`, apenas grava o payload no `TaskStore` e o processo `scripts/run_worker.py` reivindica e executa o job. O MP4 é validado com `ffprobe` antes de ser publicado. Com `backend=native`, o worker seleciona as pipelines Diffusers nativas e usa `KAIROS_SKYREELS_NATIVE_MODEL_ID`; com `backend=cli`, usa os entry points do clone e `KAIROS_SKYREELS_MODEL_ID`.
 
 ## `GET /v1/tasks/{task_id}`
 

@@ -8,6 +8,7 @@ import pytest
 from kairos_core.config import Settings
 from kairos_core.schemas import VideoRequest
 from kairos_core.video.adapter import SkyReelsVideoAdapter, VideoBackendError
+from kairos_core.video.native_adapter import SkyReelsNativeAdapter
 
 
 def _settings(tmp_path: Path, *, enabled: bool = True) -> Settings:
@@ -142,3 +143,122 @@ def test_run_promotes_mp4_and_writes_metadata_without_overwrite(tmp_path: Path, 
 
     with pytest.raises(FileExistsError, match="Saída já existe"):
         adapter.run(request, "task-7")
+
+
+def test_native_backend_requires_explicit_enablement(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    settings.skyreels_native_api = False
+    adapter = SkyReelsNativeAdapter(settings)
+
+    with pytest.raises(VideoBackendError, match="API nativa desabilitada"):
+        adapter.run(VideoRequest(prompt="A native shot", backend="native"), "native-flag")
+
+
+def test_native_backend_requires_diffusers_checkpoint_layout(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    settings.skyreels_native_api = True
+    settings.skyreels_native_model_id = str(tmp_path / "model")
+    adapter = SkyReelsNativeAdapter(settings)
+
+    with pytest.raises(VideoBackendError, match="model_index.json"):
+        adapter.run(VideoRequest(prompt="A native shot", backend="native"), "native-layout")
+
+
+def test_native_pipeline_selection_matches_request_mode(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    adapter = SkyReelsNativeAdapter(settings)
+
+    assert adapter._pipeline_class(VideoRequest(prompt="t2v", backend="native")) == (
+        "SkyReelsV2DiffusionForcingPipeline",
+        "df_t2v",
+    )
+    assert adapter._pipeline_class(
+        VideoRequest(prompt="start/end", mode="start_end", backend="native", image_path="a", end_image_path="b")
+    ) == ("SkyReelsV2DiffusionForcingImageToVideoPipeline", "df_i2v")
+    assert adapter._pipeline_class(
+        VideoRequest(prompt="extend", mode="extend", backend="native", video_path="a")
+    ) == ("SkyReelsV2DiffusionForcingVideoToVideoPipeline", "df_v2v")
+
+
+def test_native_generate_passes_diffusers_arguments(tmp_path: Path, monkeypatch) -> None:
+    settings = _settings(tmp_path)
+    adapter = SkyReelsNativeAdapter(settings)
+    captured: dict[str, object] = {}
+
+    class FakePipeline:
+        def __call__(self, **kwargs):
+            captured.update(kwargs)
+            return SimpleNamespace(frames=[["frame"]])
+
+    def fake_import(name: str):
+        assert name == "diffusers.utils"
+        return SimpleNamespace(export_to_video=lambda frames, path, fps: Path(path).write_bytes(b"mp4"))
+
+    monkeypatch.setattr("kairos_core.video.native_adapter.importlib.import_module", fake_import)
+    output = tmp_path / "staging" / "generated.mp4"
+    request = VideoRequest(prompt="native shot", backend="native", seed=None)
+
+    adapter._generate_mp4(FakePipeline(), request, output)
+
+    assert output.read_bytes() == b"mp4"
+    assert captured["prompt"] == "native shot"
+    assert captured["height"] == 544
+    assert captured["width"] == 960
+    assert captured["base_num_frames"] == 97
+    assert captured["ar_step"] == 0
+
+
+def test_native_run_promotes_exported_video_without_cuda_dependency(tmp_path: Path, monkeypatch) -> None:
+    settings = _settings(tmp_path)
+    settings.skyreels_native_api = True
+    native_model = tmp_path / "native-model"
+    for relative in ("model_index.json", "vae/config.json", "transformer/config.json"):
+        path = native_model / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("{}", encoding="utf-8")
+    settings.skyreels_native_model_id = str(native_model)
+    settings.ffprobe_bin = "ffprobe-fixture"
+    adapter = SkyReelsNativeAdapter(settings)
+
+    class FakePipeline:
+        def __call__(self, **kwargs):
+            assert kwargs["prompt"] == "native end to end"
+            return SimpleNamespace(frames=[["frame"]])
+
+    monkeypatch.setattr(
+        adapter,
+        "_get_pipeline",
+        lambda request, model_id: (FakePipeline(), "df_t2v"),
+    )
+
+    class FakeGenerator:
+        def manual_seed(self, seed):
+            assert seed == 42
+            return self
+
+    def fake_import(name: str):
+        if name == "torch":
+            return SimpleNamespace(Generator=lambda device: FakeGenerator())
+        assert name == "diffusers.utils"
+        return SimpleNamespace(
+            export_to_video=lambda frames, path, fps: Path(path).write_bytes(b"native-mp4")
+        )
+
+    def fake_probe(command, **kwargs):
+        assert command[0] == "ffprobe-fixture"
+        return SimpleNamespace(
+            returncode=0,
+            stdout=json.dumps({"format": {"duration": "1.0"}, "streams": [{"codec_type": "video"}]}),
+            stderr="",
+        )
+
+    monkeypatch.setattr("kairos_core.video.adapter.subprocess.run", fake_probe)
+    monkeypatch.setattr("kairos_core.video.native_adapter.importlib.import_module", fake_import)
+    result = adapter.run(
+        VideoRequest(prompt="native end to end", backend="native", seed=42),
+        "native-run",
+    )
+
+    assert result.artifact_path.read_bytes() == b"native-mp4"
+    assert result.metadata["backend_api"] == "diffusers-native"
+    assert result.metadata["pipeline"] == "df_t2v"

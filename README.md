@@ -99,10 +99,12 @@ O endpoint `POST /v1/video/generate` enfileira geração T2V, I2V, Diffusion For
 # depois de validar CUDA, dependências, checkpoint e licença no ambiente de execução
 export KAIROS_ENABLE_SKYREELS=true
 export KAIROS_SKYREELS_REPO=/opt/models/SkyReels-V2
-export KAIROS_SKYREELS_MODEL_ID=/opt/models/SkyReels-V2/checkpoints/SkyReels-V2-DF-1.3B-540P
+export KAIROS_SKYREELS_MODEL_ID=/models/Skywork/SkyReels-V2-DF-1.3B-540P
+export KAIROS_SKYREELS_NATIVE_MODEL_ID=/models/Skywork/SkyReels-V2-DF-1.3B-540P-Diffusers
+export KAIROS_SKYREELS_NATIVE_API=true
 curl -X POST http://localhost:8000/v1/video/generate \\
   -H 'Content-Type: application/json' \\
-  -d '{"prompt":"A continuous cinematic live-action shot in rain, moving camera, no text, no watermark.","mode":"t2v","engine":"diffusion_forcing","resolution":"540P","num_frames":97,"seed":42}'
+  -d '{"prompt":"A continuous cinematic live-action shot in rain, moving camera, no text, no watermark.","mode":"t2v","engine":"diffusion_forcing","backend":"native","resolution":"540P","num_frames":97,"seed":42}'
 ```
 
 O estado da tarefa continua em `GET /v1/tasks/{task_id}` ou `WS /ws/tasks/{task_id}`, e o MP4 concluído é entregue em `GET /v1/video/{task_id}`. Falhas de configuração, checkpoint, GPU ou execução são retornadas como `FAILED`; o sistema não substitui uma falha real por um artefato procedural.
@@ -117,7 +119,20 @@ export SKYREELS_MODEL_SUBPATH=Skywork/SkyReels-V2-DF-1.3B-540P
 docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
 ```
 
-O gateway responde em `/health` enquanto está vivo e em `/ready` somente quando o clone, o entry point Diffusion Forcing e o checkpoint configurado estão acessíveis. O serviço `worker` compartilha `data/`, reivindica jobs persistidos e executa a inferência sem bloquear o request HTTP. O endpoint `/docs` permanece disponível para inspeção do contrato.
+O gateway responde em `/health` enquanto está vivo. No modo CLI, `/ready` verifica clone, entry point Diffusion Forcing e checkpoint CLI; no modo nativo, verifica runtime `torch`/`diffusers`, CUDA quando `KAIROS_SKYREELS_DEVICE=cuda` e checkpoint `*-Diffusers`. O serviço `worker` compartilha `data/`, reivindica jobs persistidos e executa a inferência sem bloquear o request HTTP. O endpoint `/docs` permanece disponível para inspeção do contrato.
+
+Para provisionar um checkpoint nativo no host CUDA sem download implícito durante a inferência:
+
+```bash
+python3 scripts/provision_skyreels.py \\
+  --repo /opt/models/SkyReels-V2 \\
+  --models-root /models \\
+  --native-model-id Skywork/SkyReels-V2-DF-1.3B-540P-Diffusers \\
+  --revision <revisao-auditada> \\
+  --download
+```
+
+O comando é protegido por lock e pode ser repetido. Sem `--download`, ele apenas valida a instalação local. O token, se necessário, deve existir somente na variável `HF_TOKEN`; o script grava apenas o nome da variável e a revisão no manifesto.
 
 ## Carga e observabilidade
 

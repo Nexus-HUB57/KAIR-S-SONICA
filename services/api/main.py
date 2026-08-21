@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import importlib.util
 import json
 import os
 import sqlite3
@@ -164,6 +165,31 @@ class TaskStore:
 
 settings = Settings.from_env()
 store = TaskStore(settings.task_db_path)
+
+
+def _native_checkpoint_ready() -> bool:
+    model = settings.skyreels_native_model_id
+    if not model:
+        return False
+    path = Path(model).expanduser()
+    if settings.skyreels_allow_model_download and not path.exists():
+        return True
+    required = ("model_index.json", "vae/config.json", "transformer/config.json")
+    return path.is_dir() and all((path / relative).is_file() for relative in required)
+
+
+def _native_runtime_ready() -> bool:
+    if not importlib.util.find_spec("torch") or not importlib.util.find_spec("diffusers"):
+        return False
+    if not settings.skyreels_device.startswith("cuda"):
+        return True
+    try:
+        torch = __import__("torch")
+        return bool(torch.cuda.is_available())
+    except (ImportError, AttributeError, RuntimeError):
+        return False
+
+
 app = FastAPI(title="KAIR-S-SONICA API", version="0.1.0", description="Gateway do Agente Káiros")
 app.add_middleware(
     CORSMiddleware,
@@ -288,13 +314,18 @@ def readiness() -> dict[str, Any]:
     checks: dict[str, str] = {"task_store": "ok"}
     if settings.enable_skyreels:
         repo = settings.skyreels_repo.expanduser().resolve() if settings.skyreels_repo else None
-        model = settings.skyreels_model_id
         engine = "diffusion_forcing"
-        script_ok = bool(repo and (repo / "generate_video_df.py").is_file())
-        model_ok = bool(model and (Path(model).expanduser().exists() or settings.skyreels_allow_model_download))
-        checks["skyreels_repo"] = "ok" if repo and repo.is_dir() else "missing"
-        checks["skyreels_entrypoint"] = "ok" if script_ok else "missing"
-        checks["skyreels_model"] = "ok" if model_ok else "missing"
+        if settings.skyreels_native_api:
+            native_model_ok = _native_checkpoint_ready()
+            checks["skyreels_native_runtime"] = "ok" if _native_runtime_ready() else "missing"
+            checks["skyreels_native_model"] = "ok" if native_model_ok else "missing"
+        else:
+            model = settings.skyreels_model_id
+            script_ok = bool(repo and (repo / "generate_video_df.py").is_file())
+            model_ok = bool(model and (Path(model).expanduser().exists() or settings.skyreels_allow_model_download))
+            checks["skyreels_repo"] = "ok" if repo and repo.is_dir() else "missing"
+            checks["skyreels_entrypoint"] = "ok" if script_ok else "missing"
+            checks["skyreels_model"] = "ok" if model_ok else "missing"
         if not all(value == "ok" for value in checks.values()):
             raise HTTPException(status_code=503, detail={"status": "not_ready", "checks": checks, "engine": engine})
     else:
@@ -331,6 +362,28 @@ def orchestrate(request: MultimediaRequest) -> GenerateResponse:
         thread = threading.Thread(target=_run_multimedia_task, args=(task_id, request), daemon=True)
         thread.start()
     return GenerateResponse(task_id=task_id, status="PENDING")
+
+
+@app.get("/v1/video/capabilities")
+def video_capabilities() -> dict[str, Any]:
+    native_configured = settings.enable_skyreels and settings.skyreels_native_api
+    native_model_ready = _native_checkpoint_ready()
+    native_runtime_ready = _native_runtime_ready()
+    native_ready = native_configured and native_model_ready and native_runtime_ready
+    return {
+        "backends": {
+            "cli": {"enabled": settings.enable_skyreels, "engine": ["standard", "diffusion_forcing"]},
+            "native": {
+                "enabled": native_configured,
+                "ready": native_ready,
+                "engine": ["standard", "diffusion_forcing"],
+                "runtime": native_runtime_ready,
+                "checkpoint": native_model_ready,
+            },
+        },
+        "modes": ["t2v", "i2v", "extend", "start_end"],
+        "default_backend": "native" if native_ready else "cli",
+    }
 
 
 @app.post("/v1/video/generate", response_model=GenerateResponse, status_code=202)

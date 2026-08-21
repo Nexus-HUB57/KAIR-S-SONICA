@@ -20,6 +20,7 @@ WORKDIR /app
 COPY pyproject.toml README.md LICENSE ./
 COPY packages ./packages
 COPY services ./services
+COPY scripts ./scripts
 COPY data ./data
 COPY requirements/skyreels-runtime.txt /tmp/skyreels-runtime.txt
 
