@@ -1,0 +1,55 @@
+{
+  "schema_version": "prova6-sintonia-ktd-1",
+  "task_id": "prova_6_sintonia_perfeita",
+  "status": "generated_for_review",
+  "bpm": 135,
+  "swing_ratio": 0.54,
+  "duration_bars": 16,
+  "target_duration_seconds": 28.444444,
+  "master_duration_seconds": 28.444444,
+  "source_generation_duration_seconds": 57.808917,
+  "harmony": ["A7", "G7", "F#m7", "Bm7"],
+  "reference_direction": "nova sintonia rítmica e harmônica do anexo, sem reprodução de melodia ou letra de obra existente",
+  "rhythm": {
+    "kicks": "sincopados com contratempos",
+    "snares": "backbeat firme com presença em 200 Hz e ataque definido",
+    "hats": "shuffle, ghost notes e rolagens rápidas",
+    "808": "subgrave com slide e saturação harmônica",
+    "pocket": "swing moderno de 54%, variação controlada de velocity e microtiming"
+  },
+  "vocal_direction": {
+    "persona": "KTD / Kháirus the Dragon",
+    "register": "médio-grave",
+    "timbre": "corpo no peito, ataque firme, aspereza humana sutil e presença frontal",
+    "delivery": "rap agressivo, articulado, com finais precisos, pausa half-time e tag double-time",
+    "emotion": "confiança ferida, controle, pressão convertida em clareza",
+    "disclaimer": "direção autoral baseada no perfil do repositório; não é clonagem biométrica direta nem imitação de intérprete real"
+  },
+  "mix_direction": {
+    "low_end": "grave forte e controlado, sem mascarar a voz",
+    "compression": "compressão de bus moderada e coesa",
+    "saturation": "clipper leve e saturação harmônica",
+    "vocal_priority": "lead seco, central e inteligível",
+    "space": "reverb curto e escuro, estéreo amplo sem excesso"
+  },
+  "lyrics": {
+    "intro": "No more noise, I tune the pressure to a signal.",
+    "verse": "A-line, hard drive, every bar calibrated / Backbeat, black shade, all the doubt translated / I don't chase the echo, I command the room / Kick talk, snare crack, make the daylight move.",
+    "pre_hook": "Breathe low, lock tone, let the whole floor wait.",
+    "hook": "When the night leans in, I lean back with a flame / Four chords, one voice, put the weight in the frame / A7 to B minor, let the whole thing swing / I don't follow the rhythm, I make the rhythm ring.",
+    "final_tag": "Tune it tight, turn it up, leave the signal clean."
+  },
+  "files": {
+    "master_wav": "outputs/prova_6/prova_6_sintonia_ktd_master.wav",
+    "master_mp3": "outputs/prova_6/prova_6_sintonia_ktd_master.mp3",
+    "raw_generation": "outputs/prova_6/prova_6_sintonia_ktd.wav"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "wav_sha256": "cf8d9fc74767d7e7b92c017529b9d211df3c98fbcec2708565e6f7684d90e01c",
+    "mp3_sha256": "993149f896652b7861eaaa8fabb1c95054af3e6837efdbf6906892df6f2279b2"
+  },
+  "audit_note": "O anexo fornece um script local dependente de pedalboard, SoundFont e recursos que não estão disponíveis no checkout; a faixa foi gerada e finalizada como master de áudio autoral com os mesmos parâmetros musicais declarados."
+}

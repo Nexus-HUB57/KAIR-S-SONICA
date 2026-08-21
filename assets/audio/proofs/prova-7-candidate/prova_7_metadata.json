@@ -1,0 +1,61 @@
+{
+  "schema_version": "prova7-fastflow-v1",
+  "task_id": "prova_7_ktd_aggressive_fastflow",
+  "status": "candidate_for_review",
+  "based_on": {
+    "reference": "prova_6_sintonia_ktd",
+    "reference_status": "approved_base",
+    "preserved_parameters": {
+      "bpm": 135,
+      "swing_ratio": 0.54,
+      "harmony": ["A7", "G7", "F#m7", "Bm7"],
+      "duration_bars": 16,
+      "target_duration_seconds": 28.444444
+    }
+  },
+  "changes_from_prova_6": {
+    "vocal": "mais agressivo, com ataque frontal mais firme, consoantes mais cortantes, maior densidade e presença",
+    "flow": "mais rápido, com verso double-time controlado, reset half-time e tag final acelerada",
+    "mix": "lead vocal mais à frente, corpo de médio-grave reforçado, presença de consoantes, compressão rápida com transientes preservados, saturação paralela moderada e reverb curto",
+    "arrangement": "mesma identidade Funk e harmônica, com menos espaço entre grupos silábicos e variações de energia no vocal"
+  },
+  "vocal_direction": {
+    "persona": "KTD / Kháirus the Dragon",
+    "register": "médio-grave",
+    "timbre": "corpo no peito, ataque firme, aspereza humana sutil e presença frontal",
+    "delivery": "rap agressivo, articulado, double-time controlado, finais cortados e reset half-time",
+    "disclaimer": "direção autoral baseada no perfil do repositório; não é clonagem biométrica direta nem imitação de intérprete real"
+  },
+  "lyrics": {
+    "intro": "Signal in the static, I sharpen every syllable.",
+    "verse": "Hard drive, dark eyes, every line calibrated / Backbeat, black shade, all the doubt translated / Chest tight, breath right, let the consonants collide / Kick late, snare break, put the pressure on the side / No drag, no slack, every phrase has a purpose / Fast tongue, cold lungs, make the pocket feel nervous.",
+    "reset_half_time": "Hold the room... let it wait... then I turn the key.",
+    "hook": "I lean in when the whole floor shakes / More weight in the voice, more force in the take / Four chords, one flame, let the whole night swing / I don't chase that rhythm, I make that rhythm ring.",
+    "final_tag": "Quick breath, hard step, no break in the chain / KTD in the pocket, put the mark in the frame."
+  },
+  "mix_direction": {
+    "vocal_priority": "lead central, dry, heavy and intelligible",
+    "low_mid": "controlled body reinforcement without mud",
+    "presence": "clear consonant articulation with restrained upper-mid lift",
+    "compression": "fast vocal control with preserved attack",
+    "saturation": "moderate parallel density",
+    "space": "short dark room reverb; brief stereo doubles only on selected hook endings",
+    "negative_constraints": ["no constant screaming", "no mumble", "no muddy 808", "no flat quantization", "no generic trap loop", "no excessive autotune"]
+  },
+  "files": {
+    "master_wav": "outputs/prova_7/prova_7_ktd_aggressive_fastflow_master.wav",
+    "master_mp3": "outputs/prova_7/prova_7_ktd_aggressive_fastflow_master.mp3",
+    "raw_generation": "outputs/prova_7/prova_7_ktd_aggressive_fastflow.wav",
+    "approved_reference_wav": "assets/audio/proofs/prova-6-approved/prova_6_sintonia_ktd_master.wav",
+    "approved_reference_mp3": "assets/audio/proofs/prova-6-approved/prova_6_sintonia_ktd_master.mp3"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "master_wav_duration_seconds": 28.444444,
+    "master_mp3_duration_seconds": 28.473469,
+    "master_wav_sha256": "cc9f5da5d980244af15d324699752abec26a379efe6b81018c98f12850e789d4",
+    "master_mp3_sha256": "b309c256eb6f29e24422f6131a7112153d95521b7b9e338b077a5455fdebd9b2"
+  }
+}
