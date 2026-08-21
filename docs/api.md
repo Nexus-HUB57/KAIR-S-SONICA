@@ -145,6 +145,22 @@ Cria um plano síncrono de pré-produção a partir de um prompt. A resposta div
 
 O consumidor pode revisar o plano e, em uma etapa posterior, enviar cada `video_request_template` para a fila existente ou encaminhar a parte sonora para `POST /v1/orchestrate`. A promoção, a validação `ffprobe` e a entrega HTTP continuam pertencendo ao núcleo existente.
 
+## `POST /v1/complementary/media/search`
+
+Busca ativos de mídia por uma ação explícita. O campo `kind` aceita `image` ou `video`; o campo `download` permanece `false` por padrão e, quando `true`, grava os resultados no `MediaCache` configurado com promoção atômica. A cadeia usa `KAIROS_MEDIA_PROVIDER_ORDER`, por padrão Pexels e Unsplash. Se as chaves opcionais não estiverem presentes, os provedores são ignorados e a resposta contém `assets: []`; o endpoint não é chamado pelo planner automaticamente.
+
+```json
+{
+  "query": "rain-soaked rap video",
+  "kind": "image",
+  "per_page": 5,
+  "orientation": "portrait",
+  "download": false
+}
+```
+
+A resposta inclui `provider_order`, `assets` normalizados e `downloaded`. URLs, chaves e conteúdo não são colocados em logs estruturados; downloads são limitados por `KAIROS_MEDIA_CACHE_MAX_BYTES`.
+
 ## `GET /v1/agents/capabilities`
 
 Retorna o catálogo versionado de agentes, skills, algoritmos e operações conhecidas pelo agregador. O endpoint não faz chamadas de rede, não dispara geração e informa explicitamente quais integrações estão habilitadas. Os agentes externos permanecem desabilitados por padrão.

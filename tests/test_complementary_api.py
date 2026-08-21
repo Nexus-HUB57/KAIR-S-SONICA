@@ -14,6 +14,25 @@ def test_complementary_capabilities_endpoint() -> None:
     assert payload["name"] == "complementary-audiovisual-core"
     assert payload["replaces_existing_core"] is False
     assert payload["enabled"] is True
+    assert payload["media"]["provider_order"] == ["pexels", "unsplash"]
+    assert payload["media"]["cache_max_bytes"] == 100 * 1024 * 1024
+
+
+def test_complementary_media_search_is_empty_without_provider_keys(monkeypatch) -> None:
+    monkeypatch.delenv("PEXELS_API_KEY", raising=False)
+    monkeypatch.delenv("UNSPLASH_API_KEY", raising=False)
+
+    with TestClient(app) as client:
+        response = client.post(
+            "/v1/complementary/media/search",
+            json={"query": "rain", "kind": "image", "download": False},
+        )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["provider_order"] == ["pexels", "unsplash"]
+    assert payload["assets"] == []
+    assert payload["downloaded"] == []
 
 
 def test_complementary_plan_is_synchronous_and_has_handoffs() -> None:

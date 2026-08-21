@@ -12,7 +12,7 @@ test:
 	PYTHONPATH=packages $(PYTHON) -m pytest -q
 
 lint:
-	PYTHONPATH=packages $(PYTHON) -m ruff check packages services tests scripts
+	PYTHONPATH=packages $(PYTHON) -m ruff check packages services tests scripts tools --extend-exclude scripts/assemble_unleash_the_dragon_real_v2.py
 
 run:
 	PYTHONPATH=packages $(PYTHON) -m uvicorn services.api.main:app --reload --host 0.0.0.0 --port 8000

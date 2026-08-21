@@ -46,6 +46,10 @@ class Settings:
     llamagen_api_key_env: str = "LLAMAGEN_API_KEY"
     llamagen_timeout_seconds: int = 60
     complementary_core_enabled: bool = True
+    log_level: str = "INFO"
+    media_cache_dir: Path = Path("data/media-cache")
+    media_cache_max_bytes: int = 100 * 1024 * 1024
+    media_provider_order: tuple[str, ...] = ("pexels", "unsplash")
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -111,6 +115,12 @@ class Settings:
             llamagen_timeout_seconds=int(os.getenv("KAIROS_LLAMAGEN_TIMEOUT_SECONDS", "60")),
             complementary_core_enabled=os.getenv("KAIROS_COMPLEMENTARY_CORE_ENABLED", "true").lower()
             in {"1", "true", "yes", "on"},
+            log_level=os.getenv("KAIROS_LOG_LEVEL", "INFO").upper(),
+            media_cache_dir=Path(os.getenv("KAIROS_MEDIA_CACHE_DIR", "data/media-cache")),
+            media_cache_max_bytes=int(os.getenv("KAIROS_MEDIA_CACHE_MAX_BYTES", str(100 * 1024 * 1024))),
+            media_provider_order=cls._csv(
+                os.getenv("KAIROS_MEDIA_PROVIDER_ORDER", "pexels,unsplash")
+            ),
         )
 
     @staticmethod
