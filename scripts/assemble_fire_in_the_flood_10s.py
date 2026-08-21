@@ -59,8 +59,8 @@ def main() -> None:
         destination = WORK / f"{scene['id']}-normalized.mp4"
         run([
             "ffmpeg", "-y", "-v", "error", "-i", str(source),
-            "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,"
-                   "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,fps=24,format=yuv420p",
+            "-vf", "scale=720:1280:force_original_aspect_ratio=decrease,"
+                   "pad=720:1280:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,fps=24,format=yuv420p",
             "-an", "-t", f"{expected:.3f}", "-c:v", "libx264", "-preset", "medium",
             "-crf", "18", "-pix_fmt", "yuv420p", str(destination),
         ])

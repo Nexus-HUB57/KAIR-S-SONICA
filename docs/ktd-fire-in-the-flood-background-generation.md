@@ -19,7 +19,7 @@ A música é tratada como 16 cenas de 10 segundos, entre 00:00 e 02:40, mais uma
 
 ## Regra de execução posterior
 
-Cada entrada da fila deve gerar um vídeo contínuo, sem áudio embutido, em landscape 16:9 e 720p. A master v4 somente entra na etapa final, depois que os 17 vídeos forem verificados individualmente. O script de montagem recusa a execução quando existe cena ausente, duração divergente ou soma temporal diferente de 168 segundos.
+Cada entrada da fila deve gerar um vídeo contínuo, sem áudio embutido, em portrait 9:16, 720×1280 e 24 fps, exatamente como os assets oficiais aprovados. A master v4 somente entra na etapa final, depois que os 17 vídeos forem verificados individualmente. O script de montagem recusa a execução quando existe cena ausente, duração divergente ou soma temporal diferente de 168 segundos.
 
 A fila é um artefato reprodutível de preparação; ela não executa chamadas de geração de vídeo de forma autônoma enquanto a sessão estiver inativa. Quando a geração estiver disponível, os arquivos deverão ser produzidos nos caminhos definidos no manifest e a montagem poderá ser iniciada com:
 
@@ -27,7 +27,7 @@ A fila é um artefato reprodutível de preparação; ela não executa chamadas d
 python3 scripts/assemble_fire_in_the_flood_10s.py
 ```
 
-O resultado esperado é `artifacts/video/ktd-fire-in-the-flood-full-dynamic-10s-v1.mp4`, com vídeo normalizado para 1920×1080 a 24 fps e áudio AAC derivado da master v4.
+O resultado esperado é `artifacts/video/ktd-fire-in-the-flood-full-dynamic-10s-v1.mp4`, com vídeo normalizado para 720×1280 a 24 fps e áudio AAC derivado da master v4.
 
 ## Critério de aceite
 
@@ -35,7 +35,7 @@ Nenhum PNG deve ser tratado como plano final. Um plano somente entra no clipe qu
 
 ## Referências
 
-A gramática dinâmica segue o reel aprovado de Fire in the Flood [1] e a referência aprovada de ação ritual de Six Names [2]. A duração e as decisões de áudio seguem a revisão da master v4 [3].
+A gramática dinâmica e o formato vertical seguem os assets da pasta oficial `assets/video/aprovados`, começando pelo reel aprovado de Fire in the Flood [1] e pela referência aprovada de ação ritual de Six Names [2]. A duração e as decisões de áudio seguem a revisão da master v4 [3].
 
 [1]: https://github.com/Nexus-HUB57/KAIR-S-SONICA/blob/main/assets/video/promos/tiktok/fire-in-the-flood-ktd-approved-dynamic-8s.mp4 "Fire in the Flood — approved dynamic reel"
 

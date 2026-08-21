@@ -4,7 +4,7 @@
 
 A master oficial `ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav` tem **168,000 segundos**. A decupagem utiliza **16 cenas de 10 segundos** e uma cena final de **8 segundos**, cobrindo o áudio integralmente sem esticar, repetir ou cortar a música.
 
-A linguagem segue os dois reels aprovados do repositório: movimento temporal real, atuação de KTD, câmera em deslocamento, objetos físicos reagindo e cenários vivos. Nenhuma cena deve ser produzida como imagem parada com zoom.
+A linguagem segue os dois reels aprovados do repositório e o formato técnico da pasta oficial `assets/video/aprovados`: vídeo vertical 9:16, 720×1280, 24 fps, em planos vivos contínuos de 8–10 segundos, com atuação de KTD, câmera em deslocamento, objetos físicos reagindo e cenários vivos. Nenhuma cena deve ser produzida como imagem parada com zoom.
 
 > **Regra de aprovação:** cada bloco precisa conter começo, desenvolvimento e conclusão de uma ação física. Chuva, água, respiração, tecido, vapor, fogo, luzes, cabos, portas e reflexos devem continuar se movendo mesmo nos momentos de menor gesto de KTD.
 
@@ -32,7 +32,7 @@ A linguagem segue os dois reels aprovados do repositório: movimento temporal re
 
 ## Primeira cena a gerar
 
-A primeira geração será **S01 — 00:00–00:10**, em landscape 16:9, sem áudio embutido. A master v4 será adicionada somente na montagem final. O plano deve iniciar com KTD diante da janela, transformar a mão no vidro em movimento de caminhada e terminar com o artista avançando pela água em direção à câmera. O movimento precisa ser contínuo do primeiro ao último frame.
+A primeira geração será **S01 — 00:00–00:10**, em vídeo vertical 9:16 (720×1280), sem áudio embutido. A master v4 será adicionada somente na montagem final. O plano deve iniciar com KTD diante da janela, transformar a mão no vidro em movimento de caminhada e terminar com o artista avançando pela água em direção à câmera. O movimento precisa ser contínuo do primeiro ao último frame, seguindo o enquadramento corporal e a câmera frontal dos reels oficiais.
 
 ## Referências e autoridades
 

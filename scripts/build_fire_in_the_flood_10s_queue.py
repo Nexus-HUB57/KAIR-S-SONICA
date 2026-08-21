@@ -29,11 +29,11 @@ def main() -> None:
         "version": "generation-queue-v1",
         "duration_seconds": manifest["duration_seconds"],
         "model": "gemini-omni-flash-preview",
-        "aspect_ratio": "landscape",
+        "aspect_ratio": "portrait",
         "resolution": "720p",
         "generate_audio": False,
         "master_audio": manifest["master_audio"],
-        "reference_rule": "Use the listed 16:9 keyframe when available; otherwise use the canonical KTD visual master after preparing a 16:9 keyframe.",
+        "reference_rule": "Use the listed 9:16 keyframe when available; otherwise use the canonical KTD visual master after preparing a 9:16 keyframe.",
         "scenes": [],
     }
     for scene in manifest["scenes"]:

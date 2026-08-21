@@ -3,18 +3,18 @@
   "version": "generation-queue-v1",
   "duration_seconds": 168.0,
   "model": "gemini-omni-flash-preview",
-  "aspect_ratio": "landscape",
+  "aspect_ratio": "portrait",
   "resolution": "720p",
   "generate_audio": false,
   "master_audio": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
-  "reference_rule": "Use the listed 16:9 keyframe when available; otherwise use the canonical KTD visual master after preparing a 16:9 keyframe.",
+  "reference_rule": "Use the listed 9:16 keyframe when available; otherwise use the canonical KTD visual master after preparing a 9:16 keyframe.",
   "scenes": [
     {
       "id": "S01",
       "start": 0.0,
       "duration": 10.0,
       "section": "intro",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-walk-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-s01-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s01-10s.mp4",
       "prompt": "Create a single uninterrupted 10.0-second cinematic live-action shot for S01 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: KTD touches a rain-streaked window, breathes, then walks through shallow floodwater toward camera with an amber flame reflected in the street. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"
@@ -84,7 +84,7 @@
       "start": 70.0,
       "duration": 10.0,
       "section": "lift",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-studio-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-studio-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s08-10s.mp4",
       "prompt": "Create a single uninterrupted 10.0-second cinematic live-action shot for S08 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: KTD enters the recording booth, takes the microphone and moves through real hanging cables as rain and LEDs respond. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"
@@ -94,7 +94,7 @@
       "start": 80.0,
       "duration": 10.0,
       "section": "hook1",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-walk-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-s01-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s09-10s.mp4",
       "prompt": "Create a single uninterrupted 10.0-second cinematic live-action shot for S09 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: KTD power-walks through a flooded street carrying a protected flame; every step creates moving water, vapor and reflections. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"
@@ -104,7 +104,7 @@
       "start": 90.0,
       "duration": 10.0,
       "section": "hook1",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-final-stage-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-final-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s10-10s.mp4",
       "prompt": "Create a single uninterrupted 10.0-second cinematic live-action shot for S10 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: KTD performs in a wet warehouse as anonymous silhouettes rise behind him and amber lights activate across the room. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"
@@ -114,7 +114,7 @@
       "start": 100.0,
       "duration": 10.0,
       "section": "verse2",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-studio-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-studio-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s11-10s.mp4",
       "prompt": "Create a single uninterrupted 10.0-second cinematic live-action shot for S11 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: KTD crosses a technical studio, activates a patchbay and sends a visible wave of LEDs through the control room. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"
@@ -134,7 +134,7 @@
       "start": 120.0,
       "duration": 10.0,
       "section": "verse2",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-bridge-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-bridge-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s13-10s.mp4",
       "prompt": "Create a single uninterrupted 10.0-second cinematic live-action shot for S13 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: On a wet rooftop KTD crosses the frame, rejects an open cage-like doorway and turns toward a real exit as wind and rain move. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"
@@ -164,7 +164,7 @@
       "start": 150.0,
       "duration": 10.0,
       "section": "bridge",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-bridge-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-bridge-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s16-10s.mp4",
       "prompt": "Create a single uninterrupted 10.0-second cinematic live-action shot for S16 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: KTD crosses an empty wet room, slows, places his forehead against rain-covered glass and lets breath and condensation appear. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"
@@ -174,7 +174,7 @@
       "start": 160.0,
       "duration": 8.0,
       "section": "final_hook_outro",
-      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-bridge-keyframe.png",
+      "keyframe": "assets/video/keyframes/ktd-fire-in-the-flood-final-approved-portrait-keyframe.png",
       "output": "artifacts/video/dynamic-shots/fire-in-the-flood-s17-8s.mp4",
       "prompt": "Create a single uninterrupted 8.0-second cinematic live-action shot for S17 of Fire in the Flood. The same original fictional KTD: Black adult man, shaved head, long full beard, compact athletic build, left honey-amber eye and right pale clear-blue eye, restrained gold eyebrow slits, wet skin, direct intense gaze. Preserve the immutable tattoo map exactly: seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum, with a symmetrical dragon-scale spine column running down the center of the abdomen ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, cherry blossoms integrated, per the immutable tattoo map of assets/persona/ktd-visual-master.png. Cinematic live-action editorial rap music video, high-contrast chiaroscuro, charcoal black, cold steel blue, restrained amber and gold, real rain, moving water, vapor, cloth and practical light, realistic physical texture, no text, no logos, no watermark, no celebrity likeness. Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage. Scene action: Close live-action finish: KTD returns to the lens through rain, the amber reflection disappears from the window and he exits frame before a hard cut to black. Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark.",
       "status": "queued"

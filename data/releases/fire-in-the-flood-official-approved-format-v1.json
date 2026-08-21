@@ -1,0 +1,64 @@
+{
+  "authority": "assets/video/aprovados",
+  "project": "FIRE IN THE FLOOD",
+  "format_status": "official_approved_reference",
+  "video": {
+    "container": "MP4",
+    "codec": "H.264",
+    "width": 720,
+    "height": 1280,
+    "aspect_ratio": "9:16",
+    "fps": 24,
+    "approved_clip_lengths_seconds": [8, 10],
+    "continuous_live_action": true
+  },
+  "audio_reference": {
+    "codec": "AAC",
+    "sample_rate": 44100,
+    "channels": 2
+  },
+  "approved_assets": [
+    {
+      "path": "assets/video/aprovados/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
+      "duration_seconds": 8.0,
+      "sha256": "7a25ddeadda187b4cfdfb595d8b847ad2d9fa56740946de9b3844920b69c636b"
+    },
+    {
+      "path": "assets/video/aprovados/golden-scars-v1-frame-the-whole-picture-approved.mp4",
+      "duration_seconds": 8.0,
+      "sha256": "0b5d4f2b996c96c17d92b0c718ec4c14f241e795587f7bcf9eb47c5720aba21a"
+    },
+    {
+      "path": "assets/video/aprovados/six-names-ktd-clip-table-candles-10s-with-audio (1).mp4",
+      "duration_seconds": 10.0,
+      "sha256": "c206f9c928ae4edd350034094fd7afbddeecd3539777642d54d222c6b3e974d4"
+    },
+    {
+      "path": "assets/video/aprovados/unleash-the-dragon-realgclip-01-dressing-room-10s-with-audio (1).mp4",
+      "duration_seconds": 10.0,
+      "sha256": "1b518db13ca7eba75a9dcdc365bfa4c2d975278a922b59471f67877439b8eeed"
+    },
+    {
+      "path": "assets/video/aprovados/unleash-the-dragon-realgclip-01-dressing-room-10s-with-audio.mp4",
+      "duration_seconds": 10.0,
+      "sha256": "1b518db13ca7eba75a9dcdc365bfa4c2d975278a922b59471f67877439b8eeed"
+    }
+  ],
+  "full_clip": {
+    "duration_seconds": 168.0,
+    "scene_policy": "16 scenes x 10 seconds + final scene x 8 seconds",
+    "target_width": 720,
+    "target_height": 1280,
+    "target_fps": 24,
+    "master_audio": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
+    "generation_audio": false,
+    "final_audio_mux": true
+  },
+  "hard_rejections": [
+    "landscape master as the official delivery",
+    "static image with pan or zoom",
+    "repeated reuse of one approved reel as a fake full clip",
+    "face or tattoo morphing that breaks KTD continuity",
+    "adding audio from another KTD song to Fire in the Flood"
+  ]
+}
