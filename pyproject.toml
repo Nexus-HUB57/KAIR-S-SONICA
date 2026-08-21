@@ -41,7 +41,7 @@ ml = [
   "transformers>=4.35",
 ]
 separation = ["demucs>=4.0"]
-dev = ["httpx>=0.24", "pytest>=7.4", "ruff>=0.6"]
+dev = ["httpx>=0.24", "pytest>=7.4", "ruff>=0.6", "PyYAML>=6.0"]
 
 [project.scripts]
 kairos = "kairos_core.cli:main"

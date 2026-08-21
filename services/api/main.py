@@ -6,6 +6,7 @@ import json
 import os
 import sqlite3
 import threading
+from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -17,10 +18,18 @@ from fastapi.responses import FileResponse
 from kairos_core.agents import AgentAggregator, ExternalAgentError
 from kairos_core.audio.orchestrator import MultimediaOrchestrator
 from kairos_core.audio.pipeline import AudioPipeline
-from kairos_core.complementary import build_complementary_plan, complementary_capabilities
+from kairos_core.complementary import (
+    MediaCache,
+    MediaProviderError,
+    build_complementary_plan,
+    complementary_capabilities,
+    provider_chain_from_names,
+)
 from kairos_core.config import Settings
+from kairos_core.observability import configure_logging
 from kairos_core.persona import DEFAULT_PERSONA
 from kairos_core.schemas import (
+    ComplementaryMediaSearchRequest,
     ComplementaryPlanRequest,
     GenerateResponse,
     MultimediaRequest,
@@ -167,6 +176,7 @@ class TaskStore:
         return recovered
 
 settings = Settings.from_env()
+configure_logging(settings.log_level)
 store = TaskStore(settings.task_db_path)
 agent_aggregator = AgentAggregator(settings)
 
@@ -354,7 +364,12 @@ def probe_agent(agent_name: str) -> dict[str, Any]:
 
 @app.get("/v1/complementary/capabilities")
 def complementary_capability_catalog() -> dict[str, Any]:
-    return complementary_capabilities(enabled=settings.complementary_core_enabled)
+    return complementary_capabilities(
+        enabled=settings.complementary_core_enabled,
+        media_provider_order=settings.media_provider_order,
+        media_cache_dir=str(settings.media_cache_dir),
+        media_cache_max_bytes=settings.media_cache_max_bytes,
+    )
 
 
 @app.post("/v1/complementary/plan")
@@ -363,6 +378,38 @@ def complementary_plan(request: ComplementaryPlanRequest) -> dict[str, Any]:
     if not settings.complementary_core_enabled:
         raise HTTPException(status_code=503, detail="Núcleo complementar desabilitado")
     return build_complementary_plan(**request.model_dump()).to_dict()
+
+
+@app.post("/v1/complementary/media/search")
+def complementary_media_search(request: ComplementaryMediaSearchRequest) -> dict[str, Any]:
+    """Busca mídia somente por ação explícita; o planner nunca chama este endpoint."""
+    if not settings.complementary_core_enabled:
+        raise HTTPException(status_code=503, detail="Núcleo complementar desabilitado")
+    chain = provider_chain_from_names(settings.media_provider_order)
+    if request.kind == "video":
+        assets = chain.search_videos(
+            request.query,
+            per_page=request.per_page,
+            orientation=request.orientation,
+        )
+    else:
+        assets = chain.search_images(request.query, per_page=request.per_page)
+    downloaded: list[dict[str, str]] = []
+    if request.download:
+        cache = MediaCache(settings.media_cache_dir, max_bytes=settings.media_cache_max_bytes)
+        for asset in assets:
+            try:
+                path = cache.get_or_download(asset.url)
+            except MediaProviderError as exc:
+                raise HTTPException(status_code=502, detail="Falha ao baixar ativo de mídia") from exc
+            downloaded.append({"url_hash": cache.cache_key(asset.url), "path": str(path)})
+    return {
+        "query": request.query,
+        "kind": request.kind,
+        "provider_order": list(settings.media_provider_order),
+        "assets": [asdict(asset) for asset in assets],
+        "downloaded": downloaded,
+    }
 
 
 @app.get("/v1/persona", response_model=PersonaResponse)

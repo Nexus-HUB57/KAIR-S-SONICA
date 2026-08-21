@@ -153,6 +153,18 @@ Para testar o fluxo completo de descoberta e probes sem GPU, credenciais ou inte
 
 Esse comando usa `docker-compose.agents.local.yml`, sobe o gateway em `http://localhost:8001`, simula o SkyReels Space e o LlamaGen dentro da rede Docker, verifica os dois probes e desmonta os containers. O Compose GPU continua independente e é reservado à inferência real com CUDA/checkpoints.
 
+### Logging, cache e provedores de mídia opcionais
+
+A camada complementar agora inclui logging estruturado JSON em `kairos_core.observability`, com campos de evento e redaction de tokens, chaves e senhas. O cache `MediaCache` usa SHA-256 da URL, limite de tamanho, arquivo temporário e promoção atômica. `MediaProviderChain` tenta os provedores na ordem `KAIROS_MEDIA_PROVIDER_ORDER`, inicialmente Pexels e depois Unsplash; sem as chaves `PEXELS_API_KEY`/`UNSPLASH_API_KEY`, ambos permanecem inativos e não há chamada externa.
+
+```bash
+./scripts/setup_dev.sh
+# ou, se o ambiente já existir:
+make lint && make test
+```
+
+O workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) existente foi ampliado apenas para abranger branches `feat/**` e `sync/**`, compilar `tools/` e validar os manifestos Compose. Nenhum workflow ou diretório de outro desenvolvedor é removido.
+
 ### Agregador de agentes externos
 
 O catálogo de agentes é consultado sem rede em [`GET /v1/agents/capabilities`](docs/api.md), que lista `skyreels-native`, `skyreels-space` e `llamagen` com skills, algoritmos, operações, origem e prontidão. Os agentes remotos são **desabilitados por padrão**; o catálogo não faz upload, não cria gerações e não consome serviços externos.

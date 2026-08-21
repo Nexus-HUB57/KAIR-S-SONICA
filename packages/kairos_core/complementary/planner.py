@@ -47,7 +47,13 @@ class ComplementaryPlan:
         return payload
 
 
-def complementary_capabilities(*, enabled: bool = True) -> dict[str, Any]:
+def complementary_capabilities(
+    *,
+    enabled: bool = True,
+    media_provider_order: tuple[str, ...] = ("pexels", "unsplash"),
+    media_cache_dir: str = "data/media-cache",
+    media_cache_max_bytes: int = 100 * 1024 * 1024,
+) -> dict[str, Any]:
     """Descreve a camada complementar sem sondar rede ou iniciar geração."""
     return {
         "name": "complementary-audiovisual-core",
@@ -64,8 +70,15 @@ def complementary_capabilities(*, enabled: bool = True) -> dict[str, Any]:
         ],
         "optional_adapters": {
             "pexels": {"enabled_by_default": False, "secret_env": "PEXELS_API_KEY"},
+            "unsplash": {"enabled_by_default": False, "secret_env": "UNSPLASH_API_KEY"},
             "tts": {"enabled_by_default": False, "implementation": "operator-selected"},
             "musicgen": {"enabled_by_default": False, "implementation": "operator-selected"},
+        },
+        "media": {
+            "provider_order": list(media_provider_order),
+            "cache_dir": media_cache_dir,
+            "cache_max_bytes": media_cache_max_bytes,
+            "download_policy": "explicit-handoff-only",
         },
         "handoff_contracts": [
             "POST /v1/video/generate",

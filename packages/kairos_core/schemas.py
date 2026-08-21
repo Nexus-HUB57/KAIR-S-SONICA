@@ -177,6 +177,14 @@ class ComplementaryPlanRequest(BaseModel):
     seed: int | None = Field(default=None, ge=0, le=2**32 - 2)
 
 
+class ComplementaryMediaSearchRequest(BaseModel):
+    query: str = Field(min_length=1, max_length=500)
+    kind: Literal["image", "video"] = "image"
+    per_page: int = Field(default=5, ge=1, le=20)
+    orientation: Literal["portrait", "landscape", "square"] = "portrait"
+    download: bool = False
+
+
 class MultimediaResult(BaseModel):
     task_id: str
     status: Literal["PENDING", "RUNNING", "SUCCEEDED", "FAILED"]

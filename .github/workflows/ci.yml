@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, 'integration/**', 'fix/**']
+    branches: [main, 'integration/**', 'fix/**', 'feat/**', 'sync/**']
   pull_request:
 
 permissions:
@@ -31,7 +31,10 @@ jobs:
         run: make test
 
       - name: Compile Python modules
-        run: PYTHONPATH=packages python -m compileall -q packages services tests scripts
+        run: PYTHONPATH=packages python -m compileall -q packages services tests scripts tools
+
+      - name: Validate Compose manifests
+        run: PYTHONPATH=packages python scripts/validate_compose_yaml.py
 
       - name: Setup Node
         uses: actions/setup-node@v4

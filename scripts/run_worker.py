@@ -16,6 +16,7 @@ for import_root in (ROOT, ROOT / "packages"):
         sys.path.insert(0, str(import_root))
 
 from kairos_core.config import Settings
+from kairos_core.observability import configure_logging
 from kairos_core.schemas import MultimediaRequest, Progress, TrackRequest, VideoRequest
 
 from services.api.main import (
@@ -88,6 +89,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     settings = Settings.from_env()
+    configure_logging(settings.log_level)
     worker = Worker(TaskStore(settings.task_db_path), args.poll_seconds)
     signal.signal(signal.SIGTERM, worker.stop)
     signal.signal(signal.SIGINT, worker.stop)

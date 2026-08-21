@@ -71,6 +71,14 @@ O arquivo `docker-compose.agents.local.yml` cria um ambiente isolado com o gatew
 
 Esse Compose é exclusivamente de desenvolvimento. O `docker-compose.gpu.yml` continua sendo o perfil de produção e não recebe dependência dos mocks. O teste de Compose não prova inferência CUDA, download de checkpoint ou disponibilidade de terceiros; ele prova conectividade, contratos, gates e handoffs em uma rede local controlada.
 
+## Observabilidade, cache e provedores opcionais
+
+`kairos_core.observability` fornece `JsonFormatter`, `configure_logging` e `log_event` para eventos estruturados. A redaction remove chaves, tokens, senhas e cabeçalhos de autorização dos campos estruturados; o nível é controlado por `KAIROS_LOG_LEVEL`. A adoção é incremental: serviços existentes podem migrar handler por handler sem alterar contratos HTTP.
+
+`MediaCache` grava em `KAIROS_MEDIA_CACHE_DIR`, calcula a chave com SHA-256, limita o tamanho por `KAIROS_MEDIA_CACHE_MAX_BYTES` e promove o arquivo temporário com `replace`, evitando consumidores observarem conteúdo parcial. `MediaProviderChain` usa `KAIROS_MEDIA_PROVIDER_ORDER` para tentar Pexels e depois Unsplash. Os provedores não são chamados quando suas variáveis de chave estão ausentes; o planner continua apenas com slots até que um operador faça um handoff explícito.
+
+O CI existente continua sendo a única pipeline: passou a incluir branches `feat/**`/`sync/**`, compilar `tools/` e validar os três manifestos Compose. Não foi criado um workflow paralelo, nem foram removidos jobs de lint, teste ou build web.
+
 ## Agregador de agentes externos
 
 O agregador de agentes é uma camada de descoberta e adaptação, não um bypass da fila ou dos gates editoriais. `AgentAggregator` retorna um catálogo local de capabilities para `skyreels-native`, `skyreels-space` e `llamagen`, incluindo skills, algoritmos, operações, origem e prontidão. O catálogo é determinístico e não consulta a rede; por isso pode ser usado pelo frontend e por ferramentas de planejamento sem disparar geração, upload ou custo externo.
@@ -174,6 +182,10 @@ O backend está **desativado por padrão**. Para habilitá-lo, o ambiente precis
 | `KAIROS_FFPROBE_BIN` | `ffprobe` | Validação estrutural do MP4 antes da publicação |
 | `KAIROS_CORS_ORIGINS` | `http://localhost:8080` | Origens explícitas autorizadas para o frontend |
 | `KAIROS_WORKER_MODE` | `inline` | Use `queue` com o worker persistente em produção |
+| `KAIROS_LOG_LEVEL` | `INFO` | Nível do logging JSON estruturado |
+| `KAIROS_MEDIA_CACHE_DIR` | `data/media-cache` | Cache de mídia opcional, fora do Git |
+| `KAIROS_MEDIA_CACHE_MAX_BYTES` | `104857600` | Limite máximo de cada download/cache |
+| `KAIROS_MEDIA_PROVIDER_ORDER` | `pexels,unsplash` | Ordem da cadeia de provedores opcionais |
 | `KAIROS_SKYREELS_NATIVE_MODEL_ID` | vazio | Diretório local `*-Diffusers` para `backend=native` |
 | `KAIROS_SKYREELS_NATIVE_API` | `false` | Gate explícito da API nativa |
 | `KAIROS_SKYREELS_DEVICE` | `cuda` | Device do pipeline nativo |
