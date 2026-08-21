@@ -1,0 +1,68 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      KAIROS_ENV: development
+      KAIROS_WORKER_MODE: inline
+      KAIROS_OUTPUT_DIR: /app/data/output
+      KAIROS_UPLOAD_DIR: /app/data/uploads
+      KAIROS_TASK_DB_PATH: /app/data/kairos_tasks.sqlite3
+      KAIROS_FFMPEG_BIN: ffmpeg
+      KAIROS_FFPROBE_BIN: ffprobe
+      KAIROS_CORS_ORIGINS: http://localhost:8081
+      KAIROS_AGENT_AGGREGATOR_ENABLED: "true"
+      KAIROS_SKYREELS_SPACE_ENABLED: "true"
+      KAIROS_SKYREELS_SPACE_BASE_URL: http://mock-skyreels-space:7860
+      KAIROS_SKYREELS_SPACE_ENDPOINT: generate_diffusion_forced_video
+      KAIROS_SKYREELS_SPACE_TIMEOUT_SECONDS: "15"
+      KAIROS_LLAMAGEN_ENABLED: "true"
+      KAIROS_LLAMAGEN_BASE_URL: http://mock-llamagen:8090
+      KAIROS_LLAMAGEN_API_KEY_ENV: LLAMAGEN_API_KEY
+      KAIROS_LLAMAGEN_TIMEOUT_SECONDS: "5"
+      LLAMAGEN_API_KEY: local-compose-test-token
+      KAIROS_COMPLEMENTARY_CORE_ENABLED: "true"
+    ports:
+      - "${KAIR_LOCAL_API_PORT:-8001}:8000"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      mock-skyreels-space:
+        condition: service_healthy
+      mock-llamagen:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)\""]
+      interval: 2s
+      timeout: 3s
+      start_period: 5s
+      retries: 10
+
+  mock-skyreels-space:
+    build:
+      context: .
+      dockerfile: tools/Dockerfile.mock-agent
+    command: ["python3", "tools/mock_external_agent.py", "--kind", "space", "--port", "7860"]
+    expose:
+      - "7860"
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:7860/health', timeout=2)\""]
+      interval: 2s
+      timeout: 3s
+      start_period: 2s
+      retries: 10
+
+  mock-llamagen:
+    build:
+      context: .
+      dockerfile: tools/Dockerfile.mock-agent
+    command: ["python3", "tools/mock_external_agent.py", "--kind", "llamagen", "--port", "8090"]
+    expose:
+      - "8090"
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2)\""]
+      interval: 2s
+      timeout: 3s
+      start_period: 2s
+      retries: 10

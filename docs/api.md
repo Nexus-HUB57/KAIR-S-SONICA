@@ -110,6 +110,41 @@ Retorna os backends e modos disponíveis no processo atual. O campo `native.runt
 }
 ```
 
+## `GET /v1/complementary/capabilities`
+
+Retorna as capacidades da camada complementar de planejamento e handoff. Essa camada é um núcleo aditivo: não substitui o gateway, o `TaskStore`, o worker, o pipeline de áudio ou os backends SkyReels. O endpoint não consulta a rede e não habilita Pexels, TTS, MusicGen ou agentes remotos.
+
+```json
+{
+  "name": "complementary-audiovisual-core",
+  "version": 1,
+  "enabled": true,
+  "role": "planning-and-handoff",
+  "replaces_existing_core": false,
+  "capabilities": ["prompt-to-scene-plan", "stock-media-slot-planning", "skyreels-request-handoff"]
+}
+```
+
+## `POST /v1/complementary/plan`
+
+Cria um plano síncrono de pré-produção a partir de um prompt. A resposta divide a duração em cenas, cria slots opcionais para mídia stock e áudio, e gera templates compatíveis com `POST /v1/video/generate`. A rota não cria `task_id`, não baixa mídia, não chama Pexels, não gera áudio, não chama LlamaGen/SkyReels e não grava MP4.
+
+```json
+{
+  "prompt": "chuva neon em videoclipe vertical",
+  "duration_seconds": 10,
+  "aspect_ratio": "9:16",
+  "resolution": "720P",
+  "fps": 24,
+  "scene_seconds": 5,
+  "audio_mode": "external-slot",
+  "media_mode": "generated-or-stock-slot",
+  "seed": 42
+}
+```
+
+O consumidor pode revisar o plano e, em uma etapa posterior, enviar cada `video_request_template` para a fila existente ou encaminhar a parte sonora para `POST /v1/orchestrate`. A promoção, a validação `ffprobe` e a entrega HTTP continuam pertencendo ao núcleo existente.
+
 ## `GET /v1/agents/capabilities`
 
 Retorna o catálogo versionado de agentes, skills, algoritmos e operações conhecidas pelo agregador. O endpoint não faz chamadas de rede, não dispara geração e informa explicitamente quais integrações estão habilitadas. Os agentes externos permanecem desabilitados por padrão.
