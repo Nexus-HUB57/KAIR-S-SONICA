@@ -1,0 +1,53 @@
+{
+  "project": "KAIR-S-SONICA",
+  "artist": "Kháirus the Dragon (KTD)",
+  "single_number": 8,
+  "title": "Build the Door Behind Me",
+  "version": "v1 demo",
+  "status": "candidate for human evaluation",
+  "official_language": "English",
+  "reference_language": "Brazilian Portuguese",
+  "tempo_bpm": 98,
+  "key_center": "E minor",
+  "duration_seconds": 175.020408,
+  "duration_display": "2:55",
+  "audio_format_wav": {
+    "codec": "pcm_s24le",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bits_per_sample": 24,
+    "sha256": "7697c9140c4f3793f7efa17a9d8143065bd5e7977a6dcdcd46d505c0695e2cad",
+    "path": "outputs/single_8/build-the-door-behind-me-v1-demo-master.wav"
+  },
+  "audio_format_mp3": {
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bitrate_kbps": 320,
+    "sha256": "a10112858c959228a5cb92fa0afcd0ae9623bb9c6619dd721e4737c615e47127",
+    "path": "outputs/single_8/build-the-door-behind-me-v1-demo-master.mp3"
+  },
+  "loudness_measurement": {
+    "integrated_lufs": -12.5,
+    "true_peak_dbtp": 0.3,
+    "loudness_range_lu": 6.9,
+    "note": "Measurement only; no global normalization applied to the source demo."
+  },
+  "creative_direction": {
+    "genre": "modern boom bap with soulful melodic trap",
+    "vocal_identity": "original KTD medium-low baritone rap lead, frontal, intelligible, controlled aggression",
+    "chorus": "wide melodic chorus with gospel-style collective response",
+    "narrative": "turning personal survival into access and a door for the next generation",
+    "guardrails": [
+      "no imitation of real artists",
+      "no biometric voice cloning",
+      "no borrowed melody, lyric, sample, or recognizable motif",
+      "no abrupt genre or tempo change"
+    ]
+  },
+  "vocal_content_check": {
+    "transcription_path": "outputs/single_8/build-the-door-behind-me-v1-demo-transcription.txt",
+    "result": "Core song structure and chorus manifesto are present. The automatic transcription indicates some compressed or altered lyric wording in a few lines, so the demo is for musical and vocal evaluation rather than final lyric-lock approval."
+  },
+  "source_note": "The generation backend returned an MP3-encoded file with a WAV extension; it was preserved as generated-source.mp3 and converted without musical processing into the verified WAV and 320 kbps MP3 masters listed above."
+}
