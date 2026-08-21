@@ -1,18 +1,20 @@
 # FIRE IN THE FLOOD — auditoria de alinhamento letra–manifesto
 
+> **Atualização v4:** esta auditoria registrou o bloqueio original entre a letra pré-v4 e a master v4. O bloqueio foi resolvido pela promoção da transcrição temporal da master v4 como nova letra canônica em `docs/ktd-main-single-rework-lyrics.md`. O roteiro lyric-locked vigente está em `docs/ktd-fire-in-the-flood-10s-scene-script-v4.md`; este documento permanece como registro histórico da correção.
+
 ## Resultado executivo
 
-O manifesto de cenas forma um arco visual coerente — janela, enchente, memória familiar, exclusão, trabalho, booth, resistência, vulnerabilidade e retorno ao fogo. Porém, a revisão não pode declarar que as transições refletem **perfeitamente o áudio atual** porque a master v4 indicada no próprio manifesto não corresponde à letra canônica usada nas descrições de cena.
+O manifesto de cenas forma um arco visual coerente — fechadura, relógio, corredor, pressão, booth, visão, chuva, correntes, levantamento e atmosfera instrumental. A auditoria original encontrou uma incompatibilidade entre a master v4 e a letra pré-v4. Essa incompatibilidade foi resolvida nesta revisão pela promoção da transcrição temporal v4 como letra canônica e pela atualização das descrições de cena.
 
-A letra canônica começa com:
+A letra **pré-v4**, agora arquivada, começava com:
 
 > “Water at the window. / Fire in the chest. / They told me, ‘Pick one.’ / I carried both.”
 
-A transcrição da master v4 começa com:
+A letra canônica v4, extraída da master, começa com:
 
 > “I hear the lock click. / I hear the clock tick. / Pressure made a language in, and I talk it.”
 
-A divergência aparece já no primeiro bloco de dez segundos e se mantém em vários trechos subsequentes. Isso é uma **incompatibilidade de fonte**, não um problema de transição visual. O manifesto foi colocado em estado de gate para impedir que um corte seja sincronizado à letra errada.
+A divergência apareceu já no primeiro bloco de dez segundos e se manteve em vários trechos subsequentes. Isso foi uma **incompatibilidade de fonte**, não um problema de transição visual. A fonte foi corrigida: a transcrição temporal da master v4 passou a ser a letra canônica, e o manifesto/roteiro foram atualizados para acompanhar o áudio real.
 
 ## Fontes auditadas
 
@@ -43,17 +45,17 @@ A divergência aparece já no primeiro bloco de dez segundos e se mantém em vá
 | S13 → S14 | A verdade nomeada pede performance de maior densidade | Porta → túnel, dolly-back e luzes cortantes | Correta para a aceleração do verso 2 |
 | S14 → S15 | O hook curto pede pergunta, porta e resposta “KTD” | Ataque consonantal → porta metálica → luz âmbar | Correta; o impacto da porta deve carregar o corte |
 | S15 → S16 | A música desarma na bridge e troca poder por vulnerabilidade | Porta fechada → sala molhada, vidro e respiração | Correta; reduzir movimento de câmera sem congelar o ambiente |
-| S16 → S17 | A vulnerabilidade volta ao fogo, ao hook final e ao outro | Vidro/respiração → olhar direto → saída e preto | Correta como encerramento visual; o texto exato do hook final ainda depende da master confirmada |
+| S16 → S17 | O instrumental final transforma respiração em saída | Vidro/condensação → olhar direto → saída e preto | Correta; não há nova letra vocal a sincronizar após 02:17.22 |
 
-## Gate de aprovação
+## Gate de aprovação — resolvido pela promoção v4
 
-O manifesto foi atualizado com `status: blocked_pending_authoritative_vocal_master` e `audio_lyrics_match: false`. Nenhuma decisão de corte lyric-locked deve ser promovida a final até que uma das seguintes decisões seja tomada pela autoridade artística:
+O manifesto foi anteriormente atualizado com `status: blocked_pending_authoritative_vocal_master` e `audio_lyrics_match: false`. Esse estado foi encerrado pela decisão de usar a transcrição temporal v4 como letra canônica. O manifest vigente registra `status: aligned_to_v4_transcription` e `audio_lyrics_match: true` com base na transcrição disponível. A revisão fonética humana continua sendo um controle de lançamento, não um bloqueio de desenvolvimento:
 
-1. Confirmar que a master v4 é a gravação correta e atualizar a letra canônica/descrições de cena para o texto que realmente está no áudio; ou
-2. Fornecer/aprovar uma master vocal de 168 segundos cuja letra corresponda a `docs/ktd-main-single-rework-lyrics.md`, mantendo o roteiro visual atual; ou
-3. Autorizar expressamente a separação entre áudio v4 e letra canônica, caso em que o manifesto deve deixar de usar frases da letra como marcação temporal.
+1. A master v4 permanece a gravação correta e a letra canônica/descrições de cena agora usam o texto detectado no áudio; ou
+2. Uma futura escuta de KTD pode corrigir apenas fonemas ambíguos, sem reintroduzir a letra pré-v4; ou
+3. Qualquer nova master deve gerar uma nova auditoria antes de alterar o lyric-lock.
 
-Até essa decisão, a continuidade visual está aprovada como tratamento, mas a sincronização letra–imagem está **não aprovada**. A geração de vídeos pode continuar somente como testes de atmosfera sem promoção para montagem final.
+A continuidade visual e a sincronização letra–imagem estão agora liberadas contra a transcrição v4. A geração de vídeos pode prosseguir nos timecodes do roteiro v4; qualquer correção lexical futura deve ser registrada como nova revisão.
 
 ## Referências
 

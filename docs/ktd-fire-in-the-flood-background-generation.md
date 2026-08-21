@@ -2,15 +2,15 @@
 
 ## Objetivo
 
-A geração das cenas foi separada da preparação editorial e técnica para que o desenvolvimento do clipe continue sem produzir uma versão falsa, estática ou incompleta. O repositório agora contém o roteiro de 168 segundos, a fila de prompts, os keyframes 16:9, o script de normalização/montagem e as referências oficiais.
+A geração das cenas foi separada da preparação editorial e técnica para que o desenvolvimento do clipe continue sem produzir uma versão falsa, estática ou incompleta. O repositório agora contém o roteiro de 168 segundos, a fila de prompts, os keyframes 9:16, o script de normalização/montagem e as referências oficiais.
 
 ## Estrutura temporal
 
-A música é tratada como 16 cenas de 10 segundos, entre 00:00 e 02:40, mais uma cena final de 8 segundos, entre 02:40 e 02:48. A soma é exatamente 168 segundos.
+A música é tratada como 16 cenas de 10 segundos, entre 00:00 e 02:40, mais uma cena final de 8 segundos, entre 02:40 e 02:48. A letra e as transições seguem os timecodes reais da master v4; a soma é exatamente 168 segundos.
 
 | Componente | Arquivo | Estado |
 |---|---|---|
-| Roteiro de cenas | `docs/ktd-fire-in-the-flood-10s-scene-script-v1.md` | Consolidado |
+| Roteiro de cenas | `docs/ktd-fire-in-the-flood-10s-scene-script-v4.md` | Alinhado à master v4 |
 | Manifest de cenas | `data/releases/fire-in-the-flood-10s-scene-manifest-v1.json` | 17 cenas / 168 s |
 | Fila de prompts | `data/releases/fire-in-the-flood-10s-generation-queue-v1.json` | Pronta para execução posterior |
 | Gerador da fila | `scripts/build_fire_in_the_flood_10s_queue.py` | Validado |
@@ -19,7 +19,7 @@ A música é tratada como 16 cenas de 10 segundos, entre 00:00 e 02:40, mais uma
 
 ## Regra de execução posterior
 
-A fila permanece em estado de gate porque a transcrição da master v4 não coincide com a letra canônica usada no roteiro. O fato está registrado em [`docs/ktd-fire-in-the-flood-manifest-lyric-alignment-audit-v1.md`](ktd-fire-in-the-flood-manifest-lyric-alignment-audit-v1.md) e no campo `alignment_review` do manifest. Os planos podem ser gerados como testes visuais, mas não devem ser promovidos a montagem lyric-locked até que KTD confirme a master correta ou a letra correspondente.
+A fila foi liberada para desenvolvimento lyric-locked depois que a transcrição da master v4 passou a ser a letra canônica do projeto. A resolução está registrada em [`docs/ktd-fire-in-the-flood-manifest-lyric-alignment-audit-v1.md`](ktd-fire-in-the-flood-manifest-lyric-alignment-audit-v1.md) e no campo `alignment_review` do manifest. A revisão fonética humana permanece como controle de lançamento, sem bloquear a geração dos planos.
 
 Cada entrada da fila deve gerar um vídeo contínuo, sem áudio embutido, em portrait 9:16, 720×1280 e 24 fps, exatamente como os assets oficiais aprovados. A master v4 somente entra na etapa final, depois que os 17 vídeos forem verificados individualmente. O script de montagem recusa a execução quando existe cena ausente, duração divergente ou soma temporal diferente de 168 segundos.
 

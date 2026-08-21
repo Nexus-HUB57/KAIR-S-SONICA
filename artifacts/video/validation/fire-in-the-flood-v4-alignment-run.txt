@@ -1,0 +1,7 @@
+manifest_status= aligned_to_v4_transcription
+queue_status= aligned_to_v4_transcription
+scenes= 17
+duration= 168.0
+opening= I hear the lock click. / I hear the clock tick. / Pressure made a language in, and I talk it. / No mask, no myth, no borrowed flame. / I walk in with the wound…
+instrumental_tail= {'start': 137.22, 'end': 168.0}
+legacy_lyrics_absent_from_active_lyric_fields=true

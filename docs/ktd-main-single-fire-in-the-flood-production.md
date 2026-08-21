@@ -2,7 +2,7 @@
 
 ## Status
 
-**Registro histórico de desenvolvimento.** A mix promovida nesta etapa é `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav/.mp3`, aprovada humanamente por KTD. As provas de arranjo V1 listadas abaixo permanecem no catálogo para auditoria, mas foram reprovadas como mixes.
+**Registro de produção vigente.** A master promovida para esta etapa é `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav/.mp3`, com a letra alinhada à transcrição temporal v4 em `docs/ktd-main-single-rework-lyrics.md`. A v3 e as provas de arranjo V1 permanecem no catálogo apenas para auditoria e rollback histórico.
 
 ## Arquivos
 
@@ -11,10 +11,12 @@
 | `assets/audio/releases/ktd-main-single-fire-in-the-flood-bed-v1.wav` | Base inédita, 94 BPM, Ré menor, aproximadamente 167,34 s de material | Candidato |
 | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.wav` | Prova de arranjo com a referência vocal oficial, 168 s | Reprovado humanamente / histórico |
 | `assets/audio/releases/ktd-main-single-fire-in-the-flood-official-vocal-arrangement-proof-v1.mp3` | Versão de escuta a 320 kbps | Reprovado humanamente / histórico |
-| `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav` | Mix final desta etapa, 168 s | Aprovado humanamente |
-| `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.mp3` | Versão de escuta a 320 kbps | Aprovado humanamente |
+| `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.wav` | Mix final da etapa anterior, 168 s | Histórico / rollback |
+| `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v3.mp3` | Versão de escuta da etapa anterior | Histórico / rollback |
+| `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav` | Master oficial vigente, 168 s | Promovido para o lyric-lock v4 |
+| `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.mp3` | Versão de escuta oficial vigente | Promovido para o lyric-lock v4 |
 | `docs/ktd-main-single-rework-concept.md` | Conceito, forma e critérios | Documento |
-| `docs/ktd-main-single-rework-lyrics.md` | Letra original e direção de performance | Documento |
+| `docs/ktd-main-single-rework-lyrics.md` | Letra v4 alinhada à master e direção de performance | Documento |
 | `scripts/render_ktd_fire_in_the_flood.py` | Render reproduzível da prova | Script |
 
 ## Cadeia DSP
@@ -23,11 +25,11 @@ A base recebe `volume=0.52` antes da soma para preservar espaço vocal. A voz of
 
 ## O que mudou em relação à versão anterior
 
-A nova faixa não depende apenas de uma frase de manifesto. Ela usa um arco de densidade: piano e voz próxima na intro, versos com espaço, lift harmônico, hook amplo com cordas, segundo verso mais veloz, bridge sem bateria e retorno final com elevação harmônica. O refrão central é **“Fire in the flood — I keep the flame alive”**, uma imagem nova que apresenta resistência e vulnerabilidade ao mesmo tempo.
+A faixa usa um arco de densidade alinhado à master v4: abertura próxima com fechadura e relógio, versos de pressão e disciplina, suspensão em “Now”, visão e decisão, alternância halftime/double-time, chuva e correntes, levantamento do silêncio e uma cauda instrumental final. O registro visual não deve reintroduzir o hook da letra pré-v4; a imagem central agora é a transformação de pressão em ritmo, visão e movimento.
 
 ## Limite de autenticidade
 
-A tentativa de gerar uma faixa integral com a nova letra não produziu um resultado confiável nesta sessão. A prova entregue combina a nova base com `assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`, que continua sendo a única referência vocal oficial aprovada. Uma tomada nova cantando `docs/ktd-main-single-rework-lyrics.md` ainda precisa ser gravada ou aprovada; a prova atual serve para avaliar inspiração, pocket, contraste e direção de produção.
+A master v4 é a autoridade sonora vigente para o videoclipe. A letra de `docs/ktd-main-single-rework-lyrics.md` foi atualizada a partir da transcrição temporal da gravação v4, com o trecho vocal detectado até 137,22 s e cauda instrumental até 168,00 s. A revisão fonética humana permanece recomendada para o lançamento, mas o desenvolvimento visual pode usar o lyric-lock v4.
 
 ## Aprovação
 
