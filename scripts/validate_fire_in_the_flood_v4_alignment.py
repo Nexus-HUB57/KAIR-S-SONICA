@@ -15,8 +15,8 @@ LEGACY_LINES = ("Water at the window", "Fire in the chest", "Grandma kept a cand
 def main() -> None:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     queue = json.loads(QUEUE.read_text(encoding="utf-8"))
-    if manifest["status"] != "aligned_to_v4_transcription":
-        raise SystemExit("manifest is not aligned_to_v4_transcription")
+    if manifest["status"] not in {"aligned_to_v4_transcription", "performance_rebuild_required"}:
+        raise SystemExit("manifest lost v4 alignment status")
     if manifest["alignment_review"]["audio_lyrics_match"] is not True:
         raise SystemExit("audio_lyrics_match is not true")
     if len(manifest["scenes"]) != 17:
@@ -24,8 +24,8 @@ def main() -> None:
     total = sum(float(scene["duration"]) for scene in manifest["scenes"])
     if abs(total - 168.0) > 1e-9:
         raise SystemExit(f"duration sum is {total}, expected 168.0")
-    if queue["status"] != "aligned_to_v4_transcription":
-        raise SystemExit("queue is not aligned_to_v4_transcription")
+    if queue["status"] not in {"aligned_to_v4_transcription", "performance_rebuild_required"}:
+        raise SystemExit("queue lost v4 alignment status")
     if not all(scene["status"] == "queued" for scene in queue["scenes"]):
         raise SystemExit("not all queue scenes are queued")
     active_lyrics = "\n".join(scene["lyric"] for scene in manifest["scenes"])

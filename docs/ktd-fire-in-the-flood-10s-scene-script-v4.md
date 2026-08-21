@@ -10,6 +10,14 @@ A redação abaixo preserva as palavras detectadas. Foram normalizados somente p
 
 A master tem 168,000 segundos. A estrutura mantém 16 blocos de 10 segundos e um encerramento de 8 segundos, em portrait 9:16, 720×1280, 24 fps, com planos vivos contínuos de 8–10 segundos. O áudio da master v4 não é gerado dentro dos planos; entra apenas no mux final.
 
+## Camada performática obrigatória
+
+Todas as cenas S01–S14 com conteúdo vocal devem mostrar KTD **cantando o texto exato do bloco em cena**, diante da câmera ou de um microfone prático. O plano precisa exibir articulação labial legível no nível de fonemas, ataques consonantais, sustentação de vogais, preparação e recuperação respiratória, intenção facial e gestos conduzidos pelas palavras. Caminhar, olhar para a lente ou mover as mãos sem cantar não atende ao roteiro.
+
+As cenas S15–S17 são instrumentais e não devem inventar voz; ainda assim, devem preservar atuação física, respiração, olhar e reação ao ambiente. Nenhuma cena vocal será aprovada apenas por semelhança visual: o critério principal é KTD performar o single em sincronia com a master v4.
+
+A direção detalhada está em `docs/ktd-fire-in-the-flood-performance-direction-v1.md`. Os vídeos existentes que não possuem canto verificável permanecem provas de atmosfera e não podem ser promovidos a planos finais.
+
 ## Decupagem alinhada
 
 | Cena | Tempo | Texto realmente presente no áudio | Ação viva e transição física |
@@ -33,6 +41,8 @@ A master tem 168,000 segundos. A estrutura mantém 16 blocos de 10 segundos e um
 | S17 | 02:40–02:48 | **Instrumental final — nenhuma nova linha vocal detectada.** | Close vivo nos olhos de KTD; ele retorna ao olhar direto, baixa a mão, vira o corpo e caminha para fora do quadro. A chuva, a fumaça e os reflexos continuam até o corte seco para preto no último frame. Não adicionar “Water at the window”, “Fire in the chest” ou qualquer outro texto não detectado na v4. |
 
 ## Regras de continuidade
+
+A continuidade inclui também a performance: o estado da boca, da respiração, do olhar e das mãos deve atravessar o corte. Se a frase continua, a articulação não pode desaparecer nem reiniciar em uma pose muda.
 
 A transição deve sempre carregar um elemento físico do plano anterior: fechadura para relógio, passo para corredor, carvão para poeira, porta para grade, cabo para booth, “Now” para suspensão, porta fechada para escolha, corrente para ritmo, água para atmosfera final. Nenhum corte deve apagar a causalidade da ação ou reiniciar o corpo de KTD em uma pose diferente.
 

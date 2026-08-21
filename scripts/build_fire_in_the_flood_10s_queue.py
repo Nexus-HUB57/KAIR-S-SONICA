@@ -21,28 +21,59 @@ STYLE_ANCHOR = (
     "Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage."
 )
 
+VOCAL_PERFORMANCE_ANCHOR = (
+    "KTD must actively perform and sing the exact lyric assigned to this scene into camera or toward a practical microphone. "
+    "Make the mouth visibly form the correct phonemes and syllable timing of the supplied lyric, with clear jaw, lips and tongue motion; this is required phoneme-level lip-sync, not a closed-mouth mood performance. "
+    "Show audible-looking breath preparation, consonant attacks, vowel sustain, throat and chest movement, eye focus, facial intention and hand gestures driven by the words. "
+    "Keep the emotional arc specific to KTD: pressure held in the body, direct truth, controlled anger, resilience and release. "
+    "Do not invent a different lyric, mumble, silently pose, stare with closed lips, or substitute walking for singing. Generate no audio; the original master v4 will be muxed later."
+)
+
+INSTRUMENTAL_PERFORMANCE_ANCHOR = (
+    "This block is instrumental: KTD must not invent vocals or mouth unrelated words. Keep him physically present and emotionally expressive through breath, gaze, posture, hands and environment interaction. "
+    "Use live action, real movement and a controlled release of the vocal arc without a silent frozen pose. Generate no audio; the original master v4 will be muxed later."
+)
+
 
 def main() -> None:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     queue = {
         "project": manifest["project"],
-        "version": "generation-queue-v1",
+        "version": "performance-generation-queue-v1",
         "status": manifest.get("status", "queued"),
-        "audio_alignment": manifest.get("alignment_review"),
-        "duration_seconds": manifest["duration_seconds"],
+            "audio_alignment": manifest.get("alignment_review"),
+            "performance_required": True,
+            "performance_contract": {
+                "must_sing_on_camera": True,
+                "phoneme_level_lip_sync": True,
+                "visible_breath_and_consonant_attacks": True,
+                "emotion_and_gesture_driven_by_lyric": True,
+                "silent_mood_performance_rejected": True
+            },
+            "duration_seconds": manifest["duration_seconds"],
         "model": "gemini-omni-flash-preview",
         "aspect_ratio": "portrait",
         "resolution": "720p",
         "generate_audio": False,
         "master_audio": manifest["master_audio"],
-        "reference_rule": "Use the listed 9:16 keyframe when available; otherwise use the canonical KTD visual master after preparing a 9:16 keyframe.",
+        "reference_rule": "Use the listed 9:16 performance keyframe when available; otherwise prepare a 9:16 KTD performance keyframe before video generation.",
         "scenes": [],
     }
     for scene in manifest["scenes"]:
         action = scene["action"]
+        lyric = scene.get("lyric", "")
+        is_instrumental = lyric.strip().lower().startswith("instrumental")
+        performance_anchor = INSTRUMENTAL_PERFORMANCE_ANCHOR if is_instrumental else VOCAL_PERFORMANCE_ANCHOR
+        lyric_instruction = (
+            f"Instrumental block: no new vocal text; do not invent singing. "
+            if is_instrumental
+            else f"Exact lyric to sing on camera in this shot: {lyric} "
+        )
         prompt = (
             f"Create a single uninterrupted {scene['duration']}-second cinematic live-action shot for {scene['id']} of Fire in the Flood. "
-            f"{GLOBAL_ANCHOR} {STYLE_ANCHOR} Scene action: {action} "
+            f"{GLOBAL_ANCHOR} {STYLE_ANCHOR} {performance_anchor} "
+            f"{lyric_instruction}"
+            f"Scene action: {action} "
             "Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. "
             "No extra foreground characters, no invented tattoos, no fantasy armor, no text, no logos, no watermark."
         )
