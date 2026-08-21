@@ -80,6 +80,48 @@ app.innerHTML = `
       </form>
     </div>
 
+    <section id="recording-studio" class="card studio-card" aria-labelledby="studio-title">
+      <div class="section-head">
+        <div><p class="eyebrow">RECORDING / MIXING STUDIO</p><h2 id="studio-title">Estúdio do DJ / Produtor Káiros</h2><p class="studio-subtitle">Capture takes, organize camadas e faça um bounce de referência direto no navegador.</p></div>
+        <span id="studio-health" class="health-badge"><i></i> pronto</span>
+      </div>
+      <div class="studio-toolbar">
+        <div class="transport-group" aria-label="Controles de transporte">
+          <button id="record-toggle" class="transport-button record-button" type="button"><span class="transport-dot"></span> Gravar</button>
+          <button id="play-toggle" class="transport-button" type="button">▶ Reproduzir mix</button>
+          <button id="stop-mix" class="transport-button button-secondary" type="button">■ Parar</button>
+          <button id="clear-studio" class="transport-button button-secondary" type="button">Limpar sessão</button>
+        </div>
+        <div class="studio-clock"><span id="studio-time">00:00.000</span><span id="studio-sample-rate">48 kHz · estéreo</span></div>
+      </div>
+      <div class="studio-main-grid">
+        <div class="studio-console">
+          <div class="waveform-shell">
+            <canvas id="studio-waveform" width="1200" height="180" aria-label="Visualização do nível de áudio"></canvas>
+            <div class="waveform-label"><span>INPUT MONITOR</span><span id="studio-input-label">microfone não iniciado</span></div>
+          </div>
+          <div class="studio-input-row">
+            <label>Nome do take<input id="take-name" value="Káiros Take 01" maxlength="80" /></label>
+            <label>Entrada<select id="input-device"><option value="default">Microfone padrão do sistema</option></select></label>
+            <label>Formato<select id="record-format"><option value="audio/webm;codecs=opus">WebM / Opus</option><option value="audio/webm">WebM</option></select></label>
+          </div>
+          <div class="studio-actions">
+            <label class="upload-button"><input id="take-upload" type="file" accept="audio/*" /> Importar take</label>
+            <button id="bounce-mix" type="button">Exportar bounce WAV</button>
+            <span id="studio-feedback" class="feedback" aria-live="polite">Nenhum take carregado.</span>
+          </div>
+        </div>
+        <aside class="studio-meter-card" aria-label="Medição de áudio">
+          <p class="eyebrow">MASTER BUS</p>
+          <div class="meter-stack"><span class="meter-scale">0</span><div class="meter-track"><span id="master-meter"></span></div><span class="meter-scale">-24</span><span class="meter-scale">-48</span></div>
+          <div class="master-readout"><strong id="master-db">-∞ dB</strong><span>peak hold</span></div>
+          <div class="studio-note">O áudio capturado permanece local no navegador até você exportar o bounce. Nenhuma gravação é enviada automaticamente.</div>
+        </aside>
+      </div>
+      <div class="tracks-head"><div><p class="eyebrow">SESSION TRACKS</p><h3>Camadas da sessão</h3></div><span id="track-count" class="chip">0 takes</span></div>
+      <div id="studio-tracks" class="studio-tracks"><div class="empty-state">Grave ou importe um take para começar a mixagem.</div></div>
+    </section>
+
     <section id="status" class="card status" aria-live="polite">
       <p class="eyebrow">LAST EVENT</p><p>Aguardando uma solicitação.</p>
     </section>
@@ -94,6 +136,34 @@ const socketHealth = document.querySelector('#socket-health');
 const feedback = document.querySelector('#submit-feedback');
 const videoForm = document.querySelector('#video-form');
 const videoFeedback = document.querySelector('#video-feedback');
+const studio = {
+  audioContext: null,
+  analyser: null,
+  inputStream: null,
+  recorder: null,
+  recordingStartedAt: 0,
+  timer: null,
+  animationFrame: null,
+  playbackSources: [],
+  tracks: [],
+  activeTrackId: null,
+};
+const studioWaveform = document.querySelector('#studio-waveform');
+const studioWaveformContext = studioWaveform.getContext('2d');
+const recordToggle = document.querySelector('#record-toggle');
+const playToggle = document.querySelector('#play-toggle');
+const stopMix = document.querySelector('#stop-mix');
+const clearStudio = document.querySelector('#clear-studio');
+const takeName = document.querySelector('#take-name');
+const takeUpload = document.querySelector('#take-upload');
+const bounceMix = document.querySelector('#bounce-mix');
+const studioFeedback = document.querySelector('#studio-feedback');
+const studioHealth = document.querySelector('#studio-health');
+const studioTime = document.querySelector('#studio-time');
+const studioTracks = document.querySelector('#studio-tracks');
+const trackCount = document.querySelector('#track-count');
+const masterMeter = document.querySelector('#master-meter');
+const masterDb = document.querySelector('#master-db');
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -258,6 +328,214 @@ videoForm.addEventListener('submit', async (event) => {
     videoFeedback.textContent = `Falha de comunicação: ${error.message}`;
   }
 });
+
+function formatStudioTime(seconds) {
+  const safeSeconds = Math.max(0, Number(seconds) || 0);
+  const minutes = Math.floor(safeSeconds / 60).toString().padStart(2, '0');
+  const remainder = (safeSeconds % 60).toFixed(3).padStart(6, '0');
+  return `${minutes}:${remainder}`;
+}
+
+function setStudioHealth(label, active = false) {
+  studioHealth.className = `health-badge${active ? ' active' : ''}`;
+  studioHealth.innerHTML = `<i></i> ${escapeHtml(label)}`;
+}
+
+function ensureAudioContext() {
+  if (!studio.audioContext) {
+    studio.audioContext = new AudioContext({ latencyHint: 'interactive', sampleRate: 48000 });
+    studio.analyser = studio.audioContext.createAnalyser();
+    studio.analyser.fftSize = 2048;
+    studio.analyser.smoothingTimeConstant = 0.82;
+    studio.analyser.connect(studio.audioContext.destination);
+    drawStudioWaveform();
+  }
+  if (studio.audioContext.state === 'suspended') studio.audioContext.resume();
+  return studio.audioContext;
+}
+
+function drawStudioWaveform() {
+  if (!studio.analyser) return;
+  const data = new Uint8Array(studio.analyser.fftSize);
+  studio.analyser.getByteTimeDomainData(data);
+  const width = studioWaveform.width;
+  const height = studioWaveform.height;
+  studioWaveformContext.clearRect(0, 0, width, height);
+  studioWaveformContext.fillStyle = '#0e1422';
+  studioWaveformContext.fillRect(0, 0, width, height);
+  studioWaveformContext.strokeStyle = 'rgba(117,213,194,.14)';
+  studioWaveformContext.lineWidth = 1;
+  for (let line = 1; line < 5; line += 1) {
+    const y = (height / 5) * line;
+    studioWaveformContext.beginPath();
+    studioWaveformContext.moveTo(0, y);
+    studioWaveformContext.lineTo(width, y);
+    studioWaveformContext.stroke();
+  }
+  studioWaveformContext.strokeStyle = '#75d5c2';
+  studioWaveformContext.lineWidth = 2;
+  studioWaveformContext.beginPath();
+  data.forEach((value, index) => {
+    const x = (index / (data.length - 1)) * width;
+    const y = (value / 255) * height;
+    if (index === 0) studioWaveformContext.moveTo(x, y);
+    else studioWaveformContext.lineTo(x, y);
+  });
+  studioWaveformContext.stroke();
+  const peak = Math.max(...data.map((value) => Math.abs(value - 128))) / 128;
+  const db = peak > 0.0001 ? 20 * Math.log10(peak) : -Infinity;
+  masterMeter.style.height = `${Math.min(100, Math.max(3, peak * 100))}%`;
+  masterDb.textContent = Number.isFinite(db) ? `${db.toFixed(1)} dB` : '-∞ dB';
+  studio.animationFrame = requestAnimationFrame(drawStudioWaveform);
+}
+
+function stopStudioTimer() {
+  if (studio.timer) window.clearInterval(studio.timer);
+  studio.timer = null;
+}
+
+function updateStudioTimer() {
+  if (studio.recordingStartedAt) studioTime.textContent = formatStudioTime((performance.now() - studio.recordingStartedAt) / 1000);
+}
+
+async function addStudioTrack(blob, name) {
+  const context = ensureAudioContext();
+  const buffer = await context.decodeAudioData(await blob.arrayBuffer());
+  const track = { id: crypto.randomUUID(), name: name || `Take ${studio.tracks.length + 1}`, blob, buffer, url: URL.createObjectURL(blob), volume: 0.85, pan: 0, mute: false, solo: false };
+  studio.tracks.push(track);
+  studio.activeTrackId = track.id;
+  renderStudioTracks();
+  studioFeedback.textContent = `${track.name} carregado · ${formatStudioTime(buffer.duration)}`;
+  setStudioHealth('sessão armada', true);
+}
+
+function renderStudioTracks() {
+  trackCount.textContent = `${studio.tracks.length} ${studio.tracks.length === 1 ? 'take' : 'takes'}`;
+  if (!studio.tracks.length) {
+    studioTracks.innerHTML = '<div class="empty-state">Grave ou importe um take para começar a mixagem.</div>';
+    return;
+  }
+  studioTracks.innerHTML = studio.tracks.map((track, index) => `<article class="studio-track ${track.id === studio.activeTrackId ? 'selected' : ''}">
+    <div class="track-index">${String(index + 1).padStart(2, '0')}</div>
+    <div class="track-identity"><strong>${escapeHtml(track.name)}</strong><span>${formatStudioTime(track.buffer.duration)} · ${track.buffer.sampleRate / 1000} kHz</span></div>
+    <div class="track-wave"><span style="width:${Math.max(12, Math.min(100, track.buffer.duration * 4))}%"></span></div>
+    <label class="mini-control">VOL<input data-track-volume="${track.id}" type="range" min="0" max="1" step="0.01" value="${track.volume}" /></label>
+    <label class="mini-control">PAN<input data-track-pan="${track.id}" type="range" min="-1" max="1" step="0.01" value="${track.pan}" /></label>
+    <button class="track-toggle ${track.mute ? 'active' : ''}" data-track-mute="${track.id}" type="button">M</button>
+    <button class="track-toggle ${track.solo ? 'active solo' : ''}" data-track-solo="${track.id}" type="button">S</button>
+    <button class="icon-button" data-track-remove="${track.id}" type="button" aria-label="Remover take">×</button>
+  </article>`).join('');
+  studioTracks.querySelectorAll('[data-track-volume]').forEach((input) => input.addEventListener('input', () => { const track = studio.tracks.find((item) => item.id === input.dataset.trackVolume); if (track) track.volume = Number(input.value); }));
+  studioTracks.querySelectorAll('[data-track-pan]').forEach((input) => input.addEventListener('input', () => { const track = studio.tracks.find((item) => item.id === input.dataset.trackPan); if (track) track.pan = Number(input.value); }));
+  studioTracks.querySelectorAll('[data-track-mute]').forEach((button) => button.addEventListener('click', () => { const track = studio.tracks.find((item) => item.id === button.dataset.trackMute); if (track) { track.mute = !track.mute; renderStudioTracks(); } }));
+  studioTracks.querySelectorAll('[data-track-solo]').forEach((button) => button.addEventListener('click', () => { const track = studio.tracks.find((item) => item.id === button.dataset.trackSolo); if (track) { track.solo = !track.solo; renderStudioTracks(); } }));
+  studioTracks.querySelectorAll('[data-track-remove]').forEach((button) => button.addEventListener('click', () => { const indexToRemove = studio.tracks.findIndex((item) => item.id === button.dataset.trackRemove); if (indexToRemove >= 0) { URL.revokeObjectURL(studio.tracks[indexToRemove].url); studio.tracks.splice(indexToRemove, 1); studio.activeTrackId = studio.tracks.at(-1)?.id || null; renderStudioTracks(); } }));
+}
+
+async function startStudioRecording() {
+  const context = ensureAudioContext();
+  if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) throw new Error('Este navegador não oferece captura de áudio compatível.');
+  studio.inputStream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+  const source = context.createMediaStreamSource(studio.inputStream);
+  source.connect(studio.analyser);
+  const format = document.querySelector('#record-format').value;
+  const mimeType = MediaRecorder.isTypeSupported(format) ? format : 'audio/webm';
+  studio.recorder = new MediaRecorder(studio.inputStream, { mimeType, audioBitsPerSecond: 192000 });
+  const chunks = [];
+  studio.recorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
+  studio.recorder.onstop = async () => {
+    studio.inputStream?.getTracks().forEach((track) => track.stop());
+    studio.inputStream = null;
+    const blob = new Blob(chunks, { type: mimeType });
+    try { await addStudioTrack(blob, takeName.value.trim() || `Káiros Take ${studio.tracks.length + 1}`); } catch { studioFeedback.textContent = 'Não foi possível decodificar o take gravado.'; setStudioHealth('erro no take'); }
+  };
+  studio.recordingStartedAt = performance.now();
+  studio.recorder.start(100);
+  stopStudioTimer();
+  studio.timer = window.setInterval(updateStudioTimer, 40);
+  recordToggle.classList.add('recording');
+  recordToggle.innerHTML = '<span class="transport-dot"></span> Parar gravação';
+  studioFeedback.textContent = 'Capturando monitoramento do microfone...';
+  studioHealth.innerHTML = '<i></i> gravando';
+  studioHealth.className = 'health-badge active recording-health';
+}
+
+function stopStudioRecording() {
+  if (studio.recorder?.state === 'recording') studio.recorder.stop();
+  studio.recordingStartedAt = 0;
+  stopStudioTimer();
+  recordToggle.classList.remove('recording');
+  recordToggle.innerHTML = '<span class="transport-dot"></span> Gravar';
+  setStudioHealth('processando take', true);
+}
+
+function stopStudioPlayback() {
+  studio.playbackSources.forEach((source) => { try { source.stop(); } catch {} });
+  studio.playbackSources = [];
+  playToggle.textContent = '▶ Reproduzir mix';
+  setStudioHealth(studio.tracks.length ? 'sessão armada' : 'pronto', Boolean(studio.tracks.length));
+}
+
+function playStudioMix() {
+  if (!studio.tracks.length) { studioFeedback.textContent = 'Grave ou importe um take antes de reproduzir.'; return; }
+  const context = ensureAudioContext();
+  stopStudioPlayback();
+  const hasSolo = studio.tracks.some((track) => track.solo);
+  studio.tracks.forEach((track) => {
+    if (track.mute || (hasSolo && !track.solo)) return;
+    const source = context.createBufferSource();
+    const gain = context.createGain();
+    const panner = context.createStereoPanner ? context.createStereoPanner() : null;
+    source.buffer = track.buffer;
+    gain.gain.value = track.volume;
+    source.connect(gain);
+    if (panner) { panner.pan.value = track.pan; gain.connect(panner); panner.connect(studio.analyser); } else gain.connect(studio.analyser);
+    source.onended = () => { studio.playbackSources = studio.playbackSources.filter((item) => item !== source); if (!studio.playbackSources.length) stopStudioPlayback(); };
+    studio.playbackSources.push(source);
+    source.start();
+  });
+  playToggle.textContent = '❚❚ Mix em reprodução';
+  setStudioHealth('mix em reprodução', true);
+}
+
+function audioBufferToWav(buffer) {
+  const channels = Math.min(2, buffer.numberOfChannels);
+  const frameLength = buffer.length;
+  const bytes = 44 + frameLength * channels * 2;
+  const view = new DataView(new ArrayBuffer(bytes));
+  const writeString = (offset, value) => [...value].forEach((character, index) => view.setUint8(offset + index, character.charCodeAt(0)));
+  writeString(0, 'RIFF'); view.setUint32(4, bytes - 8, true); writeString(8, 'WAVE'); writeString(12, 'fmt '); view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, channels, true); view.setUint32(24, buffer.sampleRate, true); view.setUint32(28, buffer.sampleRate * channels * 2, true); view.setUint16(32, channels * 2, true); view.setUint16(34, 16, true); writeString(36, 'data'); view.setUint32(40, bytes - 44, true);
+  const sources = Array.from({ length: channels }, (_, channel) => buffer.getChannelData(channel));
+  let offset = 44;
+  for (let frame = 0; frame < frameLength; frame += 1) for (let channel = 0; channel < channels; channel += 1) { const sample = Math.max(-1, Math.min(1, sources[channel][frame])); view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7fff, true); offset += 2; }
+  return new Blob([view], { type: 'audio/wav' });
+}
+
+async function bounceStudioMix() {
+  if (!studio.tracks.length) { studioFeedback.textContent = 'Não há takes para exportar.'; return; }
+  const sampleRate = studio.audioContext?.sampleRate || 48000;
+  const length = Math.max(...studio.tracks.map((track) => track.buffer.length));
+  const offline = new OfflineAudioContext(2, length, sampleRate);
+  const hasSolo = studio.tracks.some((track) => track.solo);
+  studio.tracks.forEach((track) => {
+    if (track.mute || (hasSolo && !track.solo)) return;
+    const source = offline.createBufferSource(); const gain = offline.createGain(); const panner = offline.createStereoPanner ? offline.createStereoPanner() : null;
+    source.buffer = track.buffer; gain.gain.value = track.volume; source.connect(gain);
+    if (panner) { panner.pan.value = track.pan; gain.connect(panner); panner.connect(offline.destination); } else gain.connect(offline.destination); source.start();
+  });
+  const rendered = await offline.startRendering();
+  const url = URL.createObjectURL(audioBufferToWav(rendered));
+  const anchor = document.createElement('a'); anchor.href = url; anchor.download = `kairos-mix-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}.wav`; anchor.click(); window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  studioFeedback.textContent = 'Bounce WAV exportado para o seu dispositivo.';
+  setStudioHealth('bounce exportado', true);
+}
+
+recordToggle.addEventListener('click', () => { if (studio.recorder?.state === 'recording') stopStudioRecording(); else startStudioRecording().catch((error) => { studioFeedback.textContent = error.message; setStudioHealth('microfone bloqueado'); }); });
+playToggle.addEventListener('click', playStudioMix);
+stopMix.addEventListener('click', stopStudioPlayback);
+bounceMix.addEventListener('click', () => bounceStudioMix().catch(() => { studioFeedback.textContent = 'Falha ao renderizar o bounce WAV.'; }));
+takeUpload.addEventListener('change', () => { const file = takeUpload.files?.[0]; if (file) addStudioTrack(file, file.name.replace(/\.[^.]+$/, '')).catch(() => { studioFeedback.textContent = 'Não foi possível carregar esse arquivo de áudio.'; }); takeUpload.value = ''; });
+clearStudio.addEventListener('click', () => { stopStudioPlayback(); studio.tracks.forEach((track) => URL.revokeObjectURL(track.url)); studio.tracks = []; studio.activeTrackId = null; renderStudioTracks(); studioTime.textContent = '00:00.000'; studioFeedback.textContent = 'Sessão limpa localmente.'; setStudioHealth('pronto'); });
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
