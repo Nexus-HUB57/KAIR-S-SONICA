@@ -3,7 +3,7 @@
   "title": "Pressure Speaks",
   "artist": "KTD / Kháirus the Dragon",
   "single": 4,
-  "status": "candidate_for_review",
+  "status": "approved_magnificent",
   "reference_policy": {
     "approved_reference_masters": [
       "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.mp3",
@@ -40,5 +40,13 @@
     "master_wav_sha256": "de997c004fe8e22e97dbf7e4a4d2e99c17f7f7b716af2230ec0406ed08816743",
     "master_mp3_sha256": "0b757691bd739acb88ec335cffe7ab96777149f0e2b4424d0521e3d4ed624254"
   },
-  "review_gate": "human_audition_required; compare song identity against approved KTD masters before promotion"
+  "approval": {
+    "status": "approved",
+    "quality_label": "MAGNÍFICO",
+    "approved_at": "2026-08-21",
+    "approved_by": "user",
+    "audio_immutable": true,
+    "approved_elements": ["KTD essence", "vocal performance", "song arc", "chorus", "instrumentation", "mix"]
+  },
+  "review_gate": "approved; preserve audio, lyrics and mix unchanged"
 }
