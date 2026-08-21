@@ -44,8 +44,6 @@ def main() -> None:
     filters: list[str] = []
     for idx, (dur, image, mood) in enumerate(SCENES):
         inputs += ['-loop', '1', '-t', str(dur), '-i', str(image)]
-        # Slow push-in / pull-out with subtle grade variation per chapter.
-        zoom_expr = 'min(zoom+0.00045,1.08)' if idx % 2 == 0 else 'max(zoom-0.00035,1.0)'
         grade = {
             'cool': 'eq=contrast=1.06:saturation=0.82:brightness=-0.02,colorbalance=bs=.08:gs=.02:rs=-.02',
             'wet': 'eq=contrast=1.10:saturation=0.90:brightness=-0.04,colorbalance=bs=.05:rs=.03',

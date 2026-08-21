@@ -14,7 +14,7 @@ A integração cobre os caminhos T2V, I2V, Diffusion Forcing para vídeos longos
 flowchart LR
   C[Cliente / Web / CLI] --> G[POST /v1/video/generate]
   G --> T[TaskStore SQLite\nPENDING/RUNNING/SUCCEEDED/FAILED]
-  T --> W[Worker de vídeo]
+  T --> W[Worker persistente / GPU]
   W --> V[VideoOrchestrator]
   V --> A[SkyReelsVideoAdapter]
   A --> I[Ingestão segura\ndata/uploads ou data/output]
@@ -28,7 +28,9 @@ flowchart LR
   T --> E[WS /ws/tasks/{task_id}]
 ```
 
-O worker segue o mesmo modelo do pipeline de áudio atual: cria uma tarefa, publica progresso, executa fora do request HTTP e grava um snapshot durável. A saída é copiada do staging para um nome determinístico por tarefa somente depois de localizar um MP4 produzido pelo backend. Caso o destino já exista, a promoção falha em vez de sobrescrever o artefato.
+O modo `inline` mantém o desenvolvimento local simples. No perfil de produção, `KAIROS_WORKER_MODE=queue` faz a API apenas persistir o payload em SQLite e responder `202`; o processo `scripts/run_worker.py` reivindica jobs com atualização condicional, executa fora do request e remove o job apenas em estado terminal. Jobs `PENDING`/`RUNNING` são devolvidos à fila após reinício, de modo que a geração não desapareça quando o processo da API ou do worker é reiniciado.
+
+A saída é copiada do staging para um nome determinístico por tarefa somente depois de localizar um MP4 não vazio e validá-lo com `ffprobe`. Caso o destino já exista, a promoção falha em vez de sobrescrever o artefato. O staging é removido ao final por padrão e pode ser retido apenas com `KAIROS_SKYREELS_KEEP_STAGING=true` para diagnóstico.
 
 | Camada | Implementação | Responsabilidade |
 | --- | --- | --- |
@@ -37,7 +39,8 @@ O worker segue o mesmo modelo do pipeline de áudio atual: cria uma tarefa, publ
 | Adaptador | `SkyReelsVideoAdapter` | Resolver paths, montar CLI, executar subprocesso e promover o MP4 |
 | Backend | `SkyReels-V2/generate_video.py` | T2V/I2V convencional |
 | Backend | `SkyReels-V2/generate_video_df.py` | Diffusion Forcing, vídeo longo, extensão e start/end frame |
-| Estado | `TaskStore` | Persistir status e resultado sem expor caminhos internos |
+| Estado | `TaskStore` | Persistir status, resultado e payload de jobs sem expor caminhos internos |
+| Execução | `scripts/run_worker.py` | Reivindicar jobs SQLite, recuperar reinícios e executar runners |
 | Entrega | `/v1/video/{task_id}` | Servir apenas o artefato publicado para a tarefa concluída |
 | Auditoria | `{task_id}.metadata.json` | Registrar modo, modelo, seed, comando, logs finais e staging |
 
@@ -114,6 +117,11 @@ O backend está **desativado por padrão**. Para habilitá-lo, o ambiente precis
 | `KAIROS_SKYREELS_PYTHON` | `python3` | Interpretador do ambiente SkyReels |
 | `KAIROS_SKYREELS_ALLOW_MODEL_DOWNLOAD` | `false` | Bloqueia download implícito por padrão |
 | `KAIROS_SKYREELS_TIMEOUT_SECONDS` | `3600` | Limite de uma execução do worker |
+| `KAIROS_SKYREELS_MAX_CONCURRENCY` | `1` | Limite de inferências simultâneas por clone/modelo para evitar OOM |
+| `KAIROS_SKYREELS_KEEP_STAGING` | `false` | Mantém staging apenas para diagnóstico explícito |
+| `KAIROS_FFPROBE_BIN` | `ffprobe` | Validação estrutural do MP4 antes da publicação |
+| `KAIROS_CORS_ORIGINS` | `http://localhost:8080` | Origens explícitas autorizadas para o frontend |
+| `KAIROS_WORKER_MODE` | `inline` | Use `queue` com o worker persistente em produção |
 
 O repositório SkyReels informa requisitos de VRAM muito superiores ao perfil CPU do MVP do KAIR: a documentação reporta aproximadamente 14,7 GB para o modelo 1.3B em 540P e cerca de 51,2 GB para o 14B em 540P [2]. Portanto, o teste unitário deste núcleo é deliberadamente um dry-run do contrato e da segurança; a inferência real requer um ambiente CUDA compatível, dependências do clone e checkpoints autorizados.
 
@@ -127,7 +135,9 @@ Para uma obra de múltiplos planos, o fluxo recomendado é gerar cada cena em um
 
 A licença do SkyReels exige observância da **Skywork Community License** e inclui restrições de uso e responsabilidade que devem ser revisadas antes de distribuição comercial [3]. O KAIR registra o backend e o modelo no sidecar, mas não substitui a avaliação jurídica, a revisão de procedência dos dados ou a aprovação do titular da identidade visual e vocal.
 
-Antes de exposição em internet, a documentação do KAIR recomenda autenticação, limites de tamanho, validação MIME, checksum, expiração de artefatos, métricas, logs estruturados e isolamento de workers. O novo endpoint herda o modelo assíncrono existente, mas a fila em threads deve ser substituída por worker durável em produção, especialmente porque a inferência pode durar minutos ou horas.
+O perfil de produção usa `docker-compose.yml` combinado com `docker-compose.gpu.yml`. O segundo arquivo constrói `Dockerfile.gpu`, monta o clone em `/opt/SkyReels-V2`, monta os checkpoints em `/models`, habilita `KAIROS_ENABLE_SKYREELS=true`, força `KAIROS_WORKER_MODE=queue`, limita a concorrência e inicia o worker persistente com os mesmos volumes da API. O endpoint `/health` serve ao liveness; `/ready` só retorna sucesso quando clone, entry point e checkpoint configurado estão disponíveis.
+
+Antes de exposição em internet, a documentação do KAIR ainda recomenda autenticação no gateway, limites de tamanho, validação MIME, checksum, expiração de artefatos, métricas, logs estruturados e isolamento adicional de workers. Essas proteções são complementares ao worker persistente implementado nesta etapa e devem ser fornecidas pelo ingress/reverse proxy antes de abrir o serviço publicamente.
 
 ## Referências
 

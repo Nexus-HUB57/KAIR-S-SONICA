@@ -2,13 +2,16 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 import sqlite3
 import threading
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from kairos_core.audio.orchestrator import MultimediaOrchestrator
 from kairos_core.audio.pipeline import AudioPipeline
@@ -38,6 +41,11 @@ class TaskStore:
             connection.execute(
                 "CREATE TABLE IF NOT EXISTS tasks (task_id TEXT PRIMARY KEY, snapshot TEXT NOT NULL)"
             )
+            connection.execute(
+                "CREATE TABLE IF NOT EXISTS task_jobs ("
+                "task_id TEXT PRIMARY KEY, kind TEXT NOT NULL, payload TEXT NOT NULL, "
+                "claimed_at TEXT, FOREIGN KEY(task_id) REFERENCES tasks(task_id))"
+            )
 
     def _connect(self) -> sqlite3.Connection:
         connection = sqlite3.connect(self._db_path, timeout=30)
@@ -52,7 +60,13 @@ class TaskStore:
     def _decode(payload: str) -> TaskSnapshot:
         return TaskSnapshot.model_validate(json.loads(payload))
 
-    def create(self, task_id: str) -> TaskSnapshot:
+    def create(
+        self,
+        task_id: str,
+        *,
+        job_kind: str | None = None,
+        payload: dict[str, Any] | None = None,
+    ) -> TaskSnapshot:
         snapshot = TaskSnapshot(
             task_id=task_id,
             status="PENDING",
@@ -64,6 +78,12 @@ class TaskStore:
                 "ON CONFLICT(task_id) DO UPDATE SET snapshot = excluded.snapshot",
                 (task_id, self._encode(snapshot)),
             )
+            if job_kind and payload is not None:
+                connection.execute(
+                    "INSERT INTO task_jobs(task_id, kind, payload, claimed_at) VALUES (?, ?, ?, NULL) "
+                    "ON CONFLICT(task_id) DO UPDATE SET kind = excluded.kind, payload = excluded.payload, claimed_at = NULL",
+                    (task_id, job_kind, json.dumps(payload, ensure_ascii=False)),
+                )
         return snapshot
 
     def get(self, task_id: str) -> TaskSnapshot | None:
@@ -88,11 +108,70 @@ class TaskStore:
                 "UPDATE tasks SET snapshot = ? WHERE task_id = ?",
                 (self._encode(updated), task_id),
             )
+            if updated.status in {"SUCCEEDED", "FAILED"}:
+                connection.execute("DELETE FROM task_jobs WHERE task_id = ?", (task_id,))
         return updated
+
+    def reset_orphaned_jobs(self) -> None:
+        """Devolve jobs não terminais ao estado enfileirado após restart do processo."""
+        with self._lock, self._connect() as connection:
+            rows = connection.execute(
+                "SELECT j.task_id, j.payload, t.snapshot FROM task_jobs j "
+                "JOIN tasks t ON t.task_id = j.task_id"
+            ).fetchall()
+            for row in rows:
+                snapshot = self._decode(row["snapshot"])
+                if snapshot.status not in {"PENDING", "RUNNING"}:
+                    continue
+                reset = snapshot.model_copy(
+                    update={
+                        "status": "PENDING",
+                        "progress": Progress(
+                            step="queued",
+                            percent=0,
+                            message="Tarefa recuperada após reinício do worker",
+                        ),
+                        "error": None,
+                        "updated_at": datetime.now(timezone.utc),
+                    }
+                )
+                connection.execute(
+                    "UPDATE tasks SET snapshot = ? WHERE task_id = ?",
+                    (self._encode(reset), row["task_id"]),
+                )
+                connection.execute(
+                    "UPDATE task_jobs SET claimed_at = NULL WHERE task_id = ?",
+                    (row["task_id"],),
+                )
+
+    def claim_recoverable_jobs(self, worker_id: str) -> list[tuple[str, str, dict[str, Any]]]:
+        """Reivindica jobs enfileirados de forma atômica para recuperação após restart."""
+        recovered: list[tuple[str, str, dict[str, Any]]] = []
+        now = datetime.now(timezone.utc).isoformat()
+        with self._lock, self._connect() as connection:
+            rows = connection.execute(
+                "SELECT task_id, kind, payload FROM task_jobs WHERE claimed_at IS NULL"
+            ).fetchall()
+            for row in rows:
+                updated = connection.execute(
+                    "UPDATE task_jobs SET claimed_at = ? WHERE task_id = ? AND claimed_at IS NULL",
+                    (f"{now}:{worker_id}", row["task_id"]),
+                )
+                if updated.rowcount != 1:
+                    continue
+                recovered.append((row["task_id"], row["kind"], json.loads(row["payload"])))
+        return recovered
 
 settings = Settings.from_env()
 store = TaskStore(settings.task_db_path)
 app = FastAPI(title="KAIR-S-SONICA API", version="0.1.0", description="Gateway do Agente Káiros")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=list(settings.cors_origins),
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
+)
 
 
 def _run_task(task_id: str, request: TrackRequest) -> None:
@@ -167,9 +246,60 @@ def _run_video_task(task_id: str, request: VideoRequest) -> None:
         store.update(task_id, status="FAILED", progress=Progress(step="failed", percent=100, message="Geração de vídeo interrompida"), error=str(exc))
 
 
+def _launch_recovered_jobs() -> None:
+    store.reset_orphaned_jobs()
+    worker_id = f"api-{os.getpid()}"
+    for task_id, kind, payload in store.claim_recoverable_jobs(worker_id):
+        try:
+            if kind == "audio":
+                target = _run_task
+                request = TrackRequest.model_validate(payload)
+            elif kind == "multimedia":
+                target = _run_multimedia_task
+                request = MultimediaRequest.model_validate(payload)
+            elif kind == "video":
+                target = _run_video_task
+                request = VideoRequest.model_validate(payload)
+            else:
+                raise ValueError(f"tipo de job desconhecido: {kind}")
+        except Exception as exc:  # noqa: BLE001
+            store.update(
+                task_id,
+                status="FAILED",
+                progress=Progress(step="failed", percent=100, message="Payload recuperado inválido"),
+                error=str(exc),
+            )
+            continue
+        thread = threading.Thread(target=target, args=(task_id, request), daemon=True)
+        thread.start()
+
+
+if settings.worker_mode == "inline":
+    _launch_recovered_jobs()
+
+
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "service": "kairos-sonica-api", "version": "0.1.0"}
+
+
+@app.get("/ready")
+def readiness() -> dict[str, Any]:
+    checks: dict[str, str] = {"task_store": "ok"}
+    if settings.enable_skyreels:
+        repo = settings.skyreels_repo.expanduser().resolve() if settings.skyreels_repo else None
+        model = settings.skyreels_model_id
+        engine = "diffusion_forcing"
+        script_ok = bool(repo and (repo / "generate_video_df.py").is_file())
+        model_ok = bool(model and (Path(model).expanduser().exists() or settings.skyreels_allow_model_download))
+        checks["skyreels_repo"] = "ok" if repo and repo.is_dir() else "missing"
+        checks["skyreels_entrypoint"] = "ok" if script_ok else "missing"
+        checks["skyreels_model"] = "ok" if model_ok else "missing"
+        if not all(value == "ok" for value in checks.values()):
+            raise HTTPException(status_code=503, detail={"status": "not_ready", "checks": checks, "engine": engine})
+    else:
+        checks["skyreels"] = "disabled"
+    return {"status": "ok", "checks": checks}
 
 
 @app.get("/v1/persona", response_model=PersonaResponse)
@@ -185,9 +315,10 @@ def create_plan(request: TrackRequest) -> TrackPlan:
 @app.post("/v1/generate", response_model=GenerateResponse, status_code=202)
 def generate(request: TrackRequest) -> GenerateResponse:
     task_id = uuid4().hex
-    store.create(task_id)
-    thread = threading.Thread(target=_run_task, args=(task_id, request), daemon=True)
-    thread.start()
+    store.create(task_id, job_kind="audio", payload=request.model_dump(mode="json"))
+    if settings.worker_mode == "inline":
+        thread = threading.Thread(target=_run_task, args=(task_id, request), daemon=True)
+        thread.start()
     return GenerateResponse(task_id=task_id, status="PENDING")
 
 
@@ -195,9 +326,10 @@ def generate(request: TrackRequest) -> GenerateResponse:
 def orchestrate(request: MultimediaRequest) -> GenerateResponse:
     """Executa a central multimídia sem bloquear o request HTTP."""
     task_id = uuid4().hex
-    store.create(task_id)
-    thread = threading.Thread(target=_run_multimedia_task, args=(task_id, request), daemon=True)
-    thread.start()
+    store.create(task_id, job_kind="multimedia", payload=request.model_dump(mode="json"))
+    if settings.worker_mode == "inline":
+        thread = threading.Thread(target=_run_multimedia_task, args=(task_id, request), daemon=True)
+        thread.start()
     return GenerateResponse(task_id=task_id, status="PENDING")
 
 
@@ -205,9 +337,10 @@ def orchestrate(request: MultimediaRequest) -> GenerateResponse:
 def generate_video(request: VideoRequest) -> GenerateResponse:
     """Enfileira T2V/I2V/DF sem bloquear o request HTTP."""
     task_id = uuid4().hex
-    store.create(task_id)
-    thread = threading.Thread(target=_run_video_task, args=(task_id, request), daemon=True)
-    thread.start()
+    store.create(task_id, job_kind="video", payload=request.model_dump(mode="json"))
+    if settings.worker_mode == "inline":
+        thread = threading.Thread(target=_run_video_task, args=(task_id, request), daemon=True)
+        thread.start()
     return GenerateResponse(task_id=task_id, status="PENDING")
 
 

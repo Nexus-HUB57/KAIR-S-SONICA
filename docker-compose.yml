@@ -2,15 +2,30 @@ services:
   api:
     build: .
     environment:
+      KAIROS_ENV: ${KAIROS_ENV:-development}
       KAIROS_OUTPUT_DIR: /app/data/output
+      KAIROS_UPLOAD_DIR: /app/data/uploads
+      KAIROS_TASK_DB_PATH: /app/data/kairos_tasks.sqlite3
       KAIROS_FFMPEG_BIN: ffmpeg
+      KAIROS_FFPROBE_BIN: ffprobe
+      KAIROS_CORS_ORIGINS: ${KAIROS_CORS_ORIGINS:-http://localhost:8080}
     ports:
       - "8000:8000"
     volumes:
       - ./data:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)\""]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 5
   web:
-    build: ./web-client
+    build:
+      context: ./web-client
+      args:
+        VITE_API_BASE: ${VITE_API_BASE:-http://localhost:8000}
     ports:
       - "8080:80"
     depends_on:
-      - api
+      api:
+        condition: service_healthy

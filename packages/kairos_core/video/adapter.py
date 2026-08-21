@@ -5,6 +5,7 @@ import os
 import re
 import shutil
 import subprocess
+import threading
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
@@ -13,6 +14,9 @@ from kairos_core.config import Settings
 from kairos_core.schemas import VideoRequest
 
 VideoProgressCallback = Callable[[str, int, str], None]
+
+_SEMAPHORE_LOCK = threading.Lock()
+_SEMAPHORES: dict[tuple[str, str], threading.BoundedSemaphore] = {}
 
 
 class VideoBackendError(RuntimeError):
@@ -47,38 +51,50 @@ class SkyReelsVideoAdapter:
         self._ensure_enabled()
         self.settings.ensure_directories()
         repo = self._repo_path()
+        self._preflight_entrypoint(repo, request.engine)
         model_id = self._model_id(request)
         self._validate_request(request, model_id)
 
         safe_task_id = self._safe_task_id(task_id)
-        artifact_path = self.settings.output_dir / f"{safe_task_id}.mp4"
-        metadata_path = self.settings.output_dir / f"{safe_task_id}.metadata.json"
+        output_dir = self.settings.output_dir.expanduser().resolve()
+        artifact_path = output_dir / f"{safe_task_id}.mp4"
+        metadata_path = output_dir / f"{safe_task_id}.metadata.json"
         if artifact_path.exists() or metadata_path.exists():
             raise FileExistsError(
                 f"Saída já existe para task_id={task_id}; nenhuma saída foi sobrescrita"
             )
-        staging_dir = self.settings.output_dir / ".skyreels" / safe_task_id
+        staging_dir = output_dir / ".skyreels" / safe_task_id
         staging_dir.mkdir(parents=True, exist_ok=False)
-        command = self.build_command(request, task_id, staging_dir, repo=repo, model_id=model_id)
-
-        self._emit(progress, "video_generating", 20, "Executando o backend SkyReels-V2 em staging isolado")
         try:
-            completed = subprocess.run(
-                command,
-                cwd=repo,
-                check=False,
-                capture_output=True,
-                text=True,
-                timeout=self.settings.skyreels_timeout_seconds,
-            )
-        except subprocess.TimeoutExpired as exc:
-            raise VideoBackendError(
-                f"SkyReels excedeu o timeout de {self.settings.skyreels_timeout_seconds}s"
-            ) from exc
-        except OSError as exc:
-            raise VideoBackendError(f"Não foi possível iniciar o SkyReels: {exc}") from exc
+            command = self.build_command(request, task_id, staging_dir, repo=repo, model_id=model_id)
+        except Exception:
+            self._cleanup_staging(staging_dir)
+            raise
+
+        slot = self._concurrency_slot(repo, model_id)
+        self._emit(progress, "video_queued", 15, "Aguardando slot de inferência GPU")
+        with slot:
+            self._emit(progress, "video_generating", 20, "Executando o backend SkyReels-V2 em staging isolado")
+            try:
+                completed = subprocess.run(
+                    command,
+                    cwd=repo,
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                    timeout=self.settings.skyreels_timeout_seconds,
+                )
+            except subprocess.TimeoutExpired as exc:
+                self._cleanup_staging(staging_dir)
+                raise VideoBackendError(
+                    f"SkyReels excedeu o timeout de {self.settings.skyreels_timeout_seconds}s"
+                ) from exc
+            except OSError as exc:
+                self._cleanup_staging(staging_dir)
+                raise VideoBackendError(f"Não foi possível iniciar o SkyReels: {exc}") from exc
 
         if completed.returncode != 0:
+            self._cleanup_staging(staging_dir)
             detail = (completed.stderr or completed.stdout or "sem saída do backend")[-4_000:]
             raise VideoBackendError(
                 f"SkyReels terminou com código {completed.returncode}: {detail}"
@@ -91,36 +107,45 @@ class SkyReelsVideoAdapter:
             reverse=True,
         )
         if not candidates:
+            self._cleanup_staging(staging_dir)
             detail = (completed.stderr or completed.stdout or "nenhum MP4 encontrado")[-4_000:]
             raise VideoBackendError(f"SkyReels não produziu MP4: {detail}")
 
-        self._promote_without_overwrite(candidates[0], artifact_path)
+        candidate = candidates[0]
+        try:
+            media = self._validate_mp4(candidate)
+            self._promote_without_overwrite(candidate, artifact_path)
 
-        metadata: dict[str, object] = {
-            "task_id": task_id,
-            "status": "SUCCEEDED",
-            "backend": "skyreels-v2",
-            "engine": request.engine,
-            "mode": request.mode,
-            "model_id": model_id,
-            "resolution": request.resolution,
-            "num_frames": self._num_frames(request),
-            "fps": request.fps,
-            "seed": request.seed,
-            "artifact_path": str(artifact_path),
-            "staging_id": safe_task_id,
-            "command": list(command),
-            "stdout_tail": (completed.stdout or "")[-2_000:],
-            "stderr_tail": (completed.stderr or "")[-2_000:],
-        }
-        self._write_json_once(metadata_path, metadata)
-        self._emit(progress, "video_completed", 100, "Artefato de vídeo pronto e auditado")
-        return VideoResult(
-            task_id=task_id,
-            artifact_path=artifact_path,
-            metadata_path=metadata_path,
-            metadata=metadata,
-        )
+            metadata: dict[str, object] = {
+                "task_id": task_id,
+                "status": "SUCCEEDED",
+                "backend": "skyreels-v2",
+                "engine": request.engine,
+                "mode": request.mode,
+                "model_id": model_id,
+                "resolution": request.resolution,
+                "num_frames": self._num_frames(request),
+                "fps": request.fps,
+                "seed": request.seed,
+                "artifact_path": str(artifact_path),
+                "staging_id": safe_task_id,
+                "command": list(command),
+                "stdout_tail": (completed.stdout or "")[-2_000:],
+                "stderr_tail": (completed.stderr or "")[-2_000:],
+                "duration_seconds": media["duration_seconds"],
+                "video_streams": media["video_streams"],
+            }
+            self._write_json_once(metadata_path, metadata)
+            self._emit(progress, "video_completed", 100, "Artefato de vídeo pronto e auditado")
+            return VideoResult(
+                task_id=task_id,
+                artifact_path=artifact_path,
+                metadata_path=metadata_path,
+                metadata=metadata,
+            )
+        finally:
+            if not self.settings.skyreels_keep_staging:
+                self._cleanup_staging(staging_dir)
 
     def build_command(
         self,
@@ -198,10 +223,30 @@ class SkyReelsVideoAdapter:
 
         return command
 
+    def _concurrency_slot(self, repo: Path, model_id: str) -> threading.BoundedSemaphore:
+        key = (str(repo), model_id)
+        with _SEMAPHORE_LOCK:
+            semaphore = _SEMAPHORES.get(key)
+            if semaphore is None:
+                semaphore = threading.BoundedSemaphore(max(1, self.settings.skyreels_max_concurrency))
+                _SEMAPHORES[key] = semaphore
+            return semaphore
+
     def _ensure_enabled(self) -> None:
         if not self.settings.enable_skyreels:
             raise VideoBackendError(
                 "SkyReels está desabilitado; defina KAIROS_ENABLE_SKYREELS=true conscientemente"
+            )
+
+    def _preflight_entrypoint(self, repo: Path, engine: str) -> None:
+        script_name = "generate_video_df.py" if engine == "diffusion_forcing" else "generate_video.py"
+        script = repo / script_name
+        if not script.is_file():
+            raise VideoBackendError(f"Entry point do SkyReels não encontrado: {script}")
+        python = Path(self.settings.skyreels_python).expanduser()
+        if not python.is_file() and shutil.which(self.settings.skyreels_python) is None:
+            raise VideoBackendError(
+                f"Interpretador do SkyReels não encontrado: {self.settings.skyreels_python}"
             )
 
     def _repo_path(self) -> Path:
@@ -305,6 +350,51 @@ class SkyReelsVideoAdapter:
         except ValueError:
             return False
         return True
+
+    def _validate_mp4(self, path: Path) -> dict[str, object]:
+        if not path.is_file() or path.stat().st_size == 0:
+            raise VideoBackendError(f"MP4 inválido ou vazio: {path}")
+        try:
+            completed = subprocess.run(
+                [
+                    self.settings.ffprobe_bin,
+                    "-v",
+                    "error",
+                    "-show_entries",
+                    "format=duration:stream=codec_type",
+                    "-of",
+                    "json",
+                    str(path),
+                ],
+                check=False,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise VideoBackendError(f"Não foi possível validar o MP4 com ffprobe: {exc}") from exc
+        if completed.returncode != 0:
+            detail = (completed.stderr or completed.stdout or "sem saída do ffprobe")[-2_000:]
+            raise VideoBackendError(f"ffprobe rejeitou o MP4: {detail}")
+        try:
+            probe = json.loads(completed.stdout or "{}")
+            streams = [
+                stream for stream in probe.get("streams", []) if stream.get("codec_type") == "video"
+            ]
+            duration = float(probe.get("format", {}).get("duration", 0))
+        except (TypeError, ValueError, json.JSONDecodeError) as exc:
+            raise VideoBackendError("Saída inválida do ffprobe para o MP4") from exc
+        if not streams or duration <= 0:
+            raise VideoBackendError("MP4 sem stream de vídeo ou duração positiva")
+        return {"duration_seconds": round(duration, 3), "video_streams": len(streams)}
+
+    @staticmethod
+    def _cleanup_staging(path: Path) -> None:
+        if path.exists():
+            shutil.rmtree(path)
+        parent = path.parent
+        if parent.is_dir() and not any(parent.iterdir()):
+            parent.rmdir()
 
     @staticmethod
     def _promote_without_overwrite(source: Path, destination: Path) -> None:
