@@ -1,0 +1,66 @@
+{
+  "project": "FIRE IN THE FLOOD",
+  "cut": "existing-materials-preview-v3",
+  "status": "static_scene_excluded_dynamic_only",
+  "duration_seconds": 42.0,
+  "audio_master": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
+  "target": {"width": 720, "height": 1280, "aspect_ratio": "9:16", "fps": 24, "audio_sample_rate": 44100},
+  "generation_policy": "No new video generation; FFmpeg assembly and normalization only.",
+  "creative_rule": "Use only existing live-action MP4s. Keyframes, visualizers and still images are excluded from the cut.",
+  "audio_rule": "Strip source audio from every clip and mux the first 42 seconds of the v4 master as one continuous soundtrack.",
+  "rejected_materials": [
+    {
+      "source": "assets/video/promos/tiktok/fire-in-the-flood-tiktok-8s.mp4",
+      "reason": "Static photograph/visualizer with animated grain, flicker and text cards; explicitly rejected and excluded from all development cuts.",
+      "analysis": "artifacts/video/validation/rejected-static-penultimate-analysis.md"
+    }
+  ],
+  "coverage_note": "This is a material assembly preview, not the complete lyric-locked 168-second music video. M01 is the user-attached entrance scene; the remaining shots are existing dynamic Fire in the Flood materials and are not relabeled as S02–S05.",
+  "shots": [
+    {
+      "id": "M01",
+      "start": 0.0,
+      "duration": 8.0,
+      "source": "assets/video/inputs/fire-in-the-flood-entrance-attached-8s.mp4",
+      "source_type": "user_attached_entrance_scene",
+      "source_format": "720x1280",
+      "notes": "Opening entrance: KTD moves from locked industrial corridor into a rainy urban street. Source audio is removed so the master v4 is the only soundtrack."
+    },
+    {
+      "id": "M02",
+      "start": 8.0,
+      "duration": 10.0,
+      "source": "artifacts/video/dynamic-shots/fire-in-the-flood-s01-10s.mp4",
+      "source_type": "new_dynamic_portrait_proof",
+      "source_format": "720x1280",
+      "notes": "Existing portrait proof; placed after the attached entrance scene. It is not relabeled as S02."
+    },
+    {
+      "id": "M03",
+      "start": 18.0,
+      "duration": 8.0,
+      "source": "assets/video/aprovados/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
+      "source_type": "official_approved_dynamic_reel",
+      "source_format": "720x1280",
+      "notes": "Existing approved-format dynamic reel; source audio is removed."
+    },
+    {
+      "id": "M04",
+      "start": 26.0,
+      "duration": 8.0,
+      "source": "artifacts/video/dynamic-shots/fire-in-the-flood-v2-D01-walk.mp4",
+      "source_type": "existing_dynamic_landscape_proof_verticalized",
+      "source_format": "1280x720",
+      "notes": "Verified live-action walk with flame, rain, vapor and water ripples; normalized to portrait. It replaces the rejected static visualizer."
+    },
+    {
+      "id": "M05",
+      "start": 34.0,
+      "duration": 8.0,
+      "source": "artifacts/video/dynamic-shots/fire-in-the-flood-d01-walk-8s.mp4",
+      "source_type": "existing_dynamic_landscape_proof_verticalized",
+      "source_format": "1280x720",
+      "notes": "Existing live-action proof normalized to portrait; not a new scene."
+    }
+  ]
+}
