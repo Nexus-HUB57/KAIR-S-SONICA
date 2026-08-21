@@ -1,0 +1,50 @@
+{
+  "title": "No One Saved Me a Seat",
+  "artist": "KTD / Kháirus the Dragon",
+  "single": 7,
+  "status": "candidate_for_approval",
+  "operation": "surgical_chorus_replacement",
+  "source_base": {
+    "path": "/home/ubuntu/upload/no-one-saved-me-a-seat-v1-master.mp3",
+    "sha256": "42f210dbafc0118fdde0bdab765ca70d3599491a6c759cf77cd4bf7bbe6a867d",
+    "duration_seconds": 182.439184
+  },
+  "source_chorus": {
+    "path": "/home/ubuntu/upload/no-one-saved-me-a-seat-chorus-v4-gospel-preview-ma.mp3",
+    "sha256": "ac74ec3875d4716e5072652fa38bf0cbe587768f2c8c88bbf34f1fda323ad2d8",
+    "duration_seconds": 77.348571,
+    "selected_cycle_start_seconds": 0.0,
+    "selected_cycle_end_seconds": 48.6
+  },
+  "replacement_map": [
+    {"base_start": 0.0, "base_end": 62.36, "treatment": "preserved"},
+    {"base_start": 62.36, "base_end": 86.34, "treatment": "replaced_by_chorus_v4_0_to_48.6"},
+    {"base_start": 86.34, "base_end": 129.539, "treatment": "preserved"},
+    {"base_start": 129.539, "base_end": 152.94, "treatment": "replaced_by_chorus_v4_0_to_48.6"},
+    {"base_start": 152.94, "base_end": 167.76, "treatment": "preserved"},
+    {"base_start": 167.76, "base_end": 181.50, "treatment": "replaced_by_chorus_v4_0_to_48.6"},
+    {"base_start": 181.50, "base_end": 182.44, "treatment": "preserved"}
+  ],
+  "preservation_validation": {
+    "untouched_regions_bit_exact_after_identical_pcm_decode": true,
+    "regions": ["s0", "s2", "s4", "s6"],
+    "no_normalization_applied": true,
+    "no_remix_applied": true,
+    "no_lyrics_change_applied": true
+  },
+  "output": {
+    "duration_wav_seconds": 267.092063,
+    "duration_mp3_seconds": 267.128163,
+    "wav_codec": "pcm_s24le",
+    "wav_sample_rate": 44100,
+    "wav_channels": 2,
+    "mp3_bitrate": 320000,
+    "wav_sha256": "535eae5e5020b752bad0e7ba38798dcbb3819c53cd20da95cc28759c7d81a2ec",
+    "mp3_sha256": "769f10526b3e112808b434b9eea6054c04892af7c9e862c306159f39e8b3da80"
+  },
+  "files": {
+    "wav": "outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-full-master.wav",
+    "mp3": "outputs/single_7/no-one-saved-me-a-seat-v1-synced-chorus-v4-full-master.mp3",
+    "documentation": "docs/singles/single-7-no-one-saved-me-a-seat-v1-sync-chorus-v4-full.md"
+  }
+}
