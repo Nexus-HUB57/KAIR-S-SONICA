@@ -165,6 +165,19 @@ make lint && make test
 
 O workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) existente foi ampliado apenas para abranger branches `feat/**` e `sync/**`, compilar `tools/` e validar os manifestos Compose. Nenhum workflow ou diretório de outro desenvolvedor é removido.
 
+### Núcleo agentico end-to-end
+
+A equipe agentica dos anexos foi implementada como uma camada contract-first com 12 papéis: CEO, CCO, Roteirista, DoP, Designer de Som, Editor, VFX, Social, Produtor, RAG, Acessibilidade e QA. O orquestrador gera estratégia, cenas, storyboard, handoffs `VideoRequest`/`MultimediaRequest`, variantes sociais, plano de acessibilidade, memória de projeto e gates de qualidade sem exigir AutoGen, LangChain, Chroma ou um LLM para o caminho determinístico.
+
+```bash
+curl http://localhost:8000/v1/agentic/capabilities
+curl -X POST http://localhost:8000/v1/agentic/run \
+  -H 'Content-Type: application/json' \
+  -d '{"prompt":"clipe de rap cinematográfico em chuva neon","project_id":"campaign-001","duration_seconds":15,"scene_seconds":5,"seed":42,"submit_handoffs":false}'
+```
+
+O modo padrão produz um pacote `READY_FOR_APPROVAL` sem criar tarefas. Para encaminhar cenas e áudio ao `TaskStore`/worker existentes, o operador deve enviar simultaneamente `submit_handoffs=true` e `approve_handoffs=true`; a execução segue `KAIROS_WORKER_MODE` e não contorna `ffprobe`, staging, promoção atômica ou entrega HTTP. RAG externo exige adicionalmente `KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED=true`; memória local fica em `KAIROS_AGENTIC_MEMORY_DIR` e não é versionada.
+
 ### Agregador de agentes externos
 
 O catálogo de agentes é consultado sem rede em [`GET /v1/agents/capabilities`](docs/api.md), que lista `skyreels-native`, `skyreels-space` e `llamagen` com skills, algoritmos, operações, origem e prontidão. Os agentes remotos são **desabilitados por padrão**; o catálogo não faz upload, não cria gerações e não consome serviços externos.

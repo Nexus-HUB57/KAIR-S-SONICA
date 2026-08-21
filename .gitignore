@@ -11,6 +11,7 @@ build/
 data/output/*
 data/uploads/*
 data/media-cache/*
+data/agentic-memory/*
 *.sqlite3
 !data/output/.gitkeep
 !data/uploads/.gitkeep

@@ -61,6 +61,29 @@ A rota `GET /v1/complementary/capabilities` descreve a camada sem rede. `POST /v
 | `outputs/` | `KAIROS_OUTPUT_DIR` e promoção atômica existentes | Sem nova pasta ou sobrescrita |
 | `requirements.txt` | Dependências já instaladas do núcleo | Sem MoviePy/gTTS obrigatórios no caminho principal |
 
+## Orquestração agentica end-to-end
+
+Os anexos foram materializados como `kairos_core.agentic`, uma camada contract-first sobre o núcleo complementar. O `AgenticOrchestrator` coordena 12 papéis — CEO, CCO, Roteirista, DoP, Designer de Som, Editor, VFX, Social, Produtor, RAG, Acessibilidade e QA — em uma sequência determinística de mensagens JSON. Isso oferece uma implementação executável e testável sem tornar AutoGen, LangChain, ChromaDB ou um LLM dependência obrigatória do caminho principal.
+
+```mermaid
+flowchart LR
+  B[Briefing] --> A[AgenticOrchestrator]
+  A --> C[CEO + CCO]
+  C --> R[Roteirista + RAG]
+  R --> D[DoP + Sound Designer]
+  D --> E[Editor + VFX]
+  E --> S[Social + Acessibilidade]
+  S --> Q[QA + aprovação CEO]
+  Q --> H[Handoffs VideoRequest / MultimediaRequest]
+  H --> T[TaskStore existente]
+  T --> W[Worker inline ou queue]
+  W --> K[SkyReels / áudio / ffprobe / entrega]
+```
+
+`GET /v1/agentic/capabilities` expõe os papéis e contratos. `POST /v1/agentic/run` produz um pacote `READY_FOR_APPROVAL` por padrão, incluindo memória de projeto, referências, cenas, planos e handoffs. O campo `submit_handoffs` só cria tarefas quando também há `approve_handoffs=true`; nesse caso cada cena é enfileirada como `video` e o áudio como `multimedia`, reutilizando os runners e o modo `KAIROS_WORKER_MODE` existentes.
+
+A memória inicial é JSONL por projeto em `KAIROS_AGENTIC_MEMORY_DIR`, com janela recente e busca lexical substituíveis por um backend vetorial futuro. O RAG usa a cadeia Pexels/Unsplash apenas quando `KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED=true`; nenhum download é automático. O QA mantém gates de aprovação, `ffprobe`, artefato não vazio, ausência de watermark/texto acidental e promoção atômica.
+
 ## Teste local com Docker Compose
 
 O arquivo `docker-compose.agents.local.yml` cria um ambiente isolado com o gateway, um mock do SkyReels Space e um mock do LlamaGen. O mock não acessa a internet, não contém credenciais reais e implementa apenas os endpoints necessários para descoberta/probe. O script `scripts/test_agents_compose.sh` sobe o stack, valida `/v1/complementary/capabilities`, `/v1/agents/capabilities`, os dois probes e `/v1/complementary/plan`, e desmonta os containers ao final.
@@ -186,6 +209,9 @@ O backend está **desativado por padrão**. Para habilitá-lo, o ambiente precis
 | `KAIROS_MEDIA_CACHE_DIR` | `data/media-cache` | Cache de mídia opcional, fora do Git |
 | `KAIROS_MEDIA_CACHE_MAX_BYTES` | `104857600` | Limite máximo de cada download/cache |
 | `KAIROS_MEDIA_PROVIDER_ORDER` | `pexels,unsplash` | Ordem da cadeia de provedores opcionais |
+| `KAIROS_AGENTIC_CORE_ENABLED` | `true` | Habilita planejamento/handoffs dos 12 papéis |
+| `KAIROS_AGENTIC_MEMORY_DIR` | `data/agentic-memory` | Memória JSONL por projeto, fora do Git |
+| `KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED` | `false` | Permite RAG externo somente por ação explícita |
 | `KAIROS_SKYREELS_NATIVE_MODEL_ID` | vazio | Diretório local `*-Diffusers` para `backend=native` |
 | `KAIROS_SKYREELS_NATIVE_API` | `false` | Gate explícito da API nativa |
 | `KAIROS_SKYREELS_DEVICE` | `cuda` | Device do pipeline nativo |
