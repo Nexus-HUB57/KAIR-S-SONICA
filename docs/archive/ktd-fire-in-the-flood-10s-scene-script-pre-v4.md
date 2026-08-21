@@ -1,7 +1,5 @@
 # FIRE IN THE FLOOD — roteiro dinâmico em cenas de 10 segundos
 
-> **HISTÓRICO / SUPERSEDED:** este roteiro usa a letra pré-v4 e não é autoridade para o lyric-lock atual. Usar [`docs/ktd-fire-in-the-flood-10s-scene-script-v4.md`](ktd-fire-in-the-flood-10s-scene-script-v4.md), alinhado à master v4.
-
 ## Critério de duração
 
 A master oficial `ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav` tem **168,000 segundos**. A decupagem utiliza **16 cenas de 10 segundos** e uma cena final de **8 segundos**, cobrindo o áudio integralmente sem esticar, repetir ou cortar a música.

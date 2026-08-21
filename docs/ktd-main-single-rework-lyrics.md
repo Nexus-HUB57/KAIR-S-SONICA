@@ -1,137 +1,162 @@
-# FIRE IN THE FLOOD — letra original do single principal refeito
+# FIRE IN THE FLOOD — letra alinhada à master v4
 
-## Metadados
+## Status e autoridade
+
+Esta é a versão textual alinhada à master oficial v4:
+
+`assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav`
+
+A versão anterior foi preservada em [`docs/archive/ktd-main-single-rework-lyrics-pre-v4.md`](archive/ktd-main-single-rework-lyrics-pre-v4.md). A letra abaixo é uma transcrição temporal da gravação v4. A redação mantém as palavras detectadas no áudio; foram normalizados apenas capitalização, pontuação e quebras de linha para leitura. Não foram inseridas linhas da versão anterior.
 
 | Campo | Valor |
-| --- | --- |
+|---|---|
 | Artista | Kháirus the Dragon (KTD) |
-| Função | Single principal refeito / candidato a lançamento |
+| Música | FIRE IN THE FLOOD |
 | Idioma | Inglês |
-| BPM de referência | 94 |
-| Tonalidade de referência | Ré menor |
-| Duração planejada | Aproximadamente 156 segundos |
-| Status | Composição original; pendente de tomada vocal e aprovação humana |
-| Direção vocal | Médio-grave frontal, rap percussivo, hook melódico, bridge confessional |
+| Duração da master | 168,000 s |
+| Fonte temporal | `assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_transcription_20260821_110817.json` |
+| Faixa sem texto detectável | 137,22–168,00 s; tratar como instrumental/atmosfera até eventual confirmação vocal |
 
-## Lyrics
+## Letra por timecode
 
-**[Intro — whisper-close, one piano note]**
+### 00:00.18–00:10.56 — Abertura
 
-Water at the window.
-Fire in the chest.
-They told me, “Pick one.”
-I carried both.
+I hear the lock click.
 
-**[Verse 1 — intimate, dry, measured]**
+I hear the clock tick.
 
-Six lives in a small room, rain tapping on the tin,
-I learned to count the seconds by the places water got in.
-Grandma kept a candle where the hallway lost its light,
-said, “A man can hold the door without surrendering the fight.”
+Pressure made a language in, and I talk it.
 
-I was young, but I could read the silence in a stare,
-black boy in a white room, nobody calling it fair.
-They measured my mistakes like they were proof of my design,
-so I carved a different answer in the rhythm of the line.
+No mask, no myth, no borrowed flame.
 
-I know the taste of running, I know the cost of pride,
-I know the road can make a wound look holy from inside.
-But I left the old hunger at the border of my name,
-kept the lesson, dropped the chain, turned the pressure into flame.
+I walk in with the wound and I leave with a name.
 
-**[Lift — rising, first melodic contour]**
+### 00:10.56–00:22.14 — Construção
 
-If the river wants my roots, let it pull — I won’t release.
-If the city wants my silence, let it shout — I found my speech.
-I don’t need to burn the bridge to prove the bridge was counterfeit.
-I brought the storm into the booth — now watch me make it sing.
+I was built in the break where the brave get tested.
 
-**[Hook — melodic anthem, wide but clear]**
+Every breath in the stress got sharp, got weapon.
 
-Fire in the flood — I keep the flame alive.
-Say my name — KTD — watch the whole room rise.
-No leash on the heart, no mask on the truth,
-I came back with the scars and I brought the proof.
-Fire in the flood — let the cold world know,
-I don’t need a crown to make the iron glow.
-Unleash the dragon — let the old walls split.
-If they ask me who I am — I say, “This is it.”
+I write like lightning, strike through silence.
 
-**[Verse 2 — denser, double-time bursts]**
+Turned out the dust with a disciplined violence.
 
-I learned the cables, learned the code, learned the cost of a clean take,
-learned the difference between a loud voice and a real earthquake.
-Put the work into the hands that were waiting for a sign,
-put a ladder by the wall and put the first rung in the line.
+### 00:22.14–00:33.38 — Resposta e ritmo
 
-Mother on my mind, six futures in the frame,
-I can’t call it victory if the family stays the same.
-Every brother gets a compass, every sister gets a door,
-I was never building only for the man I was before.
+Not blood, just bars that bruise the lie.
 
-They sell comfort by the minute, sell a silence by the song,
-then they ask why the young ones feel the pressure all day long.
-I won’t dress the wound in gold, I won’t call the cage a gift,
-I will name the thing that broke us, then I’ll show you how we lift.
+A hard truth rising when the soft words die.
 
-Fast tongue, hard truth, let the consonants collide,
-I was treated like a problem — now the problem’s multiplied.
-Not a villain, not a saint, not a headline to be lit,
-just a man who chose the fire — fuck it, I commit.
+I bring quick wit, split-second switch.
 
-**[Hook — shorter, call and response]**
+Trip the rhythm, flip the script, never miss.
 
-Fire in the flood — keep the flame alive.
-Who’s that at the door? — **KTD.**
-If the dark says “sit down,” let the dark watch me rise.
-Unleash the dragon — make the whole room rise.
+### 00:33.38–00:44.16 — Grade e peso
 
-**[Bridge — drums out, piano and strings, vulnerable]**
+Kairos on the pulse, I am locked in the grid.
 
-I used to think that being hard meant never needing hands.
-Now I know a bridge is stronger when it carries more than one.
-I forgive the boy who ran, but I won’t let him drive.
-There is mercy in the mirror, and there is work left in my life.
+Every scar is a charge, every bar is a bid.
 
-If my voice shakes, let it shake — that’s the proof I’m still alive.
-If the tears hit the floor, let them water what survives.
-I don’t owe the past a prison, I don’t owe the world a lie.
-I bring the fire through the flood, and I teach it how to rise.
+Slow down, let the room feel the weight.
 
-**[Final hook — full harmonic lift, crowd responses]**
+### 00:44.16–00:50.00 — Respiro e abertura
 
-Fire in the flood — I keep the flame alive.
-Say my name — KTD — watch the whole room rise.
-No leash on the heart, no mask on the truth,
-I came back with the scars and I brought the proof.
-Fire in the flood — let the cold world know,
-I don’t need a crown to make the iron glow.
-Unleash the dragon — let the old walls split.
-If they ask me who I am — I say, “This is it.”
+One breath, then I open the gate.
 
-Fire — **alive.**
-Flood — **rise.**
-One voice — **one fire.**
-KTD — **outside.**
+### 00:49.98–00:59.26 — Pressão em movimento
 
-**[Outro — dry, no fade]**
+I move too fast for the fear to frame me.
 
-Water at the window.
-Fire in the chest.
-I carried both.
-KTD.
+Move too fast for the fear to frame me.
 
-## Recorte principal para vídeo curto
+Talk too sharp for the doubt to tame me.
 
-> Fire in the flood — I keep the flame alive.
-> Say my name — KTD — watch the whole room rise.
-> No leash on the heart, no mask on the truth,
-> I came back with the scars and I brought the proof.
+Pressure made me.
 
-## Direção de performance
+### 00:59.26–01:04.66 — Mudança declarada
 
-O primeiro verso deve parecer uma confissão gravada perto do microfone. O lift sobe em notas curtas e abre a primeira promessa melódica. O hook não deve ser gritado: precisa ser cantado com peito e espaço, para que o público possa repetir. O segundo verso recebe rajadas rápidas, mas cada consoante deve permanecer inteligível. A bridge deve deixar respiração e fragilidade audíveis; o último hook sobe a melodia e recebe respostas laterais, não apenas mais volume.
+They say I am finished.
 
-## Guardrails editoriais
+The sound just changed me.
 
-A letra é explícita apenas em uma descarga curta. O protesto se dirige a sistemas, exclusões e ciclos de silêncio, não a uma pessoa real ou a um grupo protegido. A agressividade é cênica, poética e autoral. A música não deve imitar a referência consultada nem qualquer intérprete real.
+### 01:04.66–01:15.04 — Double-time
+
+Now I cut through the clutter with a mutter then a thunder.
+
+Double-time runner, no wonder they wonder.
+
+I stack that syntax, snap back, backtrack.
+
+Packs in the fast forward, no slack in the black track.
+
+### 01:15.04–01:26.68 — Sustentação instrumental e vocal
+
+Now.
+
+### 01:26.68–01:40.84 — Visão e decisão
+
+I not chase crowns, I chase clear vision.
+
+Turn every closed door's ice, clear vision.
+
+Turn every closed door to a forced decision.
+
+If the night wants proof, let the night take notes.
+
+I carry hard hope in the back of my throat.
+
+### 01:40.84–01:50.30 — Halftime e verdade
+
+Halftime hear me, double-time fear me.
+
+Halftime hear me, double-time fear me.
+
+Not for harm, but the truth gets near me.
+
+Not for harm, but the truth gets near me.
+
+### 01:50.30–02:02.10 — Chuva, dor e nomeação
+
+I bring the cold rain, the gold pain, the old flame.
+
+Then I name every chain till it forgets my name.
+
+Pain was a prison, I taught it a rhythm.
+
+### 02:02.10–02:12.24 — Levantar o silêncio
+
+Silence was heavy, I learned how to lift it.
+
+No pause, no pose, no borrowed code.
+
+Banks load in the mode that I chose on the road.
+
+### 02:12.24–02:17.22 — Saída vocal
+
+Fast breath, fresh steps, raw text, no rest.
+
+Kairos in the water, I am more than the test.
+
+### 02:17.22–02:48.00 — Instrumental / atmosfera final
+
+Não há texto vocal detectável na transcrição automática deste trecho. A direção visual deve concluir a transformação iniciada pela letra: água em movimento, respiração, rua molhada, luz âmbar e saída de KTD do quadro, sem inventar novas palavras ou inserir o refrão da versão pré-v4.
+
+## Direção de performance alinhada à master
+
+A abertura deve ser uma confissão próxima, seca e articulada: fechadura, relógio, pressão e nome. O primeiro arco visual deve sair da contenção do corredor para a marcha deliberada, sem usar “Water at the window” como marcação vocal, pois essa linha pertence à versão pré-v4 arquivada.
+
+A parte central deve alternar peso e aceleração. “Slow down” e “One breath” pedem redução de movimento e preparação física; o bloco de double-time pede câmera frontal em recuo, gestos manuais legíveis e ambiente reagindo em cortes no grid. A frase isolada “Now” entre 01:15.04 e 01:26.68 deve ser tratada como sustentação, suspensão e espaço, não como nova letra.
+
+O trecho de 01:26.68 a 02:17.22 narra visão, portas fechadas, chuva, dor, correntes, prisão, silêncio e escolha. A bridge visual deve acontecer aqui como transição de confinamento para levantamento, sem recorrer à antiga bridge confessional da versão arquivada. Depois de 02:17.22, o clipe entra em atmosfera instrumental: o encerramento deve ser visualmente conclusivo, mas não deve atribuir novas linhas ao áudio.
+
+## Guardrails
+
+A master v4 é a autoridade sonora desta versão. A letra pré-v4 é histórica e não deve reaparecer na decupagem, nos prompts, em legendas ou em marcações de corte. O texto “I hear the lock click / I hear the clock tick” é a abertura oficial. Nenhuma frase deve ser corrigida editorialmente sem nova escuta e aprovação de KTD, porque a meta desta versão é refletir a gravação existente, não reescrever sua performance.
+
+## Referências
+
+[1]: https://github.com/Nexus-HUB57/KAIR-S-SONICA/blob/main/assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav "Master oficial v4"
+
+[2]: https://github.com/Nexus-HUB57/KAIR-S-SONICA/blob/main/docs/ktd-main-single-rework-lyrics.md "Letra alinhada à master v4"
+
+[3]: https://github.com/Nexus-HUB57/KAIR-S-SONICA/blob/main/assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_transcription_20260821_110817.json "Transcrição temporal da master v4"
