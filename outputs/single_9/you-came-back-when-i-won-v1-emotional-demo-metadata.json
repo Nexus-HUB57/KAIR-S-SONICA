@@ -1,0 +1,55 @@
+{
+  "project": "KAIR-S-SONICA",
+  "artist": "Kháirus the Dragon (KTD)",
+  "single_number": 9,
+  "title": "You Came Back When I Won",
+  "version": "v1 emotional demo",
+  "status": "candidate for human evaluation",
+  "official_language": "English",
+  "reference_language": "Brazilian Portuguese",
+  "tempo_bpm": 94,
+  "key_center": "F-sharp minor",
+  "duration_seconds": 175.255510,
+  "duration_display": "2:55",
+  "audio_format_wav": {
+    "codec": "pcm_s24le",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bits_per_sample": 24,
+    "sha256": "b8498d206a6f78afa58ba1b565446180afa497226e105a646a95807989f321f6",
+    "path": "outputs/single_9/you-came-back-when-i-won-v1-emotional-demo-master.wav"
+  },
+  "audio_format_mp3": {
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bitrate_kbps": 320,
+    "sha256": "9b7fe0dc570a47e82aec229e3a19ffe3be56ba1bb3d006970e5b8767c2f35f6d",
+    "path": "outputs/single_9/you-came-back-when-i-won-v1-emotional-demo-master.mp3"
+  },
+  "loudness_measurement": {
+    "integrated_lufs": -12.8,
+    "true_peak_dbtp": 0.2,
+    "loudness_range_lu": 10.2,
+    "note": "Measurement only; no global normalization applied."
+  },
+  "creative_direction": {
+    "genre": "original rap-soul and R&B crossover",
+    "vocal_identity": "original KTD medium-low baritone lead with controlled anger, pain, self-respect and comeback attitude",
+    "story": "betrayal, abandonment during hardship, ridicule after betrayal, and a return motivated by fame and money",
+    "chorus_focus": "You came back when I won",
+    "reference_use": "Broad production and emotional characteristics only; no lyric, melody, sample, vocal identity, or recognizable arrangement copied."
+  },
+  "vocal_content_check": {
+    "transcription_path": "outputs/single_9/you-came-back-when-i-won-v1-emotional-demo-transcription.txt",
+    "result": "The main narrative, title hook, betrayal arc, bridge boundary and emotional resolution are present. Automatic transcription shows compressed wording in some lines, so this is a musical and vocal performance demo, not a final lyric-lock master."
+  },
+  "guardrails": [
+    "no imitation of real artists",
+    "no biometric voice cloning",
+    "no threats or violent retaliation",
+    "no identifying private details about the mother, friend or child",
+    "no borrowed melody, lyric, sample, or recognizable motif"
+  ],
+  "source_note": "The generation backend returned an MP3-encoded file with a WAV extension; it was preserved as generated-source.mp3 and converted into the verified PCM WAV and 320 kbps MP3 masters."
+}
