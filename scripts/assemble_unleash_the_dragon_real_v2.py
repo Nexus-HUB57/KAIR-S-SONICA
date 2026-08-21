@@ -56,6 +56,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--height", type=int, default=HEIGHT)
     parser.add_argument("--crf", type=int, default=18)
     parser.add_argument("--force", action="store_true")
+    parser.add_argument(
+        "--proof",
+        action="store_true",
+        help="allow proof-only clips that passed keyframe identity checks; never mark output promotional",
+    )
     return parser.parse_args()
 
 
@@ -71,7 +76,9 @@ def load_identity_manifest(path: Path) -> dict[str, Any]:
     return data
 
 
-def validate_identity_gate(clips: list[Path], identity_manifest: Path) -> dict[str, Any]:
+def validate_identity_gate(
+    clips: list[Path], identity_manifest: Path, proof_mode: bool = False
+) -> dict[str, Any]:
     data = load_identity_manifest(identity_manifest)
     records = {
         item.get("video"): item
@@ -91,12 +98,23 @@ def validate_identity_gate(clips: list[Path], identity_manifest: Path) -> dict[s
         record = records.get(str(path))
         if not record:
             raise SystemExit(f"Clipe sem registro de identidade no manifesto: {path}")
-        if not str(record.get("status", "")).startswith("identity_pass"):
+        status = str(record.get("status", ""))
+        allowed_status = status.startswith("identity_pass") or (
+            proof_mode and status.startswith("proof_identity_pass")
+        )
+        if not allowed_status:
             raise SystemExit(
                 f"Clipe não aprovado no gate de identidade: {path} ({record.get('status')})"
             )
+        allowed_criteria = {
+            "pass",
+            "pass_with_partial_visibility",
+            "pass_on_video",
+        }
+        if proof_mode:
+            allowed_criteria.add("pass_on_keyframe")
         for criterion in ("face_identity", "heterochromia", "tattoos"):
-            if record.get(criterion) not in {"pass", "pass_with_partial_visibility", "pass_on_video"}:
+            if record.get(criterion) not in allowed_criteria:
                 raise SystemExit(
                     f"Critério {criterion} não aprovado para {path}: {record.get(criterion)}"
                 )
@@ -111,6 +129,7 @@ def validate_inputs(
     output: Path,
     force: bool,
     identity_manifest: Path,
+    proof_mode: bool,
 ) -> dict[str, Any]:
     if len(clips) < 2:
         raise SystemExit("A montagem v2 exige pelo menos dois clipes reais.")
@@ -121,7 +140,7 @@ def validate_inputs(
         raise SystemExit(
             f"Destino já existe; use --force somente se a substituição for intencional: {output}"
         )
-    return validate_identity_gate(clips, identity_manifest)
+    return validate_identity_gate(clips, identity_manifest, proof_mode=proof_mode)
 
 
 def build_filtergraph(count: int, width: int, height: int, fps: int) -> str:
@@ -173,7 +192,12 @@ def assemble(args: argparse.Namespace, identity_gate: dict[str, Any]) -> dict[st
     output_probe = probe(args.output)
     manifest = {
         "title": "UNLEASH THE DRAGON — real clips v2 work-in-progress",
-        "status": "technical preview; pending editorial approval and approved mix",
+        "status": (
+            "proof-only; keyframe identity passed; real motion video pending"
+            if args.proof
+            else "technical preview; pending editorial approval and approved mix"
+        ),
+        "proof_only": args.proof,
         "audio": "intentionally omitted",
         "identity_gate": identity_gate,
         "format": {
@@ -210,7 +234,10 @@ def assemble(args: argparse.Namespace, identity_gate: dict[str, Any]) -> dict[st
 def main() -> None:
     args = parse_args()
     identity_gate = validate_inputs(
-        args.clips, args.output, args.force, args.identity_manifest
+        args.clips,         args.output,
+        args.force,
+        args.identity_manifest,
+        args.proof,
     )
     manifest = assemble(args, identity_gate)
     duration = manifest["output"]["probe"]["format"].get("duration", "unknown")

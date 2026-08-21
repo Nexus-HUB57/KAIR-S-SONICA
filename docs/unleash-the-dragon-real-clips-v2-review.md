@@ -63,3 +63,17 @@ Não usar como referência de identidade o clipe 2 quarentenado, a prévia v2 an
 3. `docs/ktd-chest-tattoo-official-map-audit.md` — mapa imutável de tatuagens.
 4. `docs/unleash-the-dragon-music-video-v2-full-script.md` — roteiro e critérios do clipe real.
 5. `data/ktd/song1-real-v2-identity-manifest.json` — gate operacional de continuidade.
+
+## Atualização — prova v2 de 24 segundos
+
+Foi montada uma **sequência v2 de prova** com três blocos de oito segundos: camarote real existente, prova da travessia com a imagem aprovada de KTD e prova de performance baseada no keyframe de palco. A saída tem duração exata de 24,000 segundos, 720×1280, 24 fps, H.264/yuv420p e ausência de áudio.
+
+A performance recebeu tratamento de pós-produção de prova com contraste ligeiramente reforçado, saturação controlada, preservação do âmbar/bronze/vermelho queimado, estabilização de enquadramento e movimento de câmera lento. O tratamento não redesenha rosto, olhos ou tatuagens: a heterocromia permanece com o olho esquerdo mel/âmbar e o direito azul-pálido; o mapa de tatuagens central, samurai no braço esquerdo, koi no direito e cerejeiras são preservados pela referência visual, sem afirmar continuidade de movimento gerado.
+
+| Novo ativo | Status | Observação |
+| --- | --- | --- |
+| Prova da porta — 8 s | `proof_identity_pass_keyframe` | Movimento de câmera de validação; não é travessia física gerada. |
+| Prova de performance — 8 s | `proof_identity_pass_keyframe` | Tratamento de cor e câmera aplicados; não é performance vocal gerada. |
+| Sequência v2 de prova — 24 s | `proof-only; real motion video pending` | Aprovável para revisão de identidade, enquadramento e ritmo; não para promoção final. |
+
+O montador agora possui o modo `--proof`, que aceita apenas registros `proof_identity_pass_keyframe` e grava `proof_only: true` no manifesto de saída. A montagem final continua exigindo clipes reais com movimento físico aprovado e não aceita os ativos de prova como substitutos promocionais.

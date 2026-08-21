@@ -1,0 +1,95 @@
+{
+  "project_info": {
+    "title": "UNLEASH THE DRAGON",
+    "created": 1787318115.662,
+    "last_updated": 1787318709.341,
+    "total_slides": 8
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "rhythm_complete",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "ktd_reference",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "stage_consistency",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "post_treatment",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "three_blocks",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "manifest_status",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "handoff",
+      "state": "edited",
+      "pageNum": 8
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "UNLEASH THE DRAGON",
+      "summary": "Capa minimalista para a sequência v2 de prova de 24 segundos."
+    },
+    {
+      "id": "rhythm_complete",
+      "title": "A v2 agora tem ritmo completo",
+      "summary": "Apresenta a estrutura de três atos e a distinção entre prova de revisão e clipe promocional final."
+    },
+    {
+      "id": "ktd_reference",
+      "title": "A referência corrigida fixa KTD",
+      "summary": "Mostra como a referência aprovada da porta trava rosto, heterocromia, tatuagens e cenário."
+    },
+    {
+      "id": "stage_consistency",
+      "title": "O palco preserva rosto, olhos e mapa corporal",
+      "summary": "Explica as âncoras de identidade da performance de palco e o tratamento de continuidade.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-physical-turnaround-sheet.png - Physical turnaround sheet showing KTD's details and master visual referenced in slide"
+    },
+    {
+      "id": "post_treatment",
+      "title": "Pós-produção trata sem alterar identidade",
+      "summary": "Resume as regras de cor, rosto, olhos, tatuagens e movimento aplicadas à prova.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-visual-master.png - Visual anchor close-up clearly showing face, heterochromia eyes, and tattoo details"
+    },
+    {
+      "id": "three_blocks",
+      "title": "Três blocos formam os 24 segundos",
+      "summary": "Apresenta a arquitetura temporal da sequência v2 com camarote, porta e hook."
+    },
+    {
+      "id": "manifest_status",
+      "title": "O manifest separa prova de take final",
+      "summary": "Mostra como o modo proof e o manifesto impedem que provas sejam promovidas como ativos finais.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png - Detailed view of the door handle and stage set corresponding to the 3 clips sequence (camarote, porta, hook)"
+    },
+    {
+      "id": "handoff",
+      "title": "Handoff: substituir prova por clipes reais",
+      "summary": "Entrega o procedimento de geração, validação e aceite para os demais desenvolvedores."
+    }
+  ]
+}
