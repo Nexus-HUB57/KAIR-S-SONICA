@@ -1,0 +1,67 @@
+{
+  "schema_version": "single5-no-more-quiet-cries-v2",
+  "title": "No More Quiet Cries",
+  "artist": "KTD / Kháirus the Dragon",
+  "single": 5,
+  "status": "candidate_for_review",
+  "revision_of": "single_5_no_more_quiet_cries_v1",
+  "language": "English",
+  "bpm": 106,
+  "key": "A minor",
+  "generated_duration_seconds": 180.088163,
+  "revision_focus": {
+    "lyrics_preserved": true,
+    "chorus_preserved": true,
+    "chorus_perceived_speed_preserved": true,
+    "verses_faster": true,
+    "transitions_more_urgent": true,
+    "vocal_more_aggressive": true,
+    "vocal_more_impactful": true,
+    "inspiration_preserved": true
+  },
+  "style": "narrative hip-hop with organic soul-reggae pulse, faster rap verses, melodic chorus and controlled protective anger",
+  "performance": {
+    "verses": "faster pocket, crisp subdivisions, tighter breath control, harder consonant attacks",
+    "chorus": "same approved hook and perceived speed, open melodic delivery, group response",
+    "bridge": "half-time, raw, aggressive and controlled",
+    "final_lift": "maximum projection with inspiring communal energy"
+  },
+  "chorus_locked_text": [
+    "Mama, no more quiet cries in the hallway.",
+    "No more quiet cries.",
+    "I was too young, but I carried the whole weight.",
+    "I carried the whole weight.",
+    "I hate the hands that made you hide your light.",
+    "Now every scar in your name turns the dark to sunrise.",
+    "Mama, if I rise, then you rise with me.",
+    "No more quiet cries — this is what we're gonna be."
+  ],
+  "mix_direction": {
+    "lead_vocal": "forward, centered, aggressive, articulated",
+    "processing": "controlled compression, faster attack, moderate parallel density, subtle harmonic saturation, clear upper-mid presence",
+    "chorus": "wider doubles and backing voices without masking the lead",
+    "target_lufs": -14,
+    "target_true_peak_db": -1
+  },
+  "editorial_guardrails": [
+    "preserve the dignity of the mother",
+    "anger directed at abuse, silence, neglect, illness and the cycle",
+    "no graphic violence or revenge glorification",
+    "no invented diagnosis, dates, names or identifiable third parties",
+    "human audition required before approval"
+  ],
+  "files": {
+    "raw_generation": "outputs/single_5/single_5_no_more_quiet_cries_v2_fast_aggressive.wav",
+    "master_wav": "outputs/single_5/single_5_no_more_quiet_cries_v2_fast_aggressive-master.wav",
+    "master_mp3": "outputs/single_5/single_5_no_more_quiet_cries_v2_fast_aggressive-master.mp3",
+    "lyrics_reference": "docs/singles/single-5-no-more-quiet-cries-lyrics-v1.md",
+    "v1_reference_metadata": "outputs/single_5/single_5_no_more_quiet_cries_v1-metadata.json"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "master_wav_sha256": "37af67fb1a912c27e840b243010fdaa8a613be05c53ffeb52a2ce5224f832440",
+    "master_mp3_sha256": "fd7eb17060ea36019940a8fd1e5daa28668c0521ca23c8c7fe2b8cd0bc6bacfa"
+  }
+}
