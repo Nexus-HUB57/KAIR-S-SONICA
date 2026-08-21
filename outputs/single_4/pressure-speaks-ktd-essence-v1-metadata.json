@@ -1,0 +1,44 @@
+{
+  "schema_version": "single4-ktd-essence-v1",
+  "title": "Pressure Speaks",
+  "artist": "KTD / Kháirus the Dragon",
+  "single": 4,
+  "status": "candidate_for_review",
+  "reference_policy": {
+    "approved_reference_masters": [
+      "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.mp3",
+      "assets/audio/releases/ktd-second-single-six-names-rebuilt-soul-pre-release-v2.mp3",
+      "assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1.mp3"
+    ],
+    "reference_use": "abstract_attributes_only",
+    "voice_anchor": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
+    "source_imitation": false,
+    "biometric_voice_clone": false
+  },
+  "bpm": 96,
+  "key": "D minor",
+  "generated_duration_seconds": 163.474286,
+  "style": "KTD narrative rap song with dark soul, restrained cinematic tension, punchy hip-hop drums, melodic chorus and selective double-time",
+  "dna": {
+    "verses": "close, dry, medium-low, rhythmic, internally rhymed",
+    "chorus": "open, melodic, repeatable, call-and-response",
+    "performance_arc": "confessional intro -> controlled attack -> double-time burst -> half-time vulnerability -> expanded final chorus",
+    "instrumentation": ["punchy kick", "centered snare", "warm melodic bass", "dark Rhodes", "piano", "restrained pads", "subtle vinyl texture", "short scratch gestures"],
+    "mix": {"lead_vocal": "centered and forward", "integrated_lufs_target": -14, "true_peak_target_db": -1}
+  },
+  "files": {
+    "raw_generation": "outputs/single_4/pressure-speaks-ktd-essence-v1.wav",
+    "master_wav": "outputs/single_4/pressure-speaks-ktd-essence-v1-master.wav",
+    "master_mp3": "outputs/single_4/pressure-speaks-ktd-essence-v1-master.mp3",
+    "lyrics": "docs/singles/single-4-pressure-speaks-lyrics-essence-v1.md",
+    "audit": "docs/singles/single-4-ktd-reference-audit-v1.md"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "master_wav_sha256": "de997c004fe8e22e97dbf7e4a4d2e99c17f7f7b716af2230ec0406ed08816743",
+    "master_mp3_sha256": "0b757691bd739acb88ec335cffe7ab96777149f0e2b4424d0521e3d4ed624254"
+  },
+  "review_gate": "human_audition_required; compare song identity against approved KTD masters before promotion"
+}
