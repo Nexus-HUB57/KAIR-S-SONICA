@@ -1,0 +1,69 @@
+{
+  "schema_version": "prova8-extreme-vocal-v1",
+  "task_id": "prova_8_ktd_extreme_vocal",
+  "status": "approved_final_funk",
+  "approval": {
+    "status": "approved",
+    "role": "third_and_final_funk_proof",
+    "approved_at": "2026-08-21",
+    "approved_elements": ["vocal", "distortion", "saturation", "attack", "Funk base", "mixagem"],
+    "supersedes_as_final_funk": ["prova_6_sintonia_ktd", "prova_7_ktd_aggressive_fastflow"]
+  },
+  "based_on": {
+    "reference": "prova_7_ktd_aggressive_fastflow",
+    "reference_status": "funk_beat_and_mix_approved",
+    "preserved_parameters": {
+      "bpm": 135,
+      "swing_ratio": 0.54,
+      "harmony": ["A7", "G7", "F#m7", "Bm7"],
+      "duration_bars": 16,
+      "target_duration_seconds": 28.444444,
+      "instruction": "preservar a base Funk, o groove, a batida e a mixagem aprovados"
+    }
+  },
+  "changes_from_prova_7": {
+    "vocal_attack": "máximo ataque controlado, consoantes mais duras, finais cortados e projeção frontal",
+    "distortion": "distorção vocal mais evidente em acentos e finais selecionados",
+    "saturation": "saturação paralela densa e harmônica para maior peso",
+    "presence": "lead vocal mais à frente, com corpo de médio-grave e presença de articulação",
+    "performance": "agressividade 10/10, pressão contínua com reset half-time e tag double-time",
+    "constraint": "não alterar a base rítmica, a harmonia, o BPM, o groove ou o balanço de mixagem aprovado"
+  },
+  "vocal_direction": {
+    "persona": "KTD / Kháirus the Dragon",
+    "register": "médio-grave com corpo no peito",
+    "timbre": "raspagem humana controlada, ataque duro e densidade harmônica",
+    "delivery": "rap agressivo, articulado, urgente e frontal",
+    "disclaimer": "direção autoral baseada no perfil do repositório; não é clonagem biométrica direta nem imitação de intérprete real"
+  },
+  "mix_direction": {
+    "serial_compression": "controle rápido preservando transientes",
+    "parallel_saturation": "densidade vocal sem destruir articulação",
+    "distortion": "grit controlado como cor de performance, sem clipping digital",
+    "presence": "médios-altos para consoantes, sem aspereza excessiva",
+    "space": "reverb curto e escuro; doubles estreitos apenas em finais do refrão",
+    "negative_constraints": ["sem gritos constantes", "sem mumble", "sem distorção ininteligível", "sem mudança na base Funk", "sem baixo turvo", "sem imitação de pessoa real"]
+  },
+  "lyrics": {
+    "intro": "Signal in the static, I sharpen every syllable.",
+    "verse": "Hard drive, dark eyes, every line calibrated / Backbeat, black shade, all the doubt translated / Chest tight, breath right, let the consonants collide / Kick late, snare break, put the pressure on the side / No drag, no slack, every phrase has a purpose / Fast tongue, cold lungs, make the pocket feel nervous.",
+    "reset_half_time": "Hold the room... let it wait... then I turn the key.",
+    "hook": "I lean in when the whole floor shakes / More weight in the voice, more force in the take / Four chords, one flame, let the whole night swing / I don't chase that rhythm, I make that rhythm ring.",
+    "final_tag": "Quick breath, hard step, no break in the chain / KTD in the pocket, put the mark in the frame."
+  },
+  "files": {
+    "master_wav": "outputs/prova_8/prova_8_ktd_extreme_vocal_master.wav",
+    "master_mp3": "outputs/prova_8/prova_8_ktd_extreme_vocal_master.mp3",
+    "raw_generation": "outputs/prova_8/prova_8_ktd_extreme_vocal.wav",
+    "reference_prova_7": "assets/audio/proofs/prova-7-candidate/prova_7_ktd_aggressive_fastflow_master.wav"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "master_wav_duration_seconds": 28.444444,
+    "master_mp3_duration_seconds": 28.473469,
+    "master_wav_sha256": "0cbe90b2f0f2a5183e02714ec02e2ea34937cfad534c1326fd7c5d35f56f5989",
+    "master_mp3_sha256": "f2ad36a4367619ad835a36d4f0dc96a58be315bb53605491179f41fbd678a8c1"
+  }
+}
