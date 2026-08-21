@@ -1,0 +1,55 @@
+{
+  "schema_version": "single6-the-dragon-remembers-v1",
+  "title": "The Dragon Remembers",
+  "artist": "KTD / Kháirus the Dragon",
+  "single": 6,
+  "status": "candidate_for_review",
+  "language": "English",
+  "bpm": 104,
+  "key": "D minor",
+  "generated_duration_seconds": 175.882449,
+  "style": "extreme narrative rap with dark soul/trap, punchy hip-hop drums, melodic manifesto chorus and controlled cinematic tension",
+  "narrative": {
+    "central_conflict": "father murdered by an anonymous killer; family structure and financial stability destroyed",
+    "emotional_layers": ["hatred", "grief", "suffering", "confessed desire for revenge", "protective responsibility", "justice", "memory", "inspiration"],
+    "resolution": "The Dragon refuses to surrender his future to revenge and turns the fury into truth, remembrance, family protection and legacy",
+    "killer_identified": false,
+    "graphic_violence": false,
+    "threat_or_retaliation_plan": false
+  },
+  "chorus": {
+    "hook": "You took my father — now the whole world knows.",
+    "response": "The Dragon remembers.",
+    "moral_line": "I don’t need your blood, I need the truth in the light.",
+    "resolution": "You can’t kill a legacy — I’m bringing it to life."
+  },
+  "performance": {
+    "intensity": "extremely aggressive, polemical and devastating",
+    "vocal": "deep chest voice, clenched consonants, pressured breath, restrained growl, harsh attack, explosive chorus projection",
+    "verses": "cold narrative pocket with internal rhymes and short double-time bursts",
+    "bridge": "half-time confession at the edge of revenge",
+    "final_state": "furious but inspiring; justice through memory and legacy"
+  },
+  "mix_direction": {
+    "lead_vocal": "centered and forward",
+    "vocal_processing": "fast compression attack, harmonic saturation, subtle parallel distortion, short room reverb",
+    "chorus": "wide doubles and collective response",
+    "integrated_lufs_target": -14,
+    "true_peak_target_db": -1
+  },
+  "files": {
+    "raw_generation": "outputs/single_6/the-dragon-remembers-v1.wav",
+    "master_wav": "outputs/single_6/the-dragon-remembers-v1-master.wav",
+    "master_mp3": "outputs/single_6/the-dragon-remembers-v1-master.mp3",
+    "lyrics": "docs/singles/single-6-the-dragon-remembers-lyrics-v1.md",
+    "planning": "docs/singles/single-6-planning-v2.md"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "master_wav_sha256": "5ebf1e0d1292cc0f9f6a4039c4138927ffe4be3aef9b72b8f5b7fb17a2a34808",
+    "master_mp3_sha256": "c72a79c9573108a81d85cfed3a8ef46e7208fad6943a78967d3834b4928e5e8c"
+  },
+  "review_gate": "human_audition_required; candidate only"
+}
