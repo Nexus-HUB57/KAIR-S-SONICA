@@ -32,6 +32,18 @@ O modo `inline` mantém o desenvolvimento local simples. No perfil de produção
 
 A saída é copiada do staging para um nome determinístico por tarefa somente depois de localizar um MP4 não vazio e validá-lo com `ffprobe`. Caso o destino já exista, a promoção falha em vez de sobrescrever o artefato. O staging é removido ao final por padrão e pode ser retido apenas com `KAIROS_SKYREELS_KEEP_STAGING=true` para diagnóstico.
 
+## Agregador de agentes externos
+
+O agregador de agentes é uma camada de descoberta e adaptação, não um bypass da fila ou dos gates editoriais. `AgentAggregator` retorna um catálogo local de capabilities para `skyreels-native`, `skyreels-space` e `llamagen`, incluindo skills, algoritmos, operações, origem e prontidão. O catálogo é determinístico e não consulta a rede; por isso pode ser usado pelo frontend e por ferramentas de planejamento sem disparar geração, upload ou custo externo.
+
+| Agente | Papel | Ativação | Operações externas | Regra de segurança |
+| --- | --- | --- | --- | --- |
+| `skyreels-native` | Inferência local GPU via Diffusers | `KAIROS_ENABLE_SKYREELS=true` e `KAIROS_SKYREELS_NATIVE_API=true` | Nenhuma; usa o worker local | Checkpoint montado, CUDA e `ffprobe` obrigatórios |
+| `skyreels-space` | Fallback remoto Gradio para SkyReels-V2 | agregador e agente Space habilitados | `/config`, `/gradio_api/info`, upload e chamada SSE | Probe e geração somente por ação explícita; schema remoto pode mudar |
+| `llamagen` | Storyboards, quadrinhos e referências de personagens/locações | agregador e LlamaGen habilitados + `LLAMAGEN_API_KEY` | upload, criação, consulta e atualização REST | Bearer somente via ambiente; catálogo nunca gera automaticamente |
+
+Os probes ficam em `GET /v1/agents/{agent_name}/probe` e só executam após a habilitação explícita. O probe do Space consulta o schema Gradio; o do LlamaGen usa uma leitura mínima de geração inexistente para classificar alcançabilidade e autorização. Respostas `502` representam indisponibilidade ou rejeição do terceiro; `503` representa integração desabilitada ou agente desconhecido. Nenhuma chave, token, peso ou resposta de geração é versionada.
+
 | Camada | Implementação | Responsabilidade |
 | --- | --- | --- |
 | Contrato | `VideoRequest` | Validar modo, engine, resolução, frames, FPS, seed e referências |
@@ -128,6 +140,15 @@ O backend está **desativado por padrão**. Para habilitá-lo, o ambiente precis
 | `KAIROS_SKYREELS_DEVICE` | `cuda` | Device do pipeline nativo |
 | `KAIROS_SKYREELS_DTYPE` | `bfloat16` | `float16`, `bfloat16` ou `float32` |
 | `KAIROS_SKYREELS_CACHE_DIR` | vazio | Cache local compartilhado de componentes |
+| `KAIROS_AGENT_AGGREGATOR_ENABLED` | `false` | Gate global do catálogo e dos probes externos |
+| `KAIROS_SKYREELS_SPACE_ENABLED` | `false` | Habilita o cliente remoto Gradio após o gate global |
+| `KAIROS_SKYREELS_SPACE_BASE_URL` | `https://fffiloni-skyreels-v2.hf.space` | Base URL documentada do Space; revisar antes de produção |
+| `KAIROS_SKYREELS_SPACE_ENDPOINT` | `generate_diffusion_forced_video` | Endpoint Gradio descoberto em `agents.md`/`config` |
+| `KAIROS_SKYREELS_SPACE_TIMEOUT_SECONDS` | `1800` | Limite de chamada/polling do Space |
+| `KAIROS_LLAMAGEN_ENABLED` | `false` | Habilita o cliente REST após o gate global |
+| `KAIROS_LLAMAGEN_BASE_URL` | `https://api.llamagen.ai` | Base URL do Comic API |
+| `KAIROS_LLAMAGEN_API_KEY_ENV` | `LLAMAGEN_API_KEY` | Nome da variável que contém o Bearer token |
+| `KAIROS_LLAMAGEN_TIMEOUT_SECONDS` | `60` | Timeout de chamadas REST do LlamaGen |
 
 O repositório SkyReels informa requisitos de VRAM muito superiores ao perfil CPU do MVP do KAIR: a documentação reporta aproximadamente 14,7 GB para o modelo 1.3B em 540P e cerca de 51,2 GB para o 14B em 540P [2]. Portanto, o teste unitário deste núcleo é deliberadamente um dry-run do contrato e da segurança; a inferência real requer um ambiente CUDA compatível, dependências do clone e checkpoints autorizados.
 
@@ -161,6 +182,8 @@ Para uma obra de múltiplos planos, o fluxo recomendado é gerar cada cena em um
 A licença do SkyReels exige observância da **Skywork Community License** e inclui restrições de uso e responsabilidade que devem ser revisadas antes de distribuição comercial [3]. O KAIR registra o backend e o modelo no sidecar, mas não substitui a avaliação jurídica, a revisão de procedência dos dados ou a aprovação do titular da identidade visual e vocal.
 
 O perfil de produção usa `docker-compose.yml` combinado com `docker-compose.gpu.yml`. O segundo arquivo constrói `Dockerfile.gpu`, monta o clone em `/opt/SkyReels-V2`, monta os checkpoints em `/models`, habilita `KAIROS_ENABLE_SKYREELS=true`, força `KAIROS_WORKER_MODE=queue`, limita a concorrência e inicia o worker persistente com os mesmos volumes da API. O endpoint `/health` serve ao liveness; `/ready` só retorna sucesso quando clone, entry point e checkpoint configurado estão disponíveis.
+
+Para agentes externos, o procedimento é: manter os três gates desativados; consultar `GET /v1/agents/capabilities`; revisar procedência, licença, limites, retenção e custo; definir as variáveis sem colocar segredos em `.env.example` ou Git; habilitar primeiro o agente desejado; executar o probe; e só então integrar uma geração deliberada ao fluxo de produção. A chave do LlamaGen deve ser fornecida por secret manager/ambiente como `LLAMAGEN_API_KEY`; a chave testada durante esta sincronização retornou HTTP 403 e não deve ser considerada válida.
 
 Antes de exposição em internet, a documentação do KAIR ainda recomenda autenticação no gateway, limites de tamanho, validação MIME, checksum, expiração de artefatos, métricas, logs estruturados e isolamento adicional de workers. Essas proteções são complementares ao worker persistente implementado nesta etapa e devem ser fornecidas pelo ingress/reverse proxy antes de abrir o serviço publicamente.
 

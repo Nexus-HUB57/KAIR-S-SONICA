@@ -134,6 +134,29 @@ python3 scripts/provision_skyreels.py \\
 
 O comando é protegido por lock e pode ser repetido. Sem `--download`, ele apenas valida a instalação local. O token, se necessário, deve existir somente na variável `HF_TOKEN`; o script grava apenas o nome da variável e a revisão no manifesto.
 
+### Agregador de agentes externos
+
+O catálogo de agentes é consultado sem rede em [`GET /v1/agents/capabilities`](docs/api.md), que lista `skyreels-native`, `skyreels-space` e `llamagen` com skills, algoritmos, operações, origem e prontidão. Os agentes remotos são **desabilitados por padrão**; o catálogo não faz upload, não cria gerações e não consome serviços externos.
+
+```bash
+curl http://localhost:8000/v1/agents/capabilities
+```
+
+O probe é deliberado e separado do catálogo. Depois de revisar licença, procedência, retenção e custo, habilite os gates correspondentes no ambiente e consulte, por exemplo:
+
+```bash
+export KAIROS_AGENT_AGGREGATOR_ENABLED=true
+export KAIROS_SKYREELS_SPACE_ENABLED=true
+# ou, separadamente:
+export KAIROS_LLAMAGEN_ENABLED=true
+export LLAMAGEN_API_KEY='valor fornecido pelo operador via secret manager'
+
+curl http://localhost:8000/v1/agents/skyreels-space/probe
+curl http://localhost:8000/v1/agents/llamagen/probe
+```
+
+`skyreels-space` usa o Space Gradio documentado em [`agents.md`](https://huggingface.co/spaces/fffiloni/SkyReels-V2/agents.md), com descoberta de `/config`, upload e polling SSE. `llamagen` usa o Comic API REST conforme a [documentação oficial](https://llamagen.ai/comic-api/docs), com Bearer somente pela variável de ambiente e operações de upload, geração, consulta e atualização encapsuladas no cliente. Uma geração externa nunca é iniciada pelo catálogo ou pelo probe. A chave fornecida para esta sincronização retornou HTTP 403 e precisa ser renovada antes do uso.
+
 ## Carga e observabilidade
 
 O utilitário [`scripts/load_test_orchestrate.py`](scripts/load_test_orchestrate.py) submete tarefas concorrentes, acompanha cada `task_id` e grava latências, throughput, taxa de sucesso e resultados individuais em JSON. O cenário de referência usa 20 tarefas com concorrência 5; execute `make load` ou ajuste `REQUESTS` e `CONCURRENCY`. O relatório experimental está documentado em [`docs/load-testing.md`](docs/load-testing.md).

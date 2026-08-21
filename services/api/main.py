@@ -14,6 +14,7 @@ from uuid import uuid4
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from kairos_core.agents import AgentAggregator, ExternalAgentError
 from kairos_core.audio.orchestrator import MultimediaOrchestrator
 from kairos_core.audio.pipeline import AudioPipeline
 from kairos_core.config import Settings
@@ -165,6 +166,7 @@ class TaskStore:
 
 settings = Settings.from_env()
 store = TaskStore(settings.task_db_path)
+agent_aggregator = AgentAggregator(settings)
 
 
 def _native_checkpoint_ready() -> bool:
@@ -331,6 +333,21 @@ def readiness() -> dict[str, Any]:
     else:
         checks["skyreels"] = "disabled"
     return {"status": "ok", "checks": checks}
+
+
+@app.get("/v1/agents/capabilities")
+def agent_capabilities() -> dict[str, Any]:
+    return agent_aggregator.catalog()
+
+
+@app.get("/v1/agents/{agent_name}/probe")
+def probe_agent(agent_name: str) -> dict[str, Any]:
+    try:
+        return agent_aggregator.probe(agent_name)
+    except ExternalAgentError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+    except (RuntimeError, ValueError) as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
 
 
 @app.get("/v1/persona", response_model=PersonaResponse)
