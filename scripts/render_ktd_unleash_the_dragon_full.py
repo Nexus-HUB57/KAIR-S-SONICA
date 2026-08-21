@@ -189,7 +189,7 @@ def render_frames(shots: list[Shot], temp_dir: Path, fps: int,
     frame_index = 0
     for shot in shots:
         source = cache.setdefault(shot.image, Image.open(shot.image))
-        frame_count = max(1, int(round((shot.end - shot.start) * fps)))
+        frame_count = max(1, round((shot.end - shot.start) * fps))
         for local_index in range(frame_count):
             progress = local_index / max(1, frame_count - 1)
             frame = animated_frame(source, progress, shot.motion,

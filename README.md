@@ -70,8 +70,10 @@ O manifesto JSON de KTD foi atualizado para a versão `4.0.0`, com a playlist, o
 | DSP | Saturação, ganho, limitação e preparação de stems | `kairos_core.audio.dsp` | Pedalboard, Librosa, Essentia e Torchaudio |
 | Multimídia | Ingestão, análise, transcrição e sidecars | `kairos_core.audio.orchestrator` | Workers, storage e streaming de referências |
 | Master/MP3 | Renderizar WAV e transcodificar com FFmpeg/LAME | `kairos_core.audio.transcode` | Presets de distribuição e streaming |
-| Gateway | API HTTP e eventos WebSocket | `services.api.main` | Fila distribuída, autenticação e storage S3 |
-| Cliente | Formulário responsivo e acompanhamento de tarefa | `web-client` | Editor multifaixa e Web Audio API |
+| Gateway | API HTTP e eventos WebSocket | `services.api.main` | Auth no ingress e storage distribuído |
+| Vídeo | T2V/I2V/DF, staging e entrega MP4 | `kairos_core.video` + SkyReels-V2 | Filas distribuídas e observabilidade |
+| Worker | Execução persistente de jobs | `scripts/run_worker.py` | Redis/PostgreSQL e autoscaling |
+| Cliente | Formulários de áudio/vídeo e acompanhamento | `web-client` | Editor multifaixa e Web Audio API |
 
 O diagrama detalhado e as decisões de engenharia estão em [`docs/architecture.md`](docs/architecture.md), o fluxo específico da central multimídia está em [`docs/multimedia-architecture.md`](docs/multimedia-architecture.md), e o contrato HTTP está em [`docs/api.md`](docs/api.md).
 
@@ -87,7 +89,7 @@ curl -X POST http://localhost:8000/v1/orchestrate \\
 
 A tarefa expõe progresso por `GET /v1/tasks/{task_id}` e `WS /ws/tasks/{task_id}`. Quando concluída, o cliente pode buscar áudio, transcrição e metadados em `/v1/audio`, `/v1/transcript` e `/v1/metadata`.
 
-O cliente web inclui um painel Live Ops que acompanha múltiplas tarefas pelo WebSocket, exibe progresso, estado de conexão, mensagens do worker e links para os artefatos. Execute-o com `cd web-client && npm install && npm run dev` e use `VITE_API_BASE` para apontar ao gateway.
+O cliente web inclui um painel Live Ops que acompanha múltiplas tarefas pelo WebSocket, exibe progresso, estado de conexão, mensagens do worker e links para os artefatos. O formulário `VIDEO LAB` envia T2V, I2V, extensão e start/end pelo mesmo monitor. Execute-o com `cd web-client && npm install && npm run dev`; em produção, defina `VITE_API_BASE` no build ou use o proxy da mesma origem.
 
 ### Núcleo audiovisual SkyReels-V2
 
@@ -104,6 +106,18 @@ curl -X POST http://localhost:8000/v1/video/generate \\
 ```
 
 O estado da tarefa continua em `GET /v1/tasks/{task_id}` ou `WS /ws/tasks/{task_id}`, e o MP4 concluído é entregue em `GET /v1/video/{task_id}`. Falhas de configuração, checkpoint, GPU ou execução são retornadas como `FAILED`; o sistema não substitui uma falha real por um artefato procedural.
+
+Para produção, use o worker persistente e os dois compose files:
+
+```bash
+# execute a partir de KAIR-S-SONICA; mantenha SkyReels-V2 e checkpoints fora do Git
+export SKYREELS_REPO_PATH=/caminho/absoluto/SkyReels-V2
+export SKYREELS_MODELS_PATH=/caminho/absoluto/models
+export SKYREELS_MODEL_SUBPATH=Skywork/SkyReels-V2-DF-1.3B-540P
+docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+```
+
+O gateway responde em `/health` enquanto está vivo e em `/ready` somente quando o clone, o entry point Diffusion Forcing e o checkpoint configurado estão acessíveis. O serviço `worker` compartilha `data/`, reivindica jobs persistidos e executa a inferência sem bloquear o request HTTP. O endpoint `/docs` permanece disponível para inspeção do contrato.
 
 ## Carga e observabilidade
 

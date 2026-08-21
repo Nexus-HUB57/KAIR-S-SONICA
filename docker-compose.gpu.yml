@@ -1,10 +1,79 @@
 services:
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.gpu
+      args:
+        CUDA_IMAGE: ${CUDA_IMAGE:-nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04}
     environment:
+      KAIROS_ENV: production
+      KAIROS_WORKER_MODE: queue
+      KAIROS_OUTPUT_DIR: /app/data/output
+      KAIROS_UPLOAD_DIR: /app/data/uploads
+      KAIROS_TASK_DB_PATH: /app/data/kairos_tasks.sqlite3
+      KAIROS_FFMPEG_BIN: ffmpeg
+      KAIROS_FFPROBE_BIN: ffprobe
+      KAIROS_CORS_ORIGINS: ${KAIROS_CORS_ORIGINS:-http://localhost:8080}
       KAIROS_ENABLE_EXTERNAL_MODELS: "true"
-    # A imagem base deve ser substituída por uma imagem CUDA compatível com o host.
-    # Nenhum checkpoint é baixado automaticamente por este arquivo.
+      KAIROS_ENABLE_SKYREELS: "true"
+      KAIROS_SKYREELS_REPO: /opt/SkyReels-V2
+      KAIROS_SKYREELS_MODEL_ID: /models/${SKYREELS_MODEL_SUBPATH:-Skywork/SkyReels-V2-DF-1.3B-540P}
+      KAIROS_SKYREELS_PYTHON: python3
+      KAIROS_SKYREELS_ALLOW_MODEL_DOWNLOAD: "false"
+      KAIROS_SKYREELS_KEEP_STAGING: ${KAIROS_SKYREELS_KEEP_STAGING:-false}
+      KAIROS_SKYREELS_MAX_CONCURRENCY: ${KAIROS_SKYREELS_MAX_CONCURRENCY:-1}
+      KAIROS_SKYREELS_TIMEOUT_SECONDS: ${KAIROS_SKYREELS_TIMEOUT_SECONDS:-3600}
+    ports:
+      - "${KAIR_API_PORT:-8000}:8000"
+    volumes:
+      - ./data:/app/data
+      - ${SKYREELS_REPO_PATH:-../SkyReels-V2}:/opt/SkyReels-V2:ro
+      - ${SKYREELS_MODELS_PATH:-../models}:/models:ro
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=3)\""]
+      interval: 30s
+      timeout: 5s
+      start_period: 120s
+      retries: 5
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.gpu
+      args:
+        CUDA_IMAGE: ${CUDA_IMAGE:-nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04}
+    environment:
+      KAIROS_ENV: production
+      KAIROS_WORKER_MODE: queue
+      KAIROS_OUTPUT_DIR: /app/data/output
+      KAIROS_UPLOAD_DIR: /app/data/uploads
+      KAIROS_TASK_DB_PATH: /app/data/kairos_tasks.sqlite3
+      KAIROS_FFMPEG_BIN: ffmpeg
+      KAIROS_FFPROBE_BIN: ffprobe
+      KAIROS_ENABLE_EXTERNAL_MODELS: "true"
+      KAIROS_ENABLE_SKYREELS: "true"
+      KAIROS_SKYREELS_REPO: /opt/SkyReels-V2
+      KAIROS_SKYREELS_MODEL_ID: /models/${SKYREELS_MODEL_SUBPATH:-Skywork/SkyReels-V2-DF-1.3B-540P}
+      KAIROS_SKYREELS_PYTHON: python3
+      KAIROS_SKYREELS_ALLOW_MODEL_DOWNLOAD: "false"
+      KAIROS_SKYREELS_KEEP_STAGING: ${KAIROS_SKYREELS_KEEP_STAGING:-false}
+      KAIROS_SKYREELS_MAX_CONCURRENCY: ${KAIROS_SKYREELS_MAX_CONCURRENCY:-1}
+      KAIROS_SKYREELS_TIMEOUT_SECONDS: ${KAIROS_SKYREELS_TIMEOUT_SECONDS:-3600}
+    volumes:
+      - ./data:/app/data
+      - ${SKYREELS_REPO_PATH:-../SkyReels-V2}:/opt/SkyReels-V2:ro
+      - ${SKYREELS_MODELS_PATH:-../models}:/models:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
     deploy:
       resources:
         reservations:

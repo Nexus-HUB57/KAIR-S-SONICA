@@ -1,0 +1,16 @@
+# Runtime do clone SkyworkAI/SkyReels-V2; os pesos são montados separadamente.
+# torch/torchvision são instalados pela imagem GPU a partir do índice CUDA.
+opencv-python-headless==4.10.0.84
+diffusers>=0.31.0
+transformers==4.49.0
+tokenizers==0.21.1
+accelerate==1.6.0
+tqdm
+imageio
+imageio-ffmpeg
+easydict
+ftfy
+moviepy==1.0.3
+numpy>=1.23.5,<2
+xfuser
+# flash-attn é opcional; o SkyReels usa scaled_dot_product_attention como fallback.

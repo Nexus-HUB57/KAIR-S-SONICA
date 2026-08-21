@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -12,6 +13,8 @@ from kairos_core.video.adapter import SkyReelsVideoAdapter, VideoBackendError
 def _settings(tmp_path: Path, *, enabled: bool = True) -> Settings:
     repo = tmp_path / "SkyReels-V2"
     repo.mkdir()
+    (repo / "generate_video.py").write_text("# fixture", encoding="utf-8")
+    (repo / "generate_video_df.py").write_text("# fixture", encoding="utf-8")
     model = tmp_path / "model"
     model.mkdir()
     return Settings(
@@ -116,7 +119,13 @@ def test_run_promotes_mp4_and_writes_metadata_without_overwrite(tmp_path: Path, 
     settings = _settings(tmp_path)
     adapter = SkyReelsVideoAdapter(settings)
 
-    def fake_run(command, cwd, check, capture_output, text, timeout):
+    def fake_run(command, cwd=None, check=False, capture_output=False, text=False, timeout=None):
+        if command[0] == settings.ffprobe_bin:
+            return SimpleNamespace(
+                returncode=0,
+                stdout=json.dumps({"format": {"duration": "2.0"}, "streams": [{"codec_type": "video"}]}),
+                stderr="",
+            )
         outdir = Path(command[command.index("--outdir") + 1])
         outdir.mkdir(parents=True, exist_ok=True)
         (outdir / "generated.mp4").write_bytes(b"mp4")

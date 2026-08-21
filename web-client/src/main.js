@@ -1,6 +1,6 @@
 import './styles.css';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000';
+const API_BASE = (import.meta.env.VITE_API_BASE || window.location.origin).replace(/\/$/, '');
 const WS_BASE = API_BASE.replace(/^http/, 'ws');
 const app = document.querySelector('#app');
 const monitoredTasks = new Map();
@@ -11,7 +11,7 @@ app.innerHTML = `
       <div>
         <p class="eyebrow">AGENTE KÁIROS · CENTRAL MULTIMÍDIA</p>
         <h1>KAIR-S-SONICA</h1>
-        <p class="lede">Crie um artefato de áudio e acompanhe cada tarefa em tempo real, sem perder o pulso do pipeline.</p>
+        <p class="lede">Crie artefatos de áudio e vídeo e acompanhe cada tarefa em tempo real, sem perder o pulso do pipeline.</p>
       </div>
       <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     </header>
@@ -52,6 +52,31 @@ app.innerHTML = `
           <div class="empty-state">Nenhuma tarefa acompanhada. Inicie um pipeline ou cole um task ID acima.</div>
         </div>
       </section>
+
+      <form id="video-form" class="card composer-card video-card">
+        <div class="section-head">
+          <div><p class="eyebrow">VIDEO LAB</p><h2>Produzir vídeo generativo</h2></div>
+          <span class="chip">SKYREELS · GPU</span>
+        </div>
+        <label>Direção audiovisual<textarea name="prompt" rows="3" required>Cinematic live-action editorial rap video, continuous camera movement, rain, water, vapor and practical amber light, no text, no logo, no watermark.</textarea></label>
+        <div class="grid">
+          <label>Modo<select name="mode"><option value="t2v">Texto → vídeo</option><option value="i2v">Keyframe → vídeo</option><option value="extend">Extensão de vídeo</option><option value="start_end">Frame inicial → frame final</option></select></label>
+          <label>Engine<select name="engine"><option value="diffusion_forcing">Diffusion Forcing</option><option value="standard">Standard T2V/I2V</option></select></label>
+          <label>Resolução<select name="resolution"><option value="540P">540P</option><option value="720P">720P</option></select></label>
+          <label>Frames<input name="num_frames" type="number" min="1" max="1457" placeholder="97 / 121" /></label>
+          <label>FPS<input name="fps" type="number" min="1" max="120" value="24" /></label>
+          <label>Seed<input name="seed" type="number" min="0" max="4294967294" placeholder="opcional" /></label>
+        </div>
+        <div class="grid">
+          <label>Imagem / keyframe<input name="image_path" placeholder="arquivo em data/uploads" /></label>
+          <label>Frame final<input name="end_image_path" placeholder="necessário em start/end" /></label>
+          <label>Vídeo prefixo<input name="video_path" placeholder="necessário em extensão" /></label>
+          <label>Passos<input name="inference_steps" type="number" min="1" max="200" value="30" /></label>
+        </div>
+        <p class="form-note">As referências devem estar montadas em <code>data/uploads</code> ou <code>data/output</code>. O checkpoint e a GPU são configurados no worker de produção.</p>
+        <button type="submit">Enfileirar vídeo</button>
+        <div id="video-feedback" class="feedback" aria-live="polite"></div>
+      </form>
     </div>
 
     <section id="status" class="card status" aria-live="polite">
@@ -66,6 +91,8 @@ const taskIdsInput = document.querySelector('#task-ids');
 const tasksGrid = document.querySelector('#tasks-grid');
 const socketHealth = document.querySelector('#socket-health');
 const feedback = document.querySelector('#submit-feedback');
+const videoForm = document.querySelector('#video-form');
+const videoFeedback = document.querySelector('#video-feedback');
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -88,8 +115,9 @@ function renderTasks() {
     const percent = Math.max(0, Math.min(100, Number(progress.percent || 0)));
     const terminal = ['SUCCEEDED', 'FAILED'].includes(snapshot.status);
     const result = snapshot.result || {};
+    const isVideo = Boolean(result.video_url);
     const links = [
-      snapshot.artifact_url ? `<a href="${API_BASE}${escapeHtml(snapshot.artifact_url)}" target="_blank" rel="noreferrer">áudio</a>` : '',
+      snapshot.artifact_url ? `<a href="${API_BASE}${escapeHtml(snapshot.artifact_url)}" target="_blank" rel="noreferrer">${isVideo ? 'vídeo' : 'áudio'}</a>` : '',
       result.transcript_url ? `<a href="${API_BASE}${escapeHtml(result.transcript_url)}" target="_blank" rel="noreferrer">transcrição</a>` : '',
       result.metadata_url ? `<a href="${API_BASE}${escapeHtml(result.metadata_url)}" target="_blank" rel="noreferrer">metadados</a>` : ''
     ].filter(Boolean).join(' · ');
@@ -157,6 +185,53 @@ watchForm.addEventListener('submit', async (event) => {
 
 tasksGrid.addEventListener('click', (event) => {
   if (event.target.matches('[data-remove-task]')) event.preventDefault();
+});
+
+const videoMode = videoForm.elements.mode;
+const videoEngine = videoForm.elements.engine;
+const videoImage = videoForm.elements.image_path;
+const videoEndImage = videoForm.elements.end_image_path;
+const videoPath = videoForm.elements.video_path;
+
+function syncVideoMode() {
+  const mode = videoMode.value;
+  const isI2V = mode === 'i2v' || mode === 'start_end';
+  const isStartEnd = mode === 'start_end';
+  const isExtend = mode === 'extend';
+  videoImage.required = isI2V;
+  videoEndImage.required = isStartEnd;
+  videoPath.required = isExtend;
+  videoImage.disabled = isExtend;
+  videoEndImage.disabled = !isStartEnd;
+  videoPath.disabled = !isExtend;
+  videoEngine.value = isExtend || isStartEnd ? 'diffusion_forcing' : videoEngine.value;
+  videoEngine.disabled = isExtend || isStartEnd;
+}
+
+videoMode.addEventListener('change', syncVideoMode);
+syncVideoMode();
+
+videoForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const raw = Object.fromEntries(new FormData(videoForm));
+  const data = { ...raw };
+  for (const field of ['num_frames', 'fps', 'seed', 'inference_steps']) {
+    if (data[field] === '') delete data[field];
+    else if (data[field] !== undefined) data[field] = Number(data[field]);
+  }
+  for (const field of ['image_path', 'end_image_path', 'video_path']) {
+    if (!data[field]) delete data[field];
+  }
+  videoFeedback.textContent = 'Enviando pedido de vídeo ao worker GPU...';
+  try {
+    const response = await fetch(`${API_BASE}/v1/video/generate`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
+    const result = await response.json();
+    if (!response.ok) { videoFeedback.textContent = 'Falha ao enfileirar vídeo.'; status.innerHTML = `<pre>${escapeHtml(JSON.stringify(result, null, 2))}</pre>`; return; }
+    videoFeedback.textContent = `Tarefa ${result.task_id} criada. Monitorando em tempo real.`;
+    await watchTask(result.task_id);
+  } catch (error) {
+    videoFeedback.textContent = `Falha de comunicação: ${error.message}`;
+  }
 });
 
 form.addEventListener('submit', async (event) => {

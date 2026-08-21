@@ -112,7 +112,6 @@ def build_shots(images: list[Path], duration: float, bpm: float) -> list[Shot]:
     """
     if len(images) < 4:
         raise SystemExit("O teaser exige pelo menos quatro imagens distintas e sem repetição.")
-    beat = 60.0 / bpm
     shot_duration = 2.0
     if len(images) * shot_duration > duration:
         shot_duration = duration / len(images)
@@ -193,7 +192,8 @@ def render_frames(shots: list[Shot], temp_dir: Path, fps: int,
     frame_index = 0
     for shot in shots:
         source = cache.setdefault(shot.image, Image.open(shot.image))
-        frame_count = max(1, int(round((shot.end - shot.start) * fps)))
+        frame_count = max(1, round((shot.end - shot.start) * fps))
+
         for local_index in range(frame_count):
             progress = local_index / max(1, frame_count - 1)
             frame = animated_frame(source, progress, shot.motion, shot.direction, size)

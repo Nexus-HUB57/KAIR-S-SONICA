@@ -1,5 +1,6 @@
 from pathlib import Path
-from PIL import Image, ImageOps, ImageDraw
+
+from PIL import Image, ImageDraw, ImageOps
 
 root = Path('/home/ubuntu/KAIR-S-SONICA')
 files = sorted((root/'assets/video/keyframes').glob('*.png')) + sorted((root/'assets/video/plates').glob('*.png'))

@@ -1,5 +1,6 @@
 from pathlib import Path
-from PIL import Image, ImageOps, ImageDraw, ImageFont
+
+from PIL import Image, ImageDraw, ImageOps
 
 root = Path('/home/ubuntu/KAIR-S-SONICA')
 files = [

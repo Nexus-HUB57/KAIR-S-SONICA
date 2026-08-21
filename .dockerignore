@@ -1,0 +1,14 @@
+.git
+.git/**
+.github
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.ruff_cache
+build
+dist
+*.egg-info
+data/output
+data/uploads
+data/kairos_tasks.sqlite3
+artifacts

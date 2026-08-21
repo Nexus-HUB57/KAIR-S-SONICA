@@ -10,6 +10,10 @@ Retorna o estado do gateway e a versão da API.
 {"status":"ok","service":"kairos-sonica-api","version":"0.1.0"}
 ```
 
+## `GET /ready`
+
+Retorna `200` quando o serviço está vivo e, se `KAIROS_ENABLE_SKYREELS=true`, quando o clone, o entry point Diffusion Forcing e o checkpoint configurado estão acessíveis. Caso contrário, retorna `503` com o mapa de verificações. O endpoint é adequado para readiness probe; `/health` permanece como liveness probe.
+
 ## `GET /v1/persona`
 
 Retorna a persona operacional versionada do Agente Káiros. O payload inclui identidade, missão, papéis, capacidades, pipeline, contrato de saída, guardrails e o prompt de sistema. Em produção, o endpoint deve ser protegido por autenticação e política de versionamento.
@@ -85,9 +89,33 @@ A resposta inicial segue o mesmo contrato de tarefa:
 {"task_id":"...","status":"PENDING"}
 ```
 
+## `POST /v1/video/generate`
+
+Cria uma tarefa assíncrona para T2V, I2V, Diffusion Forcing, extensão ou controle de frame inicial/final. O backend exige `KAIROS_ENABLE_SKYREELS=true`, clone e checkpoint configurados; referências de imagem/vídeo só podem estar em `data/uploads` ou `data/output`.
+
+```json
+{
+  "prompt": "A continuous cinematic live-action shot in rain, moving camera, no text, no watermark.",
+  "mode": "i2v",
+  "engine": "diffusion_forcing",
+  "resolution": "540P",
+  "image_path": "keyframe.png",
+  "num_frames": 97,
+  "fps": 24,
+  "seed": 42,
+  "offload": true
+}
+```
+
+A resposta é `202 Accepted` com `task_id`. Em modo `inline`, a API inicia o worker local; em modo `queue`, apenas grava o payload no `TaskStore` e o processo `scripts/run_worker.py` reivindica e executa o job. O MP4 é validado com `ffprobe` antes de ser publicado.
+
 ## `GET /v1/tasks/{task_id}`
 
 Retorna `PENDING`, `RUNNING`, `SUCCEEDED` ou `FAILED`, além de `progress`, `artifact_url`, `error` e timestamps.
+
+## `GET /v1/video/{task_id}`
+
+Entrega o MP4 publicado para uma tarefa de vídeo concluída. O serviço não expõe o staging e não sobrescreve uma saída existente.
 
 ## `GET /v1/audio/{task_id}`
 
@@ -99,4 +127,4 @@ Entregam, respectivamente, o sidecar JSON da transcrição e os metadados comple
 
 ## `WS /ws/tasks/{task_id}`
 
-Envia snapshots JSON de progresso até a conclusão. Um cliente deve tratar desconexão e também consultar o endpoint HTTP, pois o WebSocket é um canal de atualização e não uma fila durável.
+Envia snapshots JSON de progresso até a conclusão. Um cliente deve tratar desconexão e também consultar o endpoint HTTP, pois o WebSocket é um canal de atualização e não substitui o `TaskStore` persistente.
