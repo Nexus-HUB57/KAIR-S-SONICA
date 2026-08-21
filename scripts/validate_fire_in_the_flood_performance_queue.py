@@ -16,6 +16,7 @@ def main() -> None:
     lyrics_by_id = {scene["id"]: scene["lyric"] for scene in manifest["scenes"]}
     assert payload["version"] == "performance-generation-queue-v1"
     assert payload["performance_required"] is True
+    assert payload["identity_fidelity_gate"] == "docs/ktd-fire-in-the-flood-identity-fidelity-gate-v1.md"
     contract = payload["performance_contract"]
     for key in (
         "must_sing_on_camera",
@@ -52,6 +53,7 @@ def main() -> None:
     print(f"validated scenes={len(scenes)}")
     print(f"vocal_performance_scenes={','.join(vocal)}")
     print(f"instrumental_scenes={','.join(instrumental)}")
+    print("identity_fidelity_gate=present")
     print("status=performance_contract_valid")
 
 

@@ -21,6 +21,13 @@ STYLE_ANCHOR = (
     "Every second must contain temporal movement and a readable action. This must not be a still image with zoom, slideshow, frozen portrait, face morph or montage."
 )
 
+IDENTITY_FIDELITY_ANCHOR = (
+    "Lock one consistent KTD identity across every frame and every motion: compare continuously with the supplied portrait reference. "
+    "Preserve the same facial structure, shaved head, long full beard, compact athletic proportions, left honey-amber eye, right pale clear-blue eye, and two restrained gold eyebrow slits. "
+    "When chest or arms are visible, preserve the exact Diamond Dragon tattoo system: seven vertical diamond-tipped claw marks from the sternum, the symmetrical central dragon-scale spine ending in a dragon head at the navel, samurai armor on the left arm and shoulder, koi on the right arm, and integrated cherry blossoms. "
+    "Tattoos must remain real ink on skin, not digital armor. Reject any frame with face morphing, eye-color swap, beard change, unstable hands or anatomy, invented tattoos, missing tattoo continuity without an occluding cause, or identity drift."
+)
+
 VOCAL_PERFORMANCE_ANCHOR = (
     "KTD must actively perform and sing the exact lyric assigned to this scene into camera or toward a practical microphone. "
     "Make the mouth visibly form the correct phonemes and syllable timing of the supplied lyric, with clear jaw, lips and tongue motion; this is required phoneme-level lip-sync, not a closed-mouth mood performance. "
@@ -57,6 +64,7 @@ def main() -> None:
         "generate_audio": False,
         "master_audio": manifest["master_audio"],
         "reference_rule": "Use the listed 9:16 performance keyframe when available; otherwise prepare a 9:16 KTD performance keyframe before video generation.",
+        "identity_fidelity_gate": "docs/ktd-fire-in-the-flood-identity-fidelity-gate-v1.md",
         "scenes": [],
     }
     for scene in manifest["scenes"]:
@@ -71,7 +79,7 @@ def main() -> None:
         )
         prompt = (
             f"Create a single uninterrupted {scene['duration']}-second cinematic live-action shot for {scene['id']} of Fire in the Flood. "
-            f"{GLOBAL_ANCHOR} {STYLE_ANCHOR} {performance_anchor} "
+            f"{GLOBAL_ANCHOR} {STYLE_ANCHOR} {IDENTITY_FIDELITY_ANCHOR} {performance_anchor} "
             f"{lyric_instruction}"
             f"Scene action: {action} "
             "Use a continuous camera move appropriate to the action, preserve screen direction and physical causality, and end with a clear visual handoff to the next scene. "

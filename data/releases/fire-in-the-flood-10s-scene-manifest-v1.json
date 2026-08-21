@@ -10,6 +10,7 @@
   "transcription_source": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4_transcription_20260821_110817.json",
   "approved_format": "data/releases/fire-in-the-flood-official-approved-format-v1.json",
   "performance_direction": "docs/ktd-fire-in-the-flood-performance-direction-v1.md",
+  "identity_fidelity_gate": "docs/ktd-fire-in-the-flood-identity-fidelity-gate-v1.md",
   "performance_audit": "artifacts/video/validation/current-preview-performance-audit.md",
   "master_audio": "assets/audio/releases/ktd-main-single-fire-in-the-flood-v1-reference-aligned-mix-v4.wav",
   "target": {"width": 720, "height": 1280, "aspect_ratio": "9:16", "fps": 24, "audio_sample_rate": 44100},
