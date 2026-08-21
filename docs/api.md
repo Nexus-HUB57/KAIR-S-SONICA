@@ -161,6 +161,45 @@ Busca ativos de mídia por uma ação explícita. O campo `kind` aceita `image` 
 
 A resposta inclui `provider_order`, `assets` normalizados e `downloaded`. URLs, chaves e conteúdo não são colocados em logs estruturados; downloads são limitados por `KAIROS_MEDIA_CACHE_MAX_BYTES`.
 
+## `GET /v1/agentic/capabilities`
+
+Retorna os 12 papéis agenticos, skills, estágios e contratos de handoff. O catálogo é local, não chama LLM, não consulta provedores e não cria tarefas.
+
+```json
+{
+  "schema_version": 1,
+  "name": "kairos-agentic-studio",
+  "enabled": true,
+  "execution_mode": "deterministic-contract-first",
+  "external_tools_default": false,
+  "roles": ["ceo", "cco", "scriptwriter", "dop", "sound_designer", "editor", "vfx", "social", "producer", "rag", "accessibility", "qa"]
+}
+```
+
+## `POST /v1/agentic/run`
+
+Executa o planejamento agentico completo em modo síncrono de contrato. O resultado contém estratégia, direção criativa, roteiro/cenas, storyboard, plano de áudio, VFX, distribuição, acessibilidade, QA, memória e handoffs validáveis como `VideoRequest`/`MultimediaRequest`. Por padrão, `submit_handoffs=false` e nenhuma tarefa é criada.
+
+Para submeter handoffs ao `TaskStore` e ao worker existentes, envie `submit_handoffs=true` e `approve_handoffs=true` deliberadamente. Cada cena vira uma tarefa `video`, o handoff de áudio vira uma tarefa `multimedia`, e o comportamento `inline`/`queue` segue `KAIROS_WORKER_MODE`. A rota nunca substitui `POST /v1/video/generate`, `POST /v1/orchestrate`, a validação `ffprobe` ou a entrega HTTP.
+
+```json
+{
+  "prompt": "clipe de rap cinematográfico em chuva neon",
+  "project_id": "campaign-001",
+  "duration_seconds": 15,
+  "scene_seconds": 5,
+  "aspect_ratio": "9:16",
+  "resolution": "720P",
+  "fps": 24,
+  "seed": 42,
+  "include_media_references": false,
+  "submit_handoffs": false,
+  "approve_handoffs": false
+}
+```
+
+`include_media_references=true` só consulta a cadeia Pexels/Unsplash se `KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED=true`; downloads continuam fora do fluxo agentico e exigem a rota explícita de mídia.
+
 ## `GET /v1/agents/capabilities`
 
 Retorna o catálogo versionado de agentes, skills, algoritmos e operações conhecidas pelo agregador. O endpoint não faz chamadas de rede, não dispara geração e informa explicitamente quais integrações estão habilitadas. Os agentes externos permanecem desabilitados por padrão.
