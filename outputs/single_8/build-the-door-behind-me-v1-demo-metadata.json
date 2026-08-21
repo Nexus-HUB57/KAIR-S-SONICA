@@ -4,7 +4,13 @@
   "single_number": 8,
   "title": "Build the Door Behind Me",
   "version": "v1 demo",
-  "status": "candidate for human evaluation",
+  "status": "approved",
+  "approval": {
+    "approved_by_user": true,
+    "approved_at": "2026-08-21",
+    "approved_version": "v1",
+    "note": "User decision: keep v1 as the approved Single 8 version. v2 remains archived for comparison only and must not replace v1."
+  },
   "official_language": "English",
   "reference_language": "Brazilian Portuguese",
   "tempo_bpm": 98,
