@@ -49,7 +49,7 @@ class AgenticToolbox:
         audio_request = MultimediaRequest(
             prompt=request.prompt,
             duration_seconds=request.duration_seconds,
-            generate_audio=False,
+            generate_audio=True,
             transcribe=False,
             analyze_audio=False,
             output_format="wav",

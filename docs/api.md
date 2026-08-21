@@ -200,6 +200,61 @@ Para submeter handoffs ao `TaskStore` e ao worker existentes, envie `submit_hand
 
 `include_media_references=true` só consulta a cadeia Pexels/Unsplash se `KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED=true`; downloads continuam fora do fluxo agentico e exigem a rota explícita de mídia.
 
+### Contrato de submissão e processamento no `TaskStore`
+
+O pedido de `/v1/agentic/run` é validado por `AgenticRunRequest`. `prompt` e `project_id` identificam o briefing; `duration_seconds`, `scene_seconds`, `aspect_ratio`, `resolution` e `fps` controlam o plano; `seed` mantém reprodutibilidade; `include_media_references` controla apenas a pesquisa opcional; e `max_iterations` limita a preparação determinística. `submit_handoffs` é o comando de escrita na fila e `approve_handoffs` é o gate de autorização. Se o primeiro for `true` e o segundo `false`, a API retorna `409` e não escreve no banco.
+
+Com ambos em `true`, o orquestrador termina primeiro a validação do pacote. Para cada handoff `video_request`, ele reconstrói o payload com `VideoRequest.model_validate`, gera um `task_id` novo e chama `TaskStore.create(task_id, job_kind="video", payload=...)`. Para o handoff `multimedia_request`, executa a mesma operação com `MultimediaRequest` e `job_kind="multimedia"`. Cada chamada grava uma linha em `tasks` com status `PENDING` e uma linha em `task_jobs` com `claimed_at=NULL`; a resposta inclui os IDs em `submissions`.
+
+No modo `KAIROS_WORKER_MODE=queue`, o processo HTTP encerra após persistir os jobs e o worker `scripts/run_worker.py` os reivindica atomicamente com `claim_recoverable_jobs`. No modo `inline`, a API inicia o runner correspondente em thread daemon depois da persistência. O runner atualiza `PENDING → RUNNING → SUCCEEDED/FAILED`; em estado terminal o `TaskStore` remove a linha de `task_jobs`, preservando o snapshot em `tasks`. Reinícios devolvem jobs não terminais à fila. O handoff não publica diretamente um MP4: vídeo continua sujeito ao staging, `ffprobe`, promoção atômica e `GET /v1/video/{task_id}`; áudio continua sujeito ao pipeline multimídia e `GET /v1/audio/{task_id}`.
+
+Resposta de planejamento sem submissão:
+
+```json
+{
+  "status": "READY_FOR_APPROVAL",
+  "run_id": "...",
+  "handoffs": [
+    {"kind": "video_request", "requires_approval": true},
+    {"kind": "video_request", "requires_approval": true},
+    {"kind": "multimedia_request", "requires_approval": true}
+  ],
+  "submissions": []
+}
+```
+
+Resposta após aprovação e submissão:
+
+```json
+{
+  "status": "SUBMITTED",
+  "run_id": "...",
+  "submissions": [
+    {"task_id": "...", "kind": "video", "agent": "vfx"},
+    {"task_id": "...", "kind": "multimedia", "agent": "audio_pipeline"}
+  ]
+}
+```
+
+## Validação no Compose GPU público
+
+No host NVIDIA/CUDA público, o fluxo completo de readiness e descoberta pode ser executado com:
+
+```bash
+./scripts/test_agents_gpu_compose.sh
+```
+
+O harness valida `nvidia-smi`, Docker Compose v2, o manifesto `docker-compose.gpu.yml`, `/ready`, `/health`, `/v1/video/capabilities`, `/v1/agents/capabilities` e `/v1/agentic/capabilities`. Por padrão, exige que o backend native esteja pronto, não faz chamadas a terceiros e mantém `KAIROS_RUN_EXTERNAL_PROBES=false`. Depois de revisar custo, procedência, retenção e credenciais, o operador pode habilitar os gates e executar os probes remotos:
+
+```bash
+KAIROS_AGENT_AGGREGATOR_ENABLED=true \
+KAIROS_SKYREELS_SPACE_ENABLED=true \
+KAIROS_RUN_EXTERNAL_PROBES=true \
+./scripts/test_agents_gpu_compose.sh
+```
+
+O probe LlamaGen só é executado quando `KAIROS_LLAMAGEN_ENABLED=true` e `LLAMAGEN_API_KEY` estão presentes; `KAIROS_REQUIRE_LLAMAGEN_PROBE=true` transforma sua ausência em falha explícita. A chave é interpolada pelo ambiente do host, nunca colocada no Compose, na imagem ou no Git.
+
 ## `GET /v1/agents/capabilities`
 
 Retorna o catálogo versionado de agentes, skills, algoritmos e operações conhecidas pelo agregador. O endpoint não faz chamadas de rede, não dispara geração e informa explicitamente quais integrações estão habilitadas. Os agentes externos permanecem desabilitados por padrão.
