@@ -50,6 +50,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--clips", nargs="+", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--manifest", type=Path)
+    parser.add_argument("--identity-manifest", type=Path, required=True)
     parser.add_argument("--fps", type=int, default=FPS)
     parser.add_argument("--width", type=int, default=WIDTH)
     parser.add_argument("--height", type=int, default=HEIGHT)
@@ -58,7 +59,59 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def validate_inputs(clips: list[Path], output: Path, force: bool) -> None:
+def load_identity_manifest(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        raise SystemExit(f"Manifesto de identidade não encontrado: {path}")
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"Manifesto de identidade inválido: {path}: {exc}") from exc
+    if not data.get("identity_reference") or not data.get("gates"):
+        raise SystemExit("Manifesto de identidade incompleto: faltam identity_reference ou gates.")
+    return data
+
+
+def validate_identity_gate(clips: list[Path], identity_manifest: Path) -> dict[str, Any]:
+    data = load_identity_manifest(identity_manifest)
+    records = {
+        item.get("video"): item
+        for item in data.get("clips", [])
+        if item.get("video")
+    }
+    blocked_hashes = {
+        item.get("sha256")
+        for item in data.get("blocked_files", [])
+        if item.get("sha256")
+    }
+    checked: list[dict[str, Any]] = []
+    for path in clips:
+        digest = sha256(path)
+        if digest in blocked_hashes:
+            raise SystemExit(f"Clipe bloqueado pelo manifesto de identidade: {path}")
+        record = records.get(str(path))
+        if not record:
+            raise SystemExit(f"Clipe sem registro de identidade no manifesto: {path}")
+        if not str(record.get("status", "")).startswith("identity_pass"):
+            raise SystemExit(
+                f"Clipe não aprovado no gate de identidade: {path} ({record.get('status')})"
+            )
+        for criterion in ("face_identity", "heterochromia", "tattoos"):
+            if record.get(criterion) not in {"pass", "pass_with_partial_visibility", "pass_on_video"}:
+                raise SystemExit(
+                    f"Critério {criterion} não aprovado para {path}: {record.get(criterion)}"
+                )
+        if record.get("sha256") and record["sha256"] != digest:
+            raise SystemExit(f"Hash divergente no manifesto de identidade: {path}")
+        checked.append({"path": str(path), "record": record, "sha256": digest})
+    return {"manifest": str(identity_manifest), "checked": checked}
+
+
+def validate_inputs(
+    clips: list[Path],
+    output: Path,
+    force: bool,
+    identity_manifest: Path,
+) -> dict[str, Any]:
     if len(clips) < 2:
         raise SystemExit("A montagem v2 exige pelo menos dois clipes reais.")
     for path in clips:
@@ -68,6 +121,7 @@ def validate_inputs(clips: list[Path], output: Path, force: bool) -> None:
         raise SystemExit(
             f"Destino já existe; use --force somente se a substituição for intencional: {output}"
         )
+    return validate_identity_gate(clips, identity_manifest)
 
 
 def build_filtergraph(count: int, width: int, height: int, fps: int) -> str:
@@ -86,7 +140,7 @@ def build_filtergraph(count: int, width: int, height: int, fps: int) -> str:
     return ";".join(parts)
 
 
-def assemble(args: argparse.Namespace) -> dict[str, Any]:
+def assemble(args: argparse.Namespace, identity_gate: dict[str, Any]) -> dict[str, Any]:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     filtergraph = build_filtergraph(len(args.clips), args.width, args.height, args.fps)
     command = ["ffmpeg", "-y"]
@@ -121,6 +175,7 @@ def assemble(args: argparse.Namespace) -> dict[str, Any]:
         "title": "UNLEASH THE DRAGON — real clips v2 work-in-progress",
         "status": "technical preview; pending editorial approval and approved mix",
         "audio": "intentionally omitted",
+        "identity_gate": identity_gate,
         "format": {
             "width": args.width,
             "height": args.height,
@@ -154,8 +209,10 @@ def assemble(args: argparse.Namespace) -> dict[str, Any]:
 
 def main() -> None:
     args = parse_args()
-    validate_inputs(args.clips, args.output, args.force)
-    manifest = assemble(args)
+    identity_gate = validate_inputs(
+        args.clips, args.output, args.force, args.identity_manifest
+    )
+    manifest = assemble(args, identity_gate)
     duration = manifest["output"]["probe"]["format"].get("duration", "unknown")
     print(f"Montagem concluída: {args.output}")
     print(f"Duração: {duration}s | clipes: {len(args.clips)} | áudio: omitido")

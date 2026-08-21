@@ -1,40 +1,65 @@
-# UNLEASH THE DRAGON — revisão da prévia v2 com clipes reais
+# UNLEASH THE DRAGON — revisão de identidade e handoff v2
 
-## Estado da entrega
+## Estado editorial atual
 
-Esta entrega prossegue o desenvolvimento da música 1 migrando a montagem para **clipes de vídeo real com movimento físico contínuo**, conforme a reprovação registrada do v1 procedural. A prévia cobre o arco inicial **preparação no camarote → decisão de atravessar a porta → aproximação do palco**, sem muxagem de áudio, porque a nova mixagem ainda não foi aprovada editorialmente.
+A prévia v2 anterior está **reprovada e quarantinada**. O usuário identificou que o homem que aparece a partir da segunda frame do clipe da porta não é KTD. O diagnóstico é consistente com uma falha de referência: o keyframe original mostrava apenas mão, maçaneta e palco, sem KTD visível para travar a identidade. O modelo de vídeo então introduziu um personagem genérico, invalidando rosto, heterocromia e continuidade corporal.
 
-| Item | Estado | Arquivo |
+> **Regra de produção:** nenhum arquivo em `assets/video/promos/reprovados/` pode voltar à montagem. O pipeline agora exige um manifesto de identidade com aprovação explícita para rosto, heterocromia e tatuagens antes do FFmpeg.
+
+| Item | Estado atual | Local |
 | --- | --- | --- |
-| Clipe real 1 — camarote | Disponível e reutilizado como entrada | `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4` |
-| Clipe real 2 — porta para o palco | **Gerado nesta continuidade e normalizado sem áudio** | `assets/video/promos/unleash-the-dragon-realgclip-02-door-to-stage.mp4` |
-| Prévia v2 — montagem atual | **Concluída, técnica, sem áudio** | `assets/video/promos/unleash-the-dragon-real-v2-work-in-progress-16s.mp4` |
-| Clipe real 3 — performance no palco | Pendente de geração | `assets/video/references/lyrics/song1-fullmv-scene-c3-hook-perf.png` |
-| Muxagem com faixa oficial | Bloqueada até nova mixagem aprovada | — |
+| Clipe real 1 — camarote | Mantido como referência de continuidade anterior; requer revisão editorial final antes da promoção | `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4` |
+| Clipe real 2 anterior — porta | **REPROVADO por identity drift e movido para quarentena** | `assets/video/promos/reprovados/unleash-the-dragon-realgclip-02-door-to-stage-identity-drift.mp4` |
+| Keyframe corrigido — porta com KTD visível | **Concluído; KTD aparece desde o primeiro quadro** | `assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage-ktd-lock-v2.png` |
+| Clipe real 2 corrigido | Pendente de geração após reset de quota | `assets/video/promos/unleash-the-dragon-realgclip-02-door-to-stage-ktd-lock-v2.mp4` |
+| Clipe real 3 — performance no palco | Pendente de geração após reset de quota | `assets/video/promos/unleash-the-dragon-realgclip-03-hook-perf-ktd-lock-v2.mp4` |
+| Prévia v2 anterior — 16 s | **REPROVADA e movida para quarentena** porque contém o clipe 2 errado | `assets/video/promos/reprovados/unleash-the-dragon-real-v2-work-in-progress-identity-drift-16s.mp4` |
+| Montagem v2 de 24 s | Bloqueada corretamente até existirem os clipes 2 e 3 aprovados | — |
 
-## Direção criativa
+## Correção aplicada
 
-O primeiro plano conserva o gesto íntimo de preparação: KTD está concentrado, amarra o tênis e levanta o olhar. A transição para a porta muda a energia sem abandonar a contenção: a mão gira a maçaneta de bronze, a luz âmbar invade o bastidor, a hesitação se transforma em decisão e o corpo cruza o limiar. O objetivo emocional é fazer a passagem parecer uma escolha conquistada, não apenas uma mudança de cenário.
+Foi gerado o keyframe `song1-unleash-the-dragon-door-to-stage-ktd-lock-v2.png` a partir do cenário original, preservando a porta metálica, a maçaneta de bronze, o microfone, o dragão vermelho e o palco âmbar, mas colocando KTD inequivocamente no vão da porta. A imagem foi travada com a master visual e o turnaround físico como referências de identidade.
 
-A paleta mantém carvão, bronze envelhecido, vermelho queimado e âmbar, com sombras densas, fontes práticas e profundidade de palco. O tratamento evita a gramática visual de **GOLDEN SCARS** — corredor industrial, chuva, cadeados, olhos azuis luminosos e azul metálico — e também não repete os elementos domésticos de **SIX NAMES**.
+A nova formulação de geração exige que KTD apareça desde o primeiro quadro como homem negro de pele marrom profunda, cabeça raspada, barba cheia longa, porte atlético compacto, marcas douradas nas sobrancelhas e heterocromia natural — olho esquerdo mel/âmbar e olho direito azul-pálido. A ação prevista é física e contínua: girar a maçaneta, pausar por uma respiração, olhar para trás e atravessar a luz do palco com transferência de peso plausível.
 
-> **Nota de continuidade de personagem.** Sempre que o peito de KTD aparecer, a geração deve usar `assets/persona/ktd-visual-master.png` como referência adicional e incluir o mapa imutável de tatuagens descrito em `docs/ktd-chest-tattoo-official-map-audit.md`. O clipe real de 10 s existente apresenta divergência no peito e não deve ser usado como fonte de identidade para novas gerações.
+## Gate de continuidade de pós-produção
 
-## Ficha técnica
+O arquivo `data/ktd/song1-real-v2-identity-manifest.json` tornou-se a fonte operacional do gate. Ele registra as referências de identidade, os critérios de aprovação e os hashes dos arquivos bloqueados. O montador `scripts/assemble_unleash_the_dragon_real_v2.py` agora exige `--identity-manifest` e aborta antes do FFmpeg quando encontra um clipe reprovado, sem registro, com hash divergente ou sem aprovação dos três critérios críticos.
 
-| Saída | Duração | Formato | Áudio | SHA-256 |
-| --- | ---: | --- | --- | --- |
-| Clipe 2 normalizado | 8,000 s | H.264, 720×1280, 24 fps, yuv420p | Ausente | `ab1ed263d1b937630aa9d2656d1bd2f755c7d2fec40e099a66b0122c4afc9c32` |
-| Prévia v2 | 16,000 s | H.264, 720×1280, 24 fps, yuv420p, CRF 18 | Ausente | `99278ef676ff9e834450c62ffb6139ef53e685adb6cca81a08c4b3c6de9ec0da` |
+| Critério | Verificação obrigatória |
+| --- | --- |
+| Rosto | Cabeça raspada, barba cheia longa, formato facial, pele e marcas das sobrancelhas devem permanecer consistentes em todos os quadros visíveis. |
+| Heterocromia | Olho esquerdo mel/âmbar e olho direito azul-pálido, com aparência natural; qualquer troca, uniformização ou brilho neon reprova o clipe. |
+| Tatuagens | Sete marcas de garra com pontas de diamante descendo do esterno, coluna central de escamas terminando no umbigo, samurai no braço esquerdo, koi no direito e cerejeiras integradas; o Dragão Diamante de sete cabeças permanece nas costas. |
+| Movimento | Gestos, respiração, articulação da boca, mãos, passos, tecido, fumaça e câmera devem ser físicos e contínuos; Ken Burns, morphing ou identidade variável reprova. |
+| Exclusões | Sem homem genérico, pessoas extras, membros duplicados, chuva, corredor industrial, cadeados, azul neon, mesa doméstica ou velas. |
 
-A montagem foi produzida por `scripts/assemble_unleash_the_dragon_real_v2.py`, que normaliza todos os inputs para 720×1280 a 24 fps, concatena os vídeos com corte seco, omite qualquer faixa de áudio e grava um manifesto técnico quando solicitado. O manifesto desta execução está em `work/verification/unleash_the_dragon_real_v2_manifest.json`.
+O teste de regressão executado com o clipe 2 reprovado falhou como esperado com `Clipe bloqueado pelo manifesto de identidade`, demonstrando que o material incorreto não volta silenciosamente à produção.
 
-## Critérios verificados
+## Clipe real 3 e sequência v2 de 24 segundos
 
-A prévia foi verificada tecnicamente com `ffprobe`: duração exata de 16,000 s, vídeo H.264 em 720×1280, 24 fps, pixel format yuv420p e ausência total de stream de áudio. O clipe 2 foi originalmente retornado com uma faixa AAC silenciosa; essa faixa foi removida por remux sem recodificação do vídeo antes da montagem.
+A geração do clipe 3 foi preparada com o keyframe `song1-fullmv-scene-c3-hook-perf.png`, a master visual e o turnaround como referências. O movimento planejado é uma performance física no microfone vintage: respiração, articulação natural da boca, gesto controlado da mão livre, deslocamento do paletó, fumaça e leve órbita de câmera sob luzes âmbar. A tentativa de geração foi bloqueada pelo limite diário do plano gratuito; por isso, o arquivo final ainda não existe e não foi simulado.
 
-A aprovação criativa ainda é humana e permanece pendente. A prévia deve ser considerada **work in progress**, não material promocional final. O próximo avanço natural é gerar o clipe real 3 de performance no palco e montar a sequência mínima v2 de 24 s; depois disso, os clipes 4–8 podem ampliar o arco para trabalho técnico, família, recompensa coletiva e outro com microfone solitário.
+Assim que os dois clipes pendentes forem gerados e aprovados individualmente, a ordem obrigatória da montagem será:
 
-## Próxima etapa recomendada
+| Ordem | Cena | Duração alvo | Gate |
+| ---: | --- | ---: | --- |
+| 1 | Camarote — preparação e olhar | 8 s | identidade anterior revisada |
+| 2 | Porta — decisão e travessia | 8 s | novo vídeo deve passar o manifesto |
+| 3 | Palco — hook e performance | 8 s | novo vídeo deve passar o manifesto |
 
-Com o clipe 3 disponível, a montagem deve seguir `realclip-01-dressing-room → realclip-02-door-to-stage → realclip-03-hook-perf`, mantendo cortes secos e sem áudio. A revisão editorial deve observar principalmente continuidade de rosto, heterocromia, tatuagens, boca durante a performance, mãos no microfone, comportamento da fumaça, exposição entre a porta e o palco e ausência de elementos proibidos do inventário de não repetição.
+A saída desejada será `assets/video/promos/unleash-the-dragon-real-v2-24s.mp4`, 720×1280 a 24 fps, H.264/yuv420p, corte seco entre clipes, sem áudio e com duração exata de 24,000 s. Até a geração dos clipes 2 e 3 corrigidos, o pipeline deve permanecer bloqueado.
+
+## Handoff para os demais desenvolvedores
+
+O próximo dev deve gerar primeiro o clipe 2 usando o keyframe `ktd-lock-v2`, a master e o turnaround; depois deve gerar o clipe 3 de performance com as mesmas referências. Cada arquivo deve ser verificado tecnicamente com `ffprobe`, ter qualquer faixa AAC silenciosa removida, receber hash no manifesto e passar por revisão visual humana dos três critérios críticos. Somente depois o montador deve ser executado com o manifesto atualizado e a sequência v2 de 24 segundos pode ser criada.
+
+Não usar como referência de identidade o clipe 2 quarentenado, a prévia v2 anterior ou o clipe aprovado de outra faixa. A mixagem oficial continua fora do pipeline de montagem até que seja aprovada editorialmente.
+
+## Referências internas
+
+1. `assets/persona/ktd-visual-master.png` — fonte visual principal de identidade.
+2. `assets/persona/ktd-physical-turnaround-sheet.png` — frente, costas e perfis.
+3. `docs/ktd-chest-tattoo-official-map-audit.md` — mapa imutável de tatuagens.
+4. `docs/unleash-the-dragon-music-video-v2-full-script.md` — roteiro e critérios do clipe real.
+5. `data/ktd/song1-real-v2-identity-manifest.json` — gate operacional de continuidade.

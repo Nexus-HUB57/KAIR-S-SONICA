@@ -1,0 +1,95 @@
+{
+  "project_info": {
+    "title": "UNLEASH THE DRAGON",
+    "created": 1787315989.521,
+    "last_updated": 1787316491.877,
+    "total_slides": 8
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "identity_failure",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "quarantine",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "identity_lock",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "continuity_gate",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "sequence_v2",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "generation_status",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "handoff",
+      "state": "edited",
+      "pageNum": 8
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "UNLEASH THE DRAGON",
+      "summary": "Capa minimalista do relatório de revisão v2 de identidade e handoff técnico."
+    },
+    {
+      "id": "identity_failure",
+      "title": "O desvio é de identidade",
+      "summary": "Diagnóstico do clipe da porta reprovado: referência inicial não mostrava KTD e a geração introduziu outro personagem."
+    },
+    {
+      "id": "quarantine",
+      "title": "Quarentena encerra a reincidência",
+      "summary": "Registro da retirada do clipe 2 e da prévia de 16 s da rota de produção, com bloqueio por hash."
+    },
+    {
+      "id": "identity_lock",
+      "title": "KTD está travado no primeiro quadro",
+      "summary": "Apresenta a correção do keyframe com KTD visível e as três referências que estabilizam a identidade.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-physical-turnaround-sheet.png - Physical turnaround sheet showing KTD's details and master visual referenced in slide"
+    },
+    {
+      "id": "continuity_gate",
+      "title": "O gate bloqueia antes do FFmpeg",
+      "summary": "Explica os controles obrigatórios de rosto, heterocromia, tatuagens, movimento e exclusões criativas.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-visual-master.png - Visual anchor close-up clearly showing face, heterochromia eyes, and tattoo details"
+    },
+    {
+      "id": "sequence_v2",
+      "title": "A sequência v2 exige três clipes reais",
+      "summary": "Mostra a estrutura de três atos de oito segundos para a montagem vertical de 24 segundos."
+    },
+    {
+      "id": "generation_status",
+      "title": "A geração está pronta, mas aguarda quota",
+      "summary": "Distingue os ativos preparados dos dois clipes reais ainda bloqueados pelo limite diário de geração.",
+      "image_plan": "/home/ubuntu/KAIR-S-SONICA/assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png - Detailed view of the door handle and stage set corresponding to the 3 clips sequence (camarote, porta, hook)"
+    },
+    {
+      "id": "handoff",
+      "title": "Handoff: gerar, validar, montar",
+      "summary": "Define a sequência operacional e os critérios de aceite para a próxima entrega de 24 segundos."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>A sequência v2 exige três clipes reais</title>
+  <style>
+    .slide-container { width: 1280px; min-height: 720px; background: #D1D5DB; color: #0F172A; font-family: Arial, Helvetica, sans-serif; }
+    .stage { min-height: 612px; margin: 12px 60px 0; border-top: 4px solid #B45309; border-bottom: 4px solid #0F172A; }
+    .header { min-height: 120px; display: grid; grid-template-columns: 350px 1fr; column-gap: 48px; }
+    .kicker { padding-top: 18px; font-size: 14px; font-weight: 700; letter-spacing: 2.6px; color: #B45309; }
+    .title { padding-top: 18px; font-size: 43px; line-height: 0.97; letter-spacing: -2px; font-weight: 800; }
+    .intro { padding-top: 18px; width: 620px; font-size: 22px; line-height: 1.26; color: #334155; }
+    .intro strong { color: #0F172A; }
+    /* Reduced timeline height to bring overall page under 720px */
+    .timeline { height: 216px; border-top: 1px solid #94A3B8; border-bottom: 1px solid #94A3B8; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+    .act { min-height: 216px; padding-top: 12px; }
+    .act + .act { border-left: 1px solid #94A3B8; }
+    .act-inner { margin-left: 16px; margin-right: 16px; }
+    .number { font-size: 15px; font-weight: 700; letter-spacing: 2px; color: #B45309; }
+    .duration { margin-top: 8px; font-size: 46px; line-height: 0.95; font-weight: 800; letter-spacing: -2px; }
+    .scene { margin-top: 8px; font-size: 23px; line-height: 1.05; font-weight: 800; }
+    .action { margin-top: 12px; min-height: 36px; font-size: 17px; line-height: 1.28; color: #334155; }
+    .gate { margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 1.1px; color: #0F172A; }
+    .gate span { color: #B45309; }
+    .footer { min-height: 82px; display: grid; grid-template-columns: 350px 1fr; column-gap: 48px; }
+    .footer-label { padding-top: 16px; font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #B45309; }
+    .footer-copy { padding-top: 12px; font-size: 18px; line-height: 1.28; color: #334155; }
+    .footer-copy strong { color: #0F172A; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="stage">
+      <div class="header">
+        <section>
+          <div class="kicker">05 · ARQUITETURA V2</div>
+          <div class="title">A sequência v2 exige três clipes reais</div>
+        </section>
+        <section class="intro">Cada plano precisa sustentar uma ação física contínua. <strong>Somente três takes aprovados formam a montagem vertical de 24 segundos.</strong></section>
+      </div>
+      <div class="timeline">
+        <section class="act">
+          <div class="act-inner">
+            <div class="number">ATO 01</div>
+            <div class="duration">08 s</div>
+            <div class="scene">Camarote</div>
+            <div class="action">Preparação, cadarço, respiração e um olhar direto que inaugura a decisão.</div>
+            <div class="gate"><span>GATE:</span> revisão de identidade existente</div>
+          </div>
+        </section>
+        <section class="act">
+          <div class="act-inner">
+            <div class="number">ATO 02</div>
+            <div class="duration">08 s</div>
+            <div class="scene">Porta</div>
+            <div class="action">Maçaneta, pausa, peso do corpo e travessia para a luz âmbar do palco.</div>
+            <div class="gate"><span>GATE:</span> regenerar com KTD travado</div>
+          </div>
+        </section>
+        <section class="act">
+          <div class="act-inner">
+            <div class="number">ATO 03</div>
+            <div class="duration">08 s</div>
+            <div class="scene">Hook</div>
+            <div class="action">Microfone, gesto, suor e fumaça sob uma órbita de câmera contida.</div>
+            <div class="gate"><span>GATE:</span> gerar e validar performance</div>
+          </div>
+        </section>
+      </div>
+      <div class="footer">
+        <div class="footer-label">SAÍDA-ALVO</div>
+        <div class="footer-copy"><strong>24,000 s · 720×1280 · 24 fps · H.264/yuv420p.</strong> Cortes secos, sem áudio até a aprovação da mixagem. A renderização permanece bloqueada até os atos 02 e 03 passarem o manifesto de identidade.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

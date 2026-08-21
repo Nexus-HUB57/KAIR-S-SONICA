@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>A geração está pronta, mas aguarda quota</title>
+  <style>
+    /* remove default body margin so the slide fits the 720px min-height exactly */
+    body { margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #D1D5DB; color: #0F172A; font-family: Arial, Helvetica, sans-serif; margin: 0 auto; }
+    /* slightly reduced top margin to reclaim vertical space */
+    .frame { min-height: 584px; margin: 44px 60px 0; border-top: 4px solid #B45309; border-bottom: 4px solid #0F172A; display: grid; grid-template-columns: 316px 1fr; column-gap: 52px; }
+    .visual { padding-top: 28px; }
+    /* reduced image height to tighten the layout without changing font sizes */
+    .visual img { width: 300px; height: 420px; object-fit: cover; display: block; }
+    .content { padding-top: 32px; padding-right: 18px; }
+    .eyebrow { font-size: 15px; font-weight: 700; letter-spacing: 2.7px; color: #B45309; }
+    .title { margin-top: 16px; width: 690px; font-size: 46px; line-height: 0.98; letter-spacing: -2px; font-weight: 800; }
+    /* tightened spacing above the lead */
+    .lead { margin-top: 12px; width: 710px; font-size: 25px; line-height: 1.2; color: #334155; }
+    .lead strong { color: #0F172A; }
+    .status-list { margin-top: 16px; border-top: 1px solid #94A3B8; width: 742px; }
+    /* slightly reduced row min-height to save vertical space while keeping readability */
+    .status-row { min-height: 52px; display: grid; grid-template-columns: 205px 1fr; align-items: center; border-bottom: 1px solid #94A3B8; }
+    .state { font-size: 14px; font-weight: 700; letter-spacing: 1.4px; color: #B45309; }
+    .description { font-size: 19px; line-height: 1.18; color: #334155; }
+    .description strong { color: #0F172A; }
+    .footer { margin-top: 8px; width: 720px; font-size: 16px; line-height: 1.25; color: #334155; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="frame">
+      <div class="visual">
+        <img src="/home/ubuntu/KAIR-S-SONICA/assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage.png" alt="Porta de acesso ao palco com luz âmbar, microfone e cenário da música 1">
+      </div>
+      <div class="content">
+        <div class="eyebrow">07 · STATUS DE GERAÇÃO</div>
+        <div class="title">A geração está pronta, mas aguarda quota</div>
+        <div class="lead">Os cenários, prompts e referências estão preparados. <strong>Os dois clipes reais pendentes não foram simulados.</strong></div>
+        <div class="status-list">
+          <div class="status-row"><div class="state">PRONTO</div><div class="description">Keyframe corrigido da porta e pacote de identidade de KTD finalizados.</div></div>
+          <div class="status-row"><div class="state">BLOQUEADO</div><div class="description">Clipe 2 corrigido e clipe 3 de performance aguardam o reset do limite diário.</div></div>
+          <div class="status-row"><div class="state">PROTEGIDO</div><div class="description">A montagem de 24 segundos permanece travada até existirem três takes com <strong>identity pass</strong>.</div></div>
+        </div>
+        <div class="footer">Decisão de produção: não promover placeholders, não reutilizar o take reprovado e não renderizar uma sequência incompleta.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Handoff: gerar, validar, montar</title>
+  <style>
+    .slide-container { width: 1280px; min-height: 720px; background: #D1D5DB; color: #0F172A; font-family: Arial, Helvetica, sans-serif; }
+    /* reduced top margin to lift content and avoid overflow */
+    .stage { width: 1160px; min-height: 560px; margin-left: 60px; margin-top: 24px; border-top: 4px solid #B45309; border-bottom: 4px solid #0F172A; }
+    .header { min-height: 110px; display: grid; grid-template-columns: 390px 1fr; column-gap: 24px; }
+    .eyebrow { padding-top: 18px; font-size: 14px; font-weight: 700; letter-spacing: 2.6px; color: #B45309; }
+    .title { margin-top: 15px; width: 360px; font-size: 44px; line-height: 0.96; letter-spacing: -2px; font-weight: 800; }
+    .header-copy { padding-top: 18px; width: 650px; font-size: 22px; line-height: 1.18; color: #334155; }
+    .header-copy strong { color: #0F172A; }
+    .steps { min-height: 200px; display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid #94A3B8; border-bottom: 1px solid #94A3B8; }
+    .step { min-height: 200px; padding-top: 8px; }
+    .step + .step { border-left: 1px solid #94A3B8; }
+    .step-inner { margin-left: 8px; margin-right: 8px; }
+    .step-number { font-size: 15px; font-weight: 700; letter-spacing: 2px; color: #B45309; }
+    .step-title { margin-top: 10px; font-size: 30px; line-height: 0.98; letter-spacing: -1.3px; font-weight: 800; }
+    .step-copy { margin-top: 10px; font-size: 17px; line-height: 1.22; color: #334155; }
+    .step-copy strong { color: #0F172A; }
+    .step-note { margin-top: 10px; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #B45309; }
+    .acceptance { min-height: 90px; display: grid; grid-template-columns: 210px 1fr; column-gap: 20px; }
+    .acceptance-label { padding-top: 12px; font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #B45309; }
+    .acceptance-content { padding-top: 8px; }
+    .criteria { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 12px; }
+    .criterion { min-height: 44px; border-top: 1px solid #94A3B8; padding-top: 4px; }
+    .criterion-label { font-size: 12px; font-weight: 700; letter-spacing: 1.3px; color: #B45309; }
+    .criterion-text { margin-top: 4px; font-size: 15px; line-height: 1.14; color: #334155; }
+    .outcome { margin-top: 8px; font-size: 16px; line-height: 1.18; color: #334155; }
+    .outcome strong { color: #0F172A; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="stage">
+      <div class="header">
+        <section>
+          <div class="eyebrow">08 · HANDOFF OPERACIONAL</div>
+          <div class="title">Gerar, validar, montar</div>
+        </section>
+        <section class="header-copy">A retomada não começa na edição. Começa com dois novos takes em que <strong>KTD permanece o mesmo homem em todos os quadros</strong>.</section>
+      </div>
+      <div class="steps">
+        <section class="step">
+          <div class="step-inner">
+            <div class="step-number">PASSO 01</div>
+            <div class="step-title">Gerar</div>
+            <div class="step-copy">Gerar a porta corrigida e o hook de palco usando master visual, turnaround e keyframe específico da cena.</div>
+            <div class="step-note">SEM PLACEHOLDER · SEM TAKE ANTIGO</div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="step-inner">
+            <div class="step-number">PASSO 02</div>
+            <div class="step-title">Validar</div>
+            <div class="step-copy">Checar duração, formato e codec; revisar <strong>rosto, olhos, tatuagens, boca, mãos e movimento</strong>; registrar hash no manifesto.</div>
+            <div class="step-note">IDENTITY PASS OBRIGATÓRIO</div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="step-inner">
+            <div class="step-number">PASSO 03</div>
+            <div class="step-title">Montar</div>
+            <div class="step-copy">Concatenar camarote, porta e hook em cortes secos. A mixagem só entra depois da aprovação editorial.</div>
+            <div class="step-note">24 SEGUNDOS · VÍDEO SEM ÁUDIO</div>
+          </div>
+        </section>
+      </div>
+      <div class="acceptance">
+        <div class="acceptance-label">PRÓXIMO ACEITE</div>
+        <div class="acceptance-content">
+          <div class="criteria">
+            <div class="criterion"><div class="criterion-label">IDENTIDADE</div><div class="criterion-text">O mesmo KTD, sem deriva de rosto ou olhos.</div></div>
+            <div class="criterion"><div class="criterion-label">CORPO</div><div class="criterion-text">Tatuagens e lateralidade corretas em cada orientação.</div></div>
+            <div class="criterion"><div class="criterion-label">MOVIMENTO</div><div class="criterion-text">Ação física contínua, sem morphing ou zoom artificial.</div></div>
+          </div>
+          <div class="outcome"><strong>Saída esperada:</strong> sequência v2 de 24,000 segundos em 720×1280, 24 fps, H.264/yuv420p, com os três takes aprovados pelo manifesto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

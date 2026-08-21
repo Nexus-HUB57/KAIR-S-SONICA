@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>O gate bloqueia antes do FFmpeg</title>
+  <style>
+    /* Remove default body margin and pull the slide up by 25px so total page height is < 720px */
+    body { margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #D1D5DB; color: #0F172A; font-family: Arial, Helvetica, sans-serif; margin-top: -25px; }
+    /* Reduced top margin to pull the whole slide up (keeps title top padding unchanged) */
+    .layout { width: 1160px; min-height: 612px; margin-left: 60px; margin-top: 24px; border-top: 4px solid #B45309; border-bottom: 4px solid #0F172A; display: grid; grid-template-columns: 340px 1fr; column-gap: 48px; }
+    /* Shrink vertical paddings so columns are shorter */
+    .visual-column { padding-top: 20px; }
+    .visual-column img { width: 318px; height: 420px; object-fit: cover; object-position: center top; display: block; }
+    .content-column { padding-top: 20px; padding-right: 8px; }
+    .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 2.4px; color: #B45309; }
+    .title { margin-top: 14px; width: 700px; font-size: 43px; line-height: 1; letter-spacing: -2px; font-weight: 800; }
+    .lead { margin-top: 14px; width: 705px; font-size: 18px; line-height: 1.28; color: #334155; }
+    .gates { margin-top: 12px; width: 712px; border-top: 1px solid #94A3B8; }
+    /* Slightly tighter gate rows to reduce total height while keeping font-size */
+    .gate-row { min-height: 44px; display: grid; grid-template-columns: 146px 1fr 86px; column-gap: 14px; align-items: center; border-bottom: 1px solid #94A3B8; }
+    .gate-name { font-size: 13px; font-weight: 700; letter-spacing: 1.15px; color: #B45309; }
+    .gate-rule { font-size: 16px; line-height: 1.18; color: #334155; }
+    .gate-status { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-align: right; color: #0F172A; }
+    .note { margin-top: 12px; width: 700px; font-size: 15px; line-height: 1.28; color: #334155; }
+    .note strong { color: #0F172A; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="layout">
+      <div class="visual-column">
+        <img src="/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-visual-master.png" alt="Master visual de KTD" />
+      </div>
+      <div class="content-column">
+        <div class="eyebrow">04 · PRÉ-FLIGHT DE CONTINUIDADE</div>
+        <div class="title">O gate bloqueia antes do FFmpeg</div>
+        <div class="lead">Nenhum take entra na concatenação apenas por estar tecnicamente válido. A identidade precisa passar antes da renderização.</div>
+        <div class="gates">
+          <div class="gate-row"><div class="gate-name">REGISTRO</div><div class="gate-rule">Arquivo declarado no manifesto e hash correspondente.</div><div class="gate-status">OBRIGATÓRIO</div></div>
+          <div class="gate-row"><div class="gate-name">ROSTO</div><div class="gate-rule">Cabeça raspada, barba longa, pele e marcas das sobrancelhas consistentes.</div><div class="gate-status">IDENTITY PASS</div></div>
+          <div class="gate-row"><div class="gate-name">HETEROCRÔMIA</div><div class="gate-rule">Esquerdo mel/âmbar; direito azul-pálido; aparência natural.</div><div class="gate-status">IDENTITY PASS</div></div>
+          <div class="gate-row"><div class="gate-name">TATUAGENS</div><div class="gate-rule">Sete garras, coluna de escamas, samurai, koi e cerejeiras no mapa correto.</div><div class="gate-status">IDENTITY PASS</div></div>
+          <div class="gate-row"><div class="gate-name">MOVIMENTO</div><div class="gate-rule">Ação física contínua; sem morphing, zoom artificial ou elementos de outras faixas.</div><div class="gate-status">REVISÃO HUMANA</div></div>
+        </div>
+        <div class="note"><strong>Regra operacional:</strong> arquivo reprovado, hash divergente ou critério não aprovado interrompe a montagem antes da execução do FFmpeg.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

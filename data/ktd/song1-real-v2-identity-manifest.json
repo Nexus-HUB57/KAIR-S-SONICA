@@ -1,0 +1,98 @@
+{
+  "title": "UNLEASH THE DRAGON — identity continuity gate v2",
+  "status": "preflight_manifest; no clip enters assembly without explicit identity_pass",
+  "identity_reference": {
+    "master_visual": "assets/persona/ktd-visual-master.png",
+    "turnaround": "assets/persona/ktd-physical-turnaround-sheet.png",
+    "left_eye": "honey-amber",
+    "right_eye": "pale-blue",
+    "face_anchors": [
+      "shaved head",
+      "long full black beard",
+      "deep brown skin",
+      "compact athletic performer build",
+      "gold brow markings"
+    ],
+    "chest_tattoo_map": "seven diamond-tipped claw marks arranged vertically down the upper chest from the sternum; symmetrical dragon-scale spine column down the center of the abdomen ending in a dragon head at the navel; samurai armor on the left arm and shoulder; koi on the right arm; cherry blossoms integrated",
+    "back_tattoo_map": "seven-headed Diamond Dragon on the back; never transfer this design to the chest"
+  },
+  "gates": {
+    "face_identity": "must match master and turnaround in every visible face frame",
+    "heterochromia": "left eye honey-amber and right eye pale-blue, natural light, no neon glow",
+    "tattoos": "must match the immutable map for the visible body orientation",
+    "motion": "continuous physical movement; no Ken Burns or identity morphing",
+    "audio": "no audio before approved mix",
+    "visual_exclusions": [
+      "generic substitute man",
+      "face morphing",
+      "different eye colors",
+      "tattoo mutations",
+      "extra people",
+      "duplicate limbs",
+      "blue neon",
+      "rain",
+      "industrial prison corridor",
+      "padlocks",
+      "domestic table",
+      "candles"
+    ]
+  },
+  "clips": [
+    {
+      "id": "UTD-RV2-C01",
+      "scene": "dressing-room",
+      "video": "assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4",
+      "status": "identity_pass_from_previous_review",
+      "face_identity": "pass",
+      "heterochromia": "pass",
+      "tattoos": "pass_with_partial_visibility",
+      "motion": "pass",
+      "sha256": "32d15018193f887039768dc7cccf0b2658cd7a3b3d621fc01845393b264c310e"
+    },
+    {
+      "id": "UTD-RV2-C02-REJECTED",
+      "scene": "door-to-stage",
+      "video": "assets/video/promos/reprovados/unleash-the-dragon-realgclip-02-door-to-stage-identity-drift.mp4",
+      "status": "rejected_identity_drift",
+      "face_identity": "fail",
+      "heterochromia": "fail",
+      "tattoos": "unknown_or_inconsistent",
+      "reason": "KTD is not preserved; a generic man appears by the second frame",
+      "sha256": "ab1ed263d1b937630aa9d2656d1bd2f755c7d2fec40e099a66b0122c4afc9c32"
+    },
+    {
+      "id": "UTD-RV2-C02-LOCKED",
+      "scene": "door-to-stage",
+      "keyframe": "assets/video/references/lyrics/song1-unleash-the-dragon-door-to-stage-ktd-lock-v2.png",
+      "status": "keyframe_identity_pass_video_pending",
+      "face_identity": "pass_on_keyframe",
+      "heterochromia": "pass_on_keyframe",
+      "tattoos": "pass_on_visible_shoulder_and_arm",
+      "motion": "pending_video_generation",
+      "sha256": "102f92c2f4c0599e1a939915a76c94e6a98fcf0ffa564fe609fb81437084b2ee"
+    },
+    {
+      "id": "UTD-RV2-C03",
+      "scene": "hook-performance",
+      "keyframe": "assets/video/references/lyrics/song1-fullmv-scene-c3-hook-perf.png",
+      "status": "keyframe_identity_pass_video_pending",
+      "face_identity": "pass_on_keyframe",
+      "heterochromia": "pass_on_keyframe",
+      "tattoos": "pass_on_keyframe",
+      "motion": "pending_video_generation",
+      "sha256": "480cba029a67ac277edfaf1464b69278f516227d1403e42babd6947457e95fb5"
+    }
+  ],
+  "blocked_files": [
+    {
+      "path": "assets/video/promos/reprovados/unleash-the-dragon-realgclip-02-door-to-stage-identity-drift.mp4",
+      "sha256": "ab1ed263d1b937630aa9d2656d1bd2f755c7d2fec40e099a66b0122c4afc9c32",
+      "reason": "rejected identity drift; never use as an input"
+    },
+    {
+      "path": "assets/video/promos/reprovados/unleash-the-dragon-real-v2-work-in-progress-identity-drift-16s.mp4",
+      "sha256": "99278ef676ff9e834450c62ffb6139ef53e685adb6cca81a08c4b3c6de9ec0da",
+      "reason": "contains the rejected clip 2; superseded and not eligible for promotion"
+    }
+  ]
+}

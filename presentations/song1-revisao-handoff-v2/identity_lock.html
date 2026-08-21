@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>KTD está travado no primeiro quadro</title>
+  <style>
+    body { margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #D1D5DB; color: #0F172A; font-family: Arial, Helvetica, sans-serif; }
+    /* Reduced outer spacing to gain vertical room */
+    .frame { min-height: 610px; margin: 12px 60px 0; border-top: 4px solid #B45309; border-bottom: 4px solid #0F172A; display: grid; grid-template-columns: 320px 1fr; column-gap: 28px; }
+    .left { padding-top: 20px; }
+    .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 2.4px; color: #B45309; }
+    .title { margin-top: 18px; width: 290px; font-size: 43px; line-height: 0.98; letter-spacing: -2px; font-weight: 800; }
+    .lead { margin-top: 16px; width: 275px; font-size: 17px; line-height: 1.32; color: #334155; }
+    /* Shrink list spacing */
+    .lock-list { margin-top: 14px; width: 282px; border-top: 1px solid #94A3B8; }
+    .lock-item { min-height: 50px; display: grid; grid-template-columns: 34px 1fr; align-items: center; border-bottom: 1px solid #94A3B8; }
+    .lock-number { font-size: 14px; font-weight: 800; color: #B45309; }
+    .lock-text { font-size: 15px; line-height: 1.15; color: #334155; }
+    .lock-text strong { color: #0F172A; }
+    .right { padding-top: 16px; }
+    /* Reduce image and caption heights to fit the vertical budget */
+    .image-wrap { width: 718px; height: 336px; background: #C6CBD2; display: flex; align-items: center; justify-content: center; }
+    .reference-image { width: 718px; height: 336px; object-fit: contain; }
+    .caption-row { width: 718px; margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid #94A3B8; }
+    .caption-cell { min-height: 54px; padding-top: 10px; border-right: 1px solid #94A3B8; }
+    .caption-cell:last-child { border-right: 0; }
+    .caption-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #B45309; }
+    .caption-text { margin-top: 5px; width: 202px; font-size: 15px; line-height: 1.15; color: #334155; }
+    .caption-text strong { color: #0F172A; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="frame">
+      <section class="left">
+        <div class="eyebrow">03 · CORREÇÃO</div>
+        <div class="title">KTD está travado no primeiro quadro</div>
+        <div class="lead">A nova referência mostra o protagonista antes do movimento de câmera. A identidade deixa de ser inferida e passa a ser verificada.</div>
+        <div class="lock-list">
+          <div class="lock-item"><div class="lock-number">01</div><div class="lock-text"><strong>Master visual</strong> fixa rosto, pele, barba e marcas.</div></div>
+          <div class="lock-item"><div class="lock-number">02</div><div class="lock-text"><strong>Turnaround físico</strong> fixa frente, costas e perfis.</div></div>
+          <div class="lock-item"><div class="lock-number">03</div><div class="lock-text"><strong>Keyframe da porta</strong> fixa KTD dentro do cenário.</div></div>
+        </div>
+      </section>
+      <section class="right">
+        <div class="image-wrap">
+          <img class="reference-image" src="/home/ubuntu/KAIR-S-SONICA/assets/persona/ktd-physical-turnaround-sheet.png" alt="Ficha física de KTD com rosto, frente, costas e perfis">
+        </div>
+        <div class="caption-row">
+          <div class="caption-cell"><div class="caption-label">ROSTO</div><div class="caption-text">Cabeça raspada, <strong>barba cheia longa</strong> e mandíbula estável.</div></div>
+          <div class="caption-cell"><div class="caption-label">OLHOS</div><div class="caption-text"><strong>Esquerdo mel/âmbar</strong>; direito azul-pálido, sem neon.</div></div>
+          <div class="caption-cell"><div class="caption-label">CORPO</div><div class="caption-text">Mapa de tatuagens respeita <strong>orientação e lateralidade</strong>.</div></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
