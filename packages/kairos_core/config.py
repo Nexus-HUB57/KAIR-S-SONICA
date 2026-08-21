@@ -45,6 +45,7 @@ class Settings:
     llamagen_base_url: str = "https://api.llamagen.ai"
     llamagen_api_key_env: str = "LLAMAGEN_API_KEY"
     llamagen_timeout_seconds: int = 60
+    complementary_core_enabled: bool = True
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -108,6 +109,8 @@ class Settings:
             llamagen_base_url=os.getenv("KAIROS_LLAMAGEN_BASE_URL", "https://api.llamagen.ai").rstrip("/"),
             llamagen_api_key_env=os.getenv("KAIROS_LLAMAGEN_API_KEY_ENV", "LLAMAGEN_API_KEY"),
             llamagen_timeout_seconds=int(os.getenv("KAIROS_LLAMAGEN_TIMEOUT_SECONDS", "60")),
+            complementary_core_enabled=os.getenv("KAIROS_COMPLEMENTARY_CORE_ENABLED", "true").lower()
+            in {"1", "true", "yes", "on"},
         )
 
     @staticmethod

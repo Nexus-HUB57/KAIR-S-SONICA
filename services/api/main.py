@@ -17,9 +17,11 @@ from fastapi.responses import FileResponse
 from kairos_core.agents import AgentAggregator, ExternalAgentError
 from kairos_core.audio.orchestrator import MultimediaOrchestrator
 from kairos_core.audio.pipeline import AudioPipeline
+from kairos_core.complementary import build_complementary_plan, complementary_capabilities
 from kairos_core.config import Settings
 from kairos_core.persona import DEFAULT_PERSONA
 from kairos_core.schemas import (
+    ComplementaryPlanRequest,
     GenerateResponse,
     MultimediaRequest,
     PersonaResponse,
@@ -348,6 +350,19 @@ def probe_agent(agent_name: str) -> dict[str, Any]:
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     except (RuntimeError, ValueError) as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@app.get("/v1/complementary/capabilities")
+def complementary_capability_catalog() -> dict[str, Any]:
+    return complementary_capabilities(enabled=settings.complementary_core_enabled)
+
+
+@app.post("/v1/complementary/plan")
+def complementary_plan(request: ComplementaryPlanRequest) -> dict[str, Any]:
+    """Planeja cenas e handoffs sem substituir ou iniciar os pipelines existentes."""
+    if not settings.complementary_core_enabled:
+        raise HTTPException(status_code=503, detail="Núcleo complementar desabilitado")
+    return build_complementary_plan(**request.model_dump()).to_dict()
 
 
 @app.get("/v1/persona", response_model=PersonaResponse)

@@ -32,6 +32,45 @@ O modo `inline` mantém o desenvolvimento local simples. No perfil de produção
 
 A saída é copiada do staging para um nome determinístico por tarefa somente depois de localizar um MP4 não vazio e validá-lo com `ffprobe`. Caso o destino já exista, a promoção falha em vez de sobrescrever o artefato. O staging é removido ao final por padrão e pode ser retido apenas com `KAIROS_SKYREELS_KEEP_STAGING=true` para diagnóstico.
 
+## Núcleo complementar de desenvolvimento audiovisual
+
+A arquitetura anexada de ecossistema audiovisual foi incorporada como uma camada de **planejamento e handoff**, não como uma aplicação concorrente. Ela organiza prompt, duração, cenas, slots de mídia stock, slots de áudio e templates de requisição; a execução continua nos contratos que já existem no KAIR-S-SONICA.
+
+```mermaid
+flowchart LR
+  P[Prompt / briefing] --> C[ComplementaryPlan]
+  C --> S[Scene plan + seed + aspect ratio]
+  C --> A[Audio slot]
+  C --> M[Media slot / Pexels opcional]
+  S --> V[POST /v1/video/generate]
+  A --> O[POST /v1/orchestrate]
+  S --> G[AgentAggregator capabilities/probe]
+  V --> T[TaskStore + worker existente]
+  O --> T
+  T --> Q[ffprobe + promoção atômica + entrega]
+```
+
+A rota `GET /v1/complementary/capabilities` descreve a camada sem rede. `POST /v1/complementary/plan` é síncrona, determinística e não cria tarefa, não baixa mídia, não gera áudio e não dispara agentes. O consumidor revisa o retorno e decide se encaminha cada cena ao `POST /v1/video/generate`, áudio ao `POST /v1/orchestrate` ou storyboard ao agente apropriado. Assim, a estrutura proposta no anexo — `generator`, `audio`, `media_fetcher` e `app` — é representada por contratos e adaptadores complementares, sem reintroduzir uma segunda API Flask, uma segunda fila ou uma segunda política de armazenamento.
+
+| Conceito da arquitetura complementar | Implementação aditiva no KAIR | Estado |
+| --- | --- | --- |
+| `app.py` | Rotas FastAPI `/v1/complementary/*` | Planejamento síncrono; gateway original preservado |
+| `generator.py` | `video_request_template` por cena | Handoff para o SkyReels/worker existente |
+| `audio.py` | `audio` slot com handoff para `/v1/orchestrate` | Nenhum TTS automático |
+| `media_fetcher.py` | `media` slot e capability Pexels | Desabilitado; nenhuma chave necessária no teste |
+| `outputs/` | `KAIROS_OUTPUT_DIR` e promoção atômica existentes | Sem nova pasta ou sobrescrita |
+| `requirements.txt` | Dependências já instaladas do núcleo | Sem MoviePy/gTTS obrigatórios no caminho principal |
+
+## Teste local com Docker Compose
+
+O arquivo `docker-compose.agents.local.yml` cria um ambiente isolado com o gateway, um mock do SkyReels Space e um mock do LlamaGen. O mock não acessa a internet, não contém credenciais reais e implementa apenas os endpoints necessários para descoberta/probe. O script `scripts/test_agents_compose.sh` sobe o stack, valida `/v1/complementary/capabilities`, `/v1/agents/capabilities`, os dois probes e `/v1/complementary/plan`, e desmonta os containers ao final.
+
+```bash
+./scripts/test_agents_compose.sh
+```
+
+Esse Compose é exclusivamente de desenvolvimento. O `docker-compose.gpu.yml` continua sendo o perfil de produção e não recebe dependência dos mocks. O teste de Compose não prova inferência CUDA, download de checkpoint ou disponibilidade de terceiros; ele prova conectividade, contratos, gates e handoffs em uma rede local controlada.
+
 ## Agregador de agentes externos
 
 O agregador de agentes é uma camada de descoberta e adaptação, não um bypass da fila ou dos gates editoriais. `AgentAggregator` retorna um catálogo local de capabilities para `skyreels-native`, `skyreels-space` e `llamagen`, incluindo skills, algoritmos, operações, origem e prontidão. O catálogo é determinístico e não consulta a rede; por isso pode ser usado pelo frontend e por ferramentas de planejamento sem disparar geração, upload ou custo externo.
@@ -140,6 +179,7 @@ O backend está **desativado por padrão**. Para habilitá-lo, o ambiente precis
 | `KAIROS_SKYREELS_DEVICE` | `cuda` | Device do pipeline nativo |
 | `KAIROS_SKYREELS_DTYPE` | `bfloat16` | `float16`, `bfloat16` ou `float32` |
 | `KAIROS_SKYREELS_CACHE_DIR` | vazio | Cache local compartilhado de componentes |
+| `KAIROS_COMPLEMENTARY_CORE_ENABLED` | `true` | Gate do planejamento/handoff complementar; não habilita serviços externos |
 | `KAIROS_AGENT_AGGREGATOR_ENABLED` | `false` | Gate global do catálogo e dos probes externos |
 | `KAIROS_SKYREELS_SPACE_ENABLED` | `false` | Habilita o cliente remoto Gradio após o gate global |
 | `KAIROS_SKYREELS_SPACE_BASE_URL` | `https://fffiloni-skyreels-v2.hf.space` | Base URL documentada do Space; revisar antes de produção |
