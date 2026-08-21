@@ -100,6 +100,36 @@ class PersonaResponse(BaseModel):
     system_prompt: str
 
 
+class VideoRequest(BaseModel):
+    """Parâmetros portáveis para o backend opcional SkyReels-V2."""
+
+    prompt: str = Field(min_length=1, max_length=4_000)
+    mode: Literal["t2v", "i2v", "extend", "start_end"] = "t2v"
+    engine: Literal["diffusion_forcing", "standard"] = "diffusion_forcing"
+    model_id: str | None = Field(default=None, min_length=1, max_length=500)
+    resolution: Literal["540P", "720P"] = "540P"
+    num_frames: int | None = Field(default=None, ge=1, le=1_457)
+    base_num_frames: int | None = Field(default=None, ge=1, le=1_457)
+    overlap_history: int | None = Field(default=None, ge=1, le=300)
+    addnoise_condition: int = Field(default=20, ge=0, le=60)
+    ar_step: int = Field(default=0, ge=0, le=100)
+    causal_block_size: int = Field(default=1, ge=1, le=32)
+    inference_steps: int = Field(default=30, ge=1, le=200)
+    fps: int = Field(default=24, ge=1, le=120)
+    guidance_scale: float = Field(default=6.0, ge=0, le=30)
+    shift: float = Field(default=8.0, ge=0, le=30)
+    image_path: str | None = Field(default=None, max_length=500)
+    end_image_path: str | None = Field(default=None, max_length=500)
+    video_path: str | None = Field(default=None, max_length=500)
+    seed: int | None = Field(default=None, ge=0, le=2**32 - 2)
+    offload: bool = True
+    prompt_enhancer: bool = False
+    teacache: bool = False
+    teacache_thresh: float = Field(default=0.2, gt=0, le=1)
+    use_ret_steps: bool = False
+    use_usp: bool = False
+
+
 class MultimediaRequest(BaseModel):
     prompt: str | None = Field(default=None, max_length=2_000)
     route_id: str = Field(default="default", min_length=1, max_length=120)

@@ -26,6 +26,10 @@ flowchart LR
   Q --> W[WebSocket de progresso]
   W --> C
   O -. opcional .-> Z[Demucs / Stems]
+  O --> VV[VideoOrchestrator]
+  VV --> VA[SkyReelsVideoAdapter]
+  VA --> VS[SkyReels-V2 clone / GPU worker]
+  VS --> VP[MP4 + video metadata]
   A -. opcional .-> N[MusicGen / Bark / Lyria adapter]
 ```
 
@@ -42,6 +46,8 @@ flowchart LR
 | `AudioProcessor` | Arquivo multimídia | PCM + `AudioAnalysis` | WAV local; formatos extras via SoundFile/FFmpeg |
 | `Transcriber` | Áudio + backend | `TranscriptResult` | Sidecar funcional; Faster-Whisper opcional |
 | `MultimediaOrchestrator` | `MultimediaRequest` | Áudio + JSON + metadados | Funcional em MVP |
+| `VideoOrchestrator` | `VideoRequest` | MP4 + JSON + metadados | Funcional com backend opcional |
+| `SkyReelsVideoAdapter` | Contrato de vídeo + checkpoint | MP4 publicado | Isolado; requer GPU/checkpoint |
 | `Transcoder` | PCM/WAV | WAV/MP3 | WAV funcional; MP3 via FFmpeg |
 | `TaskStore` | Estado de pipeline | Snapshot e eventos | Em memória no MVP |
 | API | JSON/WebSocket | JSON/arquivo | Funcional |
@@ -57,6 +63,8 @@ flowchart LR
 ## Fluxo multimídia
 
 A central multimídia segue o mesmo contrato de tarefa, mas adiciona ingestão, análise e transcrição antes da geração. `POST /v1/orchestrate` resolve referências apenas em diretórios permitidos, usa `AudioProcessor` para obter métricas técnicas, escolhe o backend de transcrição e converte o texto em contexto para o Maestro. O resultado publica áudio, transcrição e metadados como artefatos separados. O fluxo completo, os estados e os perfis de dependência estão em [`multimedia-architecture.md`](multimedia-architecture.md).
+
+O fluxo audiovisual adiciona `POST /v1/video/generate`, que usa o mesmo `TaskStore`, polling e WebSocket, mas mantém o SkyReels em um clone independente. O adaptador aceita geração T2V/I2V, Diffusion Forcing, extensão e controle start/end; o contrato e os gates de operação estão em [`video-architecture.md`](video-architecture.md).
 
 ## Controle artístico KTD
 
