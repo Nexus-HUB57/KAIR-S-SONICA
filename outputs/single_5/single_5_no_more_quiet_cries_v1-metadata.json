@@ -1,0 +1,47 @@
+{
+  "schema_version": "single5-no-more-quiet-cries-v1",
+  "title": "No More Quiet Cries",
+  "artist": "KTD / Kháirus the Dragon",
+  "single": 5,
+  "status": "candidate_for_review",
+  "language": "English",
+  "bpm": 100,
+  "key": "A minor",
+  "generated_duration_seconds": 167.157551,
+  "style": "narrative hip-hop with organic soul-reggae pulse, melodic chorus and controlled anger",
+  "narrative": {
+    "mother": true,
+    "domestic_violence": "addressed as denunciation without graphic detail or glorification",
+    "older_brother_responsibility": true,
+    "health_debilitation": "addressed generically without invented diagnosis",
+    "lessons_of_life": true,
+    "anger_and_rage": "directed at abuse, silence, neglect and the cycle, not at a real person",
+    "viral_excerpt": "Mama, no more quiet cries in the hallway / I was too young, but I carried the whole weight / I hate the hands that made you hide your light / Now every scar in your name turns the dark to sunrise."
+  },
+  "reference_policy": {
+    "reference_attributes": ["confessional rap", "organic soul-reggae warmth", "anthemic chorus", "narrative family testimony", "controlled anger", "hope after trauma"],
+    "source_imitation": false,
+    "lyrics_or_melody_reproduced": false
+  },
+  "files": {
+    "raw_generation": "outputs/single_5/single_5_no_more_quiet_cries_v1.wav",
+    "master_wav": "outputs/single_5/single_5_no_more_quiet_cries_v1-master.wav",
+    "master_mp3": "outputs/single_5/single_5_no_more_quiet_cries_v1-master.mp3",
+    "lyrics": "docs/singles/single-5-no-more-quiet-cries-lyrics-v1.md",
+    "briefing": "docs/singles/single-5-mama-briefing.md"
+  },
+  "validation": {
+    "wav_codec": "pcm_s24le",
+    "sample_rate": 44100,
+    "channels": 2,
+    "master_wav_sha256": "a89a976887fc8389cffa3b04379fc6a9737f4f5b062d1670b6a6607c6911f91f",
+    "master_mp3_sha256": "2401507017abeaf5eb01dec06ee3f4f53960c9b7657a26338095b7975641f214"
+  },
+  "editorial_guardrails": [
+    "do not invent medical diagnosis, dates, names or identifiable third parties",
+    "do not include graphic violence",
+    "do not glorify revenge",
+    "preserve the mother's dignity",
+    "human audition required before approval"
+  ]
+}
