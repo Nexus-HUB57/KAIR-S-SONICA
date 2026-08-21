@@ -3,7 +3,7 @@
   "title": "No More Quiet Cries",
   "artist": "KTD / Kháirus the Dragon",
   "single": 5,
-  "status": "candidate_for_review",
+  "status": "approved_extraordinary",
   "language": "English",
   "bpm": 100,
   "key": "A minor",
@@ -30,6 +30,14 @@
     "lyrics": "docs/singles/single-5-no-more-quiet-cries-lyrics-v1.md",
     "briefing": "docs/singles/single-5-mama-briefing.md"
   },
+  "approval": {
+    "status": "approved",
+    "quality_label": "EXTRAORDINÁRIA",
+    "approved_at": "2026-08-21",
+    "approved_by": "user",
+    "audio_immutable": true,
+    "approved_elements": ["lyrics", "chorus", "vocal performance", "arrangement", "mix"]
+  },
   "validation": {
     "wav_codec": "pcm_s24le",
     "sample_rate": 44100,
@@ -37,6 +45,7 @@
     "master_wav_sha256": "a89a976887fc8389cffa3b04379fc6a9737f4f5b062d1670b6a6607c6911f91f",
     "master_mp3_sha256": "2401507017abeaf5eb01dec06ee3f4f53960c9b7657a26338095b7975641f214"
   },
+  "official_version_note": "v1 selected after comparative listening; v2 remains experimental and is not promoted",
   "editorial_guardrails": [
     "do not invent medical diagnosis, dates, names or identifiable third parties",
     "do not include graphic violence",

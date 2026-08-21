@@ -3,12 +3,17 @@
   "title": "No More Quiet Cries",
   "artist": "KTD / Kháirus the Dragon",
   "single": 5,
-  "status": "candidate_for_review",
+  "status": "experimental_not_promoted",
   "revision_of": "single_5_no_more_quiet_cries_v1",
   "language": "English",
   "bpm": 106,
   "key": "A minor",
   "generated_duration_seconds": 180.088163,
+  "promotion_decision": {
+    "status": "not_promoted",
+    "reason": "v1 selected after comparative listening as extraordinary",
+    "preserve_for_comparison": true
+  },
   "revision_focus": {
     "lyrics_preserved": true,
     "chorus_preserved": true,
