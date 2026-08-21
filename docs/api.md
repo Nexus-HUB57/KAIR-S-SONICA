@@ -247,9 +247,9 @@ No host NVIDIA/CUDA público, o fluxo completo de readiness e descoberta pode se
 O harness valida `nvidia-smi`, Docker Compose v2, o manifesto `docker-compose.gpu.yml`, `/ready`, `/health`, `/v1/video/capabilities`, `/v1/agents/capabilities` e `/v1/agentic/capabilities`. Por padrão, exige que o backend native esteja pronto, não faz chamadas a terceiros e mantém `KAIROS_RUN_EXTERNAL_PROBES=false`. Depois de revisar custo, procedência, retenção e credenciais, o operador pode habilitar os gates e executar os probes remotos:
 
 ```bash
-KAIROS_AGENT_AGGREGATOR_ENABLED=true \\
-KAIROS_SKYREELS_SPACE_ENABLED=true \\
-KAIROS_RUN_EXTERNAL_PROBES=true \\
+KAIROS_AGENT_AGGREGATOR_ENABLED=true \
+KAIROS_SKYREELS_SPACE_ENABLED=true \
+KAIROS_RUN_EXTERNAL_PROBES=true \
 ./scripts/test_agents_gpu_compose.sh
 ```
 
