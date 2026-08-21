@@ -10,3 +10,5 @@ outputs/single_7/no-one-saved-me-a-seat-v1-gospel-denouement-master.wav filter=l
 outputs/single_7/no-one-saved-me-a-seat-v1-gospel-denouement-plus5-subtle-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_7/no-one-saved-me-a-seat-v1-gospel-after-ktd-speech-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_7/no-one-saved-me-a-seat-v1-gospel-after-ktd-speech-long-reverb-tail-master.wav filter=lfs diff=lfs merge=lfs -text
+outputs/single_8/build-the-door-behind-me-v1-demo-master.wav filter=lfs diff=lfs merge=lfs -text
+outputs/single_8/build-the-door-behind-me-v2-demo-master.wav filter=lfs diff=lfs merge=lfs -text

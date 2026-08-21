@@ -1,0 +1,50 @@
+{
+  "project": "KAIR-S-SONICA",
+  "artist": "Kháirus the Dragon (KTD)",
+  "single_number": 8,
+  "title": "Build the Door Behind Me",
+  "version": "v2 demo",
+  "status": "candidate for human evaluation",
+  "official_language": "English",
+  "reference_language": "Brazilian Portuguese",
+  "tempo_bpm": 98,
+  "key_center": "E minor",
+  "duration_seconds": 174.367347,
+  "duration_display": "2:54",
+  "audio_format_wav": {
+    "codec": "pcm_s24le",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bits_per_sample": 24,
+    "sha256": "b268b9c83daa6dae7ddbe71c7aa94003d1193693547556d887adf36150ef599a",
+    "path": "outputs/single_8/build-the-door-behind-me-v2-demo-master.wav"
+  },
+  "audio_format_mp3": {
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bitrate_kbps": 320,
+    "sha256": "2b5bae662fe5f5d60799b5749be8c79fb5265d54c7ade0c36fd237e1995848b8",
+    "path": "outputs/single_8/build-the-door-behind-me-v2-demo-master.mp3"
+  },
+  "loudness_measurement": {
+    "integrated_lufs": -12.5,
+    "true_peak_dbtp": 0.5,
+    "loudness_range_lu": 8.3,
+    "note": "Measurement only; no global normalization applied."
+  },
+  "version_change": "Verses, pre-choruses, bridge and outro requested with more inspiration, breath support, conviction and dynamic lift. Chorus remains the approved reference and was requested unchanged in lyrics, melodic contour, harmony, choir response and groove.",
+  "vocal_content_check": {
+    "transcription_path": "outputs/single_8/build-the-door-behind-me-v2-demo-transcription.txt",
+    "result": "The main narrative and chorus manifesto are present. Automatic transcription shows minor compression or wording variation in several generated lines, so v2 is a musical/vocal performance candidate and not a final lyric-lock master."
+  },
+  "guardrails": [
+    "no imitation of real artists",
+    "no biometric voice cloning",
+    "no borrowed melody, lyric, sample, or recognizable motif",
+    "no abrupt genre or tempo change",
+    "preserve approved chorus identity as the reference"
+  ],
+  "source_note": "The generation backend returned an MP3-encoded file with a WAV extension; it was preserved as generated-source.mp3 and converted into the verified PCM WAV and 320 kbps MP3 masters.",
+  "previous_version": "outputs/single_8/build-the-door-behind-me-v1-demo-master.wav and .mp3 remain preserved."
+}
