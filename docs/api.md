@@ -89,6 +89,60 @@ A resposta inicial segue o mesmo contrato de tarefa:
 {"task_id":"...","status":"PENDING"}
 ```
 
+## `GET /v1/video/capabilities`
+
+Retorna os backends e modos disponíveis no processo atual. O campo `native.runtime` indica apenas se `torch` e `diffusers` podem ser importados; a prontidão completa de checkpoint e device continua sendo responsabilidade de `GET /ready`.
+
+```json
+{
+  "backends": {
+    "cli": {"enabled": true, "engine": ["standard", "diffusion_forcing"]},
+    "native": {
+      "enabled": true,
+      "engine": ["standard", "diffusion_forcing"],
+      "runtime": true,
+      "ready": false,
+      "checkpoint": {"configured": true, "exists": false}
+    }
+  },
+  "modes": ["t2v", "i2v", "extend", "start_end"],
+  "default_backend": "native"
+}
+```
+
+## `GET /v1/agents/capabilities`
+
+Retorna o catálogo versionado de agentes, skills, algoritmos e operações conhecidas pelo agregador. O endpoint não faz chamadas de rede, não dispara geração e informa explicitamente quais integrações estão habilitadas. Os agentes externos permanecem desabilitados por padrão.
+
+```json
+{
+  "schema_version": 1,
+  "enabled": false,
+  "agents": [
+    {
+      "name": "skyreels-space",
+      "kind": "remote_gradio_agent",
+      "enabled": false,
+      "ready": false,
+      "skills": ["remote-text-to-video", "sse-polling"]
+    },
+    {
+      "name": "llamagen",
+      "kind": "remote_rest_agent",
+      "enabled": false,
+      "ready": false,
+      "skills": ["storyboard", "comic-panels", "panel-regeneration"]
+    }
+  ]
+}
+```
+
+## `GET /v1/agents/{agent_name}/probe`
+
+Executa explicitamente um probe contra o agente selecionado. Para `skyreels-space`, consulta `/gradio_api/info` e `/config`; para `llamagen`, consulta `GET /v1/comics/generations/nonexistent` com o Bearer configurado. O probe exige `KAIROS_AGENT_AGGREGATOR_ENABLED=true` e o agente específico habilitado. Retorna `503` quando a integração está desabilitada ou o nome é desconhecido e `502` quando o terceiro está indisponível ou rejeita a autenticação. Nenhum segredo é incluído no payload ou nos logs do cliente.
+
+Exemplos de nomes aceitos: `skyreels-native`, `skyreels-space` e `llamagen`.
+
 ## `POST /v1/video/generate`
 
 Cria uma tarefa assíncrona para T2V, I2V, Diffusion Forcing, extensão ou controle de frame inicial/final. O backend exige `KAIROS_ENABLE_SKYREELS=true`, clone e checkpoint configurados; referências de imagem/vídeo só podem estar em `data/uploads` ou `data/output`.
@@ -98,6 +152,7 @@ Cria uma tarefa assíncrona para T2V, I2V, Diffusion Forcing, extensão ou contr
   "prompt": "A continuous cinematic live-action shot in rain, moving camera, no text, no watermark.",
   "mode": "i2v",
   "engine": "diffusion_forcing",
+  "backend": "native",
   "resolution": "540P",
   "image_path": "keyframe.png",
   "num_frames": 97,
@@ -107,7 +162,7 @@ Cria uma tarefa assíncrona para T2V, I2V, Diffusion Forcing, extensão ou contr
 }
 ```
 
-A resposta é `202 Accepted` com `task_id`. Em modo `inline`, a API inicia o worker local; em modo `queue`, apenas grava o payload no `TaskStore` e o processo `scripts/run_worker.py` reivindica e executa o job. O MP4 é validado com `ffprobe` antes de ser publicado.
+A resposta é `202 Accepted` com `task_id`. Em modo `inline`, a API inicia o worker local; em modo `queue`, apenas grava o payload no `TaskStore` e o processo `scripts/run_worker.py` reivindica e executa o job. O MP4 é validado com `ffprobe` antes de ser publicado. Com `backend=native`, o worker seleciona as pipelines Diffusers nativas e usa `KAIROS_SKYREELS_NATIVE_MODEL_ID`; com `backend=cli`, usa os entry points do clone e `KAIROS_SKYREELS_MODEL_ID`.
 
 ## `GET /v1/tasks/{task_id}`
 

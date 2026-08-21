@@ -121,3 +121,59 @@ def test_video_endpoint_fails_explicitly_when_backend_is_disabled(tmp_path: Path
         settings.output_dir = original_output
         settings.upload_dir = original_upload
         settings.enable_skyreels = original_enabled
+
+
+def test_video_capabilities_exposes_native_backend() -> None:
+    original_enabled = settings.enable_skyreels
+    original_native = settings.skyreels_native_api
+    settings.enable_skyreels = True
+    settings.skyreels_native_api = True
+
+    try:
+        with TestClient(app) as client:
+            response = client.get("/v1/video/capabilities")
+            assert response.status_code == 200
+            payload = response.json()
+            assert payload["backends"]["native"]["enabled"] is True
+            assert payload["modes"] == ["t2v", "i2v", "extend", "start_end"]
+            assert payload["default_backend"] == "cli"
+    finally:
+        settings.enable_skyreels = original_enabled
+        settings.skyreels_native_api = original_native
+
+
+def test_native_readiness_requires_model_and_runtime(tmp_path: Path, monkeypatch) -> None:
+    original = {
+        "enable_skyreels": settings.enable_skyreels,
+        "skyreels_native_api": settings.skyreels_native_api,
+        "skyreels_native_model_id": settings.skyreels_native_model_id,
+        "skyreels_device": settings.skyreels_device,
+    }
+    settings.enable_skyreels = True
+    settings.skyreels_native_api = True
+    settings.skyreels_native_model_id = str(tmp_path / "native-model")
+    settings.skyreels_device = "cpu"
+
+    try:
+        with TestClient(app) as client:
+            response = client.get("/ready")
+            assert response.status_code == 503
+            assert response.json()["detail"]["checks"]["skyreels_native_model"] == "missing"
+
+        native_model = Path(settings.skyreels_native_model_id)
+        for relative in ("model_index.json", "vae/config.json", "transformer/config.json"):
+            path = native_model / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("{}", encoding="utf-8")
+        monkeypatch.setattr(
+            "services.api.main.importlib.util.find_spec",
+            lambda name: object(),
+        )
+        with TestClient(app) as client:
+            response = client.get("/ready")
+            assert response.status_code == 200
+            assert response.json()["checks"]["skyreels_native_model"] == "ok"
+            assert response.json()["checks"]["skyreels_native_runtime"] == "ok"
+    finally:
+        for key, value in original.items():
+            setattr(settings, key, value)

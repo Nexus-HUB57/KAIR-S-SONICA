@@ -13,6 +13,24 @@ def test_health_and_plan() -> None:
         assert response.json()["bpm"] == 92
 
 
+def test_agent_capabilities_endpoint() -> None:
+    with TestClient(app) as client:
+        response = client.get("/v1/agents/capabilities")
+        assert response.status_code == 200
+        payload = response.json()
+        assert payload["schema_version"] == 1
+        assert {agent["name"] for agent in payload["agents"]} == {
+            "skyreels-native",
+            "skyreels-space",
+            "llamagen",
+        }
+        assert all(
+            agent["enabled"] is False
+            for agent in payload["agents"]
+            if agent["name"] in {"skyreels-space", "llamagen"}
+        )
+
+
 def test_persona_endpoint() -> None:
     with TestClient(app) as client:
         response = client.get("/v1/persona")

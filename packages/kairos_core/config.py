@@ -26,11 +26,25 @@ class Settings:
     enable_skyreels: bool = False
     skyreels_repo: Path | None = None
     skyreels_model_id: str | None = None
+    skyreels_native_model_id: str | None = None
+    skyreels_native_api: bool = False
+    skyreels_device: str = "cuda"
+    skyreels_dtype: str = "bfloat16"
+    skyreels_cache_dir: Path | None = None
     skyreels_python: str = "python3"
     skyreels_allow_model_download: bool = False
     skyreels_keep_staging: bool = False
     skyreels_max_concurrency: int = 1
     skyreels_timeout_seconds: int = 3_600
+    agent_aggregator_enabled: bool = False
+    skyreels_space_enabled: bool = False
+    skyreels_space_base_url: str = "https://fffiloni-skyreels-v2.hf.space"
+    skyreels_space_endpoint: str = "generate_diffusion_forced_video"
+    skyreels_space_timeout_seconds: int = 1_800
+    llamagen_enabled: bool = False
+    llamagen_base_url: str = "https://api.llamagen.ai"
+    llamagen_api_key_env: str = "LLAMAGEN_API_KEY"
+    llamagen_timeout_seconds: int = 60
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -59,6 +73,12 @@ class Settings:
             in {"1", "true", "yes", "on"},
             skyreels_repo=cls._optional_path(os.getenv("KAIROS_SKYREELS_REPO")),
             skyreels_model_id=os.getenv("KAIROS_SKYREELS_MODEL_ID") or None,
+            skyreels_native_model_id=os.getenv("KAIROS_SKYREELS_NATIVE_MODEL_ID") or None,
+            skyreels_native_api=os.getenv("KAIROS_SKYREELS_NATIVE_API", "false").lower()
+            in {"1", "true", "yes", "on"},
+            skyreels_device=os.getenv("KAIROS_SKYREELS_DEVICE", "cuda"),
+            skyreels_dtype=os.getenv("KAIROS_SKYREELS_DTYPE", "bfloat16"),
+            skyreels_cache_dir=cls._optional_path(os.getenv("KAIROS_SKYREELS_CACHE_DIR")),
             skyreels_python=os.getenv("KAIROS_SKYREELS_PYTHON", "python3"),
             skyreels_allow_model_download=os.getenv(
                 "KAIROS_SKYREELS_ALLOW_MODEL_DOWNLOAD", "false"
@@ -68,6 +88,26 @@ class Settings:
             in {"1", "true", "yes", "on"},
             skyreels_max_concurrency=int(os.getenv("KAIROS_SKYREELS_MAX_CONCURRENCY", "1")),
             skyreels_timeout_seconds=int(os.getenv("KAIROS_SKYREELS_TIMEOUT_SECONDS", "3600")),
+            agent_aggregator_enabled=os.getenv("KAIROS_AGENT_AGGREGATOR_ENABLED", "false").lower()
+            in {"1", "true", "yes", "on"},
+            skyreels_space_enabled=os.getenv("KAIROS_SKYREELS_SPACE_ENABLED", "false").lower()
+            in {"1", "true", "yes", "on"},
+            skyreels_space_base_url=os.getenv(
+                "KAIROS_SKYREELS_SPACE_BASE_URL",
+                "https://fffiloni-skyreels-v2.hf.space",
+            ).rstrip("/"),
+            skyreels_space_endpoint=os.getenv(
+                "KAIROS_SKYREELS_SPACE_ENDPOINT",
+                "generate_diffusion_forced_video",
+            ),
+            skyreels_space_timeout_seconds=int(
+                os.getenv("KAIROS_SKYREELS_SPACE_TIMEOUT_SECONDS", "1800")
+            ),
+            llamagen_enabled=os.getenv("KAIROS_LLAMAGEN_ENABLED", "false").lower()
+            in {"1", "true", "yes", "on"},
+            llamagen_base_url=os.getenv("KAIROS_LLAMAGEN_BASE_URL", "https://api.llamagen.ai").rstrip("/"),
+            llamagen_api_key_env=os.getenv("KAIROS_LLAMAGEN_API_KEY_ENV", "LLAMAGEN_API_KEY"),
+            llamagen_timeout_seconds=int(os.getenv("KAIROS_LLAMAGEN_TIMEOUT_SECONDS", "60")),
         )
 
     @staticmethod

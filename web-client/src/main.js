@@ -62,6 +62,7 @@ app.innerHTML = `
         <div class="grid">
           <label>Modo<select name="mode"><option value="t2v">Texto → vídeo</option><option value="i2v">Keyframe → vídeo</option><option value="extend">Extensão de vídeo</option><option value="start_end">Frame inicial → frame final</option></select></label>
           <label>Engine<select name="engine"><option value="diffusion_forcing">Diffusion Forcing</option><option value="standard">Standard T2V/I2V</option></select></label>
+          <label>Backend<select name="backend"><option value="native">API nativa Diffusers</option><option value="cli">CLI SkyReels</option></select></label>
           <label>Resolução<select name="resolution"><option value="540P">540P</option><option value="720P">720P</option></select></label>
           <label>Frames<input name="num_frames" type="number" min="1" max="1457" placeholder="97 / 121" /></label>
           <label>FPS<input name="fps" type="number" min="1" max="120" value="24" /></label>
@@ -192,6 +193,8 @@ const videoEngine = videoForm.elements.engine;
 const videoImage = videoForm.elements.image_path;
 const videoEndImage = videoForm.elements.end_image_path;
 const videoPath = videoForm.elements.video_path;
+const videoBackend = videoForm.elements.backend;
+const videoChip = videoForm.querySelector('.chip');
 
 function syncVideoMode() {
   const mode = videoMode.value;
@@ -210,6 +213,28 @@ function syncVideoMode() {
 
 videoMode.addEventListener('change', syncVideoMode);
 syncVideoMode();
+
+async function loadVideoCapabilities() {
+  try {
+    const response = await fetch(`${API_BASE}/v1/video/capabilities`);
+    if (!response.ok) throw new Error('capabilities unavailable');
+    const payload = await response.json();
+    const native = payload.backends?.native;
+    const nativeOption = videoBackend.querySelector('option[value="native"]');
+    if (nativeOption) {
+      nativeOption.disabled = !native?.ready;
+      nativeOption.textContent = native?.ready ? 'API nativa Diffusers · pronta' : 'API nativa Diffusers · não pronta';
+    }
+    if (native?.ready) videoBackend.value = 'native';
+    else videoBackend.value = 'cli';
+    videoChip.textContent = native?.ready ? 'SKYREELS · NATIVE GPU' : 'SKYREELS · CLI GPU';
+  } catch {
+    videoBackend.value = 'cli';
+    videoChip.textContent = 'SKYREELS · GPU';
+  }
+}
+
+loadVideoCapabilities();
 
 videoForm.addEventListener('submit', async (event) => {
   event.preventDefault();

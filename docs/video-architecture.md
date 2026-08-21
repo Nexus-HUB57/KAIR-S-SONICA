@@ -6,7 +6,7 @@ Este documento define a integração não destrutiva do **KAIR-S-SONICA** com o 
 
 > **Regra operacional:** o núcleo não declara que um vídeo foi gerado por modelo neural quando o backend está desabilitado, o checkpoint não está disponível ou a execução não produziu um MP4 verificável.
 
-A integração cobre os caminhos T2V, I2V, Diffusion Forcing para vídeos longos, extensão de vídeo e controle de frame inicial/final. A ponte utiliza os entry points versionados do clone `SkyReels-V2` e não copia seus módulos para dentro do pacote principal do KAIR.
+A integração cobre os caminhos T2V, I2V, Diffusion Forcing para vídeos longos, extensão de vídeo e controle de frame inicial/final. O backend pode ser selecionado por requisição com `backend=cli` (entry points versionados do clone) ou `backend=native` (pipelines Python nativas do Diffusers). Nenhum módulo ou peso é copiado para dentro do pacote principal do KAIR.
 
 ## Arquitetura
 
@@ -32,11 +32,24 @@ O modo `inline` mantém o desenvolvimento local simples. No perfil de produção
 
 A saída é copiada do staging para um nome determinístico por tarefa somente depois de localizar um MP4 não vazio e validá-lo com `ffprobe`. Caso o destino já exista, a promoção falha em vez de sobrescrever o artefato. O staging é removido ao final por padrão e pode ser retido apenas com `KAIROS_SKYREELS_KEEP_STAGING=true` para diagnóstico.
 
+## Agregador de agentes externos
+
+O agregador de agentes é uma camada de descoberta e adaptação, não um bypass da fila ou dos gates editoriais. `AgentAggregator` retorna um catálogo local de capabilities para `skyreels-native`, `skyreels-space` e `llamagen`, incluindo skills, algoritmos, operações, origem e prontidão. O catálogo é determinístico e não consulta a rede; por isso pode ser usado pelo frontend e por ferramentas de planejamento sem disparar geração, upload ou custo externo.
+
+| Agente | Papel | Ativação | Operações externas | Regra de segurança |
+| --- | --- | --- | --- | --- |
+| `skyreels-native` | Inferência local GPU via Diffusers | `KAIROS_ENABLE_SKYREELS=true` e `KAIROS_SKYREELS_NATIVE_API=true` | Nenhuma; usa o worker local | Checkpoint montado, CUDA e `ffprobe` obrigatórios |
+| `skyreels-space` | Fallback remoto Gradio para SkyReels-V2 | agregador e agente Space habilitados | `/config`, `/gradio_api/info`, upload e chamada SSE | Probe e geração somente por ação explícita; schema remoto pode mudar |
+| `llamagen` | Storyboards, quadrinhos e referências de personagens/locações | agregador e LlamaGen habilitados + `LLAMAGEN_API_KEY` | upload, criação, consulta e atualização REST | Bearer somente via ambiente; catálogo nunca gera automaticamente |
+
+Os probes ficam em `GET /v1/agents/{agent_name}/probe` e só executam após a habilitação explícita. O probe do Space consulta o schema Gradio; o do LlamaGen usa uma leitura mínima de geração inexistente para classificar alcançabilidade e autorização. Respostas `502` representam indisponibilidade ou rejeição do terceiro; `503` representa integração desabilitada ou agente desconhecido. Nenhuma chave, token, peso ou resposta de geração é versionada.
+
 | Camada | Implementação | Responsabilidade |
 | --- | --- | --- |
 | Contrato | `VideoRequest` | Validar modo, engine, resolução, frames, FPS, seed e referências |
 | Orquestração | `VideoOrchestrator` | Padronizar intake e progresso do ecossistema KAIR |
-| Adaptador | `SkyReelsVideoAdapter` | Resolver paths, montar CLI, executar subprocesso e promover o MP4 |
+| Adaptador CLI | `SkyReelsVideoAdapter` | Resolver paths, montar CLI, executar subprocesso e promover o MP4 |
+| Adaptador nativo | `SkyReelsNativeAdapter` | Carregar pipeline Diffusers lazy, inferir em CUDA e exportar MP4 |
 | Backend | `SkyReels-V2/generate_video.py` | T2V/I2V convencional |
 | Backend | `SkyReels-V2/generate_video_df.py` | Diffusion Forcing, vídeo longo, extensão e start/end frame |
 | Estado | `TaskStore` | Persistir status, resultado e payload de jobs sem expor caminhos internos |
@@ -46,12 +59,12 @@ A saída é copiada do staging para um nome determinístico por tarefa somente d
 
 ## Modos suportados
 
-| `mode` | `engine` | Entrada exigida | Uso canônico |
-| --- | --- | --- | --- |
-| `t2v` | `standard` ou `diffusion_forcing` | Prompt | Primeiro plano gerativo a partir de texto |
-| `i2v` | `standard` ou `diffusion_forcing` | `image_path` | Animar keyframe aprovado |
-| `extend` | `diffusion_forcing` | `video_path` | Continuar um plano preservando histórico temporal |
-| `start_end` | `diffusion_forcing` | `image_path` e `end_image_path` | Controlar a abertura e o fechamento do plano |
+| `mode` | `engine` | `backend` | Entrada exigida | Uso canônico |
+| --- | --- | --- | --- | --- |
+| `t2v` | `standard` ou `diffusion_forcing` | `cli` ou `native` | Prompt | Primeiro plano gerativo a partir de texto |
+| `i2v` | `standard` ou `diffusion_forcing` | `cli` ou `native` | `image_path` | Animar keyframe aprovado |
+| `extend` | `diffusion_forcing` | `cli` ou `native` | `video_path` | Continuar um plano preservando histórico temporal |
+| `start_end` | `diffusion_forcing` | `cli` ou `native` | `image_path` e `end_image_path` | Controlar a abertura e o fechamento do plano |
 
 A resolução `540P` usa como default 97 frames e `720P` usa 121 frames, conforme a convenção do entry point do SkyReels. Para geração longa, `num_frames` pode ser maior que `base_num_frames`; nesse caso, o adaptador aplica `overlap_history=17` quando o operador não informa outro valor.
 
@@ -122,8 +135,41 @@ O backend está **desativado por padrão**. Para habilitá-lo, o ambiente precis
 | `KAIROS_FFPROBE_BIN` | `ffprobe` | Validação estrutural do MP4 antes da publicação |
 | `KAIROS_CORS_ORIGINS` | `http://localhost:8080` | Origens explícitas autorizadas para o frontend |
 | `KAIROS_WORKER_MODE` | `inline` | Use `queue` com o worker persistente em produção |
+| `KAIROS_SKYREELS_NATIVE_MODEL_ID` | vazio | Diretório local `*-Diffusers` para `backend=native` |
+| `KAIROS_SKYREELS_NATIVE_API` | `false` | Gate explícito da API nativa |
+| `KAIROS_SKYREELS_DEVICE` | `cuda` | Device do pipeline nativo |
+| `KAIROS_SKYREELS_DTYPE` | `bfloat16` | `float16`, `bfloat16` ou `float32` |
+| `KAIROS_SKYREELS_CACHE_DIR` | vazio | Cache local compartilhado de componentes |
+| `KAIROS_AGENT_AGGREGATOR_ENABLED` | `false` | Gate global do catálogo e dos probes externos |
+| `KAIROS_SKYREELS_SPACE_ENABLED` | `false` | Habilita o cliente remoto Gradio após o gate global |
+| `KAIROS_SKYREELS_SPACE_BASE_URL` | `https://fffiloni-skyreels-v2.hf.space` | Base URL documentada do Space; revisar antes de produção |
+| `KAIROS_SKYREELS_SPACE_ENDPOINT` | `generate_diffusion_forced_video` | Endpoint Gradio descoberto em `agents.md`/`config` |
+| `KAIROS_SKYREELS_SPACE_TIMEOUT_SECONDS` | `1800` | Limite de chamada/polling do Space |
+| `KAIROS_LLAMAGEN_ENABLED` | `false` | Habilita o cliente REST após o gate global |
+| `KAIROS_LLAMAGEN_BASE_URL` | `https://api.llamagen.ai` | Base URL do Comic API |
+| `KAIROS_LLAMAGEN_API_KEY_ENV` | `LLAMAGEN_API_KEY` | Nome da variável que contém o Bearer token |
+| `KAIROS_LLAMAGEN_TIMEOUT_SECONDS` | `60` | Timeout de chamadas REST do LlamaGen |
 
 O repositório SkyReels informa requisitos de VRAM muito superiores ao perfil CPU do MVP do KAIR: a documentação reporta aproximadamente 14,7 GB para o modelo 1.3B em 540P e cerca de 51,2 GB para o 14B em 540P [2]. Portanto, o teste unitário deste núcleo é deliberadamente um dry-run do contrato e da segurança; a inferência real requer um ambiente CUDA compatível, dependências do clone e checkpoints autorizados.
+
+## API nativa Diffusers
+
+A API nativa requer os pipelines SkyReels-V2 integrados ao Diffusers a partir da versão `0.35.0`, release que registra a inclusão do suporte SkyReels-V2 [6]. Os IDs oficiais em formato Diffusers incluem `Skywork/SkyReels-V2-DF-1.3B-540P-Diffusers`, `Skywork/SkyReels-V2-DF-14B-540P-Diffusers`, `Skywork/SkyReels-V2-DF-14B-720P-Diffusers`, `Skywork/SkyReels-V2-T2V-14B-540P-Diffusers`, `Skywork/SkyReels-V2-T2V-14B-720P-Diffusers`, `Skywork/SkyReels-V2-I2V-1.3B-540P-Diffusers`, `Skywork/SkyReels-V2-I2V-14B-540P-Diffusers` e `Skywork/SkyReels-V2-I2V-14B-720P-Diffusers` [4] [5].
+
+A chamada HTTP usa o mesmo endpoint, mas precisa declarar `"backend": "native"`. O adaptador escolhe `SkyReelsV2DiffusionForcingPipeline` para DF/T2V, `SkyReelsV2DiffusionForcingImageToVideoPipeline` para DF/I2V e start/end, `SkyReelsV2DiffusionForcingVideoToVideoPipeline` para extensão, `SkyReelsV2Pipeline` para T2V standard e `SkyReelsV2ImageToVideoPipeline` para I2V standard. Os pipelines são carregados sob demanda, permanecem em cache por modelo/modo/device/dtype e são protegidos pelo mesmo limite de concorrência GPU.
+
+O provisionamento é deliberadamente explícito e idempotente:
+
+```bash
+python3 scripts/provision_skyreels.py \\
+  --repo /opt/models/SkyReels-V2 \\
+  --models-root /models \\
+  --native-model-id Skywork/SkyReels-V2-DF-1.3B-540P-Diffusers \\
+  --revision <commit-ou-tag-auditado> \\
+  --download
+```
+
+Sem `--download`, o script somente valida o clone e o layout local. Com `--download`, o operador autoriza o acesso ao Hub; o token opcional é lido de `HF_TOKEN`, nunca impresso nem gravado. O destino exige `model_index.json`, `vae/config.json` e `transformer/config.json`, grava `kairos-skyreels-manifest.json` e usa lock de processo para evitar downloads concorrentes. O compose GPU aponta `KAIROS_SKYREELS_NATIVE_MODEL_ID` para esse diretório e mantém `KAIROS_SKYREELS_ALLOW_MODEL_DOWNLOAD=false` durante a inferência.
 
 ## Integração com cenas canônicas
 
@@ -137,6 +183,8 @@ A licença do SkyReels exige observância da **Skywork Community License** e inc
 
 O perfil de produção usa `docker-compose.yml` combinado com `docker-compose.gpu.yml`. O segundo arquivo constrói `Dockerfile.gpu`, monta o clone em `/opt/SkyReels-V2`, monta os checkpoints em `/models`, habilita `KAIROS_ENABLE_SKYREELS=true`, força `KAIROS_WORKER_MODE=queue`, limita a concorrência e inicia o worker persistente com os mesmos volumes da API. O endpoint `/health` serve ao liveness; `/ready` só retorna sucesso quando clone, entry point e checkpoint configurado estão disponíveis.
 
+Para agentes externos, o procedimento é: manter os três gates desativados; consultar `GET /v1/agents/capabilities`; revisar procedência, licença, limites, retenção e custo; definir as variáveis sem colocar segredos em `.env.example` ou Git; habilitar primeiro o agente desejado; executar o probe; e só então integrar uma geração deliberada ao fluxo de produção. A chave do LlamaGen deve ser fornecida por secret manager/ambiente como `LLAMAGEN_API_KEY`; a chave testada durante esta sincronização retornou HTTP 403 e não deve ser considerada válida.
+
 Antes de exposição em internet, a documentação do KAIR ainda recomenda autenticação no gateway, limites de tamanho, validação MIME, checksum, expiração de artefatos, métricas, logs estruturados e isolamento adicional de workers. Essas proteções são complementares ao worker persistente implementado nesta etapa e devem ser fornecidas pelo ingress/reverse proxy antes de abrir o serviço publicamente.
 
 ## Referências
@@ -144,3 +192,6 @@ Antes de exposição em internet, a documentação do KAIR ainda recomenda auten
 [1]: https://arxiv.org/abs/2504.13074 "SkyReels-V2 technical report"
 [2]: https://github.com/SkyworkAI/SkyReels-V2#quickstart "SkyReels-V2 Quickstart and model requirements"
 [3]: https://github.com/SkyworkAI/Skywork/blob/main/Skywork%20Community%20License.pdf "Skywork Community License"
+[4]: https://huggingface.co/docs/diffusers/en/api/pipelines/skyreels_v2 "Diffusers SkyReels-V2 native pipeline API"
+[5]: https://huggingface.co/Skywork/SkyReels-V2-DF-1.3B-540P "Official SkyReels-V2 DF 1.3B checkpoint"
+[6]: https://github.com/huggingface/diffusers/releases/tag/v0.35.0 "Diffusers v0.35.0 release notes"

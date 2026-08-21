@@ -8,6 +8,7 @@ from typing import Any
 from kairos_core.config import Settings
 from kairos_core.schemas import VideoRequest
 from kairos_core.video.adapter import SkyReelsVideoAdapter, VideoResult
+from kairos_core.video.native_adapter import SkyReelsNativeAdapter
 
 ProgressCallback = Callable[[str, int, str], None]
 
@@ -26,6 +27,7 @@ class VideoOrchestrator:
     def __init__(self, settings: Settings, adapter: SkyReelsVideoAdapter | None = None) -> None:
         self.settings = settings
         self.adapter = adapter or SkyReelsVideoAdapter(settings)
+        self.native_adapter = SkyReelsNativeAdapter(settings)
 
     def run(
         self,
@@ -35,7 +37,8 @@ class VideoOrchestrator:
     ) -> VideoOrchestrationResult:
         self._emit(progress, "ingesting_video", 5, "Validando parâmetros e referências visuais")
         self._emit(progress, "planning_video", 12, "Selecionando o modo de geração e o sampler")
-        result: VideoResult = self.adapter.run(request, task_id, progress=progress)
+        adapter = self.native_adapter if request.backend == "native" else self.adapter
+        result: VideoResult = adapter.run(request, task_id, progress=progress)
         return VideoOrchestrationResult(
             task_id=result.task_id,
             artifact_path=result.artifact_path,
