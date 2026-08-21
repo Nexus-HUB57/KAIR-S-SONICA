@@ -177,6 +177,19 @@ A Ilha Artística amplia o estúdio com o Atlas inicial em [`config/instrument_a
 
 O painel `SKILL CHAIN / ATLAS` está dentro do estúdio e permite selecionar instrumento, contexto e referência. O `NumpyChainExecutor` é um preview determinístico opcional para arrays mono/estéreo; Dynamic EQ, spectral balancing, pitch/formant e HRTF continuam como contratos até adapters explícitos. Consulte [`docs/artistic-production-island.md`](docs/artistic-production-island.md) para limites, proveniência e roadmap.
 
+### StudioMaster: groove, flow e repertório cultural
+
+O StudioMaster amplia a Ilha Artística com análise responsiva de groove/flow, cânone cultural editorial e repertório instrumental sem assets incorporados. `GET /v1/studio-master/capabilities`, `GET /v1/studio-master/canon` e `GET /v1/studio-master/repertoire` expõem metadados; `POST /v1/studio-master/groove/analyze` calcula `GrooveDna` por energia de onsets em CPU; `POST /v1/studio-master/responsive-plan` produz um plano `READY_FOR_APPROVAL` com patch para `MultimediaRequest`.
+
+```bash
+curl http://localhost:8000/v1/studio-master/capabilities
+curl -X POST http://localhost:8000/v1/studio-master/responsive-plan \
+  -H 'Content-Type: application/json' \
+  -d '{"style":"brazilian_funk_heavy","canon_id":"br_funk_mandelao","repertoire_id":"brazilian_funk_heavy_kit","bpm":140,"swing_ratio":0.55,"grid_follow":true}'
+```
+
+O command deck usa `WS /ws/studio-master/{session_id}/performance` para `SET_SWING`, `SET_GRID_FOLLOW`, `SET_BPM`, `BOOST_PUNCHLINE`, `RESET` e `PUSH_TO_LIBRARY`. O último comando cria apenas uma proposta de metadados pendente de aprovação; não persiste áudio, MIDI ou samples. A documentação está em [`docs/studio-master-orchestration.md`](docs/studio-master-orchestration.md) e [`docs/api.md`](docs/api.md).
+
 ### Estúdio de Gravação e Mixagem do DJ / Produtor Káiros
 
 A primeira console do estúdio está disponível no `web-client`: captura via microfone, importação de takes, waveform de monitoramento, volume, panorama, mute, solo, reprodução de mix e exportação de bounce WAV. O áudio permanece local no navegador e não cria tarefas automaticamente. O contrato e o roadmap estão em [`docs/recording-mixing-studio.md`](docs/recording-mixing-studio.md); a próxima fase deve adicionar upload autenticado e handoff explícito para o pipeline de áudio.

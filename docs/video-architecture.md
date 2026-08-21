@@ -92,19 +92,27 @@ A Ilha de Produção Artística do DJ Káiros é uma camada complementar ao est�
 flowchart LR
   B[Briefing musical / take local] --> I[Ilha Artística]
   I --> A[Atlas de instrumentos]
-  I --> G[SkillGenerator]
-  G --> P[MixPlan revisável]
+  I --> C[CanonIndex cultural]
+  I --> R[RepertoireCatalog]
+  I --> G[Groove/Flow analyzer]
+  G --> P[ResponsiveMixPlan revisável]
+  C --> P
+  R --> P
   P --> N[Numpy preview opcional]
   P --> D[Adapter DSP explícito]
   D --> M[MultimediaRequest / TrackRequest]
   M --> T[TaskStore + worker existente]
-  I --> S[Studio browser: takes, mix e bounce WAV]
-  R[RAG / IR / plugins] -. opt-in .-> D
+  I --> S[Studio browser: takes, mix e command deck]
+  S --> W[WebSocket de performance]
+  W -. estado efêmero .-> P
+  X[RAG / IR / plugins] -. opt-in .-> D
 ```
 
-A Ilha expõe `GET /v1/artistic-island/capabilities`, `GET /v1/artistic-island/instruments` e `POST /v1/artistic-island/mix-plan`. Os endpoints são `plan-first`: não carregam plugins, não baixam bibliotecas, não consultam provedores externos, não criam tarefas e não afirmam que o resultado é um master final. A execução DSP profissional, separação de stems, FluidSynth, VST3/AU/LV2, medição LUFS/true peak e RAG de referências devem ser adapters com capability e aprovação próprios.
+A Ilha expõe `GET /v1/artistic-island/capabilities`, `GET /v1/artistic-island/instruments` e `POST /v1/artistic-island/mix-plan`. O StudioMaster acrescenta `GET /v1/studio-master/capabilities`, `GET /v1/studio-master/canon`, `GET /v1/studio-master/repertoire`, `POST /v1/studio-master/groove/analyze`, `POST /v1/studio-master/responsive-plan`, snapshot HTTP de performance e `WS /ws/studio-master/{session_id}/performance`. Os endpoints são `plan-first`: não carregam plugins, não baixam bibliotecas, não consultam provedores externos, não criam tarefas e não afirmam que o resultado é um master final.
 
-O primeiro Atlas inclui 18 perfis starter e 12 contratos algorítmicos. A expansão para mais instrumentos, IRs e bibliotecas deve ocorrer por commits de dados separados, com licença, origem e checksum quando aplicável. O diretório de samples, modelos e plugins não faz parte deste commit.
+O analisador atual usa energia de onsets em CPU e retorna `GrooveDna` com método, confiança e avisos; ele não é uma rede neural. A aplicação inversa altera apenas eventos abstratos de ritmo e não edita áudio destrutivamente. O handoff agentico inclui o patch de BPM, swing, humanização, gênero e stems para o `MultimediaRequest`, mas continua sujeito a aprovação. A execução DSP profissional, separação de stems, FluidSynth, VST3/AU/LV2, medição LUFS/true peak e RAG de referências devem ser adapters com capability e aprovação próprios.
+
+O Atlas inicial permanece separado do cânone cultural e do repertório instrumental. O cânone contém metadados abstratos de padrões, faixas de BPM, swing, região editorial e notas de direitos; o repertório contém perfis de componentes e cadeias de mixagem sem samples, MIDI, embeddings, loops ou presets proprietários. Expansões devem ocorrer por commits de dados separados, com licença, origem e checksum quando aplicável.
 
 ## Teste local com Docker Compose
 

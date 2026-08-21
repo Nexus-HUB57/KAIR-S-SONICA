@@ -45,6 +45,7 @@ class AgenticOrchestrator:
                 "MediaProviderChain -> reference slots",
                 "QA -> approval gate",
                 "approved handoffs -> TaskStore",
+                "StudioMaster responsive plan -> MultimediaRequest patch",
             ],
         }
 
@@ -113,6 +114,7 @@ class AgenticOrchestrator:
             "mode": request.audio_mode,
             "duration_seconds": request.duration_seconds,
             "mix_targets": {"integrated_lufs": -14, "true_peak_db": -1},
+            "studio_master_plan": audio_handoff.payload.get("studio_master_plan"),
             "handoff": audio_handoff.to_dict(),
         }
         self._record(trace, run_id, "sound_designer", "audio_plan", sound_output)

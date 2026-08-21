@@ -23,6 +23,7 @@ def test_agentic_orchestrator_runs_all_twelve_roles_without_external_tools(tmp_p
     assert len(result.handoffs) == 3
     assert result.artifacts["retrieval"]["retrieval_mode"] == "disabled-by-external-tools-gate"
     assert result.artifacts["quality"]["passed"] is True
+    assert result.artifacts["audio_plan"]["studio_master_plan"]["status"] == "READY_FOR_APPROVAL"
     assert result.artifacts["scene_plan"]["scenes"]
     assert {handoff.kind for handoff in result.handoffs} == {"video_request", "multimedia_request"}
 

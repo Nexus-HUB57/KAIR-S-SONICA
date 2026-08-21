@@ -1,0 +1,148 @@
+schema_version: 1
+repertoire:
+  metadata:
+    name: "Kairos Instrumentation Repertoire"
+    description: "Mapeamento de papéis musicais para engines opcionais e síntese procedural."
+    license_note: "asset_ref deve apontar somente para material próprio, licenciado ou de domínio público."
+  profiles:
+    boom_bap_kit:
+      style: boom_bap
+      cultural_region: US
+      description: "Kit seco e sincopado com espaço para voz e sample autorizado."
+      source: "operator-curated; user brief pasted_content_14"
+      rights_note: "Não inclui loops, presets comerciais ou samples."
+      components:
+        kick:
+          engine: synthesis
+          asset_ref: null
+          parameters: {body_hz: 90, click_hz: 3000, decay_ms: 180}
+        snare:
+          engine: synthesis
+          asset_ref: null
+          parameters: {tone_hz: 190, noise: 0.7, decay_ms: 150}
+        hi_hat:
+          engine: synthesis
+          asset_ref: null
+          parameters: {decay_ms: 45, velocity_curve: 0.42}
+        bass:
+          engine: optional-synth
+          asset_ref: null
+          parameters: {waveform: sine, saturation: 0.12}
+    brazilian_funk_heavy_kit:
+      style: brazilian_funk_heavy
+      cultural_region: BRAZIL
+      description: "Pulsação grave, ataque curto e transientes secos para alta energia."
+      source: "operator-curated; user brief pasted_content_13/14"
+      rights_note: "Não é preset de imitação de artista; qualquer asset externo requer licença."
+      components:
+        kick:
+          engine: synthesis
+          asset_ref: null
+          parameters: {body_hz: 58, click_hz: 4200, decay_ms: 160}
+        sub_808:
+          engine: optional-synth
+          asset_ref: null
+          parameters: {waveform: sine, drive: 0.3, release_ms: 400}
+        snare:
+          engine: synthesis
+          asset_ref: null
+          parameters: {tone_hz: 210, noise: 0.8, decay_ms: 130}
+        hi_hat:
+          engine: synthesis
+          asset_ref: null
+          parameters: {decay_ms: 35, roll_probability: 0.2}
+    brazilian_funk_swing_kit:
+      style: brazilian_funk_swing
+      cultural_region: BRAZIL
+      description: "Síncopa com microtiming revisável e camadas percussivas abertas."
+      source: "operator-curated; user brief pasted_content_13/14"
+      rights_note: "Metadados abstratos; nenhum conteúdo de gravação foi incorporado."
+      components:
+        kick:
+          engine: synthesis
+          asset_ref: null
+          parameters: {body_hz: 72, click_hz: 2800, decay_ms: 190}
+        sub_808:
+          engine: optional-synth
+          asset_ref: null
+          parameters: {waveform: sine, drive: 0.15, release_ms: 520}
+        tamborim:
+          engine: optional-sfz
+          asset_ref: null
+          parameters: {decay_ms: 80, velocity_curve: 0.55}
+        piano:
+          engine: optional-fluidsynth
+          asset_ref: null
+          parameters: {program: 0, chorus: 0.3, reverb: 0.1}
+    vocal_focus:
+      style: vocal_focus
+      cultural_region: UNIVERSAL
+      description: "Camada de produção vocal para inteligibilidade e backings controlados."
+      source: "operator-curated; user brief pasted_content_11/14"
+      rights_note: "O áudio vocal pertence ao projeto e deve obedecer aos direitos do artista."
+      components:
+        lead_vocal:
+          engine: audio_input
+          asset_ref: null
+          parameters: {highpass_hz: 100, presence_hz: 3000, deesser_hz: 7000, compression_ratio: 4}
+        backing_vocals:
+          engine: audio_input
+          asset_ref: null
+          parameters: {voices: 4, detune_cents: 3, pan_width: 1.0}
+  mixing_chains:
+    boom_bap:
+      description: "Punch controlado, médios presentes e espaço para a voz."
+      target_lufs: -14
+      bus_processing:
+        - type: eq
+          bands: [{freq: 100, gain_db: 3}, {freq: 400, gain_db: -2}, {freq: 3000, gain_db: 4}]
+        - type: compressor
+          threshold_db: -12
+          ratio: 2.5
+          attack_ms: 20
+          release_ms: 150
+      track_processing:
+        kick: [{type: transient_shaper, attack: 0.7}]
+        lead_vocal: [{type: deesser, frequency_hz: 7500, threshold_db: -20}]
+    brazilian_funk_heavy:
+      description: "Grave definido, cortes secos e controle de pico; loudness exige medição final."
+      target_lufs: -10
+      bus_processing:
+        - type: multiband_comp
+          bands: [{low_hz: 0, high_hz: 120, threshold_db: -25, ratio: 3.0, attack_ms: 5, release_ms: 100}, {low_hz: 120, high_hz: 5000, threshold_db: -20, ratio: 2.0, attack_ms: 10, release_ms: 80}]
+        - type: soft_clip
+          threshold_db: -0.5
+        - type: limiter
+          ceiling_db: -1.0
+          true_peak: true
+      track_processing:
+        sub_808: [{type: harmonic_exciter, drive: 0.3}]
+        lead_vocal: [{type: sidechain_duck, depth_db: 3.0, release_ms: 60}]
+    brazilian_funk_swing:
+      description: "Suingue controlado, preservação de transientes e abertura para backings."
+      target_lufs: -12
+      bus_processing:
+        - type: eq
+          bands: [{freq: 80, gain_db: 4}, {freq: 500, gain_db: -2}, {freq: 5000, gain_db: 3}]
+        - type: compressor
+          threshold_db: -15
+          ratio: 2.0
+          attack_ms: 10
+          release_ms: 100
+      track_processing:
+        piano: [{type: convolution_reverb, wet: 0.15}]
+        backing_vocals: [{type: stereo_widener, width: 1.15}]
+    vocal_focus:
+      description: "Vocal no centro, sidechain multibanda e ad-libs com espaço estéreo."
+      target_lufs: -14
+      bus_processing:
+        - type: sidechain_duck
+          depth_db: 2.5
+          attack_ms: 1
+          release_ms: 60
+        - type: limiter
+          ceiling_db: -1.0
+          true_peak: true
+      track_processing:
+        lead_vocal: [{type: deesser, frequency_hz: 7000, threshold_db: -25}]
+        backing_vocals: [{type: stereo_widener, width: 1.2}, {type: delay_stack, beats: [0.375, 0.5], feedback: 0.18}]

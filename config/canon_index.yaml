@@ -1,0 +1,88 @@
+schema_version: 1
+metadata:
+  name: "Kairos Cultural Groove Canon"
+  description: "Índice editorial de padrões rítmicos; não contém áudio, MIDI, embeddings ou obras derivadas."
+  curator: "KAIR-S-SONICA operator-curated"
+  license_note: "Usar somente gravações, samples e padrões licenciados, próprios ou de domínio público."
+canon:
+  - id: us_funk_breakbeat
+    name: "US funk breakbeat"
+    region: US
+    bpm_range: [110, 145]
+    swing_ratio: 0.58
+    pattern: "breakbeat sincopado; kick variável; caixa em backbeat; hats com deslocamento"
+    cultural_context: "Referência abstrata à tradição de bandas de funk e ao uso posterior em hip-hop."
+    source: "operator-curated; user brief pasted_content_12"
+    rights_note: "Não inclui nem solicita o sample de nenhuma gravação específica."
+  - id: us_hiphop_boom_bap
+    name: "Boom bap de Nova York"
+    region: US
+    bpm_range: [78, 100]
+    swing_ratio: 0.65
+    pattern: "kick sincopado; snare no backbeat; hats em colcheias com swing"
+    cultural_context: "Descrição abstrata de produção para leitura hip-hop clássica."
+    source: "operator-curated; user brief pasted_content_12"
+    rights_note: "Não imitar artista, gravação ou composição identificável."
+  - id: us_trap_808_roll
+    name: "Trap 808 com rolls"
+    region: US
+    bpm_range: [130, 155]
+    swing_ratio: 0.52
+    pattern: "pulsação grave; hats em subdivisões rápidas; variações de roll"
+    cultural_context: "Descrição abstrata de produção contemporânea."
+    source: "operator-curated; user brief pasted_content_12"
+    rights_note: "Usar timbres próprios ou licenciados; o índice contém apenas parâmetros."
+  - id: lat_dembow
+    name: "Dembow latino"
+    region: LATIN
+    bpm_range: [85, 105]
+    swing_ratio: 0.50
+    pattern: "kick sincopado; backbeat regular; acentos nos contratempos"
+    cultural_context: "Descrição abstrata de padrão de dança latino."
+    source: "operator-curated; user brief pasted_content_12"
+    rights_note: "Metadados sem samples ou melodias protegidas."
+  - id: lat_samba_batucada
+    name: "Batucada brasileira"
+    region: BRAZIL
+    bpm_range: [90, 115]
+    swing_ratio: 0.55
+    pattern: "surdo em pontos de apoio; tamborim sincopado; caixa com repiques"
+    cultural_context: "Descrição abstrata; validação cultural por especialistas é recomendada."
+    source: "operator-curated; user brief pasted_content_12"
+    rights_note: "Nenhuma gravação tradicional foi incorporada."
+  - id: br_funk_mandelao
+    name: "Funk brasileiro pesado"
+    region: BRAZIL
+    bpm_range: [125, 155]
+    swing_ratio: 0.53
+    pattern: "grave contínuo; cortes secos; síncopa percussiva; transientes próximos"
+    cultural_context: "Leitura abstrata do funk brasileiro contemporâneo."
+    source: "operator-curated; user brief pasted_content_13"
+    rights_note: "Não usar nomes de artistas como preset de imitação; material precisa ser próprio/licenciado."
+  - id: br_funk_nostalgia
+    name: "Funk brasileiro nostálgico"
+    region: BRAZIL
+    bpm_range: [85, 100]
+    swing_ratio: 0.62
+    pattern: "pulsação com swing; dedilhados curtos; baixo com frase repetitiva"
+    cultural_context: "Fusão abstrata entre groove dançante e textura nostálgica."
+    source: "operator-curated; user brief pasted_content_13"
+    rights_note: "Samples nostálgicos devem ter licença rastreável; o cânone não armazena samples."
+  - id: eur_uk_2step
+    name: "UK 2-step"
+    region: EUROPE
+    bpm_range: [125, 140]
+    swing_ratio: 0.64
+    pattern: "kick quebrado; caixa no backbeat; shuffle de 16 avos"
+    cultural_context: "Descrição abstrata de groove eletrônico britânico."
+    source: "operator-curated; user brief pasted_content_12"
+    rights_note: "Sem loops, stems ou presets incorporados."
+  - id: eur_jungle_breakbeat
+    name: "Jungle breakbeat"
+    region: EUROPE
+    bpm_range: [160, 180]
+    swing_ratio: 0.60
+    pattern: "breakbeat denso; síncopa forte; ghost notes de percussão"
+    cultural_context: "Descrição abstrata de produção de alta densidade rítmica."
+    source: "operator-curated; user brief pasted_content_12"
+    rights_note: "Usar breaks próprios, licenciados ou gerados proceduralmente."

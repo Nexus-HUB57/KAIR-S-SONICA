@@ -250,6 +250,45 @@ Gera uma cadeia de processamento revisável para um instrumento e contexto music
 
 Este endpoint é síncrono e sem efeitos externos: não lê ou grava áudio, não carrega plugins, não consulta provedores e não cria uma entrada no `TaskStore`. Instrumento ausente no Atlas resulta em `422`; ilha desabilitada resulta em `503`.
 
+## `GET /v1/studio-master/capabilities`
+
+Expõe a camada complementar de orquestração musical. O retorno declara o analisador determinístico disponível, os adapters opcionais, o número de padrões do cânone e o número de perfis de repertório. A habilitação não carrega PyTorch, librosa, aubio, pedalboard, FluidSynth, samples ou modelos.
+
+## `GET /v1/studio-master/canon` e `GET /v1/studio-master/repertoire`
+
+Retornam, respectivamente, o índice editorial de padrões culturais e os perfis instrumentais/cadeias de mixagem. Os arquivos `config/canon_index.yaml` e `config/instrumentation_repertoire.yaml` são metadados versionados; não contêm áudio, MIDI, embeddings, loops ou presets proprietários. Cada projeto deve substituir `asset_ref` apenas por material próprio, licenciado ou de domínio público.
+
+## `POST /v1/studio-master/groove/analyze`
+
+Recebe uma forma de onda mono em `samples`, `sample_rate`, `bpm` e `canon_id` opcional. O request é limitado por `KAIROS_STUDIO_MASTER_MAX_INPUT_SAMPLES`, cujo default é 250.000 amostras. O retorno `GrooveDna` contém onsets, densidade, offset médio, desvio de microtiming, swing ratio, confiança, probabilidades culturais heurísticas e o padrão canônico mais próximo.
+
+O método atual é `deterministic-onset-energy/v1`: ele é uma referência CPU sem treinamento e não deve ser descrito como classificação neural. Os adapters de GrooveExtractor neural, librosa e aubio devem ser adicionados separadamente, com pesos fora do Git, licença, checksum e gate explícito.
+
+## `POST /v1/studio-master/responsive-plan`
+
+Funde `style`, `canon_id`, `repertoire_id`, BPM, swing, humanização, `grid_follow`, foco vocal e um `flow` opcional em um `ResponsiveMixPlan`. O plano declara sidechain multibanda, punchline, cadeia instrumental, destino de handoff e um patch compatível com `MultimediaRequest`. Ele é `READY_FOR_APPROVAL`: não cria tarefa, não renderiza áudio e não grava arquivos.
+
+Exemplo mínimo:
+
+```json
+{
+  "style": "brazilian_funk_heavy",
+  "canon_id": "br_funk_mandelao",
+  "repertoire_id": "brazilian_funk_heavy_kit",
+  "bpm": 140,
+  "swing_ratio": 0.55,
+  "grid_follow": true
+}
+```
+
+## `GET /v1/studio-master/performance/{session_id}` e `WS /ws/studio-master/{session_id}/performance`
+
+O snapshot HTTP e o canal WebSocket controlam o estado efêmero de uma sessão. Os comandos aceitos são `SET_SWING`, `SET_GRID_FOLLOW`, `SET_BPM`, `BOOST_PUNCHLINE`, `RESET` e `PUSH_TO_LIBRARY`. O valor de swing pode ser enviado como `0.65` ou `65%`; os limites são 0,50–0,67. `PUSH_TO_LIBRARY` cria apenas uma proposta de metadados `PENDING_APPROVAL`; não persiste áudio, MIDI ou sample e exige aprovação editorial/licença antes de qualquer futura publicação.
+
+## Handoff agentico do StudioMaster
+
+O `AgenticToolbox` injeta um `studio_master_plan` no handoff `multimedia_request` do Sound Designer. O patch contém BPM, swing, humanização, gênero e `stems=true`, mas a submissão continua sujeita a `approve_handoffs=true` e usa o mesmo `TaskStore`/worker. Os 12 papéis existentes não foram substituídos nem duplicados.
+
 ## Validação no Compose GPU público
 
 No host NVIDIA/CUDA público, o fluxo completo de readiness e descoberta pode ser executado com:
@@ -342,3 +381,55 @@ Entregam, respectivamente, o sidecar JSON da transcrição e os metadados comple
 ## `WS /ws/tasks/{task_id}`
 
 Envia snapshots JSON de progresso até a conclusão. Um cliente deve tratar desconexão e também consultar o endpoint HTTP, pois o WebSocket é um canal de atualização e não substitui o `TaskStore` persistente.
+
+## StudioMaster 2.0: arranjo, expressão e operação segura
+
+A segunda camada do StudioMaster amplia o command deck sem criar uma API paralela. Todas as rotas abaixo exigem `KAIROS_STUDIO_MASTER_ENABLED=true`, são síncronas e produzem propostas ou previews determinísticos; elas não criam `task_id`, não gravam áudio/MIDI, não publicam conteúdo e não promovem checkpoints.
+
+### `POST /v1/studio-master/arrangement`
+
+Recebe `style`, `mood`, `bpm`, `total_bars` e `key` e retorna um `ArrangementPlan` com seções, energia, instrumentos abstratos e automações de filtro, reverb e drive. O orçamento de compassos é validado e a resposta permanece `READY_FOR_APPROVAL`.
+
+### `POST /v1/studio-master/expression`
+
+Recebe notas abstratas, BPM, `swing_ratio`, `humanize_ms`, um `energy_map` e um `seed`. Retorna as mesmas notas com velocity e microtiming determinísticos. O motor não muta a entrada, não usa randomismo global e mantém a variação dentro dos limites do contrato.
+
+### `POST /v1/studio-master/hum-to-midi`
+
+Recebe frames de pitch já extraídos (`time_seconds`, `frequency_hz`, `confidence`) e produz um sketch de notas MIDI abstratas. CREPE, exportação binária MIDI e renderização por FluidSynth são adapters opcionais; o caminho base não recebe arquivo temporário, não baixa modelo e não retorna áudio.
+
+### `POST /v1/studio-master/signature-plan`
+
+Gera o plano paramétrico do Modo Káiros para `audio_input`, `mix_bus` ou `vocal_bus`. A resposta descreve EQ, compressão, excitação harmônica, largura estéreo, reverb e limiter, com `source_imitation=false`, `automatic_file_write=false` e `approval_required=true`. O plano representa atributos de produção configurados pelo operador, não uma reprodução de artista, gravação ou curva externa.
+
+### `POST /v1/studio-master/ducking/preview`
+
+Executa um preview RMS envelope em NumPy sobre `mix_bus` e `reference_track`. O resultado retorna um array limitado e o método `numpy-rms-envelope/v1`. Ducking espectral multibanda profissional requer adapter Pedalboard/SciPy habilitado separadamente.
+
+### `POST /v1/studio-master/perceptual/score`
+
+Calcula `peak_dbfs`, `rms_dbfs`, faixa dinâmica e um score técnico de saúde de sinal. Esse score não é MOS subjetivo. MOSNet/TorchAudio permanecem opcionais e não são carregados automaticamente.
+
+### `GET /v1/studio-master/adapters`
+
+Lista adapters detectados no ambiente — Groove neural, pitch tracking, Pedalboard, Matchering, memória vetorial, MOS, FluidSynth e renderer social — sem importá-los ou habilitá-los. Todos retornam `enabled=false` até uma configuração explícita.
+
+### `POST /v1/studio-master/memory/feedback`
+
+Registra feedback textual somente quando `KAIROS_STUDIO_MASTER_MEMORY_ENABLED=true`. O backend base é JSONL local append-only e metadata-only; ele não armazena áudio, embeddings proprietários ou referências externas. Chroma/embeddings são caminhos opcionais.
+
+### `GET /v1/studio-master/analytics`
+
+Lê, quando existente, `KAIROS_STUDIO_MASTER_ANALYTICS_PATH` e normaliza total de produções, MOS médio disponível, distribuição de gêneros e últimos registros. Na ausência de histórico, retorna uma estrutura vazia. A rota não cria ou modifica o histórico.
+
+### `GET /v1/studio-master/retraining`
+
+Consulta `KAIROS_STUDIO_MASTER_RETRAIN_MANIFEST_PATH` por meio do `AutoRetrainGuard`. O status pode ser `DISABLED`, `WAITING_MANIFEST`, `READY_FOR_APPROVAL` ou `BLOCKED`. O manifesto precisa declarar samples aprovados, aprovação do operador, proveniência/licença e split de validação. Mesmo elegível, nenhum treino ou promoção ocorre pela API.
+
+O comando `scripts/auto_retrain.py` imprime o mesmo plano em JSON e é adequado para inspeção futura por cron no host de treinamento. O script deliberadamente não importa Torch, não baixa dataset, não sobrescreve `models/` e não executa troca de checkpoint.
+
+### `POST /v1/studio-master/viral-clip-plan`
+
+Gera o plano de um clip social de 5–60 segundos, com canvas `9:16`, `1:1` ou `16:9`, waveform RMS, título, watermark e adapter `moviepy-or-browser-canvas`. O asset de áudio deve ser gerado ou carregado pelo operador; o plano não baixa fontes, não escreve MP4 e não publica em TikTok, Reels ou Shorts.
+
+O command deck browser consulta analytics, retraining e adapters ao carregar, e permite propor arranjo, Modo Káiros e clip. Cada resultado é visualizado com estado de aprovação; o pipeline de áudio, o worker, o `TaskStore`, o SkyReels e o fluxo de `ffprobe` permanecem inalterados.
