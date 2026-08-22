@@ -74,6 +74,6 @@ O lote não inclui áudio novo, vídeo novo, provas, demos, stems, candidatos, m
 | Repositório | Commit |
 |---|---|
 | `khairus_KTD` | `164ae5ab4f26d8efc266c5f666174529dc3fe610` |
-| `KAIR-S-SONICA` | será preenchido após o registro desta migração |
+| `KAIR-S-SONICA` | `8f59a9fd9d071b888c503fe7bcc1c8a82d5cd7e8` |
 
 A cópia é não destrutiva. Qualquer remoção ou transformação de duplicatas deve ocorrer em alteração posterior, após verificar links, manifests, consumidores e rollback.
