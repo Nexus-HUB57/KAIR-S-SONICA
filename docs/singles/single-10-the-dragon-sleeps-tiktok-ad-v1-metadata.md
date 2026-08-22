@@ -5,7 +5,7 @@
 **Single:** 10
 **Formato:** MP4 vertical 9:16, 1080×1920, 30 fps
 **Duração:** 9 segundos
-**Status:** anúncio publicitário v1 para TikTok e adaptação a Shorts
+**Status:** versão arquivada; não aprovada por incompatibilidade com a identidade visual oficial de KTD
 
 ## Arquivo final
 
