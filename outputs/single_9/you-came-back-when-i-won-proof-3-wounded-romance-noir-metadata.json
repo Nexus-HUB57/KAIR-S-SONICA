@@ -1,0 +1,58 @@
+{
+  "project": "KAIR-S-SONICA",
+  "artist": "Kháirus the Dragon (KTD)",
+  "single_number": 9,
+  "title": "You Came Back When I Won",
+  "version": "Proof 3 — Wounded Romance Noir",
+  "status": "candidate for human evaluation",
+  "lyrics_status": "approved source preserved; generated vocal requires human lyric-lock review",
+  "official_language": "English",
+  "reference_language": "Brazilian Portuguese",
+  "tempo_bpm": 88,
+  "key_center": "F-sharp minor",
+  "duration_seconds": 171.990204,
+  "duration_display": "2:52",
+  "audio_format_wav": {
+    "codec": "pcm_s24le",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bits_per_sample": 24,
+    "sha256": "c9c50d16e8f13fa6d6100b641c400a3fd3b707c0bb67a7f34e9da4b4caa6e4ee",
+    "path": "outputs/single_9/you-came-back-when-i-won-proof-3-wounded-romance-noir-master.wav"
+  },
+  "audio_format_mp3": {
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bitrate_kbps": 320,
+    "sha256": "b1ca6fe0e57941b93b81205f4afd76996901f488a8cee8ad22b3dd0dfe07784b",
+    "path": "outputs/single_9/you-came-back-when-i-won-proof-3-wounded-romance-noir-master.mp3"
+  },
+  "loudness_measurement": {
+    "integrated_lufs": -12.3,
+    "true_peak_dbtp": 0.5,
+    "loudness_range_lu": 6.3,
+    "note": "Measurement only; no global normalization applied."
+  },
+  "signature_design": {
+    "groove": "4/4 with internal 3-against-4 tension and irregular heartbeat kick",
+    "snare_concept": "dry wide snare/clap emphasis on beat 3 with restrained rim and wood percussion",
+    "low_end": "deep musical sub-bass with descending emotional movement and controlled phone-speaker harmonics",
+    "harmony": "F-sharp minor with suspended and extended colors, descending bass movement and dramatic dominant tension",
+    "melody": "romantic upper line with suspended verse endings and a rise-and-fall contour in the title hook",
+    "palette": "felted electric piano, clean guitar harmonics, muted staccato guitar, dark strings, reverse piano texture, restrained backing choir",
+    "short_form_hook": "25-second hook preview begins near the first chorus entrance"
+  },
+  "transcription_check": {
+    "path": "outputs/single_9/you-came-back-when-i-won-proof-3-wounded-romance-noir-transcription.txt",
+    "result": "The generated performance contains the main narrative, title hook, betrayal arc, and emotional resolution. Automatic transcription shows some compressed or altered lines and repeated fragments; the approved source lyric remains unchanged, but this proof is not yet a final lyric-lock master."
+  },
+  "guardrails": [
+    "no imitation of real artists",
+    "no biometric voice cloning",
+    "no borrowed lyric, melody, sample, recognizable riff, or arrangement",
+    "no threats or violent retaliation",
+    "no identifying private details about the mother, friend, or child"
+  ],
+  "source_note": "The generation backend returned an MP3-encoded file with a WAV extension; it was preserved as generated-source.mp3 and converted into the verified PCM WAV and 320 kbps MP3 masters."
+}

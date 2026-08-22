@@ -14,3 +14,4 @@ outputs/single_8/build-the-door-behind-me-v1-demo-master.wav filter=lfs diff=lfs
 outputs/single_8/build-the-door-behind-me-v2-demo-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_9/you-came-back-when-i-won-v1-emotional-demo-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_9/you-came-back-when-i-won-v2-romantic-dramatic-master.wav filter=lfs diff=lfs merge=lfs -text
+outputs/single_9/you-came-back-when-i-won-proof-3-wounded-romance-noir-master.wav filter=lfs diff=lfs merge=lfs -text
