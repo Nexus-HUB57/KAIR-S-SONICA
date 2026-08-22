@@ -1,0 +1,63 @@
+{
+  "project": "KAIR-S-SONICA",
+  "artist": "Kháirus the Dragon (KTD)",
+  "single_number": 9,
+  "title": "You Came Back When I Won",
+  "version": "Proof 4 — v1 voice, subtle drums, harmonic sub-bass",
+  "status": "candidate for human evaluation",
+  "lyrics_status": "approved source preserved; generated vocal requires human lyric-lock review",
+  "official_language": "English",
+  "reference_language": "Brazilian Portuguese",
+  "tempo_bpm": 94,
+  "key_center": "F-sharp minor",
+  "duration_seconds": 173.113469,
+  "duration_display": "2:53",
+  "audio_format_wav": {
+    "codec": "pcm_s24le",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bits_per_sample": 24,
+    "sha256": "164cb984895577267226f3a4d2188490ee561a6fe6c0e0ad00c7043f83c6a6c3",
+    "path": "outputs/single_9/you-came-back-when-i-won-proof-4-v1-voice-subtle-drums-master.wav"
+  },
+  "audio_format_mp3": {
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bitrate_kbps": 320,
+    "sha256": "0818db7a8ee87858a18c9325d25937f881d4557895700d57764b007118daf438",
+    "path": "outputs/single_9/you-came-back-when-i-won-proof-4-v1-voice-subtle-drums-master.mp3"
+  },
+  "loudness_measurement": {
+    "integrated_lufs": -13.2,
+    "true_peak_dbtp": 0.2,
+    "loudness_range_lu": 6.7,
+    "note": "Measurement only; no global normalization applied."
+  },
+  "low_end_comparison": {
+    "method": "low-pass at 150 Hz followed by EBU R128 integrated loudness measurement",
+    "proof_3_low_band_lufs": -16.4,
+    "proof_4_low_band_lufs": -14.8,
+    "change_db": 1.6,
+    "interpretation": "The low-frequency bed is measurably stronger in Proof 4 while the drum direction was requested to remain softer and more integrated."
+  },
+  "musical_revision": {
+    "drums": "subtle rounded kick, soft wide snare/clap, sparse brushed percussion, restrained hi-hats",
+    "bass": "stronger warm sustained sub-bass integrated with the harmonic bed",
+    "harmony": "felted Rhodes, minor seventh/ninth voicings, suspended tones, clean guitar harmonics and soft romantic pads",
+    "vocal_reference": "preserve the established v1 vocal identity and chorus feeling as closely as possible",
+    "emotional_target": "romantic, melancholic, wounded, dramatic and confused without losing dignity"
+  },
+  "transcription_check": {
+    "path": "outputs/single_9/you-came-back-when-i-won-proof-4-v1-voice-subtle-drums-transcription.txt",
+    "result": "The title hook and main narrative are present. Automatic transcription shows compressed or altered lyric lines in the generated performance; the approved lyric source remains unchanged, and this proof is not yet a final lyric-lock master."
+  },
+  "guardrails": [
+    "no imitation of real artists",
+    "no biometric voice cloning",
+    "no borrowed lyric, melody, sample, recognizable riff, or arrangement",
+    "no threats or violent retaliation",
+    "no identifying private details about the mother, friend, or child"
+  ],
+  "source_note": "The generation backend returned an MP3-encoded file with a WAV extension; it was preserved as generated-source.mp3 and converted into the verified PCM WAV and 320 kbps MP3 masters."
+}
