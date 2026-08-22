@@ -1,0 +1,89 @@
+name: Social · publish
+
+"on":
+  workflow_dispatch:
+    inputs:
+      objective:
+        description: "Objetivo da publicação"
+        required: true
+        type: string
+      campaign_id:
+        description: "ID imutável da campanha"
+        required: true
+        type: string
+      asset_url:
+        description: "URL HTTPS pública verificada do vídeo"
+        required: true
+        type: string
+      content_state:
+        description: "Estado editorial"
+        required: true
+        default: approved
+        type: choice
+        options: [approved, released]
+      peer_mode:
+        description: "Modo de colaboração peer"
+        required: true
+        default: optional
+        type: choice
+        options: [disabled, optional, required]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ktd-social-production
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish to Instagram and TikTok
+    runs-on: ubuntu-latest
+    environment: production-social
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: packages
+      KAIROS_SOCIAL_LLM_ENABLED: "false"
+      KTD_INSTAGRAM_ACCESS_TOKEN: ${{ secrets.KTD_INSTAGRAM_ACCESS_TOKEN }}
+      KTD_INSTAGRAM_USER_ID: ${{ vars.KTD_INSTAGRAM_USER_ID }}
+      KTD_INSTAGRAM_APP_SECRET: ${{ secrets.KTD_INSTAGRAM_APP_SECRET }}
+      KTD_TIKTOK_ACCESS_TOKEN: ${{ secrets.KTD_TIKTOK_ACCESS_TOKEN }}
+      KTD_TIKTOK_CLIENT_SECRET: ${{ secrets.KTD_TIKTOK_CLIENT_SECRET }}
+      KTD_META_WEBHOOK_VERIFY_TOKEN: ${{ secrets.KTD_META_WEBHOOK_VERIFY_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install package
+        run: python -m pip install -e ".[dev]"
+
+      - name: Validate non-secret configuration
+        env:
+          ASSET_URL: ${{ inputs.asset_url }}
+        run: |
+          case "$ASSET_URL" in
+            https://*) ;;
+            *) echo "asset_url must be HTTPS" >&2; exit 1 ;;
+          esac
+          test -n "$KTD_INSTAGRAM_ACCESS_TOKEN"
+          test -n "$KTD_INSTAGRAM_USER_ID"
+          test -n "$KTD_INSTAGRAM_APP_SECRET"
+          test -n "$KTD_TIKTOK_ACCESS_TOKEN"
+          test -n "$KTD_TIKTOK_CLIENT_SECRET"
+
+      - name: Execute approved publication
+        run: |
+          python scripts/social_workflow_dispatch.py \
+            --objective "${{ inputs.objective }}" \
+            --campaign-id "${{ inputs.campaign_id }}" \
+            --asset-url "${{ inputs.asset_url }}" \
+            --content-state "${{ inputs.content_state }}" \
+            --autonomy-mode autonomous \
+            --peer-mode "${{ inputs.peer_mode }}" \
+            --execute-actions

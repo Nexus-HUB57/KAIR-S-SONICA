@@ -1,0 +1,62 @@
+name: Social · dry run
+
+"on":
+  workflow_dispatch:
+    inputs:
+      objective:
+        description: "Objetivo da execução social"
+        required: true
+        type: string
+      campaign_id:
+        description: "ID imutável da campanha"
+        required: true
+        type: string
+      asset_url:
+        description: "URL HTTPS pública do asset aprovado ou candidato"
+        required: true
+        type: string
+      content_state:
+        description: "Estado editorial do conteúdo"
+        required: true
+        default: candidate
+        type: choice
+        options: [draft, candidate, approved, released]
+  schedule:
+    - cron: "17 06 * * 1-5"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ktd-social-dry-run
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: packages
+      KAIROS_SOCIAL_LLM_ENABLED: "false"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install package
+        run: python -m pip install -e ".[dev]"
+
+      - name: Plan without external writes
+        run: |
+          python scripts/social_workflow_dispatch.py \
+            --objective "${{ inputs.objective || 'review the KTD social operating plan and collect next actions' }}" \
+            --campaign-id "${{ inputs.campaign_id || 'scheduled-social-review' }}" \
+            --asset-url "${{ inputs.asset_url || 'https://cdn.example.test/placeholder.mp4' }}" \
+            --content-state "${{ inputs.content_state || 'candidate' }}" \
+            --autonomy-mode simulate \
+            --peer-mode optional

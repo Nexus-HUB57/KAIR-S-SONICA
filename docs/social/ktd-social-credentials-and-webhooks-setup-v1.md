@@ -176,6 +176,24 @@ A resposta deve mostrar `configured: true` para o provider correspondente, mas n
 
 Não preciso receber tokens no chat. Para a próxima etapa, basta informar os estados não secretos: se o Instagram é Business/Creator, se existe Facebook Page conectada, se o app Meta está em Development ou Live, se o TikTok app tem Content Posting e `video.publish` aprovados, qual é o domínio HTTPS de produção e se o secret manager já foi preenchido. Com esses estados, o próximo passo pode ser um smoke test sem revelar credenciais.
 
+## 8. Operação pelo GitHub Actions
+
+O repositório agora contém três workflows separados:
+
+| Workflow | Gatilho | Ação externa |
+|---|---|---|
+| `social-dry-run.yml` | manual ou dias úteis | nenhuma; valida planejamento e política |
+| `social-token-health.yml` | manual ou diário | consulta `/me` do Instagram e `creator_info` do TikTok |
+| `social-publish.yml` | somente `workflow_dispatch` | publica em Instagram e TikTok quando o Environment e os secrets estão configurados |
+
+Configure no repositório `Nexus-HUB57/KAIR-S-SONICA` um Environment chamado `production-social`. Coloque nele `KTD_INSTAGRAM_ACCESS_TOKEN`, `KTD_INSTAGRAM_APP_SECRET`, `KTD_TIKTOK_ACCESS_TOKEN`, `KTD_TIKTOK_CLIENT_SECRET`, `KTD_META_WEBHOOK_VERIFY_TOKEN` e demais secrets necessários. Coloque `KTD_INSTAGRAM_USER_ID` como Environment variable não secreta. O workflow de publicação usa apenas `workflow_dispatch`, exige `content_state=approved` ou `released`, valida URL HTTPS e não é acionado por push ou pull request.
+
+O GitHub suporta secrets de repositório e de Environment; secrets de Environment só são liberados para jobs que referenciam esse Environment e depois das regras de proteção configuradas [12]. Para o primeiro deploy, é recomendável usar branch/tag de produção restrita e um wait timer ou required reviewer no Environment. Isso não torna a operação diária manual: depois de liberado, o job pode executar de forma autônoma conforme a política do orquestrador.
+
+Para acessar o ambiente persistente, prefira OIDC do GitHub em vez de uma chave longa de deploy quando o provedor de hospedagem oferecer suporte. OIDC exige `id-token: write` e uma relação de confiança que limite repositório, branch e Environment [13]. OIDC autentica o deploy; ele não substitui os tokens OAuth da Meta/TikTok, que continuam no secret manager do runtime.
+
+O workflow `social-token-health.yml` não publica. Ele serve para detectar token ausente, conta Instagram incorreta e falha no `creator_info` TikTok. O GitHub Actions pode atrasar schedules em períodos de carga; por isso, o health check é uma verificação complementar, não um substituto para os webhooks ou para o token store persistente [14].
+
 ## Referências oficiais
 
 [1]: https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-instagram-login/get-started — Meta, Instagram API with Instagram Login — Get Started.
@@ -199,3 +217,9 @@ Não preciso receber tokens no chat. Para a próxima etapa, basta informar os es
 [10]: https://developers.tiktok.com/doc/content-posting-api-reference-get-video-status — TikTok, Get Post Status.
 
 [11]: https://developers.tiktok.com/doc/webhooks-events — TikTok, Webhook Events.
+
+[12]: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment — GitHub Docs, Managing environments for deployment.
+
+[13]: https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers — GitHub Docs, Configuring OpenID Connect in cloud providers.
+
+[14]: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule — GitHub Docs, Events that trigger workflows — schedule.
