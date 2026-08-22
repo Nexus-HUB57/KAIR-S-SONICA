@@ -1,0 +1,56 @@
+{
+  "project": "KAIR-S-SONICA",
+  "artist": "Kháirus the Dragon (KTD)",
+  "single_number": 9,
+  "title": "You Came Back When I Won",
+  "version": "v2 romantic-dramatic low-end demo",
+  "status": "candidate for human evaluation",
+  "lyrics_status": "approved lyrics source preserved; generated performance requires human lyric-lock review",
+  "official_language": "English",
+  "reference_language": "Brazilian Portuguese",
+  "tempo_bpm": 94,
+  "key_center": "F-sharp minor",
+  "duration_seconds": 173.035102,
+  "duration_display": "2:53",
+  "audio_format_wav": {
+    "codec": "pcm_s24le",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bits_per_sample": 24,
+    "sha256": "35f30f1432e266544e35abba0d31b40a1ad5d3fb88469aa33f395ae2dbda7f9c",
+    "path": "outputs/single_9/you-came-back-when-i-won-v2-romantic-dramatic-master.wav"
+  },
+  "audio_format_mp3": {
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bitrate_kbps": 320,
+    "sha256": "ce2f6876fc5e4e1a65e501798162139e0981cb8836e5390c897c17ce91c0007d",
+    "path": "outputs/single_9/you-came-back-when-i-won-v2-romantic-dramatic-master.mp3"
+  },
+  "loudness_measurement": {
+    "integrated_lufs": -12.9,
+    "true_peak_dbtp": 0.3,
+    "loudness_range_lu": 9.1,
+    "note": "Measurement only; no global normalization applied."
+  },
+  "musical_revision": {
+    "low_end": "deeper kick and sub-bass with controlled mid-bass harmonics for small speakers",
+    "melody": "richer minor-key harmony, romantic suspended tones, dramatic Rhodes/electric piano and clean guitar",
+    "groove": "mid-tempo head-nodding R&B/rap-soul pocket designed for short-form recognition",
+    "chorus": "direct title hook with wider soul harmonies and restrained backing response",
+    "tiktok_strategy": "short memorable chorus entry, clear title phrase, strong low-end pulse and vocal intelligibility"
+  },
+  "transcription_check": {
+    "path": "outputs/single_9/you-came-back-when-i-won-v2-romantic-dramatic-transcription.txt",
+    "result": "The title hook, chorus arc, betrayal narrative and emotional resolution are present. Automatic transcription indicates several compressed or altered lines and repeated fragments; the source lyric remains approved, but this generated vocal performance is not yet a final lyric-lock master."
+  },
+  "guardrails": [
+    "no imitation of real artists",
+    "no biometric voice cloning",
+    "no borrowed lyric, melody, sample, recognizable riff, or arrangement",
+    "no threats or violent retaliation",
+    "no identifying private details about the mother, friend, or child"
+  ],
+  "source_note": "The generation backend returned an MP3-encoded file with a WAV extension; it was preserved as generated-source.mp3 and converted into the verified PCM WAV and 320 kbps MP3 masters."
+}

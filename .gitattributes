@@ -13,3 +13,4 @@ outputs/single_7/no-one-saved-me-a-seat-v1-gospel-after-ktd-speech-long-reverb-t
 outputs/single_8/build-the-door-behind-me-v1-demo-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_8/build-the-door-behind-me-v2-demo-master.wav filter=lfs diff=lfs merge=lfs -text
 outputs/single_9/you-came-back-when-i-won-v1-emotional-demo-master.wav filter=lfs diff=lfs merge=lfs -text
+outputs/single_9/you-came-back-when-i-won-v2-romantic-dramatic-master.wav filter=lfs diff=lfs merge=lfs -text
