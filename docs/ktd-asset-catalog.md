@@ -2,6 +2,12 @@
 
 A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-upload-audit.md) confirmou 8 imagens e 35 áudios rastreados, totalizando 43 ativos canônicos no Git. O bundle de distribuição do persona replica esses mesmos 43 arquivos em `personas/artist-principal/media`, com índice em `personas/artist-principal/media-manifest.json`. Não há ativos visuais ou sonoros não rastreados dentro das pastas oficiais.
 
+## Nova autoridade de entrega audiovisual
+
+A partir de 22 de agosto de 2026, os arquivos audiovisuais finais aprovados passam a ser entregues e mantidos em [`Nexus-HUB57/khairus_KTD`](https://github.com/Nexus-HUB57/khairus_KTD). Este repositório (`KAIR-S-SONICA`) continua sendo a autoridade de produção, co-produção, decisões editoriais, provas, candidatos, históricos, referências canônicas, campanhas, agentes e gestão. Durante a transição, os paths canônicos antigos permanecem preservados e são vinculados ao destino por [`docs/governance/ktd-repository-migration-batch-001.md`](governance/ktd-repository-migration-batch-001.md).
+
+Somente itens com aprovação final ou status de master oficial de distribuição podem entrar no repositório audiovisual. A Prova 2 Old School do Single 11, provas Funk, demos, candidatos, stems, beds, takes, previews, referências de identidade e arquivos reprovados permanecem aqui até nova decisão editorial explícita.
+
 ## Regra de leitura
 
 O catálogo separa quatro estados: **oficial/aprovado**, **candidato**, **rejeitado** e **histórico**. Um arquivo rejeitado não deve ser apagado quando sua preservação ajuda a explicar uma decisão, mas também não pode ser usado como referência de identidade ou promovido por engano.
