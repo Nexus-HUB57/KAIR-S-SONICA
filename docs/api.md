@@ -454,6 +454,10 @@ Classifica localmente uma mensagem como `positive`, `question`, `general`, `spam
 
 Opera leitura de comentários, insights e resposta a comentário quando o adapter e as permissões permitem. Respostas usam planejamento por padrão e só executam com `execute=true` após o gate de política.
 
+### `GET /v1/social/webhooks/meta` e `POST /v1/social/webhooks/meta`
+
+O GET realiza o handshake Meta com `hub.mode`, `hub.challenge` e `hub.verify_token`. O POST valida `X-Hub-Signature-256` usando HMAC-SHA256 com o App Secret da Meta, rejeita payloads inválidos e aceita eventos JSON.
+
 ### `POST /v1/social/webhooks/tiktok`
 
 Recebe callbacks de status do TikTok, valida `TikTok-Signature` com HMAC-SHA256 e rejeita payloads inválidos ou fora da janela de tolerância.

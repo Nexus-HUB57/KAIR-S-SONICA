@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import hashlib
-import sqlite3
+import hmac
 import json
+import os
+import sqlite3
 from typing import Literal
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Query, Request
+from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel, Field
 
 from kairos_core.social.algorithms import classify_comment
@@ -116,6 +119,37 @@ def build_social_router(
             }
         except PlatformError as exc:
             raise HTTPException(status_code=503 if exc.retryable else 409, detail={"code": exc.code, "message": str(exc)}) from exc
+
+    @router.get("/webhooks/meta", response_class=PlainTextResponse)
+    def meta_webhook_verify(
+        mode: str | None = Query(default=None, alias="hub.mode"),
+        challenge: str | None = Query(default=None, alias="hub.challenge"),
+        verify_token: str | None = Query(default=None, alias="hub.verify_token"),
+    ) -> str:
+        expected = os.getenv("KTD_META_WEBHOOK_VERIFY_TOKEN", "")
+        if mode == "subscribe" and challenge and expected and hmac.compare_digest(verify_token or "", expected):
+            return challenge
+        raise HTTPException(status_code=403, detail="Verificação Meta rejeitada")
+
+    @router.post("/webhooks/meta")
+    async def meta_webhook(request: Request) -> dict[str, object]:
+        provider = orchestrator.providers.get(SocialPlatform.INSTAGRAM)
+        if provider is None or not hasattr(provider, "verify_webhook_signature"):
+            raise HTTPException(status_code=503, detail="Instagram provider não registrado")
+        raw_body = await request.body()
+        signature = request.headers.get("X-Hub-Signature-256", "")
+        try:
+            valid = provider.verify_webhook_signature(signature_header=signature, raw_body=raw_body)  # type: ignore[attr-defined]
+        except PlatformError as exc:
+            raise HTTPException(status_code=503, detail={"code": exc.code, "message": str(exc)}) from exc
+        if not valid:
+            raise HTTPException(status_code=401, detail="Webhook Meta inválido")
+        try:
+            payload = json.loads(raw_body.decode("utf-8"))
+        except json.JSONDecodeError as exc:
+            raise HTTPException(status_code=400, detail="Webhook Meta não é JSON válido") from exc
+        entries = payload.get("entry", []) if isinstance(payload, dict) else []
+        return {"accepted": True, "object": payload.get("object") if isinstance(payload, dict) else None, "entries": len(entries)}
 
     @router.post("/webhooks/tiktok")
     async def tiktok_webhook(request: Request) -> dict[str, object]:

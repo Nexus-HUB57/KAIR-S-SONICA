@@ -97,7 +97,7 @@ class SocialOrchestrator:
             },
             "llm": {
                 "configured": self.llm.enabled,
-                "execution_toggle": os.getenv("KTD_SOCIAL_LLM_ENABLED", "false").lower() in {"1", "true", "yes", "on"},
+                "execution_toggle": self._llm_allowed(),
                 "catalog_discovered_at_runtime": True,
             },
             "safety": {
@@ -381,6 +381,6 @@ class SocialOrchestrator:
             primary.append("tiktok_completion_or_rewatch")
         return MetricsPlan(primary=primary, secondary=secondary)
 
-    @staticmethod
-    def _llm_allowed() -> bool:
-        return os.getenv("KTD_SOCIAL_LLM_ENABLED", "false").lower() in {"1", "true", "yes", "on"}
+    def _llm_allowed(self) -> bool:
+        legacy_flag = os.getenv("KTD_SOCIAL_LLM_ENABLED", "false").lower() in {"1", "true", "yes", "on"}
+        return bool(self.settings.social_llm_enabled or legacy_flag)

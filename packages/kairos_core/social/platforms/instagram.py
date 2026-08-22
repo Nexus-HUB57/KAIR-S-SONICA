@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import hmac
 import os
 from typing import Any
 
@@ -16,12 +18,14 @@ class InstagramProvider(SocialProvider):
         *,
         access_token: str | None = None,
         user_id: str | None = None,
+        app_secret: str | None = None,
         graph_base: str | None = None,
         api_version: str | None = None,
         timeout: int = 60,
     ) -> None:
         self.access_token = access_token or os.getenv("KTD_INSTAGRAM_ACCESS_TOKEN", "")
         self.user_id = user_id or os.getenv("KTD_INSTAGRAM_USER_ID", "")
+        self.app_secret = app_secret or os.getenv("KTD_INSTAGRAM_APP_SECRET", "")
         self.graph_base = (graph_base or os.getenv("KTD_INSTAGRAM_GRAPH_BASE", "https://graph.instagram.com")).rstrip("/")
         self.api_version = api_version or os.getenv("KTD_INSTAGRAM_API_VERSION", "v26.0")
         self.timeout = timeout
@@ -72,6 +76,16 @@ class InstagramProvider(SocialProvider):
             provider_id=media_id,
             payload={"container_id": container_id, "idempotency_key": idempotency_key},
         )
+
+    def verify_webhook_signature(self, *, signature_header: str, raw_body: bytes) -> bool:
+        if not self.app_secret:
+            raise PlatformError("app secret da Meta não configurado", code="webhook_secret_missing")
+        prefix = "sha256="
+        if not signature_header.startswith(prefix):
+            return False
+        received = signature_header[len(prefix) :]
+        expected = hmac.new(self.app_secret.encode("utf-8"), raw_body, hashlib.sha256).hexdigest()
+        return hmac.compare_digest(received, expected)
 
     def fetch_comments(self, *, media_id: str) -> ProviderResult:
         self._ensure_configured()

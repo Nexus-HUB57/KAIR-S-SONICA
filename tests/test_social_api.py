@@ -65,3 +65,19 @@ def test_social_community_triage_escalates_privacy_signal() -> None:
     payload = response.json()
     assert payload["category"] == "privacy"
     assert payload["requires_escalation"] is True
+
+
+def test_meta_webhook_verification_returns_challenge(monkeypatch) -> None:
+    monkeypatch.setenv("KTD_META_WEBHOOK_VERIFY_TOKEN", "verify-test")
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/social/webhooks/meta",
+            params={
+                "hub.mode": "subscribe",
+                "hub.challenge": "challenge-123",
+                "hub.verify_token": "verify-test",
+            },
+        )
+
+    assert response.status_code == 200
+    assert response.text == "challenge-123"
