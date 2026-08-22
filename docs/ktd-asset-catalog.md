@@ -4,11 +4,15 @@ A auditoria de povoamento em [`docs/ktd-assets-upload-audit.md`](ktd-assets-uplo
 
 ## Nova autoridade de entrega audiovisual
 
-A partir de 22 de agosto de 2026, os arquivos audiovisuais finais aprovados passam a ser entregues e mantidos em [`Nexus-HUB57/khairus_KTD`](https://github.com/Nexus-HUB57/khairus_KTD). Este repositório (`KAIR-S-SONICA`) continua sendo a autoridade de produção, co-produção, decisões editoriais, provas, candidatos, históricos, referências canônicas, campanhas, agentes e gestão. Durante a transição, os paths canônicos antigos permanecem preservados e são vinculados ao destino por [`docs/governance/ktd-repository-migration-batch-001.md`](governance/ktd-repository-migration-batch-001.md).
+A partir de 22 de agosto de 2026, os arquivos audiovisuais finais aprovados, letras originais, traduções PT-BR de referência e materiais diretamente vinculados às campanhas passam a ser entregues e mantidos em [`Nexus-HUB57/khairus_KTD`](https://github.com/Nexus-HUB57/khairus_KTD). Este repositório (`KAIR-S-SONICA`) continua sendo a autoridade de produção, co-produção, decisões editoriais, provas, candidatos, históricos, referências canônicas, campanhas em desenvolvimento, agentes e gestão. Durante a transição, os paths canônicos antigos permanecem preservados e são vinculados ao destino por [`docs/governance/ktd-repository-migration-batch-001.md`](governance/ktd-repository-migration-batch-001.md) e pela matriz textual do repositório de entrega.
 
-Somente itens com aprovação final ou status de master oficial de distribuição podem entrar no repositório audiovisual. A Prova 2 Old School do Single 11, provas Funk, demos, candidatos, stems, beds, takes, previews, referências de identidade e arquivos reprovados permanecem aqui até nova decisão editorial explícita.
+Letras inglesas, traduções PT-BR, roteiros, storyboards, captions, hashtags, thumbnails e metadata podem entrar no `khairus_KTD` quando estiverem diretamente vinculados a uma produção ou campanha identificada, com versão, status e proveniência registrados. Briefings estratégicos, provas, candidatos, campanhas ainda em desenvolvimento, workflows, agentes, gestão de mídias sociais e registros administrativos permanecem aqui.
+
+Somente itens audiovisuais com aprovação final ou status de master oficial de distribuição podem entrar como entrega audiovisual. Textos e materiais de campanha seguem seus próprios estados editoriais, sem promover uma prova musical ou uma tradução a conteúdo oficial por mera cópia.
 
 ## Regra de leitura
+
+A política vigente está em [`docs/governance/ktd-repository-storage-policy-v2.md`](governance/ktd-repository-storage-policy-v2.md). A versão v1 é apenas histórica e não deve orientar novas migrações.
 
 O catálogo separa quatro estados: **oficial/aprovado**, **candidato**, **rejeitado** e **histórico**. Um arquivo rejeitado não deve ser apagado quando sua preservação ajuda a explicar uma decisão, mas também não pode ser usado como referência de identidade ou promovido por engano.
 
