@@ -127,7 +127,7 @@ eu peguei a chance que não salvariam e fiz uma vida com o que enfrentei.
 
 ## Direção de performance traduzida
 
-Os versos devem começar em tom próximo, firme e observador, como quem denuncia uma regra social que aprendeu a reconhecer. A indignação cresce pela articulação das palavras “escolhido”, “acesso igual”, “não selecionado”, “permissão” e “passagem”. No segundo verso, o flow acelera em pequenas rajadas quando KTD enumera cansaço, trabalho, estudo e disciplina. O refrão abre com voz larga e resposta coletiva, mantendo a frase “Ninguém guardou um lugar para mim” curta, clara e repetível.
+Os versos devem começar em tom próximo, firme e observador, como quem denuncia uma regra social que aprendeu a reconhecer. A indignação cresce pela articulação das palavras “escolhido”, “acesso igual”, “não selecionado”, “permissão” e “portão”. No segundo verso, o flow acelera em pequenas rajadas quando KTD enumera cansaço, trabalho, estudo e disciplina. O refrão abre com voz larga e resposta coletiva, mantendo a frase “Ninguém guardou um lugar para mim” curta, clara e repetível.
 
 A ponte deve reduzir a bateria e oferecer uma verdade sem romantizar a dificuldade. O último refrão transforma a vitória individual em abertura para outros jovens: KTD não diz que todos os obstáculos desapareceram; diz que uma chance pode virar caminho quando encontra disciplina, coragem e comunidade.
 
