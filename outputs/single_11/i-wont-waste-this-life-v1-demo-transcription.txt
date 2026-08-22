@@ -1,0 +1,111 @@
+Starting Speech-to-Text conversion...
+Audio file size (42.1MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 2117 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio saved to: outputs/single_11/.i-wont-waste-this-life-v1-demo_chunks_20260822_115600/downsampled_20260822_115600.mp3
+Downsampled audio file size is 2.55 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: outputs/single_11/.i-wont-waste-this-life-v1-demo_chunks_20260822_115600/downsampled_20260822_115600.mp3, file size: 2.55 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 166.8 seconds
+Language: eng
+Timestamped segments:
+[00:02.6 - 00:06.3] I used to count the ceiling cracks while the whole block slept.
+[00:06.3 - 00:11.2] Learned to hide the fear behind the promises I kept.
+[00:11.2 - 00:16.2] I carried empty rooms, bad news, and a name they tried to bend.
+[00:16.2 - 00:20.8] Kept walking through the damage like the damage was not the end.
+[00:20.8 - 00:25.5] I saw the strong go silent, saw the good get buried deep.
+[00:25.5 - 00:30.3] Saw a family lose its balance while the city went to sleep.
+[00:30.3 - 00:35.2] I gave my younger years to every fire at the door.
+[00:35.2 - 00:40.0] Now I'm standing in the daylight, I don't owe the dark no more.
+[00:40.0 - 00:44.8] I could let the old nights keep a room inside my head.
+[00:44.8 - 00:49.6] I could feed the same old fire every time I go to bed.
+[00:49.6 - 00:54.6] But the years they tried to take from me are breathing in my chest.
+[00:54.6 - 00:59.6] If I'm still here, then I'm not finished, I'm not finished yet.
+[00:59.6 - 01:04.1] I won't waste this life.
+[01:04.1 - 01:08.0] Not one more night, not one more time.
+[01:08.0 - 01:13.3] Turn every loss into a reason to rise.
+[01:13.3 - 01:17.7] The dark don't get what's left of mine.
+[01:17.7 - 01:22.7] If I got breath in my lungs, I got a reason to shine.
+[01:22.7 - 01:28.1] Still the hunger in the marrow and the pressure in the bone.
+[01:28.1 - 01:33.0] Walking past the doubters, never had the heart to walk alone.
+[01:33.0 - 01:37.6] They were counting up the losses while I calculated gain.
+[01:37.6 - 01:42.4] Turned the static to a signal, turned the history to a name.
+[01:42.4 - 01:47.4] Check the pulse, check the scars, check the engine in the cage.
+[01:47.4 - 01:52.2] I'm the author of the ending, not the victim of the page.
+[01:52.2 - 01:54.7] Breath in the chest.
+[01:54.7 - 01:58.3] Breath in the chest.
+[01:58.3 - 02:00.7] Breath in the chest.
+[02:00.7 - 02:04.3] Breath in the chest.
+[02:04.3 - 02:07.1] I won't waste it.
+[02:07.1 - 02:11.3] I won't waste this life.
+[02:11.3 - 02:15.1] Not one more night, not one more time.
+[02:15.1 - 02:20.2] Turn every loss into a reason to rise.
+[02:20.2 - 02:24.9] The dark don't get what's left of mine.
+[02:24.9 - 02:29.5] If I got breath in my lungs, I got a reason to shine.
+[02:29.5 - 02:31.8] Never waste it.
+[02:31.8 - 02:35.1] I won't waste this life.
+[02:35.1 - 02:36.3] Never waste it.
+[02:36.3 - 02:38.5] Not wasted, not today.
+[02:38.5 - 02:41.1] We made it through.
+[02:41.1 - 02:43.7] Breath in the chest.
+[02:43.7 - 02:44.8] K2D.
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v1-demo_transcription_20260822_115614.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v1-demo_transcription_20260822_115614.txt
+[2J[H[3Jmanus-speech-to-text outputs/single_11/i-wont-waste-this-life-v1-demo.wav
+Starting Speech-to-Text conversion...
+Audio file size (42.1MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 2117 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio file size is 2.55 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: outputs/single_11/.i-wont-waste-this-life-v1-demo_chunks_20260822_115600/downsampled_20260822_115600.mp3, file size: 2.55 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:02.6 - 00:06.3] I used to count the ceiling cracks while the whole block slept.
+[00:06.3 - 00:11.2] Learned to hide the fear behind the promises I kept.
+[00:11.2 - 00:16.2] I carried empty rooms, bad news, and a name they tried to bend.
+[00:16.2 - 00:20.8] Kept walking through the damage like the damage was not the end.
+[00:20.8 - 00:25.5] I saw the strong go silent, saw the good get buried deep.
+[00:25.5 - 00:30.3] Saw a family lose its balance while the city went to sleep.
+[00:30.3 - 00:35.2] I gave my younger years to every fire at the door.
+[00:35.2 - 00:40.0] Now I'm standing in the daylight, I don't owe the dark no more.
+[00:40.0 - 00:44.8] I could let the old nights keep a room inside my head.
+[00:44.8 - 00:49.6] I could feed the same old fire every time I go to bed.
+[00:49.6 - 00:54.6] But the years they tried to take from me are breathing in my chest.
+[00:54.6 - 00:59.6] If I'm still here, then I'm not finished, I'm not finished yet.
+[00:59.6 - 01:04.1] I won't waste this life.
+[01:04.1 - 01:08.0] Not one more night, not one more time.
+[01:08.0 - 01:13.3] Turn every loss into a reason to rise.
+[01:13.3 - 01:17.7] The dark don't get what's left of mine.
+[01:17.7 - 01:22.7] If I got breath in my lungs, I got a reason to shine.
+[01:22.7 - 01:28.1] Still the hunger in the marrow and the pressure in the bone.
+[01:28.1 - 01:33.0] Walking past the doubters, never had the heart to walk alone.
+[01:33.0 - 01:37.6] They were counting up the losses while I calculated gain.
+[01:37.6 - 01:42.4] Turned the static to a signal, turned the history to a name.
+[01:42.4 - 01:47.4] Check the pulse, check the scars, check the engine in the cage.
+[01:47.4 - 01:52.2] I'm the author of the ending, not the victim of the page.
+[01:52.2 - 01:54.7] Breath in the chest.
+[01:54.7 - 01:58.3] Breath in the chest.
+[01:58.3 - 02:00.7] Breath in the chest.
+[02:00.7 - 02:04.3] Breath in the chest.
+[02:04.3 - 02:07.1] I won't waste it.
+[02:07.1 - 02:11.3] I won't waste this life.
+[02:11.3 - 02:15.1] Not one more night, not one more time.
+[02:15.1 - 02:20.2] Turn every loss into a reason to rise.
+[02:20.2 - 02:24.9] The dark don't get what's left of mine.
+[02:24.9 - 02:29.5] If I got breath in my lungs, I got a reason to shine.
+[02:29.5 - 02:31.8] Never waste it.
+[02:31.8 - 02:35.1] I won't waste this life.
+[02:35.1 - 02:36.3] Never waste it.
+[02:36.3 - 02:38.5] Not wasted, not today.
+[02:38.5 - 02:41.1] We made it through.
+[02:41.1 - 02:43.7] Breath in the chest.
+[02:43.7 - 02:44.8] K2D.
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v1-demo_transcription_20260822_115614.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v1-demo_transcription_20260822_115614.txt
