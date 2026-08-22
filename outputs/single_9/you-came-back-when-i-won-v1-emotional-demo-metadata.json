@@ -4,7 +4,13 @@
   "single_number": 9,
   "title": "You Came Back When I Won",
   "version": "v1 emotional demo",
-  "status": "candidate for human evaluation",
+  "status": "approved",
+  "approval": {
+    "approved_by_user": true,
+    "approved_version": "v1",
+    "decision": "Keep v1 as the only approved Single 9 version. Proof 4 is rejected and remains archived for comparison only.",
+    "approved_at": "2026-08-21"
+  },
   "official_language": "English",
   "reference_language": "Brazilian Portuguese",
   "tempo_bpm": 94,

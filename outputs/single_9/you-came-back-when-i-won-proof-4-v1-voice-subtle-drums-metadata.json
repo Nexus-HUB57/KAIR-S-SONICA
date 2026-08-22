@@ -4,7 +4,12 @@
   "single_number": 9,
   "title": "You Came Back When I Won",
   "version": "Proof 4 — v1 voice, subtle drums, harmonic sub-bass",
-  "status": "candidate for human evaluation",
+  "status": "rejected",
+  "review": {
+    "decision": "Rejected by user",
+    "note": "Proof 4 does not replace the approved v1. It remains archived for comparison only.",
+    "reviewed_at": "2026-08-21"
+  },
   "lyrics_status": "approved source preserved; generated vocal requires human lyric-lock review",
   "official_language": "English",
   "reference_language": "Brazilian Portuguese",
