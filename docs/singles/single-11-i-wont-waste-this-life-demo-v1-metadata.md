@@ -2,7 +2,7 @@
 
 **Single:** 11
 **Artist:** KTD / Kháirus the Dragon
-**Status:** first musical proof; not approved
+**Status:** rejected and archived; outside KTD's approved musical portfolio
 **Concept:** I Won't Waste This Life
 **Language:** English
 **Source brief:** [`single-11-i-wont-waste-this-life-production-brief-v1.md`](single-11-i-wont-waste-this-life-production-brief-v1.md)
@@ -28,7 +28,7 @@ The generated proof contains the intended narrative and the central hook. The tr
 
 The generated performance uses a small wording variation in one hook line, rendering “If I got breath in my lungs” instead of the sketch phrase “If I got breath in my chest.” The final line is also transcribed as “K2D,” an automatic transcription artifact or ad-lib that requires human listening before any lyric lock.
 
-This is a **first proof only**. The user must evaluate vocal identity, melodic contour, bass weight, drum presence, chorus memorability, lyrical fidelity and the final ad-libs. No lyric, chorus, melody, mix, master or distribution status is approved by this document.
+This proof was explicitly **rejected** because its nu metal / rap-rock architecture does not belong to KTD's approved musical portfolio. It remains preserved as a historical reference only. No lyric, chorus, melody, mix, master or distribution status from this version is approved.
 
 ## Preservation and guardrails
 

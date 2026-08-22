@@ -1,0 +1,145 @@
+Starting Speech-to-Text conversion...
+Audio file size (43.8MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 2117 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio saved to: outputs/single_11/.i-wont-waste-this-life-v2-old-school-demo-master_chunks_20260822_120938/downsampled_20260822_120938.mp3
+Downsampled audio file size is 2.65 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: outputs/single_11/.i-wont-waste-this-life-v2-old-school-demo-master_chunks_20260822_120938/downsampled_20260822_120938.mp3, file size: 2.65 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 173.4 seconds
+Language: eng
+Timestamped segments:
+[00:00.1 - 00:02.3] Yeah, just breathe.
+[00:02.3 - 00:12.4] I used to count the ceiling cracks
+[00:12.4 - 00:14.6] while the whole block slept.
+[00:14.6 - 00:19.1] Learned to hide the fear behind the promises I kept.
+[00:19.1 - 00:22.4] I carried empty rooms, bad news, and a name they tried to bend.
+[00:22.4 - 00:24.9] Kept walking through the damage like the damage was not the end.
+[00:24.9 - 00:27.5] I saw the strong go silent, saw the good get buried deep.
+[00:27.5 - 00:30.5] Saw a family lose its balance while the city went to sleep, uh.
+[00:30.5 - 00:35.3] I gave my younger years to every fire at the door, uh.
+[00:35.3 - 00:39.4] Now I'm standing in the daylight, I don't owe the dark no more.
+[00:39.4 - 00:43.3] I could let the old nights keep a room inside my head.
+[00:43.3 - 00:45.8] I could feed the same old fire every time I go to bed.
+[00:45.8 - 00:50.4] But the years they tried to take from me are breathing in my chest.
+[00:50.4 - 00:55.1] If I'm still here, then I'm not finished, I'm not finished yet.
+[00:55.1 - 00:55.5] Woo.
+[00:55.5 - 00:58.5] I won't waste this life.
+[00:58.5 - 01:00.5] Won't waste this life.
+[01:00.5 - 01:03.8] Not one more night, not one more time.
+[01:03.8 - 01:05.7] Not one more time.
+[01:05.7 - 01:10.3] Turned every loss into a reason to rise.
+[01:10.3 - 01:13.7] I won't waste this life.
+[01:13.7 - 01:15.6] Won't waste this life.
+[01:15.6 - 01:19.0] The dark got breath in my chest, I got a reason to shine.
+[01:19.0 - 01:20.6] Whoa.
+[01:20.6 - 01:25.1] Now the room is full of life, and the light is finally clear.
+[01:25.1 - 01:30.0] No more shadows on the wall, no more ghosts to face or fear.
+[01:30.0 - 01:33.3] I'm choosing every second, every canvas, every song.
+[01:33.3 - 01:35.9] Building up a future where the heart'll belong.
+[01:35.9 - 01:39.8] Building up a future where the heart can finally belong.
+[01:39.8 - 01:43.3] Used to chase the money, but I found the gold inside.
+[01:43.3 - 01:45.8] Art is just a weapon that the soul learned how to hide.
+[01:45.8 - 01:48.3] I'm checking on my health and I'm checking on my kin.
+[01:48.3 - 01:50.9] 'Cause the only way to win is to let the light begin.
+[01:50.9 - 01:55.9] No more looking backward at the bridges and the flame.
+[01:55.9 - 01:59.4] I'm making sure my presence is the one thing they don't tame, uh.
+[01:59.4 - 02:04.6] Sometimes the world gets loud.
+[02:04.6 - 02:09.6] Sometimes the path gets lost.
+[02:09.6 - 02:15.6] But I've counted every tear, and I know the heavy cost.
+[02:15.6 - 02:16.3] Woo.
+[02:16.3 - 02:19.4] I won't waste this life.
+[02:19.4 - 02:21.8] Won't waste this life.
+[02:21.8 - 02:24.7] Not one more night, not one more time.
+[02:24.7 - 02:26.4] Not one more time.
+[02:26.4 - 02:31.1] Turned every loss into a reason to rise.
+[02:31.1 - 02:34.8] I won't waste this life.
+[02:34.8 - 02:36.4] Won't waste this life.
+[02:36.4 - 02:36.5] Oh.
+[02:36.5 - 02:39.4] The dark got breath in my chest, I got a reason to shine.
+[02:39.4 - 02:40.8] Reason to shine.
+[02:40.8 - 02:41.4] Not one more time.
+[02:41.4 - 02:41.6] Yeah.
+[02:41.6 - 02:44.6] I won't waste this life.
+[02:44.6 - 02:46.1] Reason to rise.
+[02:46.1 - 02:47.1] Won't waste this life.
+[02:47.1 - 02:48.3] Not one more night.
+[02:48.3 - 02:49.9] Reason to shine.
+[02:49.9 - 02:52.4] Dragon on the move, let's go.
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v2-old-school-demo-master_transcription_20260822_120953.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v2-old-school-demo-master_transcription_20260822_120953.txt
+[2J[H[3Jmanus-speech-to-text outputs/single_11/i-wont-waste-this-life-v2-old-school-demo-master.wav
+Starting Speech-to-Text conversion...
+Audio file size (43.8MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 2117 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio file size is 2.65 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: outputs/single_11/.i-wont-waste-this-life-v2-old-school-demo-master_chunks_20260822_120938/downsampled_20260822_120938.mp3, file size: 2.65 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.1 - 00:02.3] Yeah, just breathe.
+[00:02.3 - 00:12.4] I used to count the ceiling cracks
+[00:12.4 - 00:14.6] while the whole block slept.
+[00:14.6 - 00:19.1] Learned to hide the fear behind the promises I kept.
+[00:19.1 - 00:22.4] I carried empty rooms, bad news, and a name they tried to bend.
+[00:22.4 - 00:24.9] Kept walking through the damage like the damage was not the end.
+[00:24.9 - 00:27.5] I saw the strong go silent, saw the good get buried deep.
+[00:27.5 - 00:30.5] Saw a family lose its balance while the city went to sleep, uh.
+[00:30.5 - 00:35.3] I gave my younger years to every fire at the door, uh.
+[00:35.3 - 00:39.4] Now I'm standing in the daylight, I don't owe the dark no more.
+[00:39.4 - 00:43.3] I could let the old nights keep a room inside my head.
+[00:43.3 - 00:45.8] I could feed the same old fire every time I go to bed.
+[00:45.8 - 00:50.4] But the years they tried to take from me are breathing in my chest.
+[00:50.4 - 00:55.1] If I'm still here, then I'm not finished, I'm not finished yet.
+[00:55.1 - 00:55.5] Woo.
+[00:55.5 - 00:58.5] I won't waste this life.
+[00:58.5 - 01:00.5] Won't waste this life.
+[01:00.5 - 01:03.8] Not one more night, not one more time.
+[01:03.8 - 01:05.7] Not one more time.
+[01:05.7 - 01:10.3] Turned every loss into a reason to rise.
+[01:10.3 - 01:13.7] I won't waste this life.
+[01:13.7 - 01:15.6] Won't waste this life.
+[01:15.6 - 01:19.0] The dark got breath in my chest, I got a reason to shine.
+[01:19.0 - 01:20.6] Whoa.
+[01:20.6 - 01:25.1] Now the room is full of life, and the light is finally clear.
+[01:25.1 - 01:30.0] No more shadows on the wall, no more ghosts to face or fear.
+[01:30.0 - 01:33.3] I'm choosing every second, every canvas, every song.
+[01:33.3 - 01:35.9] Building up a future where the heart'll belong.
+[01:35.9 - 01:39.8] Building up a future where the heart can finally belong.
+[01:39.8 - 01:43.3] Used to chase the money, but I found the gold inside.
+[01:43.3 - 01:45.8] Art is just a weapon that the soul learned how to hide.
+[01:45.8 - 01:48.3] I'm checking on my health and I'm checking on my kin.
+[01:48.3 - 01:50.9] 'Cause the only way to win is to let the light begin.
+[01:50.9 - 01:55.9] No more looking backward at the bridges and the flame.
+[01:55.9 - 01:59.4] I'm making sure my presence is the one thing they don't tame, uh.
+[01:59.4 - 02:04.6] Sometimes the world gets loud.
+[02:04.6 - 02:09.6] Sometimes the path gets lost.
+[02:09.6 - 02:15.6] But I've counted every tear, and I know the heavy cost.
+[02:15.6 - 02:16.3] Woo.
+[02:16.3 - 02:19.4] I won't waste this life.
+[02:19.4 - 02:21.8] Won't waste this life.
+[02:21.8 - 02:24.7] Not one more night, not one more time.
+[02:24.7 - 02:26.4] Not one more time.
+[02:26.4 - 02:31.1] Turned every loss into a reason to rise.
+[02:31.1 - 02:34.8] I won't waste this life.
+[02:34.8 - 02:36.4] Won't waste this life.
+[02:36.4 - 02:36.5] Oh.
+[02:36.5 - 02:39.4] The dark got breath in my chest, I got a reason to shine.
+[02:39.4 - 02:40.8] Reason to shine.
+[02:40.8 - 02:41.4] Not one more time.
+[02:41.4 - 02:41.6] Yeah.
+[02:41.6 - 02:44.6] I won't waste this life.
+[02:44.6 - 02:46.1] Reason to rise.
+[02:46.1 - 02:47.1] Won't waste this life.
+[02:47.1 - 02:48.3] Not one more night.
+[02:48.3 - 02:49.9] Reason to shine.
+[02:49.9 - 02:52.4] Dragon on the move, let's go.
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v2-old-school-demo-master_transcription_20260822_120953.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_11/i-wont-waste-this-life-v2-old-school-demo-master_transcription_20260822_120953.txt
