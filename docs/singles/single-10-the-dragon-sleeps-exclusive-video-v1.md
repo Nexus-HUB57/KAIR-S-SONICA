@@ -61,3 +61,7 @@ Alternativas de teste, usando apenas uma variação contextual por publicação:
 A aprovação deve confirmar que o vídeo apresenta movimento real de câmera e performance em todos os trechos, cortes secos perceptíveis, contraste chiaroscuro, textura de ambiente, olhar direto, coerência de identidade, áudio do Single 10 e duração de 9 segundos em 720×1280. Devem permanecer ausentes logos, documentos, saldos, placas, endereços, terceiros identificáveis, fantasia literal e violência.
 
 As versões estáticas `the-dragon-sleeps-original-9s.mp4`, `the-dragon-sleeps-room-man-8s.mp4` e `the-dragon-sleeps-money-time-10s.mp4` ficam classificadas como **reprovadas** e não devem ser usadas para publicação.
+
+## 10. Reprovação de identidade — atualização
+
+A prova dinâmica anterior foi **reprovada** porque o personagem exibido não corresponde ao KTD canônico. O arquivo foi retirado da pasta de versões válidas e preservado em `outputs/single_10/tiktok/reprovados/` com a marca `identity-drift-reprovado`. Nenhuma nova renderização deve ser promovida até que a referência facial e corporal oficial seja confirmada contra um material KTD aprovado.
