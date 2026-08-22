@@ -14,6 +14,7 @@ from kairos_core.social import (
     SocialRagIndex,
     SocialRunRequest,
 )
+from kairos_core.social.platforms.instagram import InstagramProvider
 from kairos_core.social.platforms.tiktok import TikTokProvider
 
 
@@ -67,6 +68,26 @@ def test_pending_content_cannot_be_published(tmp_path: Path) -> None:
     assert "approved/released" in result.warnings[0]
 
 
+def test_meta_webhook_signature_is_verified() -> None:
+    secret = "test-meta-secret"
+    body = b'{"object":"instagram","entry":[]}'
+    signature = hmac.new(secret.encode(), body, hashlib.sha256).hexdigest()
+    provider = InstagramProvider(access_token="token", user_id="user", app_secret=secret)
+
+    assert provider.verify_webhook_signature(
+        signature_header=f"sha256={signature}",
+        raw_body=body,
+    )
+    assert not provider.verify_webhook_signature(
+        signature_header=f"sha256={signature}",
+        raw_body=body + b" ",
+    )
+    assert not provider.verify_webhook_signature(
+        signature_header="sha256=not-hex",
+        raw_body=body,
+    )
+
+
 def test_tiktok_webhook_signature_is_verified() -> None:
     secret = "test-secret"
     timestamp = 1_700_000_000
@@ -80,8 +101,23 @@ def test_tiktok_webhook_signature_is_verified() -> None:
         raw_body=body,
         now=timestamp,
     )
+    assert provider.verify_webhook(
+        signature_header=f" t={timestamp}, s={signature} ",
+        raw_body=body,
+        now=timestamp,
+    )
     assert not provider.verify_webhook(
         signature_header="t=1700000000,s=invalid",
         raw_body=body,
+        now=timestamp,
+    )
+    assert not provider.verify_webhook(
+        signature_header=f"t={timestamp - 301},s={signature}",
+        raw_body=body,
+        now=timestamp,
+    )
+    assert not provider.verify_webhook(
+        signature_header=f"t={timestamp},s={signature}",
+        raw_body=b"\xff\xfe",
         now=timestamp,
     )

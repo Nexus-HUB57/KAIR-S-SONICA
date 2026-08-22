@@ -123,11 +123,11 @@ class TikTokProvider(SocialProvider):
     def verify_webhook(self, *, signature_header: str, raw_body: bytes, now: int | None = None, tolerance_seconds: int = 300) -> bool:
         if not self.client_secret:
             raise PlatformError("client_secret do TikTok não configurado", code="webhook_secret_missing")
-        parts = dict(
-            item.split("=", 1)
-            for item in signature_header.split(",")
-            if "=" in item
-        )
+        parts: dict[str, str] = {}
+        for item in signature_header.split(","):
+            key, separator, value = item.partition("=")
+            if separator:
+                parts[key.strip()] = value.strip()
         timestamp = parts.get("t")
         signature = parts.get("s")
         if not timestamp or not signature:
@@ -139,7 +139,11 @@ class TikTokProvider(SocialProvider):
         current = int(now if now is not None else time.time())
         if abs(current - timestamp_int) > tolerance_seconds:
             return False
-        signed = f"{timestamp}.{raw_body.decode('utf-8')}".encode("utf-8")
+        try:
+            body_text = raw_body.decode("utf-8")
+        except UnicodeDecodeError:
+            return False
+        signed = f"{timestamp}.{body_text}".encode("utf-8")
         expected = hmac.new(self.client_secret.encode("utf-8"), signed, hashlib.sha256).hexdigest()
         return hmac.compare_digest(expected, signature)
 
