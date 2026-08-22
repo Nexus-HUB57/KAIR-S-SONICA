@@ -32,6 +32,8 @@ from kairos_core.complementary import (
 from kairos_core.config import Settings
 from kairos_core.observability import configure_logging
 from kairos_core.persona import DEFAULT_PERSONA
+from kairos_core.social import SocialOrchestrator, SocialScheduleStore
+from kairos_core.social.api import build_social_router
 from kairos_core.schemas import (
     ComplementaryMediaSearchRequest,
     ComplementaryPlanRequest,
@@ -229,6 +231,12 @@ agentic_orchestrator = AgenticOrchestrator(
     settings,
     memory=ProjectMemory(settings.agentic_memory_dir),
 )
+social_orchestrator = SocialOrchestrator(
+    settings,
+    repo_root=Path(__file__).resolve().parents[2],
+    memory=ProjectMemory(settings.agentic_memory_dir, "social"),
+)
+social_schedule_store = SocialScheduleStore(settings.social_schedule_db_path)
 artistic_island = SkillGenerator(atlas_path=settings.instrument_atlas_path)
 canon_index = CanonIndex.load(settings.canon_index_path)
 repertoire_catalog = RepertoireCatalog.load(settings.instrumentation_repertoire_path)
@@ -283,6 +291,7 @@ app.add_middleware(
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type", "Authorization"],
 )
+app.include_router(build_social_router(social_orchestrator, social_schedule_store))
 
 
 def _run_task(task_id: str, request: TrackRequest) -> None:

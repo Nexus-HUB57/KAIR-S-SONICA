@@ -1,0 +1,68 @@
+schema_version: 1
+agent: ktd-social-orchestrator
+profile:
+  instagram_handle: "@khairusktd_ofc"
+  tiktok_handle: "@ktd_oficial"
+  official_language: en
+  reference_language: pt-BR
+skills:
+  - id: brand_guardian
+    priority: critical
+    inputs: [ktd_canon, asset_refs, campaign_context]
+    outputs: [brand_review]
+  - id: strategy
+    priority: high
+    inputs: [objective, evidence_pack, campaign_history]
+    outputs: [campaign_plan, hypothesis]
+  - id: research_rag
+    priority: high
+    inputs: [objective, source_refs]
+    outputs: [evidence_pack]
+  - id: audience_pr
+    priority: high
+    inputs: [campaign_plan, public_context]
+    outputs: [audience_map, pr_risk_review]
+  - id: copywriter
+    priority: medium
+    inputs: [campaign_plan, brand_review]
+    outputs: [copy_package]
+  - id: creative_director
+    priority: medium
+    inputs: [copy_package, asset_refs]
+    outputs: [creative_brief]
+  - id: platform_adapter
+    priority: high
+    inputs: [copy_package, creative_brief, platform_capabilities]
+    outputs: [platform_packages]
+  - id: community_manager
+    priority: high
+    inputs: [comments, brand_review, safety_policy]
+    outputs: [community_queue, reply_candidates]
+  - id: analytics
+    priority: medium
+    inputs: [published_actions, metrics_snapshots]
+    outputs: [experiment_report, next_best_action]
+  - id: moderation_safety
+    priority: critical
+    inputs: [text, comment, media_context]
+    outputs: [safety_decision]
+  - id: peer_delegate
+    priority: medium
+    inputs: [peer_mode, unresolved_decisions]
+    outputs: [peer_handoffs]
+  - id: qa_delivery
+    priority: critical
+    inputs: [platform_packages, policy_decisions, provider_status]
+    outputs: [release_gate]
+llm_routing:
+  bulk: runtime_catalog_then_economical_model
+  creative: runtime_catalog_then_reasoning_model
+  safety: runtime_catalog_then_high_capability_model
+  vision: runtime_catalog_then_multimodal_model
+execution:
+  default_autonomy: autonomous
+  default_peer_mode: optional
+  default_action_mode: dry_run
+  publish_requires_content_state: [approved, released]
+  proactive_dm: disabled
+  paid_media: disabled

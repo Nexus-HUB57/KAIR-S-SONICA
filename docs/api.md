@@ -433,3 +433,27 @@ O comando `scripts/auto_retrain.py` imprime o mesmo plano em JSON e é adequado 
 Gera o plano de um clip social de 5–60 segundos, com canvas `9:16`, `1:1` ou `16:9`, waveform RMS, título, watermark e adapter `moviepy-or-browser-canvas`. O asset de áudio deve ser gerado ou carregado pelo operador; o plano não baixa fontes, não escreve MP4 e não publica em TikTok, Reels ou Shorts.
 
 O command deck browser consulta analytics, retraining e adapters ao carregar, e permite propor arranjo, Modo Káiros e clip. Cada resultado é visualizado com estado de aprovação; o pipeline de áudio, o worker, o `TaskStore`, o SkyReels e o fluxo de `ffprobe` permanecem inalterados.
+
+## `/v1/social` — KTD Social Orchestrator
+
+O módulo social coordena RAG local, estratégia, LLM opcional, pacotes por plataforma, políticas de autonomia, peers, triagem comunitária, publicação e métricas. O modo padrão apenas planeja (`execute_actions=false`).
+
+### `GET /v1/social/capabilities`
+
+Retorna o modo de autonomia híbrida, perfis configurados, módulos, estado dos providers e políticas de segurança. `configured` indica somente a presença das variáveis de ambiente; não substitui a validação OAuth ou das permissões junto ao provedor.
+
+### `POST /v1/social/run`
+
+Recebe `SocialRunRequest`. Os modos são `simulate`, `collaborative` e `autonomous`. O campo `peer_mode` pode ser `disabled`, `optional` ou `required`. A publicação real exige `execute_actions=true`, provider configurado e `content_state` igual a `approved` ou `released`. O endpoint devolve `SocialRunResult`, incluindo `evidence`, `platform_packages`, `actions`, `peer_handoffs`, `metrics_plan`, warnings e writes de memória.
+
+### `POST /v1/social/community/triage`
+
+Classifica localmente uma mensagem como `positive`, `question`, `general`, `spam`, `privacy`, `crisis` ou `safety`. Sinais de crise, dados pessoais, ameaça ou assédio são marcados para escalonamento e não viram respostas promocionais automáticas.
+
+### `POST /v1/social/interaction`
+
+Opera leitura de comentários, insights e resposta a comentário quando o adapter e as permissões permitem. Respostas usam planejamento por padrão e só executam com `execute=true` após o gate de política.
+
+### `POST /v1/social/webhooks/tiktok`
+
+Recebe callbacks de status do TikTok, valida `TikTok-Signature` com HMAC-SHA256 e rejeita payloads inválidos ou fora da janela de tolerância.
