@@ -3,7 +3,7 @@
 **Single:** 4  
 **Artista:** KTD / Kháirus the Dragon  
 **Idioma:** inglês  
-**Estado:** candidata para avaliação vocal-instrumental
+**Estado:** fonte oficial aprovada; áudio aprovado como MAGNÍFICO
 
 ## Intro
 

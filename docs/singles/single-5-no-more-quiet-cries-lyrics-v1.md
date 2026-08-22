@@ -4,7 +4,7 @@
 **Single:** 5  
 **Idioma:** inglês  
 **Direção:** rap confessional, soul-reggae orgânico, hip-hop de alto impacto  
-**Estado:** primeira letra completa para demo
+**Estado:** fonte oficial aprovada da letra v1; áudio aprovado como EXTRAORDINÁRIO
 
 ## Intro — close, intimate
 

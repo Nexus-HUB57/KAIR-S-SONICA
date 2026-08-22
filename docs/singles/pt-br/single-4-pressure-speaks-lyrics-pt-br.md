@@ -5,7 +5,8 @@
 **Artista:** KTD / Kháirus the Dragon  
 **Idioma:** português brasileiro  
 **Fonte oficial:** [`../single-4-pressure-speaks-lyrics-essence-v1.md`](../single-4-pressure-speaks-lyrics-essence-v1.md)  
-**Status da fonte inglesa:** letra aprovada em estilo; áudio e letra oficiais preservados  
+**Status da fonte inglesa:** fonte oficial aprovada; áudio aprovado como MAGNÍFICO
+
 **Natureza desta versão:** tradução de referência; não substitui a letra oficial em inglês e não constitui nova gravação.
 
 ## Letra traduzida

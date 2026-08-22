@@ -4,7 +4,7 @@
 **Single:** 7  
 **Idioma:** inglês  
 **Direção:** rap narrativo, soul/trap melódico, crítica social e superação  
-**Estado:** letra candidata para primeiro demo
+**Estado:** fonte oficial aprovada da letra v1; usada na montagem gospel final
 
 ## Intro — pressão baixa, voz próxima
 

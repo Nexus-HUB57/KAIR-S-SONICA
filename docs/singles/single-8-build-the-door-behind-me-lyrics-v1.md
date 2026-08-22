@@ -3,7 +3,8 @@
 **Single:** 8  
 **Artist:** KTD / Kháirus the Dragon  
 **Language:** English  
-**Status:** first complete lyric for demo evaluation  
+**Status:** approved official v1 lyric source; v1 audio approved
+
 **Concept source:** [`single-8-build-the-door-behind-me-concept-v1.md`](single-8-build-the-door-behind-me-concept-v1.md)
 
 ## Intro — low voice, room tone
