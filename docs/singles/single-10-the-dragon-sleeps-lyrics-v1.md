@@ -3,7 +3,7 @@
 **Single:** 10
 **Artist:** KTD / Kháirus the Dragon
 **Language:** English
-**Status:** official lyric candidate for first musical proof
+**Status:** approved official lyric v1; chorus approved; Prova 2 changes are musical only
 **Concept brief:** [`single-10-the-dragon-sleeps-brief-v1.md`](single-10-the-dragon-sleeps-brief-v1.md)
 **Target:** commercial nu metal / rap-rock, approximately 96 BPM, minor key
 

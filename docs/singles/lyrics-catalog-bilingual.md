@@ -25,7 +25,7 @@ Cada tradução PT-BR conserva a ordem geral das seções, o arco narrativo e as
 | 7 | *No One Saved Me a Seat* | [`single-7-no-one-saved-me-a-seat-lyrics-v1.md`](single-7-no-one-saved-me-a-seat-lyrics-v1.md) | [`single-7-no-one-saved-me-a-seat-lyrics-pt-br.md`](pt-br/single-7-no-one-saved-me-a-seat-lyrics-pt-br.md) | Letra inglesa v1 preservada; versão gospel e montagem final aprovadas no histórico do projeto |
 | 8 | *Build the Door Behind Me* | [`single-8-build-the-door-behind-me-lyrics-v1.md`](single-8-build-the-door-behind-me-lyrics-v1.md) | [`single-8-build-the-door-behind-me-lyrics-pt-br.md`](pt-br/single-8-build-the-door-behind-me-lyrics-pt-br.md) | **v1 aprovada**; v2 arquivada somente para comparação |
 | 9 | *You Came Back When I Won* | [`single-9-you-came-back-when-i-won-lyrics-v1.md`](single-9-you-came-back-when-i-won-lyrics-v1.md) | [`single-9-you-came-back-when-i-won-lyrics-pt-br.md`](pt-br/single-9-you-came-back-when-i-won-lyrics-pt-br.md) | **v1 aprovada**; Provas 2–4 e variações posteriores arquivadas ou reprovadas |
-| 10 | *The Dragon Sleeps* | [`single-10-the-dragon-sleeps-lyrics-v1.md`](single-10-the-dragon-sleeps-lyrics-v1.md) | [`single-10-the-dragon-sleeps-lyrics-pt-br.md`](pt-br/single-10-the-dragon-sleeps-lyrics-pt-br.md) | Conceito aprovado; letra candidata v1 e primeira prova musical em avaliação |
+| 10 | *The Dragon Sleeps* | [`single-10-the-dragon-sleeps-lyrics-v1.md`](single-10-the-dragon-sleeps-lyrics-v1.md) | [`single-10-the-dragon-sleeps-lyrics-pt-br.md`](pt-br/single-10-the-dragon-sleeps-lyrics-pt-br.md) | **Letra v1 e refrão aprovados**; Prova 2 dedicada a grave, batidas e melodia instrumental |
 
 ## Registros especiais
 
@@ -37,7 +37,7 @@ O Single 9 possui o registro de aprovação [`single-9-you-came-back-when-i-won-
 
 ## Cobertura da revisão
 
-A auditoria encontrou fontes de letra em inglês para os dez singles e dez traduções PT-BR organizadas em `docs/singles/pt-br/`. Nenhuma fonte inglesa foi substituída. Os documentos em português foram mantidos como referências correspondentes, e os status de Singles 8, 9 e 10 foram sincronizados com os registros editoriais atuais. O Single 10 permanece em avaliação de letra e áudio; sua inclusão no catálogo não representa aprovação de master final.
+A auditoria encontrou fontes de letra em inglês para os dez singles e dez traduções PT-BR organizadas em `docs/singles/pt-br/`. Nenhuma fonte inglesa foi substituída. Os documentos em português foram mantidos como referências correspondentes, e os status de Singles 8, 9 e 10 foram sincronizados com os registros editoriais atuais. A letra v1 e o refrão do Single 10 foram aprovados. A Prova 2 permanece em avaliação musical e é restrita a grave, batidas, presença rítmica e melodia instrumental; sua inclusão no catálogo não representa aprovação de master final.
 
 ## Convenção de nomes
 

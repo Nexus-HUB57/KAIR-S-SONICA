@@ -1,0 +1,101 @@
+Starting Speech-to-Text conversion...
+Audio file size (41.1MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 2117 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio saved to: outputs/single_10/.the-dragon-sleeps-v2-bass-beats-demo_chunks_20260822_012253/downsampled_20260822_012253.mp3
+Downsampled audio file size is 2.49 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: outputs/single_10/.the-dragon-sleeps-v2-bass-beats-demo_chunks_20260822_012253/downsampled_20260822_012253.mp3, file size: 2.49 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 162.8 seconds
+Language: eng
+Timestamped segments:
+[00:09.9 - 00:14.2] Now the driveway looks like a showroom, black glass in the rain.
+[00:14.2 - 00:19.2] Seven digits in the account, then it hit eight.
+[00:19.2 - 00:24.3] Funny how the people who ignore me suddenly know my pain.
+[00:24.3 - 00:29.4] Funny how the people who ignored me suddenly know my pain.
+[00:29.4 - 00:34.4] But every favor has a hidden price tag on the plate.
+[00:34.4 - 00:39.3] But every favor has a hidden price tag on the plate.
+[00:39.3 - 00:44.1] I see the danger in the diamonds.
+[00:44.1 - 00:47.4] I see the truth behind the praise.
+[00:47.4 - 00:49.8] Stay back from the flame.
+[00:49.8 - 00:53.5] The dragon sleeps, but he's still alive.
+[00:53.5 - 00:58.8] Lights go down, I survive.
+[00:58.8 - 01:03.6] Money buys the moment, it can't the hard days.
+[01:03.6 - 01:05.1] Stay away from mine.
+[01:05.1 - 01:08.7] The dragon sleeps, but he's still alive.
+[01:08.7 - 01:14.1] Same cold heart, new skyline.
+[01:14.1 - 01:20.5] When the cameras disappear, I'm still the same, I'm still the same inside.
+[01:20.5 - 01:24.6] A balance on a screen can't make a dead heart beat repeat.
+[01:24.6 - 01:29.7] A coffin has no pockets when they lay you in the deep.
+[01:29.7 - 01:34.7] I stayed the same when the lights went out, I kept my feet.
+[01:34.7 - 01:39.7] A coffin has no pockets when they lay you in the deep.
+[01:39.7 - 01:44.8] I stayed the same when the lights went out, I kept my feet.
+[01:44.8 - 01:49.9] I didn't climb this high just to watch the weak ones weep.
+[01:49.9 - 01:54.8] I see the danger in the diamonds.
+[01:54.8 - 01:58.2] I see the truth behind the praise.
+[01:58.2 - 02:00.5] Stay back from the flame.
+[02:00.5 - 02:04.3] The dragon sleeps, but he's still alive.
+[02:04.3 - 02:09.5] Lights go down, I survive.
+[02:09.5 - 02:14.4] Money buys the moment, it can't the hard days.
+[02:14.4 - 02:15.9] Stay away from mine.
+[02:15.9 - 02:19.5] The dragon sleeps, but he's still alive.
+[02:19.5 - 02:24.9] Same cold heart, new skyline.
+[02:24.9 - 02:31.3] When the cameras disappear, I'm still the same, I'm still the same inside.
+[02:31.3 - 02:35.6] Values over vanity, legacy over gold.
+[02:35.6 - 02:40.6] I didn't lose my spirit for the stories they all told.
+[02:40.6 - 02:41.8] Yeah.
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v2-bass-beats-demo_transcription_20260822_012306.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v2-bass-beats-demo_transcription_20260822_012306.txt
+[2J[H[3Jmanus-speech-to-text outputs/single_10/the-dragon-sleeps-v2-bass-beats-demo.wav
+Starting Speech-to-Text conversion...
+Audio file size (41.1MB) exceeds limit (5MB), downsampling audio file...
+Source audio bitrate: 2117 kbps
+Bitrate exceeds 128 kbps, downsampling...
+Downsampled audio file size is 2.49 MB.
+Downsampled audio file size is within 5MB target, skipping chunking.
+Transcribing audio file: outputs/single_10/.the-dragon-sleeps-v2-bass-beats-demo_chunks_20260822_012253/downsampled_20260822_012253.mp3, file size: 2.49 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:09.9 - 00:14.2] Now the driveway looks like a showroom, black glass in the rain.
+[00:14.2 - 00:19.2] Seven digits in the account, then it hit eight.
+[00:19.2 - 00:24.3] Funny how the people who ignore me suddenly know my pain.
+[00:24.3 - 00:29.4] Funny how the people who ignored me suddenly know my pain.
+[00:29.4 - 00:34.4] But every favor has a hidden price tag on the plate.
+[00:34.4 - 00:39.3] But every favor has a hidden price tag on the plate.
+[00:39.3 - 00:44.1] I see the danger in the diamonds.
+[00:44.1 - 00:47.4] I see the truth behind the praise.
+[00:47.4 - 00:49.8] Stay back from the flame.
+[00:49.8 - 00:53.5] The dragon sleeps, but he's still alive.
+[00:53.5 - 00:58.8] Lights go down, I survive.
+[00:58.8 - 01:03.6] Money buys the moment, it can't the hard days.
+[01:03.6 - 01:05.1] Stay away from mine.
+[01:05.1 - 01:08.7] The dragon sleeps, but he's still alive.
+[01:08.7 - 01:14.1] Same cold heart, new skyline.
+[01:14.1 - 01:20.5] When the cameras disappear, I'm still the same, I'm still the same inside.
+[01:20.5 - 01:24.6] A balance on a screen can't make a dead heart beat repeat.
+[01:24.6 - 01:29.7] A coffin has no pockets when they lay you in the deep.
+[01:29.7 - 01:34.7] I stayed the same when the lights went out, I kept my feet.
+[01:34.7 - 01:39.7] A coffin has no pockets when they lay you in the deep.
+[01:39.7 - 01:44.8] I stayed the same when the lights went out, I kept my feet.
+[01:44.8 - 01:49.9] I didn't climb this high just to watch the weak ones weep.
+[01:49.9 - 01:54.8] I see the danger in the diamonds.
+[01:54.8 - 01:58.2] I see the truth behind the praise.
+[01:58.2 - 02:00.5] Stay back from the flame.
+[02:00.5 - 02:04.3] The dragon sleeps, but he's still alive.
+[02:04.3 - 02:09.5] Lights go down, I survive.
+[02:09.5 - 02:14.4] Money buys the moment, it can't the hard days.
+[02:14.4 - 02:15.9] Stay away from mine.
+[02:15.9 - 02:19.5] The dragon sleeps, but he's still alive.
+[02:19.5 - 02:24.9] Same cold heart, new skyline.
+[02:24.9 - 02:31.3] When the cameras disappear, I'm still the same, I'm still the same inside.
+[02:31.3 - 02:35.6] Values over vanity, legacy over gold.
+[02:35.6 - 02:40.6] I didn't lose my spirit for the stories they all told.
+[02:40.6 - 02:41.8] Yeah.
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v2-bass-beats-demo_transcription_20260822_012306.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v2-bass-beats-demo_transcription_20260822_012306.txt
