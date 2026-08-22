@@ -10,6 +10,7 @@ WORKFLOWS = (
     Path(".github/workflows/social-dry-run.yml"),
     Path(".github/workflows/social-publish.yml"),
     Path(".github/workflows/social-token-health.yml"),
+    Path(".github/workflows/social-scheduled-dispatch.yml"),
 )
 
 

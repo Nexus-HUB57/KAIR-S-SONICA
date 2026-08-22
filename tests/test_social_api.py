@@ -81,3 +81,18 @@ def test_meta_webhook_verification_returns_challenge(monkeypatch) -> None:
 
     assert response.status_code == 200
     assert response.text == "challenge-123"
+
+
+def test_social_schedule_dispatch_requires_internal_token(monkeypatch) -> None:
+    monkeypatch.setenv("KTD_SOCIAL_SCHEDULER_TOKEN", "scheduler-test")
+    with TestClient(app) as client:
+        unauthorized = client.post("/v1/social/schedules/dispatch-due")
+        authorized = client.post(
+            "/v1/social/schedules/dispatch-due",
+            headers={"X-KTD-Scheduler-Token": "scheduler-test"},
+        )
+
+    assert unauthorized.status_code == 401
+    assert authorized.status_code == 200
+    assert authorized.json()["status"] == "processed"
+    assert authorized.json()["count"] == 0

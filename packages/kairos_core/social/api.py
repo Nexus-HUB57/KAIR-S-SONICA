@@ -63,6 +63,28 @@ def build_social_router(
             raise HTTPException(status_code=503, detail="Agenda social não configurada")
         return {"schedules": schedule_store.list(status=status)}
 
+    @router.post("/schedules/dispatch-due")
+    def dispatch_due(request: Request, limit: int = Query(default=10, ge=1, le=50)) -> dict[str, object]:
+        if schedule_store is None:
+            raise HTTPException(status_code=503, detail="Agenda social não configurada")
+        expected = os.getenv("KTD_SOCIAL_SCHEDULER_TOKEN", "")
+        provided = request.headers.get("X-KTD-Scheduler-Token", "")
+        if not expected or not hmac.compare_digest(provided, expected):
+            raise HTTPException(status_code=401, detail="Scheduler token inválido")
+        results = schedule_store.dispatch_due(orchestrator.run, limit=limit)
+        return {
+            "status": "processed",
+            "count": len(results),
+            "results": [
+                {
+                    "run_id": result.run_id,
+                    "campaign_id": result.campaign_id,
+                    "status": result.status,
+                }
+                for result in results
+            ],
+        }
+
     @router.post("/community/triage")
     def community_triage(request: CommentTriageRequest) -> dict[str, object]:
         classification = classify_comment(request.text)

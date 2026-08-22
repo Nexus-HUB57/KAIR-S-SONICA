@@ -1,0 +1,48 @@
+name: Social · scheduled dispatch
+
+"on":
+  workflow_dispatch:
+  schedule:
+    # GitHub pode atrasar schedules; o endpoint usa idempotência e run_at UTC.
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ktd-social-scheduled-dispatch
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    environment: production-social
+    timeout-minutes: 5
+    env:
+      KTD_SOCIAL_API_BASE_URL: ${{ vars.KTD_SOCIAL_API_BASE_URL }}
+      KTD_SOCIAL_SCHEDULER_TOKEN: ${{ secrets.KTD_SOCIAL_SCHEDULER_TOKEN }}
+    steps:
+      - name: Validate scheduler configuration
+        run: |
+          test -n "$KTD_SOCIAL_API_BASE_URL"
+          test -n "$KTD_SOCIAL_SCHEDULER_TOKEN"
+          case "$KTD_SOCIAL_API_BASE_URL" in
+            https://*) ;;
+            *) echo "KTD_SOCIAL_API_BASE_URL must be HTTPS" >&2; exit 1 ;;
+          esac
+
+      - name: Dispatch due schedules
+        env:
+          API_BASE_URL: ${{ vars.KTD_SOCIAL_API_BASE_URL }}
+        run: |
+          response_file="$(mktemp)"
+          trap 'rm -f "$response_file"' EXIT
+          status="$(curl --silent --show-error --output "$response_file" --write-out "%{http_code}" \
+            --request POST \
+            --url "${API_BASE_URL%/}/v1/social/schedules/dispatch-due?limit=10" \
+            --header "X-KTD-Scheduler-Token: $KTD_SOCIAL_SCHEDULER_TOKEN")"
+          if [ "$status" != "200" ]; then
+            echo "scheduler endpoint returned HTTP $status" >&2
+            exit 1
+          fi
+          echo "scheduled dispatch accepted"

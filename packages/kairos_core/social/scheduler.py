@@ -73,10 +73,15 @@ class SocialScheduleStore:
             rows = connection.execute(query, params).fetchall()
         return [self.get(str(row["schedule_id"])) for row in rows if self.get(str(row["schedule_id"]))]
 
-    def claim_due(self, *, now: datetime | None = None, limit: int = 10) -> list[SocialRunRequest]:
+    def claim_due_entries(
+        self,
+        *,
+        now: datetime | None = None,
+        limit: int = 10,
+    ) -> list[tuple[str, SocialRunRequest]]:
         current = (now or datetime.now(timezone.utc)).astimezone(timezone.utc).isoformat()
         claimed_at = datetime.now(timezone.utc).isoformat()
-        requests: list[SocialRunRequest] = []
+        entries: list[tuple[str, SocialRunRequest]] = []
         with self._lock, self._connect() as connection:
             rows = connection.execute(
                 "SELECT schedule_id, request_json FROM social_schedules "
@@ -92,8 +97,13 @@ class SocialScheduleStore:
                 )
                 if changed.rowcount != 1:
                     continue
-                requests.append(SocialRunRequest.model_validate(json.loads(row["request_json"])))
-        return requests
+                entries.append(
+                    (str(row["schedule_id"]), SocialRunRequest.model_validate(json.loads(row["request_json"])))
+                )
+        return entries
+
+    def claim_due(self, *, now: datetime | None = None, limit: int = 10) -> list[SocialRunRequest]:
+        return [request for _, request in self.claim_due_entries(now=now, limit=limit)]
 
     def mark(self, schedule_id: str, *, status: str) -> None:
         with self._lock, self._connect() as connection:
@@ -110,11 +120,12 @@ class SocialScheduleStore:
         limit: int = 10,
     ) -> list[SocialRunResult]:
         results: list[SocialRunResult] = []
-        for request in self.claim_due(now=now, limit=limit):
+        for schedule_id, request in self.claim_due_entries(now=now, limit=limit):
             try:
                 result = runner(request)
+                status = "PUBLISHED" if result.status in {"PUBLISHED", "PARTIAL"} else result.status
+                self.mark(schedule_id, status=status)
                 results.append(result)
             except Exception:
-                # O job já foi reivindicado; o host pode implementar retry/backoff externo.
-                continue
+                self.mark(schedule_id, status="FAILED")
         return results

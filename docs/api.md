@@ -454,6 +454,10 @@ Classifica localmente uma mensagem como `positive`, `question`, `general`, `spam
 
 Opera leitura de comentários, insights e resposta a comentário quando o adapter e as permissões permitem. Respostas usam planejamento por padrão e só executam com `execute=true` após o gate de política.
 
+### `POST /v1/social/schedules/dispatch-due`
+
+Despacha agendas vencidas no armazenamento persistente. Exige `X-KTD-Scheduler-Token`, configurado apenas no serviço HTTPS e no Environment do GitHub Actions; nunca usa tokens Meta/TikTok como credencial de scheduler. O endpoint reivindica cada agenda de forma idempotente, executa o request aprovado e marca `PUBLISHED`, `PARTIAL`, `FAILED` ou outro estado retornado pelo orquestrador.
+
 ### `GET /v1/social/webhooks/meta` e `POST /v1/social/webhooks/meta`
 
 O GET realiza o handshake Meta com `hub.mode`, `hub.challenge` e `hub.verify_token`. O POST valida `X-Hub-Signature-256` usando HMAC-SHA256 com o App Secret da Meta, rejeita payloads inválidos e aceita eventos JSON.
