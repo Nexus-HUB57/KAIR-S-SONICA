@@ -1,0 +1,92 @@
+Starting Speech-to-Text conversion...
+Transcribing audio file: outputs/single_10/the-dragon-sleeps-v1-compact-demo.wav, file size: 3.73 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 162.8 seconds
+Language: eng
+Timestamped segments:
+[00:09.9 - 00:12.0] Now the driveway looks like a showroom.
+[00:12.0 - 00:14.3] Black glass in the rain.
+[00:14.3 - 00:19.3] Seven digits in the account, then it hit eight.
+[00:19.3 - 00:24.4] Funny how the people who ignore me suddenly know my pain.
+[00:24.4 - 00:29.4] Funny how the people who ignored me suddenly know my pain.
+[00:29.4 - 00:34.4] But every favor has a hidden price tag on the plate.
+[00:34.4 - 00:39.4] But every favor has a hidden price tag on the plate.
+[00:39.4 - 00:44.1] I see the danger in the diamonds.
+[00:44.1 - 00:47.4] I see the truth behind the praise.
+[00:47.4 - 00:49.8] Stay back from the flame.
+[00:49.8 - 00:53.5] The dragon sleeps, but he's still alive.
+[00:53.5 - 00:58.8] Lights go down, I survive.
+[00:58.8 - 01:03.6] Money buys the moment, it can't the hard days.
+[01:03.6 - 01:05.1] Stay away from mine.
+[01:05.1 - 01:08.7] The dragon sleeps, but he's still alive.
+[01:08.7 - 01:14.1] Same cold heart, new skyline.
+[01:14.1 - 01:20.5] When the cameras disappear, I'm still the same, I'm still the same inside.
+[01:20.5 - 01:24.6] A balance on a screen can't make a dead heart beat repeat.
+[01:24.6 - 01:29.7] A coffin has no pockets when they lay you in the deep.
+[01:29.7 - 01:34.7] I stayed the same when the lights went out, I kept my feet.
+[01:34.7 - 01:39.8] A coffin has no pockets when they lay you in the deep.
+[01:39.8 - 01:44.9] I stayed the same when the lights went out, I kept my feet.
+[01:44.9 - 01:49.9] I didn't climb this high just to watch the weak ones weep.
+[01:49.9 - 01:54.7] I see the danger in the diamonds.
+[01:54.7 - 01:58.3] I see the truth behind the praise.
+[01:58.3 - 02:00.5] Stay back from the flame.
+[02:00.5 - 02:04.3] The dragon sleeps, but he's still alive.
+[02:04.3 - 02:09.5] Lights go down, I survive.
+[02:09.5 - 02:14.5] Money buys the moment, it can't the hard days.
+[02:14.5 - 02:15.9] Stay away from mine.
+[02:15.9 - 02:19.5] The dragon sleeps, but he's still alive.
+[02:19.5 - 02:24.9] Same cold heart, new skyline.
+[02:24.9 - 02:31.3] When the cameras disappear, I'm still the same, I'm still the same inside.
+[02:31.3 - 02:35.6] Values over vanity, legacy over gold.
+[02:35.6 - 02:41.4] I didn't lose my spirit for the stories they all told.
+[02:41.4 - 02:42.1] Yeah.
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v1-compact-demo_transcription_20260822_010340.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v1-compact-demo_transcription_20260822_010340.txt
+[2J[H[3Jmanus-speech-to-text outputs/single_10/the-dragon-sleeps-v1-compact-demo.wav
+Starting Speech-to-Text conversion...
+Transcribing audio file: outputs/single_10/the-dragon-sleeps-v1-compact-demo.wav, file size: 3.73 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:09.9 - 00:12.0] Now the driveway looks like a showroom.
+[00:12.0 - 00:14.3] Black glass in the rain.
+[00:14.3 - 00:19.3] Seven digits in the account, then it hit eight.
+[00:19.3 - 00:24.4] Funny how the people who ignore me suddenly know my pain.
+[00:24.4 - 00:29.4] Funny how the people who ignored me suddenly know my pain.
+[00:29.4 - 00:34.4] But every favor has a hidden price tag on the plate.
+[00:34.4 - 00:39.4] But every favor has a hidden price tag on the plate.
+[00:39.4 - 00:44.1] I see the danger in the diamonds.
+[00:44.1 - 00:47.4] I see the truth behind the praise.
+[00:47.4 - 00:49.8] Stay back from the flame.
+[00:49.8 - 00:53.5] The dragon sleeps, but he's still alive.
+[00:53.5 - 00:58.8] Lights go down, I survive.
+[00:58.8 - 01:03.6] Money buys the moment, it can't the hard days.
+[01:03.6 - 01:05.1] Stay away from mine.
+[01:05.1 - 01:08.7] The dragon sleeps, but he's still alive.
+[01:08.7 - 01:14.1] Same cold heart, new skyline.
+[01:14.1 - 01:20.5] When the cameras disappear, I'm still the same, I'm still the same inside.
+[01:20.5 - 01:24.6] A balance on a screen can't make a dead heart beat repeat.
+[01:24.6 - 01:29.7] A coffin has no pockets when they lay you in the deep.
+[01:29.7 - 01:34.7] I stayed the same when the lights went out, I kept my feet.
+[01:34.7 - 01:39.8] A coffin has no pockets when they lay you in the deep.
+[01:39.8 - 01:44.9] I stayed the same when the lights went out, I kept my feet.
+[01:44.9 - 01:49.9] I didn't climb this high just to watch the weak ones weep.
+[01:49.9 - 01:54.7] I see the danger in the diamonds.
+[01:54.7 - 01:58.3] I see the truth behind the praise.
+[01:58.3 - 02:00.5] Stay back from the flame.
+[02:00.5 - 02:04.3] The dragon sleeps, but he's still alive.
+[02:04.3 - 02:09.5] Lights go down, I survive.
+[02:09.5 - 02:14.5] Money buys the moment, it can't the hard days.
+[02:14.5 - 02:15.9] Stay away from mine.
+[02:15.9 - 02:19.5] The dragon sleeps, but he's still alive.
+[02:19.5 - 02:24.9] Same cold heart, new skyline.
+[02:24.9 - 02:31.3] When the cameras disappear, I'm still the same, I'm still the same inside.
+[02:31.3 - 02:35.6] Values over vanity, legacy over gold.
+[02:35.6 - 02:41.4] I didn't lose my spirit for the stories they all told.
+[02:41.4 - 02:42.1] Yeah.
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v1-compact-demo_transcription_20260822_010340.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/outputs/single_10/the-dragon-sleeps-v1-compact-demo_transcription_20260822_010340.txt

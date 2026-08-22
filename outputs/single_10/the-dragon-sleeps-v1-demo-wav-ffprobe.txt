@@ -1,0 +1,7 @@
+codec_name=pcm_s24le
+sample_fmt=s32
+sample_rate=44100
+channels=2
+bits_per_sample=24
+bit_rate=2116800
+duration=162.847347

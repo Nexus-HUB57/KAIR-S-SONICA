@@ -3,16 +3,16 @@
 **Projeto:** KAIR-S-SONICA  
 **Artista:** Kháirus the Dragon (KTD)  
 **Idiomas:** inglês oficial e português brasileiro de referência  
-**Escopo:** Singles 1–9
+**Escopo:** Singles 1–10
 **Revisão:** 21 de agosto de 2026
 
 ## Política editorial
 
-O **inglês é o idioma oficial de composição e lançamento** dos Singles 1–9. Os arquivos em português brasileiro são traduções de referência para leitura, localização, apresentação e eventual adaptação futura. Eles não substituem as fontes inglesas, não alteram os masters de áudio e não devem ser tratados como novas letras gravadas sem aprovação editorial específica.
+O **inglês é o idioma oficial de composição e lançamento** dos Singles 1–10. Os arquivos em português brasileiro são traduções de referência para leitura, localização, apresentação e eventual adaptação futura. Eles não substituem as fontes inglesas, não alteram os masters de áudio e não devem ser tratados como novas letras gravadas sem aprovação editorial específica.
 
 Cada tradução PT-BR conserva a ordem geral das seções, o arco narrativo e as imagens principais da fonte inglesa correspondente. Quando uma fonte inglesa está em estado candidato ou de trabalho, a tradução brasileira mantém esse caráter de referência. Quando a fonte inglesa ou o áudio correspondente está aprovado, a tradução continua sendo uma versão de apoio e não altera o idioma oficial do projeto.
 
-## Índice dos Singles 1–9
+## Índice dos Singles 1–10
 
 | Single | Título | Fonte oficial em inglês | Versão em português brasileiro | Status editorial atual |
 |---:|---|---|---|---|
@@ -25,6 +25,7 @@ Cada tradução PT-BR conserva a ordem geral das seções, o arco narrativo e as
 | 7 | *No One Saved Me a Seat* | [`single-7-no-one-saved-me-a-seat-lyrics-v1.md`](single-7-no-one-saved-me-a-seat-lyrics-v1.md) | [`single-7-no-one-saved-me-a-seat-lyrics-pt-br.md`](pt-br/single-7-no-one-saved-me-a-seat-lyrics-pt-br.md) | Letra inglesa v1 preservada; versão gospel e montagem final aprovadas no histórico do projeto |
 | 8 | *Build the Door Behind Me* | [`single-8-build-the-door-behind-me-lyrics-v1.md`](single-8-build-the-door-behind-me-lyrics-v1.md) | [`single-8-build-the-door-behind-me-lyrics-pt-br.md`](pt-br/single-8-build-the-door-behind-me-lyrics-pt-br.md) | **v1 aprovada**; v2 arquivada somente para comparação |
 | 9 | *You Came Back When I Won* | [`single-9-you-came-back-when-i-won-lyrics-v1.md`](single-9-you-came-back-when-i-won-lyrics-v1.md) | [`single-9-you-came-back-when-i-won-lyrics-pt-br.md`](pt-br/single-9-you-came-back-when-i-won-lyrics-pt-br.md) | **v1 aprovada**; Provas 2–4 e variações posteriores arquivadas ou reprovadas |
+| 10 | *The Dragon Sleeps* | [`single-10-the-dragon-sleeps-lyrics-v1.md`](single-10-the-dragon-sleeps-lyrics-v1.md) | [`single-10-the-dragon-sleeps-lyrics-pt-br.md`](pt-br/single-10-the-dragon-sleeps-lyrics-pt-br.md) | Conceito aprovado; letra candidata v1 e primeira prova musical em avaliação |
 
 ## Registros especiais
 
@@ -36,10 +37,10 @@ O Single 9 possui o registro de aprovação [`single-9-you-came-back-when-i-won-
 
 ## Cobertura da revisão
 
-A auditoria encontrou fontes de letra em inglês para os nove singles e nove traduções PT-BR organizadas em `docs/singles/pt-br/`. Nenhuma fonte inglesa foi substituída. Os documentos em português foram mantidos como referências correspondentes, e os status de Singles 8 e 9 foram sincronizados com os registros formais de aprovação.
+A auditoria encontrou fontes de letra em inglês para os dez singles e dez traduções PT-BR organizadas em `docs/singles/pt-br/`. Nenhuma fonte inglesa foi substituída. Os documentos em português foram mantidos como referências correspondentes, e os status de Singles 8, 9 e 10 foram sincronizados com os registros editoriais atuais. O Single 10 permanece em avaliação de letra e áudio; sua inclusão no catálogo não representa aprovação de master final.
 
 ## Convenção de nomes
 
 As fontes inglesas existentes permanecem em seus caminhos originais. As traduções seguem a convenção `single-{n}-{slug}-lyrics-pt-br.md`, com o sufixo explícito `pt-br` para distinguir o idioma de referência do idioma oficial de lançamento.
 
-Nenhum arquivo de áudio foi alterado nesta revisão documental.
+Nenhum master aprovado dos Singles 1–9 foi alterado nesta revisão. Os arquivos da primeira prova do Single 10 foram adicionados separadamente para avaliação e não devem ser tratados como masters finais.
