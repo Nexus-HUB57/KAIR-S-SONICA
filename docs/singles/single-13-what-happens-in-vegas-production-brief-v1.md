@@ -15,6 +15,11 @@
 - Identidade imutável preservada (heterocromia, mapa de tatuagens); paleta carvão/azul-aço/âmbar estendida com neon rosa/roxo/azul de Vegas
 - Sem lip-sync — padrão Cena 01 aprovado
 
+## Resultado das provas (2026-08-24)
+- Prova 1 (boom bap 96 BPM, ref. vocal oficial): https://www.genspark.ai/api/files/s/K1uJpu5D — 162.3s
+- Prova 2 (EDM-rap 128 BPM, big room, drop): https://www.genspark.ai/api/files/s/c166etkN — 160.7s
+- DECISAO PENDENTE DO TITULAR: ouvir as duas e escolher a direção (ou aprovar a colisão boom bap→drop para o mix/master com Káiros)
+
 ## Gate
 - Nenhum lançamento sem aprovação humana (roadmap Fases 2-4)
 - Master final WAV+MP3 pendente do pipeline de mix/master
