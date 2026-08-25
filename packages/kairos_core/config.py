@@ -82,7 +82,16 @@ class Settings:
     studio_upload_token: str | None = None
     studio_upload_max_bytes: int = 100 * 1024 * 1024
     studio_upload_max_duration_seconds: float = 900.0
-    studio_upload_allowed_extensions: tuple[str, ...] = (".wav", ".mp3", ".m4a", ".flac", ".ogg", ".webm")
+    studio_upload_allowed_extensions: tuple[str, ...] = (
+        ".wav",
+        ".mp3",
+        ".m4a",
+        ".flac",
+        ".ogg",
+        ".webm",
+    )
+    studio_master_preflight_dir: Path = Path("data/studio-master/preflight")
+    studio_master_auto_review_enabled: bool = True
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -149,14 +158,20 @@ class Settings:
             ),
             llamagen_enabled=os.getenv("KAIROS_LLAMAGEN_ENABLED", "false").lower()
             in {"1", "true", "yes", "on"},
-            llamagen_base_url=os.getenv("KAIROS_LLAMAGEN_BASE_URL", "https://api.llamagen.ai").rstrip("/"),
+            llamagen_base_url=os.getenv(
+                "KAIROS_LLAMAGEN_BASE_URL", "https://api.llamagen.ai"
+            ).rstrip("/"),
             llamagen_api_key_env=os.getenv("KAIROS_LLAMAGEN_API_KEY_ENV", "LLAMAGEN_API_KEY"),
             llamagen_timeout_seconds=int(os.getenv("KAIROS_LLAMAGEN_TIMEOUT_SECONDS", "60")),
-            complementary_core_enabled=os.getenv("KAIROS_COMPLEMENTARY_CORE_ENABLED", "true").lower()
+            complementary_core_enabled=os.getenv(
+                "KAIROS_COMPLEMENTARY_CORE_ENABLED", "true"
+            ).lower()
             in {"1", "true", "yes", "on"},
             log_level=os.getenv("KAIROS_LOG_LEVEL", "INFO").upper(),
             media_cache_dir=Path(os.getenv("KAIROS_MEDIA_CACHE_DIR", "data/media-cache")),
-            media_cache_max_bytes=int(os.getenv("KAIROS_MEDIA_CACHE_MAX_BYTES", str(100 * 1024 * 1024))),
+            media_cache_max_bytes=int(
+                os.getenv("KAIROS_MEDIA_CACHE_MAX_BYTES", str(100 * 1024 * 1024))
+            ),
             media_provider_order=cls._csv(
                 os.getenv("KAIROS_MEDIA_PROVIDER_ORDER", "pexels,unsplash")
             ),
@@ -167,7 +182,9 @@ class Settings:
                 "KAIROS_AGENTIC_EXTERNAL_TOOLS_ENABLED", "false"
             ).lower()
             in {"1", "true", "yes", "on"},
-            social_orchestrator_enabled=os.getenv("KAIROS_SOCIAL_ORCHESTRATOR_ENABLED", "true").lower()
+            social_orchestrator_enabled=os.getenv(
+                "KAIROS_SOCIAL_ORCHESTRATOR_ENABLED", "true"
+            ).lower()
             in {"1", "true", "yes", "on"},
             social_llm_enabled=os.getenv("KAIROS_SOCIAL_LLM_ENABLED", "false").lower()
             in {"1", "true", "yes", "on"},
@@ -181,9 +198,7 @@ class Settings:
             ),
             studio_master_enabled=os.getenv("KAIROS_STUDIO_MASTER_ENABLED", "true").lower()
             in {"1", "true", "yes", "on"},
-            canon_index_path=Path(
-                os.getenv("KAIROS_CANON_INDEX_PATH", "config/canon_index.yaml")
-            ),
+            canon_index_path=Path(os.getenv("KAIROS_CANON_INDEX_PATH", "config/canon_index.yaml")),
             instrumentation_repertoire_path=Path(
                 os.getenv(
                     "KAIROS_INSTRUMENTATION_REPERTOIRE_PATH",
@@ -193,10 +208,14 @@ class Settings:
             studio_master_max_input_samples=int(
                 os.getenv("KAIROS_STUDIO_MASTER_MAX_INPUT_SAMPLES", "250000")
             ),
-            studio_master_memory_enabled=os.getenv("KAIROS_STUDIO_MASTER_MEMORY_ENABLED", "false").lower()
+            studio_master_memory_enabled=os.getenv(
+                "KAIROS_STUDIO_MASTER_MEMORY_ENABLED", "false"
+            ).lower()
             in {"1", "true", "yes", "on"},
             studio_master_memory_path=Path(
-                os.getenv("KAIROS_STUDIO_MASTER_MEMORY_PATH", "data/studio-master/artist-memory.jsonl")
+                os.getenv(
+                    "KAIROS_STUDIO_MASTER_MEMORY_PATH", "data/studio-master/artist-memory.jsonl"
+                )
             ),
             studio_master_auto_retrain_enabled=os.getenv(
                 "KAIROS_STUDIO_MASTER_AUTO_RETRAIN_ENABLED", "false"
@@ -254,8 +273,17 @@ class Settings:
                 os.getenv("KAIROS_STUDIO_UPLOAD_MAX_DURATION_SECONDS", "900")
             ),
             studio_upload_allowed_extensions=cls._csv(
-                os.getenv("KAIROS_STUDIO_UPLOAD_ALLOWED_EXTENSIONS", ".wav,.mp3,.m4a,.flac,.ogg,.webm")
+                os.getenv(
+                    "KAIROS_STUDIO_UPLOAD_ALLOWED_EXTENSIONS", ".wav,.mp3,.m4a,.flac,.ogg,.webm"
+                )
             ),
+            studio_master_preflight_dir=Path(
+                os.getenv("KAIROS_STUDIO_MASTER_PREFLIGHT_DIR", "data/studio-master/preflight")
+            ),
+            studio_master_auto_review_enabled=os.getenv(
+                "KAIROS_STUDIO_MASTER_AUTO_REVIEW_ENABLED", "true"
+            ).lower()
+            in {"1", "true", "yes", "on"},
         )
 
     @staticmethod

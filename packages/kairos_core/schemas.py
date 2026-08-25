@@ -82,6 +82,9 @@ class TaskSnapshot(BaseModel):
 class GenerateResponse(BaseModel):
     task_id: str
     status: Literal["PENDING", "RUNNING", "SUCCEEDED", "FAILED"]
+    preflight_id: str | None = None
+    preflight_decision: Literal["READY_FOR_APPROVAL", "REJECTED"] | None = None
+    repairs_applied: list[str] = Field(default_factory=list, max_length=32)
 
 
 class PersonaResponse(BaseModel):

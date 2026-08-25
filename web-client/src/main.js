@@ -16,6 +16,20 @@ app.innerHTML = `
       <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     </header>
 
+    <section class="card autoreview-card" aria-labelledby="autoreview-title">
+      <div class="section-head">
+        <div><p class="eyebrow">AUTO-REVIEW / PHD GATE</p><h2 id="autoreview-title">Pré-auditoria antes da produção</h2></div>
+        <span id="autoreview-status" class="chip chip-armed">ARMADO</span>
+      </div>
+      <p class="studio-subtitle">Toda solicitação passa por identidade, voz, música, vídeo, proveniência e continuidade antes de entrar no worker. Falhas críticas bloqueiam; apenas ajustes técnicos seguros podem ser aplicados automaticamente.</p>
+      <div class="autoreview-grid">
+        <div><span class="autoreview-label">POLÍTICA</span><strong id="autoreview-policy">KTD · identidade imutável</strong></div>
+        <div><span class="autoreview-label">ÚLTIMA AUDITORIA</span><strong id="autoreview-audit">Aguardando solicitação</strong></div>
+        <div><span class="autoreview-label">REPAROS</span><strong id="autoreview-repairs">Nenhum</strong></div>
+      </div>
+      <div id="autoreview-output" class="autoreview-output"><span>O resultado do preflight aparecerá aqui antes de qualquer execução.</span></div>
+    </section>
+
     <div class="layout-grid">
       <form id="generate-form" class="card composer-card">
         <div class="section-head">
@@ -213,6 +227,10 @@ const socketHealth = document.querySelector('#socket-health');
 const feedback = document.querySelector('#submit-feedback');
 const videoForm = document.querySelector('#video-form');
 const videoFeedback = document.querySelector('#video-feedback');
+const autoReviewStatus = document.querySelector('#autoreview-status');
+const autoReviewAudit = document.querySelector('#autoreview-audit');
+const autoReviewRepairs = document.querySelector('#autoreview-repairs');
+const autoReviewOutput = document.querySelector('#autoreview-output');
 const studio = {
   audioContext: null,
   analyser: null,
@@ -299,6 +317,22 @@ const frontierPlanButton = document.querySelector('#frontier-plan');
 const frontierComponents = document.querySelector('#frontier-components');
 const frontierGates = document.querySelector('#frontier-gates');
 const frontierOutput = document.querySelector('#frontier-output');
+
+function renderAutoReview(payload) {
+  const audit = payload?.detail?.audit || payload?.audit || payload;
+  if (!audit || (!audit.preflight_id && !audit.audit_id && !audit.decision)) return;
+  const decision = audit.decision || payload.preflight_decision || 'READY_FOR_APPROVAL';
+  const findings = audit.findings || [];
+  const roadmap = audit.roadmap || [];
+  const repairs = audit.repairs_applied || payload.repairs_applied || [];
+  autoReviewStatus.textContent = decision === 'REJECTED' ? 'BLOQUEADO' : decision;
+  autoReviewStatus.className = `chip ${decision === 'REJECTED' ? 'chip-blocked' : 'chip-ready'}`;
+  autoReviewAudit.textContent = audit.audit_id || payload.preflight_id || 'não persistida';
+  autoReviewRepairs.textContent = repairs.length ? `${repairs.length} aplicado(s)` : 'Nenhum';
+  const findingMarkup = findings.slice(0, 6).map((item) => `<li class="autoreview-${String(item.severity || 'INFO').toLowerCase()}"><strong>${escapeHtml(item.code)}</strong> ${escapeHtml(item.message)}</li>`).join('');
+  const roadmapMarkup = roadmap.slice(0, 6).map((item) => `<li><strong>${escapeHtml(item.priority)}</strong> ${escapeHtml(item.action)} <span>${escapeHtml(item.status)}</span></li>`).join('');
+  autoReviewOutput.innerHTML = `<div class="autoreview-result-head"><strong>${escapeHtml(decision)}</strong><span>${repairs.length ? `${repairs.length} reparo(s) seguro(s) aplicado(s)` : 'sem reparos automáticos'}</span></div>${findingMarkup ? `<div><span class="autoreview-label">FINDINGS</span><ul>${findingMarkup}</ul></div>` : ''}${roadmapMarkup ? `<div><span class="autoreview-label">ROADMAP</span><ul>${roadmapMarkup}</ul></div>` : ''}`;
+}
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -456,7 +490,8 @@ videoForm.addEventListener('submit', async (event) => {
   try {
     const response = await fetch(`${API_BASE}/v1/video/generate`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
     const result = await response.json();
-    if (!response.ok) { videoFeedback.textContent = 'Falha ao enfileirar vídeo.'; status.innerHTML = `<pre>${escapeHtml(JSON.stringify(result, null, 2))}</pre>`; return; }
+    renderAutoReview(result);
+    if (!response.ok) { videoFeedback.textContent = 'Falha ao enfileirar vídeo: gate PHD bloqueou ou rejeitou o pedido.'; status.innerHTML = `<pre>${escapeHtml(JSON.stringify(result, null, 2))}</pre>`; return; }
     videoFeedback.textContent = `Tarefa ${result.task_id} criada. Monitorando em tempo real.`;
     await watchTask(result.task_id);
   } catch (error) {
@@ -1073,7 +1108,8 @@ form.addEventListener('submit', async (event) => {
   feedback.textContent = 'Enviando ao gateway...';
   const response = await fetch(`${API_BASE}/v1/generate`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
   const result = await response.json();
-  if (!response.ok) { feedback.textContent = 'Falha ao iniciar tarefa.'; status.innerHTML = `<pre>${escapeHtml(JSON.stringify(result, null, 2))}</pre>`; return; }
+  renderAutoReview(result);
+  if (!response.ok) { feedback.textContent = 'Falha ao iniciar tarefa: gate PHD bloqueou ou rejeitou o pedido.'; status.innerHTML = `<pre>${escapeHtml(JSON.stringify(result, null, 2))}</pre>`; return; }
   feedback.textContent = `Tarefa ${result.task_id} criada. Monitorando em tempo real.`;
   await watchTask(result.task_id);
 });

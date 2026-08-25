@@ -9,6 +9,13 @@ from kairos_core.studio_master.adapters_real import (
 )
 from kairos_core.studio_master.arrangement import ArrangementArchitect
 from kairos_core.studio_master.artist_memory import LocalArtistMemory
+from kairos_core.studio_master.auto_review import (
+    AutoReviewEngine,
+    AutoReviewFinding,
+    AutoReviewRepair,
+    AutoReviewRequest,
+    AutoReviewResult,
+)
 from kairos_core.studio_master.canon import CanonEntry, CanonIndex
 from kairos_core.studio_master.contracts import (
     CultureProbability,
@@ -71,6 +78,11 @@ __all__ = [
     "AudiovisualFrontier",
     "AutoRetrainGuard",
     "AutoRetrainStatus",
+    "AutoReviewEngine",
+    "AutoReviewFinding",
+    "AutoReviewRepair",
+    "AutoReviewRequest",
+    "AutoReviewResult",
     "CanonEntry",
     "CanonIndex",
     "CultureProbability",

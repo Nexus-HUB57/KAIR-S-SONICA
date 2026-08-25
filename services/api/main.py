@@ -61,6 +61,8 @@ from kairos_core.studio_master import (
     AudiovisualFrontier,
     AutoRetrainGuard,
     AutoRetrainStatus,
+    AutoReviewEngine,
+    AutoReviewRequest,
     CanonIndex,
     DeterministicGrooveExtractor,
     DuckingPreviewRequest,
@@ -233,6 +235,7 @@ class TaskStore:
                 recovered.append((row["task_id"], row["kind"], json.loads(row["payload"])))
         return recovered
 
+
 settings = Settings.from_env()
 configure_logging(settings.log_level)
 store = TaskStore(settings.task_db_path)
@@ -261,7 +264,9 @@ perceptual_validator = PerceptualValidator()
 optional_adapter_registry = OptionalAdapterRegistry()
 real_adapter_registry = RealAdapterRegistry(settings)
 reference_mastering_adapter = ReferenceMasteringAdapter()
-artist_memory = LocalArtistMemory(settings.studio_master_memory_path, enabled=settings.studio_master_memory_enabled)
+artist_memory = LocalArtistMemory(
+    settings.studio_master_memory_path, enabled=settings.studio_master_memory_enabled
+)
 auto_retrain_guard = AutoRetrainGuard(
     settings.studio_master_retrain_manifest_path,
     enabled=settings.studio_master_auto_retrain_enabled,
@@ -269,6 +274,35 @@ auto_retrain_guard = AutoRetrainGuard(
 viral_clip_planner = ViralClipPlanner()
 production_history = ProductionHistoryStore(settings.studio_master_analytics_path)
 audiovisual_frontier = AudiovisualFrontier(settings)
+auto_review_engine = AutoReviewEngine(settings)
+
+
+def _run_auto_review(media_kind: str, payload: dict[str, Any]) -> tuple[Any | None, dict[str, Any]]:
+    if not settings.studio_master_auto_review_enabled:
+        return None, payload
+    result = auto_review_engine.review(media_kind, payload, persist=True)
+    if result.decision == "REJECTED":
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "code": "AUTO_REVIEW_BLOCKED",
+                "message": "Solicitação bloqueada pelo gate PHD antes da produção.",
+                "audit": result.model_dump(mode="json"),
+            },
+        )
+    return result, result.normalized_payload
+
+
+def _response_with_review(task_id: str, review: Any | None) -> GenerateResponse:
+    if review is None:
+        return GenerateResponse(task_id=task_id, status="PENDING")
+    return GenerateResponse(
+        task_id=task_id,
+        status="PENDING",
+        preflight_id=review.audit_id,
+        preflight_decision=review.decision,
+        repairs_applied=review.repairs_applied,
+    )
 
 
 def _native_checkpoint_ready() -> bool:
@@ -348,7 +382,9 @@ def _studio_asset_metadata(asset_id: str) -> dict[str, Any]:
         metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
         audio_path = (upload_root / Path(str(metadata["audio_path"]))).resolve()
     except (KeyError, OSError, TypeError, ValueError, json.JSONDecodeError) as exc:
-        raise HTTPException(status_code=500, detail="Manifesto do asset do estúdio inválido") from exc
+        raise HTTPException(
+            status_code=500, detail="Manifesto do asset do estúdio inválido"
+        ) from exc
     if not _is_path_within(audio_path, upload_root) or not audio_path.is_file():
         raise HTTPException(status_code=404, detail="Arquivo do asset do estúdio não encontrado")
     metadata["audio_path"] = audio_path.relative_to(upload_root).as_posix()
@@ -375,7 +411,11 @@ app.include_router(build_social_router(social_orchestrator, social_schedule_stor
 
 
 def _run_task(task_id: str, request: TrackRequest) -> None:
-    store.update(task_id, status="RUNNING", progress=Progress(step="starting", percent=1, message="Pipeline iniciado"))
+    store.update(
+        task_id,
+        status="RUNNING",
+        progress=Progress(step="starting", percent=1, message="Pipeline iniciado"),
+    )
     try:
         pipeline = AudioPipeline(settings)
 
@@ -383,13 +423,27 @@ def _run_task(task_id: str, request: TrackRequest) -> None:
             store.update(task_id, progress=Progress(step=step, percent=percent, message=message))
 
         pipeline.run(request, task_id, progress=report)
-        store.update(task_id, status="SUCCEEDED", progress=Progress(step="completed", percent=100, message="Artefato pronto"), artifact_url=f"/v1/audio/{task_id}")
+        store.update(
+            task_id,
+            status="SUCCEEDED",
+            progress=Progress(step="completed", percent=100, message="Artefato pronto"),
+            artifact_url=f"/v1/audio/{task_id}",
+        )
     except Exception as exc:  # noqa: BLE001  # Convert worker failures into task snapshots.
-        store.update(task_id, status="FAILED", progress=Progress(step="failed", percent=100, message="Pipeline interrompido"), error=str(exc))
+        store.update(
+            task_id,
+            status="FAILED",
+            progress=Progress(step="failed", percent=100, message="Pipeline interrompido"),
+            error=str(exc),
+        )
 
 
 def _run_multimedia_task(task_id: str, request: MultimediaRequest) -> None:
-    store.update(task_id, status="RUNNING", progress=Progress(step="starting", percent=1, message="Orquestração multimídia iniciada"))
+    store.update(
+        task_id,
+        status="RUNNING",
+        progress=Progress(step="starting", percent=1, message="Orquestração multimídia iniciada"),
+    )
     try:
         orchestrator = MultimediaOrchestrator(settings)
 
@@ -411,16 +465,27 @@ def _run_multimedia_task(task_id: str, request: MultimediaRequest) -> None:
         store.update(
             task_id,
             status="SUCCEEDED",
-            progress=Progress(step="completed", percent=100, message="Orquestração multimídia concluída"),
+            progress=Progress(
+                step="completed", percent=100, message="Orquestração multimídia concluída"
+            ),
             artifact_url=artifact_url,
             result=public_result,
         )
     except Exception as exc:  # noqa: BLE001  # Convert worker failures into task snapshots.
-        store.update(task_id, status="FAILED", progress=Progress(step="failed", percent=100, message="Orquestração interrompida"), error=str(exc))
+        store.update(
+            task_id,
+            status="FAILED",
+            progress=Progress(step="failed", percent=100, message="Orquestração interrompida"),
+            error=str(exc),
+        )
 
 
 def _run_video_task(task_id: str, request: VideoRequest) -> None:
-    store.update(task_id, status="RUNNING", progress=Progress(step="starting", percent=1, message="Geração de vídeo iniciada"))
+    store.update(
+        task_id,
+        status="RUNNING",
+        progress=Progress(step="starting", percent=1, message="Geração de vídeo iniciada"),
+    )
     try:
         orchestrator = VideoOrchestrator(settings)
 
@@ -443,7 +508,12 @@ def _run_video_task(task_id: str, request: VideoRequest) -> None:
             result=public_result,
         )
     except Exception as exc:  # noqa: BLE001  # Convert worker failures into task snapshots.
-        store.update(task_id, status="FAILED", progress=Progress(step="failed", percent=100, message="Geração de vídeo interrompida"), error=str(exc))
+        store.update(
+            task_id,
+            status="FAILED",
+            progress=Progress(step="failed", percent=100, message="Geração de vídeo interrompida"),
+            error=str(exc),
+        )
 
 
 def _launch_recovered_jobs() -> None:
@@ -466,7 +536,9 @@ def _launch_recovered_jobs() -> None:
             store.update(
                 task_id,
                 status="FAILED",
-                progress=Progress(step="failed", percent=100, message="Payload recuperado inválido"),
+                progress=Progress(
+                    step="failed", percent=100, message="Payload recuperado inválido"
+                ),
                 error=str(exc),
             )
             continue
@@ -496,12 +568,17 @@ def readiness() -> dict[str, Any]:
         else:
             model = settings.skyreels_model_id
             script_ok = bool(repo and (repo / "generate_video_df.py").is_file())
-            model_ok = bool(model and (Path(model).expanduser().exists() or settings.skyreels_allow_model_download))
+            model_ok = bool(
+                model
+                and (Path(model).expanduser().exists() or settings.skyreels_allow_model_download)
+            )
             checks["skyreels_repo"] = "ok" if repo and repo.is_dir() else "missing"
             checks["skyreels_entrypoint"] = "ok" if script_ok else "missing"
             checks["skyreels_model"] = "ok" if model_ok else "missing"
         if not all(value == "ok" for value in checks.values()):
-            raise HTTPException(status_code=503, detail={"status": "not_ready", "checks": checks, "engine": engine})
+            raise HTTPException(
+                status_code=503, detail={"status": "not_ready", "checks": checks, "engine": engine}
+            )
     else:
         checks["skyreels"] = "disabled"
     return {"status": "ok", "checks": checks}
@@ -561,6 +638,19 @@ def artistic_island_mix_plan(request: MixPlanRequest) -> MixPlan:
         return artistic_island.generate_chain(request)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/v1/studio-master/preflight")
+def studio_master_preflight(request: AutoReviewRequest) -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    result = auto_review_engine.review(
+        request.media_kind,
+        request.payload,
+        auto_repair=request.auto_repair,
+        persist=True,
+    )
+    return result.model_dump(mode="json")
 
 
 @app.get("/v1/studio-master/frontier/capabilities")
@@ -734,7 +824,11 @@ def studio_master_perceptual_score(request: SignalHealthRequest) -> dict[str, An
         )
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
-    return asdict(report) | {"optimization": perceptual_validator.optimization_plan(report, target_score=request.target_score)}
+    return asdict(report) | {
+        "optimization": perceptual_validator.optimization_plan(
+            report, target_score=request.target_score
+        )
+    }
 
 
 @app.post("/v1/studio-master/memory/feedback")
@@ -794,7 +888,11 @@ def studio_master_analytics() -> ProductionAnalytics:
     records = payload if isinstance(payload, list) else payload.get("productions", [])
     if not isinstance(records, list):
         raise HTTPException(status_code=422, detail="Histórico deve ser uma lista de produções")
-    mos_values = [float(item["mos_score"]) for item in records if isinstance(item, dict) and item.get("mos_score") is not None]
+    mos_values = [
+        float(item["mos_score"])
+        for item in records
+        if isinstance(item, dict) and item.get("mos_score") is not None
+    ]
     genres: dict[str, int] = {}
     for item in records:
         if isinstance(item, dict):
@@ -830,7 +928,10 @@ async def studio_master_performance(websocket: WebSocket, session_id: str) -> No
         return
     await websocket.accept()
     await websocket.send_json(
-        {"event": "performance_state", "state": performance_controller.get(session_id).model_dump(mode="json")}
+        {
+            "event": "performance_state",
+            "state": performance_controller.get(session_id).model_dump(mode="json"),
+        }
     )
     try:
         while True:
@@ -871,13 +972,17 @@ def _submit_agentic_handoffs(handoffs: list[Any]) -> list[dict[str, str]]:
             video_request = VideoRequest.model_validate(handoff.payload["request"])
             store.create(task_id, job_kind="video", payload=video_request.model_dump(mode="json"))
             if settings.worker_mode == "inline":
-                thread = threading.Thread(target=_run_video_task, args=(task_id, video_request), daemon=True)
+                thread = threading.Thread(
+                    target=_run_video_task, args=(task_id, video_request), daemon=True
+                )
                 thread.start()
             submissions.append({"task_id": task_id, "kind": "video", "agent": handoff.to_agent})
         elif handoff.kind == "multimedia_request":
             task_id = uuid4().hex
             multimedia_request = MultimediaRequest.model_validate(handoff.payload["request"])
-            store.create(task_id, job_kind="multimedia", payload=multimedia_request.model_dump(mode="json"))
+            store.create(
+                task_id, job_kind="multimedia", payload=multimedia_request.model_dump(mode="json")
+            )
             if settings.worker_mode == "inline":
                 thread = threading.Thread(
                     target=_run_multimedia_task,
@@ -885,7 +990,9 @@ def _submit_agentic_handoffs(handoffs: list[Any]) -> list[dict[str, str]]:
                     daemon=True,
                 )
                 thread.start()
-            submissions.append({"task_id": task_id, "kind": "multimedia", "agent": handoff.to_agent})
+            submissions.append(
+                {"task_id": task_id, "kind": "multimedia", "agent": handoff.to_agent}
+            )
     return submissions
 
 
@@ -928,7 +1035,9 @@ def complementary_media_search(request: ComplementaryMediaSearchRequest) -> dict
             try:
                 path = cache.get_or_download(asset.url)
             except MediaProviderError as exc:
-                raise HTTPException(status_code=502, detail="Falha ao baixar ativo de mídia") from exc
+                raise HTTPException(
+                    status_code=502, detail="Falha ao baixar ativo de mídia"
+                ) from exc
             downloaded.append({"url_hash": cache.cache_key(asset.url), "path": str(path)})
     return {
         "query": request.query,
@@ -946,28 +1055,36 @@ def get_persona() -> PersonaResponse:
 
 @app.post("/v1/plan", response_model=TrackPlan)
 def create_plan(request: TrackRequest) -> TrackPlan:
-    return AudioPipeline(settings).maestro.build_plan(request)
+    _, normalized_payload = _run_auto_review("audio", request.model_dump(mode="json"))
+    normalized_request = TrackRequest.model_validate(normalized_payload)
+    return AudioPipeline(settings).maestro.build_plan(normalized_request)
 
 
 @app.post("/v1/generate", response_model=GenerateResponse, status_code=202)
 def generate(request: TrackRequest) -> GenerateResponse:
+    review, normalized_payload = _run_auto_review("audio", request.model_dump(mode="json"))
+    normalized_request = TrackRequest.model_validate(normalized_payload)
     task_id = uuid4().hex
-    store.create(task_id, job_kind="audio", payload=request.model_dump(mode="json"))
+    store.create(task_id, job_kind="audio", payload=normalized_request.model_dump(mode="json"))
     if settings.worker_mode == "inline":
-        thread = threading.Thread(target=_run_task, args=(task_id, request), daemon=True)
+        thread = threading.Thread(target=_run_task, args=(task_id, normalized_request), daemon=True)
         thread.start()
-    return GenerateResponse(task_id=task_id, status="PENDING")
+    return _response_with_review(task_id, review)
 
 
 @app.post("/v1/orchestrate", response_model=GenerateResponse, status_code=202)
 def orchestrate(request: MultimediaRequest) -> GenerateResponse:
     """Executa a central multimídia sem bloquear o request HTTP."""
+    review, normalized_payload = _run_auto_review("multimedia", request.model_dump(mode="json"))
+    normalized_request = MultimediaRequest.model_validate(normalized_payload)
     task_id = uuid4().hex
-    store.create(task_id, job_kind="multimedia", payload=request.model_dump(mode="json"))
+    store.create(task_id, job_kind="multimedia", payload=normalized_request.model_dump(mode="json"))
     if settings.worker_mode == "inline":
-        thread = threading.Thread(target=_run_multimedia_task, args=(task_id, request), daemon=True)
+        thread = threading.Thread(
+            target=_run_multimedia_task, args=(task_id, normalized_request), daemon=True
+        )
         thread.start()
-    return GenerateResponse(task_id=task_id, status="PENDING")
+    return _response_with_review(task_id, review)
 
 
 @app.post("/v1/studio/assets", response_model=StudioAssetResponse, status_code=201)
@@ -1000,14 +1117,18 @@ async def upload_studio_asset(
             while chunk := await file.read(1024 * 1024):
                 byte_size += len(chunk)
                 if byte_size > settings.studio_upload_max_bytes:
-                    raise HTTPException(status_code=413, detail="Arquivo excede o limite de tamanho configurado")
+                    raise HTTPException(
+                        status_code=413, detail="Arquivo excede o limite de tamanho configurado"
+                    )
                 output.write(chunk)
                 digest.update(chunk)
         if byte_size == 0:
             raise HTTPException(status_code=422, detail="O arquivo de áudio está vazio")
         duration_seconds = _probe_studio_duration(partial)
         if duration_seconds > settings.studio_upload_max_duration_seconds:
-            raise HTTPException(status_code=413, detail="Arquivo excede o limite de duração configurado")
+            raise HTTPException(
+                status_code=413, detail="Arquivo excede o limite de duração configurado"
+            )
         audio_path = destination.relative_to(upload_root).as_posix()
         metadata = {
             "schema_version": 1,
@@ -1021,7 +1142,9 @@ async def upload_studio_asset(
             "uploaded_at": datetime.now(timezone.utc).isoformat(),
         }
         os.replace(partial, destination)
-        metadata_partial.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
+        metadata_partial.write_text(
+            json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
         os.replace(metadata_partial, metadata_path)
     except HTTPException:
         partial.unlink(missing_ok=True)
@@ -1055,12 +1178,26 @@ def handoff_studio_asset(
     _authenticate_studio_upload(authorization)
     metadata = _studio_asset_metadata(request.asset_id)
     multimedia_request = request.request.model_copy(update={"audio_path": metadata["audio_path"]})
+    review, normalized_payload = _run_auto_review(
+        "multimedia", multimedia_request.model_dump(mode="json")
+    )
+    normalized_request = MultimediaRequest.model_validate(normalized_payload)
     task_id = uuid4().hex
-    store.create(task_id, job_kind="multimedia", payload=multimedia_request.model_dump(mode="json"))
+    store.create(task_id, job_kind="multimedia", payload=normalized_request.model_dump(mode="json"))
     if settings.worker_mode == "inline":
-        thread = threading.Thread(target=_run_multimedia_task, args=(task_id, multimedia_request), daemon=True)
+        thread = threading.Thread(
+            target=_run_multimedia_task, args=(task_id, normalized_request), daemon=True
+        )
         thread.start()
-    return StudioHandoffResponse(task_id=task_id, status="PENDING", asset_id=request.asset_id)
+    response = _response_with_review(task_id, review)
+    return StudioHandoffResponse(
+        task_id=response.task_id,
+        status=response.status,
+        preflight_id=response.preflight_id,
+        preflight_decision=response.preflight_decision,
+        repairs_applied=response.repairs_applied,
+        asset_id=request.asset_id,
+    )
 
 
 @app.get("/v1/video/capabilities")
@@ -1071,7 +1208,10 @@ def video_capabilities() -> dict[str, Any]:
     native_ready = native_configured and native_model_ready and native_runtime_ready
     return {
         "backends": {
-            "cli": {"enabled": settings.enable_skyreels, "engine": ["standard", "diffusion_forcing"]},
+            "cli": {
+                "enabled": settings.enable_skyreels,
+                "engine": ["standard", "diffusion_forcing"],
+            },
             "native": {
                 "enabled": native_configured,
                 "ready": native_ready,
@@ -1088,12 +1228,16 @@ def video_capabilities() -> dict[str, Any]:
 @app.post("/v1/video/generate", response_model=GenerateResponse, status_code=202)
 def generate_video(request: VideoRequest) -> GenerateResponse:
     """Enfileira T2V/I2V/DF sem bloquear o request HTTP."""
+    review, normalized_payload = _run_auto_review("video", request.model_dump(mode="json"))
+    normalized_request = VideoRequest.model_validate(normalized_payload)
     task_id = uuid4().hex
-    store.create(task_id, job_kind="video", payload=request.model_dump(mode="json"))
+    store.create(task_id, job_kind="video", payload=normalized_request.model_dump(mode="json"))
     if settings.worker_mode == "inline":
-        thread = threading.Thread(target=_run_video_task, args=(task_id, request), daemon=True)
+        thread = threading.Thread(
+            target=_run_video_task, args=(task_id, normalized_request), daemon=True
+        )
         thread.start()
-    return GenerateResponse(task_id=task_id, status="PENDING")
+    return _response_with_review(task_id, review)
 
 
 @app.get("/v1/tasks/{task_id}", response_model=TaskSnapshot)

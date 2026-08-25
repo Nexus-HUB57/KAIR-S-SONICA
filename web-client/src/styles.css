@@ -219,3 +219,22 @@ button:active { transform: scale(.97); transition: transform .16s cubic-bezier(.
 @media (max-width: 1100px) { .frontier-grid { grid-template-columns: repeat(3, 1fr); } .frontier-grid button { width: 100%; } }
 @media (max-width: 900px) { .real-adapters-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .real-adapters-toolbar { align-items: flex-start; flex-direction: column; } .real-adapters-grid { grid-template-columns: 1fr; } .frontier-grid { grid-template-columns: 1fr; } .frontier-readouts { align-items: flex-start; flex-direction: column; } }
+
+.autoreview-card { grid-column: 1 / -1; border-color: rgba(117, 213, 194, .28); background: linear-gradient(135deg, rgba(17, 31, 42, .96), rgba(14, 20, 34, .96)); }
+.autoreview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+.autoreview-grid > div { display: grid; gap: 6px; min-width: 0; padding: 12px 14px; border: 1px solid rgba(117, 213, 194, .16); background: rgba(6, 12, 22, .42); }
+.autoreview-label { color: #75d5c2; font-size: .65rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.autoreview-grid strong { color: #f1f7f6; font-size: .88rem; overflow-wrap: anywhere; }
+.autoreview-output { display: grid; gap: 12px; margin-top: 14px; padding: 14px; border-top: 1px solid rgba(117, 213, 194, .18); color: #a8babd; font-size: .82rem; }
+.autoreview-output ul { display: grid; gap: 7px; margin: 8px 0 0; padding-left: 18px; }
+.autoreview-output li { color: #cbd8d9; }
+.autoreview-output li span { color: #75d5c2; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; }
+.autoreview-result-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; color: #f1f7f6; }
+.autoreview-result-head span { color: #75d5c2; font-size: .75rem; }
+.autoreview-warning { color: #f2c879 !important; }
+.autoreview-blocker { color: #ff8f8f !important; }
+.autoreview-info { color: #a8babd !important; }
+.chip-armed { color: #75d5c2; border-color: rgba(117, 213, 194, .38); }
+.chip-ready { color: #75d5c2; border-color: rgba(117, 213, 194, .55); }
+.chip-blocked { color: #ff8f8f; border-color: rgba(255, 143, 143, .55); }
+@media (max-width: 760px) { .autoreview-grid { grid-template-columns: 1fr; } .autoreview-result-head { align-items: flex-start; flex-direction: column; } }

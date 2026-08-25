@@ -382,6 +382,14 @@ Entregam, respectivamente, o sidecar JSON da transcrição e os metadados comple
 
 Envia snapshots JSON de progresso até a conclusão. Um cliente deve tratar desconexão e também consultar o endpoint HTTP, pois o WebSocket é um canal de atualização e não substitui o `TaskStore` persistente.
 
+## Auto-Review PHD: preflight, auto-reprovação e roadmap
+
+O endpoint `POST /v1/studio-master/preflight` audita solicitações de `image`, `video`, `audio` ou `multimedia` antes de qualquer execução. O corpo aceita `payload` e `auto_repair`; a resposta registra `audit_id`, `decision`, `findings`, `roadmap`, `normalized_payload`, `repairs_applied`, `final_approval_required` e `auto_publish=false`.
+
+O mesmo gate é aplicado antes de `/v1/plan`, `/v1/generate`, `/v1/orchestrate`, `/v1/video/generate` e `/v1/studio/handoff`. Identidade física/tatuagens divergentes, referência vocal não canônica, override/clonagem vocal e briefs com still, imagem estática ou overlay são bloqueados com HTTP 422 e `detail.code=AUTO_REVIEW_BLOCKED`. Normalizações técnicas seguras são devolvidas na resposta de tarefa e persistidas no diretório definido por `KAIROS_STUDIO_MASTER_PREFLIGHT_DIR`.
+
+A política completa está em [`ktd-phd-auto-review-protocol-v1.md`](ktd-phd-auto-review-protocol-v1.md). O auto-review não gera mídia, não substitui aprovação humana, não modifica assets existentes e não publica automaticamente.
+
 ## StudioMaster 2.0: arranjo, expressão e operação segura
 
 A segunda camada do StudioMaster amplia o command deck sem criar uma API paralela. Todas as rotas abaixo exigem `KAIROS_STUDIO_MASTER_ENABLED=true`, são síncronas e produzem propostas ou previews determinísticos; elas não criam `task_id`, não gravam áudio/MIDI, não publicam conteúdo e não promovem checkpoints.
