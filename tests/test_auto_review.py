@@ -106,3 +106,19 @@ def test_generation_endpoint_blocks_other_artist_before_queueing() -> None:
     detail = response.json()["detail"]
     assert detail["code"] == "AUTO_REVIEW_BLOCKED"
     assert detail["audit"]["decision"] == "REJECTED"
+
+
+def test_explicit_negative_video_constraints_are_not_false_positive(tmp_path) -> None:
+    engine = AutoReviewEngine(Settings(studio_master_preflight_dir=tmp_path))
+    result = engine.review(
+        "video",
+        {
+            "prompt": (
+                "Kháirus performs continuous live-action with physical action; "
+                "no stills, no slideshow, no image overlay, no Ken Burns pan/zoom."
+            )
+        },
+    )
+
+    assert result.decision == "READY_FOR_APPROVAL"
+    assert not any(finding.code == "VID-POLICY-01" for finding in result.findings)

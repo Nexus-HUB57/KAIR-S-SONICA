@@ -425,8 +425,20 @@ class AutoReviewEngine:
     ) -> None:
         prompt = str(payload.get("prompt") or "")
         lowered = prompt.lower()
+        # A própria política exige que o brief declare "no stills", "no overlay", etc.
+        # Essas negações não são pedidos proibidos e devem ser removidas antes do scan.
+        negated_policy = re.compile(
+            r"\b(?:no|without|never|sem|nunca)\s+"
+            r"(?:(?:[a-zà-ÿ0-9/-]+|,)\s+){0,2}"
+            r"(?:stills?|static\s+images?|slideshow|"
+            r"photo\s+animation|image\s+overlay|overlay\s+(?:image|photo)|"
+            r"imagem(?:\s+estática|\s+sobreposta)?|foto\s+animada|"
+            r"ken\s*burns?(?:\s+pan\s*/?\s*zoom)?|pan\s*/?\s*zoom)\b",
+            re.IGNORECASE,
+        )
+        scan_text = negated_policy.sub(" ", lowered)
         forbidden = [
-            pattern for pattern in self._forbidden_video_patterns if re.search(pattern, lowered)
+            pattern for pattern in self._forbidden_video_patterns if re.search(pattern, scan_text)
         ]
         if (
             forbidden
