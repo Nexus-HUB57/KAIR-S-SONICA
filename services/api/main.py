@@ -1,19 +1,23 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import importlib.util
 import json
+import math
 import os
+import secrets
 import sqlite3
+import subprocess
 import threading
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Annotated, Any
 from uuid import uuid4
 
 import numpy as np
-from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, File, Header, HTTPException, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from kairos_core.agentic import AgenticOrchestrator, AgenticRunRequest
@@ -32,8 +36,6 @@ from kairos_core.complementary import (
 from kairos_core.config import Settings
 from kairos_core.observability import configure_logging
 from kairos_core.persona import DEFAULT_PERSONA
-from kairos_core.social import SocialOrchestrator, SocialScheduleStore
-from kairos_core.social.api import build_social_router
 from kairos_core.schemas import (
     ComplementaryMediaSearchRequest,
     ComplementaryPlanRequest,
@@ -41,11 +43,16 @@ from kairos_core.schemas import (
     MultimediaRequest,
     PersonaResponse,
     Progress,
+    StudioAssetResponse,
+    StudioHandoffRequest,
+    StudioHandoffResponse,
     TaskSnapshot,
     TrackPlan,
     TrackRequest,
     VideoRequest,
 )
+from kairos_core.social import SocialOrchestrator, SocialScheduleStore
+from kairos_core.social.api import build_social_router
 from kairos_core.studio_master import (
     AdapterUnavailable,
     ArrangementArchitect,
@@ -281,6 +288,75 @@ def _native_runtime_ready() -> bool:
         return bool(torch.cuda.is_available())
     except (ImportError, AttributeError, RuntimeError):
         return False
+
+
+def _authenticate_studio_upload(authorization: str | None) -> None:
+    configured_token = settings.studio_upload_token
+    if not configured_token:
+        raise HTTPException(status_code=503, detail="Upload do estúdio não configurado")
+    scheme, _, token = (authorization or "").partition(" ")
+    if scheme.lower() != "bearer" or not token:
+        raise HTTPException(status_code=401, detail="Token Bearer obrigatório")
+    if not secrets.compare_digest(token, configured_token):
+        raise HTTPException(status_code=403, detail="Token do estúdio inválido")
+
+
+def _probe_studio_duration(path: Path) -> float:
+    try:
+        completed = subprocess.run(
+            [
+                settings.ffprobe_bin,
+                "-v",
+                "error",
+                "-show_entries",
+                "format=duration",
+                "-of",
+                "default=noprint_wrappers=1:nokey=1",
+                str(path),
+            ],
+            capture_output=True,
+            check=True,
+            text=True,
+            timeout=15,
+        )
+        duration = float(completed.stdout.strip())
+    except (OSError, ValueError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        duration = 0.0
+        if path.suffix.lower() == ".wav":
+            import wave
+
+            try:
+                with wave.open(str(path), "rb") as wave_file:
+                    duration = wave_file.getnframes() / wave_file.getframerate()
+            except (OSError, wave.Error, ZeroDivisionError):
+                duration = 0.0
+    if not math.isfinite(duration) or duration <= 0:
+        raise ValueError("Não foi possível validar a duração do arquivo de áudio")
+    return duration
+
+
+def _studio_asset_metadata(asset_id: str) -> dict[str, Any]:
+    upload_root = settings.upload_dir.expanduser().resolve()
+    metadata_path = upload_root / "studio" / f"{asset_id}.json"
+    if not metadata_path.is_file():
+        raise HTTPException(status_code=404, detail="Asset do estúdio não encontrado")
+    try:
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        audio_path = (upload_root / Path(str(metadata["audio_path"]))).resolve()
+    except (KeyError, OSError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        raise HTTPException(status_code=500, detail="Manifesto do asset do estúdio inválido") from exc
+    if not _is_path_within(audio_path, upload_root) or not audio_path.is_file():
+        raise HTTPException(status_code=404, detail="Arquivo do asset do estúdio não encontrado")
+    metadata["audio_path"] = audio_path.relative_to(upload_root).as_posix()
+    return metadata
+
+
+def _is_path_within(path: Path, root: Path) -> bool:
+    try:
+        path.relative_to(root)
+    except ValueError:
+        return False
+    return True
 
 
 app = FastAPI(title="KAIR-S-SONICA API", version="0.1.0", description="Gateway do Agente Káiros")
@@ -874,6 +950,99 @@ def orchestrate(request: MultimediaRequest) -> GenerateResponse:
         thread = threading.Thread(target=_run_multimedia_task, args=(task_id, request), daemon=True)
         thread.start()
     return GenerateResponse(task_id=task_id, status="PENDING")
+
+
+@app.post("/v1/studio/assets", response_model=StudioAssetResponse, status_code=201)
+async def upload_studio_asset(
+    file: Annotated[UploadFile, File(...)],
+    authorization: Annotated[str | None, Header()] = None,
+) -> StudioAssetResponse:
+    """Recebe um take/stem com limites explícitos e manifesto auditável."""
+    _authenticate_studio_upload(authorization)
+    original_filename = Path(file.filename or "take").name or "take"
+    extension = Path(original_filename).suffix.lower()
+    allowed_extensions = {value.lower() for value in settings.studio_upload_allowed_extensions}
+    if extension not in allowed_extensions:
+        raise HTTPException(status_code=415, detail="Extensão de áudio não permitida")
+
+    settings.ensure_directories()
+    asset_id = f"asset-{uuid4().hex}"
+    upload_root = settings.upload_dir.expanduser().resolve()
+    studio_dir = upload_root / "studio"
+    studio_dir.mkdir(parents=True, exist_ok=True)
+    destination = studio_dir / f"{asset_id}{extension}"
+    partial = destination.with_name(f"{destination.name}.part")
+    metadata_path = studio_dir / f"{asset_id}.json"
+    metadata_partial = metadata_path.with_name(f"{metadata_path.name}.part")
+    byte_size = 0
+    digest = hashlib.sha256()
+
+    try:
+        with partial.open("wb") as output:
+            while chunk := await file.read(1024 * 1024):
+                byte_size += len(chunk)
+                if byte_size > settings.studio_upload_max_bytes:
+                    raise HTTPException(status_code=413, detail="Arquivo excede o limite de tamanho configurado")
+                output.write(chunk)
+                digest.update(chunk)
+        if byte_size == 0:
+            raise HTTPException(status_code=422, detail="O arquivo de áudio está vazio")
+        duration_seconds = _probe_studio_duration(partial)
+        if duration_seconds > settings.studio_upload_max_duration_seconds:
+            raise HTTPException(status_code=413, detail="Arquivo excede o limite de duração configurado")
+        audio_path = destination.relative_to(upload_root).as_posix()
+        metadata = {
+            "schema_version": 1,
+            "asset_id": asset_id,
+            "original_filename": original_filename,
+            "audio_path": audio_path,
+            "byte_size": byte_size,
+            "duration_seconds": duration_seconds,
+            "sha256": digest.hexdigest(),
+            "status": "UPLOADED",
+            "uploaded_at": datetime.now(timezone.utc).isoformat(),
+        }
+        os.replace(partial, destination)
+        metadata_partial.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
+        os.replace(metadata_partial, metadata_path)
+    except HTTPException:
+        partial.unlink(missing_ok=True)
+        metadata_partial.unlink(missing_ok=True)
+        raise
+    except (OSError, ValueError) as exc:
+        partial.unlink(missing_ok=True)
+        metadata_partial.unlink(missing_ok=True)
+        destination.unlink(missing_ok=True)
+        metadata_path.unlink(missing_ok=True)
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    finally:
+        await file.close()
+
+    return StudioAssetResponse(
+        asset_id=asset_id,
+        original_filename=original_filename,
+        audio_path=audio_path,
+        byte_size=byte_size,
+        duration_seconds=duration_seconds,
+        sha256=digest.hexdigest(),
+    )
+
+
+@app.post("/v1/studio/handoff", response_model=StudioHandoffResponse, status_code=202)
+def handoff_studio_asset(
+    request: StudioHandoffRequest,
+    authorization: str | None = Header(default=None),
+) -> StudioHandoffResponse:
+    """Encaminha um asset previamente enviado para o pipeline multimídia."""
+    _authenticate_studio_upload(authorization)
+    metadata = _studio_asset_metadata(request.asset_id)
+    multimedia_request = request.request.model_copy(update={"audio_path": metadata["audio_path"]})
+    task_id = uuid4().hex
+    store.create(task_id, job_kind="multimedia", payload=multimedia_request.model_dump(mode="json"))
+    if settings.worker_mode == "inline":
+        thread = threading.Thread(target=_run_multimedia_task, args=(task_id, multimedia_request), daemon=True)
+        thread.start()
+    return StudioHandoffResponse(task_id=task_id, status="PENDING", asset_id=request.asset_id)
 
 
 @app.get("/v1/video/capabilities")

@@ -192,3 +192,22 @@ class MultimediaResult(BaseModel):
     transcript_url: str | None = None
     metadata_url: str | None = None
     result: dict[str, Any] | None = None
+
+
+class StudioAssetResponse(BaseModel):
+    asset_id: str
+    original_filename: str
+    audio_path: str
+    byte_size: int = Field(ge=1)
+    duration_seconds: float = Field(gt=0)
+    sha256: str = Field(min_length=64, max_length=64)
+    status: Literal["UPLOADED"] = "UPLOADED"
+
+
+class StudioHandoffRequest(BaseModel):
+    asset_id: str = Field(pattern=r"^asset-[a-f0-9]{32}$")
+    request: MultimediaRequest = Field(default_factory=MultimediaRequest)
+
+
+class StudioHandoffResponse(GenerateResponse):
+    asset_id: str

@@ -110,6 +110,16 @@ app.innerHTML = `
             <button id="bounce-mix" type="button">Exportar bounce WAV</button>
             <span id="studio-feedback" class="feedback" aria-live="polite">Nenhum take carregado.</span>
           </div>
+          <div class="studio-handoff-panel">
+            <div class="tracks-head"><div><p class="eyebrow">EXPLICIT HANDOFF</p><h3>Enviar take ao pipeline Káiros</h3></div><span id="studio-handoff-status" class="chip">local por padrão</span></div>
+            <p class="studio-subtitle">O envio é manual, autenticado e separado da gravação. O token não é armazenado pelo navegador.</p>
+            <div class="studio-handoff-grid">
+              <label>Token do estúdio<input id="studio-upload-token" type="password" autocomplete="off" placeholder="Bearer configurado no backend" /></label>
+              <label class="toggle-control"><span>Gerar nova base após análise</span><input id="studio-generate-audio" type="checkbox" /></label>
+              <button id="studio-upload-handoff" class="button-secondary" type="button">Enviar take ativo</button>
+            </div>
+            <div id="studio-handoff-feedback" class="feedback" aria-live="polite">Nenhum take foi enviado ao backend.</div>
+          </div>
         </div>
         <aside class="studio-meter-card" aria-label="Medição de áudio">
           <p class="eyebrow">MASTER BUS</p>
@@ -201,6 +211,7 @@ const studio = {
   playbackSources: [],
   tracks: [],
   activeTrackId: null,
+  remoteAsset: null,
 };
 const studioWaveform = document.querySelector('#studio-waveform');
 const studioWaveformContext = studioWaveform.getContext('2d');
@@ -212,6 +223,11 @@ const takeName = document.querySelector('#take-name');
 const takeUpload = document.querySelector('#take-upload');
 const bounceMix = document.querySelector('#bounce-mix');
 const studioFeedback = document.querySelector('#studio-feedback');
+const studioHandoffStatus = document.querySelector('#studio-handoff-status');
+const studioUploadToken = document.querySelector('#studio-upload-token');
+const studioGenerateAudio = document.querySelector('#studio-generate-audio');
+const studioUploadHandoff = document.querySelector('#studio-upload-handoff');
+const studioHandoffFeedback = document.querySelector('#studio-handoff-feedback');
 const studioHealth = document.querySelector('#studio-health');
 const studioTime = document.querySelector('#studio-time');
 const studioTracks = document.querySelector('#studio-tracks');
@@ -498,7 +514,7 @@ function updateStudioTimer() {
 async function addStudioTrack(blob, name) {
   const context = ensureAudioContext();
   const buffer = await context.decodeAudioData(await blob.arrayBuffer());
-  const track = { id: crypto.randomUUID(), name: name || `Take ${studio.tracks.length + 1}`, blob, buffer, url: URL.createObjectURL(blob), volume: 0.85, pan: 0, mute: false, solo: false };
+  const track = { id: crypto.randomUUID(), name: name || `Take ${studio.tracks.length + 1}`, filename: blob.name || `${name || `take-${studio.tracks.length + 1}`}.webm`, blob, buffer, url: URL.createObjectURL(blob), volume: 0.85, pan: 0, mute: false, solo: false };
   studio.tracks.push(track);
   studio.activeTrackId = track.id;
   renderStudioTracks();
@@ -632,7 +648,57 @@ playToggle.addEventListener('click', playStudioMix);
 stopMix.addEventListener('click', stopStudioPlayback);
 bounceMix.addEventListener('click', () => bounceStudioMix().catch(() => { studioFeedback.textContent = 'Falha ao renderizar o bounce WAV.'; }));
 takeUpload.addEventListener('change', () => { const file = takeUpload.files?.[0]; if (file) addStudioTrack(file, file.name.replace(/\.[^.]+$/, '')).catch(() => { studioFeedback.textContent = 'Não foi possível carregar esse arquivo de áudio.'; }); takeUpload.value = ''; });
-clearStudio.addEventListener('click', () => { stopStudioPlayback(); studio.tracks.forEach((track) => URL.revokeObjectURL(track.url)); studio.tracks = []; studio.activeTrackId = null; renderStudioTracks(); studioTime.textContent = '00:00.000'; studioFeedback.textContent = 'Sessão limpa localmente.'; setStudioHealth('pronto'); });
+
+async function uploadActiveStudioTake() {
+  const track = activeStudioTrack();
+  if (!track) { studioHandoffFeedback.textContent = 'Grave ou importe um take antes de enviar.'; return; }
+  const token = studioUploadToken.value.trim();
+  if (!token) { studioHandoffFeedback.textContent = 'Informe o token Bearer configurado no backend.'; return; }
+  studioUploadHandoff.disabled = true;
+  studioHandoffStatus.textContent = 'enviando…';
+  studioHandoffFeedback.textContent = 'Enviando o take ativo com autenticação…';
+  try {
+    const extension = track.filename.includes('.') ? '' : (track.blob.type.includes('wav') ? '.wav' : '.webm');
+    const uploadFile = new File([track.blob], `${track.filename}${extension}`, { type: track.blob.type || 'application/octet-stream' });
+    const formData = new FormData();
+    formData.append('file', uploadFile);
+    const uploadResponse = await fetch(`${API_BASE}/v1/studio/assets`, { method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: formData });
+    const uploadPayload = await uploadResponse.json();
+    if (!uploadResponse.ok) throw new Error(uploadPayload.detail || 'Falha ao enviar o take');
+    studio.remoteAsset = uploadPayload;
+    studioHandoffStatus.textContent = 'asset recebido';
+    studioHandoffFeedback.textContent = `${uploadPayload.asset_id} recebido · ${Number(uploadPayload.duration_seconds).toFixed(2)} s. Criando handoff explícito…`;
+    const request = {
+      prompt: form.elements.prompt?.value?.trim() || 'Analisar take vocal do Kháirus the Dragon',
+      route_id: 'studio-recording',
+      artist_id: 'kairos.khairus_the_dragon',
+      genre: form.elements.genre?.value || 'Trap Soul',
+      bpm: Number(form.elements.bpm?.value || 140),
+      key: form.elements.key?.value || 'C#',
+      scale: form.elements.scale?.value || 'minor',
+      lyrics: form.elements.lyrics?.value?.trim() || null,
+      duration_seconds: Math.min(120, Math.max(1, Number(track.buffer.duration.toFixed(3)))),
+      analyze_audio: true,
+      transcribe: false,
+      generate_audio: studioGenerateAudio.checked,
+      output_format: 'wav',
+    };
+    const handoffResponse = await fetch(`${API_BASE}/v1/studio/handoff`, { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ asset_id: uploadPayload.asset_id, request }) });
+    const handoffPayload = await handoffResponse.json();
+    if (!handoffResponse.ok) throw new Error(handoffPayload.detail || 'Falha ao criar handoff');
+    studioHandoffStatus.textContent = 'handoff criado';
+    studioHandoffFeedback.textContent = `Tarefa ${handoffPayload.task_id} criada. Acompanhando no Live Ops.`;
+    await watchTask(handoffPayload.task_id);
+  } catch (error) {
+    studioHandoffStatus.textContent = 'erro';
+    studioHandoffFeedback.textContent = error.message;
+  } finally {
+    studioUploadHandoff.disabled = false;
+  }
+}
+
+studioUploadHandoff.addEventListener('click', uploadActiveStudioTake);
+clearStudio.addEventListener('click', () => { stopStudioPlayback(); studio.tracks.forEach((track) => URL.revokeObjectURL(track.url)); studio.tracks = []; studio.activeTrackId = null; studio.remoteAsset = null; renderStudioTracks(); studioTime.textContent = '00:00.000'; studioFeedback.textContent = 'Sessão limpa localmente.'; studioHandoffStatus.textContent = 'local por padrão'; studioHandoffFeedback.textContent = 'Nenhum take foi enviado ao backend.'; setStudioHealth('pronto'); });
 
 function renderIslandChain(payload) {
   islandStatus.textContent = `${payload.chain.length} etapas`;

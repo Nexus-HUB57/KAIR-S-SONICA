@@ -75,6 +75,10 @@ class Settings:
     studio_master_adapter_allow_model_download: bool = False
     studio_master_accepted_adapter_licenses: tuple[str, ...] = ()
     studio_master_enabled_adapter_ids: tuple[str, ...] = ()
+    studio_upload_token: str | None = None
+    studio_upload_max_bytes: int = 100 * 1024 * 1024
+    studio_upload_max_duration_seconds: float = 900.0
+    studio_upload_allowed_extensions: tuple[str, ...] = (".wav", ".mp3", ".m4a", ".flac", ".ogg", ".webm")
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -231,6 +235,16 @@ class Settings:
             ),
             studio_master_enabled_adapter_ids=cls._csv(
                 os.getenv("KAIROS_STUDIO_MASTER_ENABLED_ADAPTER_IDS", "")
+            ),
+            studio_upload_token=os.getenv("KAIROS_STUDIO_UPLOAD_TOKEN") or None,
+            studio_upload_max_bytes=int(
+                os.getenv("KAIROS_STUDIO_UPLOAD_MAX_BYTES", str(100 * 1024 * 1024))
+            ),
+            studio_upload_max_duration_seconds=float(
+                os.getenv("KAIROS_STUDIO_UPLOAD_MAX_DURATION_SECONDS", "900")
+            ),
+            studio_upload_allowed_extensions=cls._csv(
+                os.getenv("KAIROS_STUDIO_UPLOAD_ALLOWED_EXTENSIONS", ".wav,.mp3,.m4a,.flac,.ogg,.webm")
             ),
         )
 

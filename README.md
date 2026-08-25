@@ -210,7 +210,7 @@ As dependências são opcionais e devem ser instaladas em uma imagem/ambiente se
 
 ### Estúdio de Gravação e Mixagem do DJ / Produtor Káiros
 
-A primeira console do estúdio está disponível no `web-client`: captura via microfone, importação de takes, waveform de monitoramento, volume, panorama, mute, solo, reprodução de mix e exportação de bounce WAV. O áudio permanece local no navegador e não cria tarefas automaticamente. O contrato e o roadmap estão em [`docs/recording-mixing-studio.md`](docs/recording-mixing-studio.md); a próxima fase deve adicionar upload autenticado e handoff explícito para o pipeline de áudio.
+A primeira console do estúdio está disponível no `web-client`: captura via microfone, importação de takes, waveform de monitoramento, volume, panorama, mute, solo, reprodução de mix e exportação de bounce WAV. O áudio permanece local no navegador e não cria tarefas automaticamente até o operador informar o token e acionar o novo bloco **EXPLICIT HANDOFF**. `POST /v1/studio/assets` recebe o take com limites de tamanho, extensão e duração, calcula SHA-256 e grava um manifesto atômico; `POST /v1/studio/handoff` valida o `asset_id` e enfileira um `MultimediaRequest` no `TaskStore`. O contrato e o roadmap estão em [`docs/recording-mixing-studio.md`](docs/recording-mixing-studio.md).
 
 ### Núcleo agentico end-to-end
 

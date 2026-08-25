@@ -22,12 +22,12 @@ O bounce cria uma renderização offline estéreo, aplica ganho e panorama de ca
 | Importar take | Disponível via `input type=file` | Arquivo fica local na sessão do navegador |
 | Reproduzir mix | Disponível via Web Audio API | Nenhuma chamada de rede |
 | Exportar bounce | Disponível via download WAV | Nenhuma escrita no `TaskStore` |
-| Enviar stem ao pipeline | Próxima etapa | Deve usar endpoint autenticado e job explícito |
+| Enviar stem ao pipeline | Disponível por ação explícita | `POST /v1/studio/assets` e `POST /v1/studio/handoff`, ambos com Bearer configurado |
 | Persistir projeto | Próxima etapa | Deve usar namespace de projeto e armazenamento controlado |
 
 ## Integração futura com o núcleo KAIR
 
-A próxima integração deve adicionar um endpoint de upload de stem com limites de tamanho, extensão e duração, armazenar o arquivo em `data/uploads` ou storage autenticado e retornar um `asset_id`. Um comando separado poderá criar um `MultimediaRequest` ou `TrackRequest` no `TaskStore`, mantendo `PENDING`, `RUNNING`, `SUCCEEDED` e `FAILED` e a entrega de artefato já existentes.
+A integração inicial agora oferece `POST /v1/studio/assets`, que recebe um take com token Bearer, limites de tamanho/extensão/duração, hash SHA-256 e manifesto atômico em `data/uploads/studio/`. O endpoint retorna um `asset_id` e não cria tarefa. O comando separado `POST /v1/studio/handoff` valida esse asset e cria um `MultimediaRequest` no `TaskStore`, mantendo `PENDING`, `RUNNING`, `SUCCEEDED` e `FAILED` e a entrega de artefato já existentes.
 
 O estúdio também pode consumir o contrato de `/v1/agentic/run`: o briefing musical, BPM, tonalidade, swing, letra e takes aprovados podem alimentar o Designer de Som e o `audio_pipeline`. Essa integração deve continuar explícita e exigir aprovação, assim como os handoffs de vídeo; o planner não deve enviar gravações locais automaticamente.
 
@@ -37,4 +37,4 @@ O build Vite foi aprovado. A interface local foi aberta no navegador, um WAV est
 
 ## Próximas etapas de produto
 
-A evolução recomendada é adicionar timeline com posicionamento de takes, trim e crossfades; suporte a stems mono/estéreo e ganho por clip; persistência de sessão; upload autenticado; medição LUFS/true peak no backend; exportação MP3 opcional; e roteamento de stems aprovados para o pipeline de áudio existente. Essas etapas devem ser implementadas em commits separados, com limites de recurso e testes determinísticos.
+A evolução recomendada é adicionar timeline com posicionamento de takes, trim e crossfades; suporte a stems mono/estéreo e ganho por clip; persistência de sessão; medição LUFS/true peak no backend; exportação MP3 opcional; e roteamento de stems aprovados para o pipeline de áudio existente. O upload/handoff inicial permanece separado da publicação e da geração por padrão, exige aprovação operacional explícita e deve evoluir em commits separados, com limites de recurso e testes determinísticos.
