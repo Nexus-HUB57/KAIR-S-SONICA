@@ -20,6 +20,11 @@ from kairos_core.studio_master.contracts import (
     ResponsiveMixPlan,
     ResponsivePlanRequest,
 )
+from kairos_core.studio_master.frontier import (
+    AudiovisualFrontier,
+    FrontierPlan,
+    FrontierPlanRequest,
+)
 from kairos_core.studio_master.groove import DeterministicGrooveExtractor, apply_flow_to_events
 from kairos_core.studio_master.history import ProductionHistoryStore
 from kairos_core.studio_master.hum_to_midi import HumToMidiSketcher
@@ -63,6 +68,7 @@ __all__ = [
     "ArrangementPlan",
     "ArrangementRequest",
     "ArrangementSection",
+    "AudiovisualFrontier",
     "AutoRetrainGuard",
     "AutoRetrainStatus",
     "CanonEntry",
@@ -71,6 +77,8 @@ __all__ = [
     "DeterministicGrooveExtractor",
     "DuckingPreviewRequest",
     "ExpressiveNote",
+    "FrontierPlan",
+    "FrontierPlanRequest",
     "GrooveAnalyzeRequest",
     "GrooveDna",
     "HumPitchFrame",

@@ -58,11 +58,14 @@ from kairos_core.studio_master import (
     ArrangementArchitect,
     ArrangementPlan,
     ArrangementRequest,
+    AudiovisualFrontier,
     AutoRetrainGuard,
     AutoRetrainStatus,
     CanonIndex,
     DeterministicGrooveExtractor,
     DuckingPreviewRequest,
+    FrontierPlan,
+    FrontierPlanRequest,
     GrooveAnalyzeRequest,
     GrooveDna,
     HumanExpressionEngine,
@@ -265,6 +268,7 @@ auto_retrain_guard = AutoRetrainGuard(
 )
 viral_clip_planner = ViralClipPlanner()
 production_history = ProductionHistoryStore(settings.studio_master_analytics_path)
+audiovisual_frontier = AudiovisualFrontier(settings)
 
 
 def _native_checkpoint_ready() -> bool:
@@ -557,6 +561,20 @@ def artistic_island_mix_plan(request: MixPlanRequest) -> MixPlan:
         return artistic_island.generate_chain(request)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.get("/v1/studio-master/frontier/capabilities")
+def studio_master_frontier_capabilities() -> dict[str, Any]:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return audiovisual_frontier.capabilities()
+
+
+@app.post("/v1/studio-master/frontier/plan", response_model=FrontierPlan)
+def studio_master_frontier_plan(request: FrontierPlanRequest) -> FrontierPlan:
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    return audiovisual_frontier.plan(request)
 
 
 @app.get("/v1/studio-master/capabilities")

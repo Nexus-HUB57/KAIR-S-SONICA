@@ -36,6 +36,10 @@ class Settings:
     skyreels_keep_staging: bool = False
     skyreels_max_concurrency: int = 1
     skyreels_timeout_seconds: int = 3_600
+    ltx2_enabled: bool = False
+    ltx2_repo: Path | None = None
+    ltx2_model_id: str | None = None
+    ltx2_license_accepted: bool = False
     agent_aggregator_enabled: bool = False
     skyreels_space_enabled: bool = False
     skyreels_space_base_url: str = "https://fffiloni-skyreels-v2.hf.space"
@@ -122,6 +126,12 @@ class Settings:
             in {"1", "true", "yes", "on"},
             skyreels_max_concurrency=int(os.getenv("KAIROS_SKYREELS_MAX_CONCURRENCY", "1")),
             skyreels_timeout_seconds=int(os.getenv("KAIROS_SKYREELS_TIMEOUT_SECONDS", "3600")),
+            ltx2_enabled=os.getenv("KAIROS_LTX2_ENABLED", "false").lower()
+            in {"1", "true", "yes", "on"},
+            ltx2_repo=cls._optional_path(os.getenv("KAIROS_LTX2_REPO")),
+            ltx2_model_id=os.getenv("KAIROS_LTX2_MODEL_ID") or None,
+            ltx2_license_accepted=os.getenv("KAIROS_LTX2_LICENSE_ACCEPTED", "false").lower()
+            in {"1", "true", "yes", "on"},
             agent_aggregator_enabled=os.getenv("KAIROS_AGENT_AGGREGATOR_ENABLED", "false").lower()
             in {"1", "true", "yes", "on"},
             skyreels_space_enabled=os.getenv("KAIROS_SKYREELS_SPACE_ENABLED", "false").lower()

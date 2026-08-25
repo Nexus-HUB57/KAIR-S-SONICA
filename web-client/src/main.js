@@ -182,6 +182,19 @@ app.innerHTML = `
             <div class="real-adapters-toolbar"><button id="studio-real-adapters-refresh" class="button-secondary" type="button">Atualizar preflight</button><span id="studio-real-adapters-gate">gate global desligado</span></div>
             <div id="studio-real-adapters-grid" class="real-adapters-grid"><div class="empty-state">Lendo capabilities do gateway…</div></div>
           </div>
+          <div class="frontier-panel">
+            <div class="tracks-head"><div><p class="eyebrow">FRONTIER / PHD HARNESS</p><h3>Arquitetura audiovisual de última onda</h3></div><span id="frontier-status" class="chip">preflight</span></div>
+            <p class="studio-subtitle">Preflight, Handoff e Determinism: WebCodecs, WebGPU, áudio reativo e adapters generativos opcionais com fallback explícito.</p>
+            <div class="frontier-grid">
+              <label>Perfil<select id="frontier-profile"><option value="audio_reactive_video">Vídeo audio-reactive</option><option value="music_video">Videoclipe</option><option value="live_capture">Performance ao vivo</option><option value="release_preflight">Preflight de lançamento</option></select></label>
+              <label>Computação<select id="frontier-compute"><option value="auto">Auto / fallback seguro</option><option value="webgpu">WebGPU</option><option value="cuda">CUDA</option><option value="cpu">CPU determinística</option></select></label>
+              <label>Vídeo<select id="frontier-video-backend"><option value="browser_webcodecs">Browser · WebCodecs</option><option value="ltx2_optional">LTX-2 · opcional</option><option value="skyreels_optional">SkyReels · opcional</option></select></label>
+              <label>FPS<input id="frontier-fps" type="number" min="1" max="120" value="24" /></label>
+              <button id="frontier-plan" type="button">Gerar plano PHD</button>
+            </div>
+            <div class="frontier-readouts"><span id="frontier-components">Lendo capabilities…</span><span id="frontier-gates">Aprovação humana obrigatória</span></div>
+            <div id="frontier-output" class="studio-master-plan"><div class="empty-state">O plano frontier aparecerá aqui como proposta revisável.</div></div>
+          </div>
         </div>
       </div>
     </section>
@@ -277,6 +290,15 @@ const studioRealAdaptersStatus = document.querySelector('#studio-real-adapters-s
 const studioRealAdaptersGate = document.querySelector('#studio-real-adapters-gate');
 const studioRealAdaptersRefresh = document.querySelector('#studio-real-adapters-refresh');
 const studioRealAdaptersGrid = document.querySelector('#studio-real-adapters-grid');
+const frontierStatus = document.querySelector('#frontier-status');
+const frontierProfile = document.querySelector('#frontier-profile');
+const frontierCompute = document.querySelector('#frontier-compute');
+const frontierVideoBackend = document.querySelector('#frontier-video-backend');
+const frontierFps = document.querySelector('#frontier-fps');
+const frontierPlanButton = document.querySelector('#frontier-plan');
+const frontierComponents = document.querySelector('#frontier-components');
+const frontierGates = document.querySelector('#frontier-gates');
+const frontierOutput = document.querySelector('#frontier-output');
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({
@@ -939,6 +961,52 @@ function renderRealAdapterCapabilities(payload) {
   }).join('') || '<div class="empty-state">Nenhum adapter no manifesto.</div>';
 }
 
+function setFrontierStatus(label, active = false) {
+  frontierStatus.className = `chip${active ? ' live-chip' : ''}`;
+  frontierStatus.textContent = label;
+}
+
+function renderFrontierPlan(plan) {
+  const stack = (plan.selected_stack || []).map((item) => `<span class="frontier-stack-pill">${escapeHtml(item)}</span>`).join('');
+  const stages = (plan.stages || []).map((stage) => `<article class="chain-step"><span class="chain-order">•</span><div><strong>${escapeHtml(stage.name)}</strong><p>${escapeHtml(stage.owner)} · ${escapeHtml(stage.output)}</p></div><code>${escapeHtml(stage.id)}</code></article>`).join('');
+  const warnings = (plan.warnings || []).map((warning) => `<p>! ${escapeHtml(warning)}</p>`).join('');
+  frontierOutput.innerHTML = `<div class="studio-master-plan-summary"><span><strong>${escapeHtml(plan.harness)} Harness</strong> · ${escapeHtml(plan.profile)}</span><span>${escapeHtml(plan.status)}</span></div><div class="frontier-stack">${stack}</div>${stages}${warnings ? `<div class="chain-warning">${warnings}</div>` : ''}`;
+  setFrontierStatus('plano pronto', true);
+}
+
+async function loadFrontierCapabilities() {
+  setFrontierStatus('carregando…');
+  try {
+    const response = await fetch(`${API_BASE}/v1/studio-master/frontier/capabilities`);
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.detail || 'Frontier indisponível');
+    const components = payload.components || [];
+    frontierComponents.textContent = `${components.length} componentes · ${components.filter((item) => item.status === 'READY').length} prontos · ${components.filter((item) => item.status === 'OPTIONAL').length} opcionais`;
+    frontierGates.textContent = payload.governance?.human_approval_required ? 'Aprovação humana obrigatória · auto-publish bloqueado' : 'Gates não informados';
+    setFrontierStatus('capabilities prontas', true);
+  } catch (error) {
+    setFrontierStatus('offline');
+    frontierComponents.textContent = error.message;
+  }
+}
+
+async function requestFrontierPlan() {
+  frontierPlanButton.disabled = true;
+  setFrontierStatus('planejando…');
+  try {
+    const response = await fetch(`${API_BASE}/v1/studio-master/frontier/plan`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ profile: frontierProfile.value, compute: frontierCompute.value, video_backend: frontierVideoBackend.value, fps: Number(frontierFps.value || 24) }) });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.detail || 'Falha ao gerar plano frontier');
+    renderFrontierPlan(payload);
+    studioFeedback.textContent = 'PHD Harness pronto para revisão; nenhum render ou download foi iniciado.';
+  } catch (error) {
+    setFrontierStatus('erro');
+    frontierOutput.innerHTML = `<div class="empty-state">${escapeHtml(error.message)}</div>`;
+  } finally {
+    frontierPlanButton.disabled = false;
+  }
+}
+
 async function loadRealAdapterCapabilities() {
   studioRealAdaptersStatus.textContent = 'atualizando…';
   try {
@@ -989,9 +1057,11 @@ studioArrangementButton.addEventListener('click', requestArrangementPlan);
 studioSignatureButton.addEventListener('click', requestSignaturePlan);
 studioViralButton.addEventListener('click', requestViralClipPlan);
 studioRealAdaptersRefresh.addEventListener('click', loadRealAdapterCapabilities);
+frontierPlanButton.addEventListener('click', requestFrontierPlan);
 loadStudioMasterCatalog();
 loadStudioMaster2Status();
 loadRealAdapterCapabilities();
+loadFrontierCapabilities();
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();

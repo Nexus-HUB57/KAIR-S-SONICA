@@ -290,3 +290,20 @@ O roadmap técnico do organismo — persistência, workers, autenticação, stor
 [3]: https://pytorch.org/audio/stable/index.html "TorchAudio"
 [4]: https://github.com/facebookresearch/demucs "Demucs"
 [5]: https://ffmpeg.org/documentation.html "FFmpeg documentation"
+
+
+## Frontier / PHD Harness
+
+O StudioMaster agora possui uma camada audiovisual high-tech orientada por **PHD — Preflight, Handoff e Determinism**. O painel `FRONTIER / PHD HARNESS` mostra capabilities reais do ambiente e gera planos audio-reactive revisáveis com Web Audio, WebCodecs, WebGPU, FFmpeg/FFprobe e adapters opcionais como LTX-2, SkyReels e separação de stems. A presença de uma tecnologia não significa que ela esteja habilitada: licença, procedência, hardware, modelo, consentimento e aprovação humana continuam obrigatórios.
+
+```bash
+# Consultar a matriz de capabilities
+curl http://localhost:8000/v1/studio-master/frontier/capabilities
+
+# Gerar uma proposta sem criar job nem baixar modelo
+curl -X POST http://localhost:8000/v1/studio-master/frontier/plan \\
+  -H 'Content-Type: application/json' \\
+  -d '{"profile":"audio_reactive_video","compute":"auto","video_backend":"browser_webcodecs"}'
+```
+
+A proposta retorna `READY_FOR_APPROVAL`, estágios de Preflight a Atomic delivery, gates, fallbacks e handoff explícito. Nenhum render, treinamento, publicação ou download é iniciado automaticamente. A skill correspondente da persona está em `personas/kairos/skills/audiovisual-frontier.md`.

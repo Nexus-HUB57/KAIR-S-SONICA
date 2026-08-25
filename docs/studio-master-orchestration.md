@@ -133,3 +133,33 @@ O plano de clip social suporta canvas vertical, quadrado ou paisagem, waveform R
 ### Próxima evolução recomendada
 
 A próxima branch deve implementar adapters opcionais de renderização real, pitch tracking e DSP profissional em host dedicado, sempre por interfaces de capacidade. Cada adapter deverá declarar versão, licença, checksum, custo computacional, requisito de GPU/CPU, política de armazenamento e testes de fallback. A promoção de qualquer artefato deve continuar condicionada à validação técnica, consentimento de uso e troca atômica.
+
+
+## Frontier Harness — PHD 2.1
+
+A retomada adiciona o `AudiovisualFrontier` e o **PHD Harness** — Preflight, Handoff e Determinism — como uma camada de capacidade sobre o StudioMaster 2.0. A camada não substitui `AudioPipeline`, `MultimediaOrchestrator`, `TaskStore` ou os adapters reais; ela registra o que o ambiente consegue fazer, produz planos `READY_FOR_APPROVAL` e preserva fallbacks explícitos.
+
+O preflight expõe `GET /v1/studio-master/frontier/capabilities` e diferencia browser, servidor, adapter opcional e control plane. O plano `POST /v1/studio-master/frontier/plan` aceita perfil, duração, aspect ratio, FPS, alvo de computação, backend de áudio, backend de vídeo e `approved_asset_id`. Ele retorna stack, estágios, gates, handoff e warnings, mas não cria tarefa, não baixa modelo, não treina, não renderiza e não publica.
+
+A direção técnica incorpora WebCodecs para uma possível camada de frames/áudio codificados em browser e WebGPU para computação paralela opcional, sempre com capability probe, HTTPS e fallback. A documentação do MDN informa que WebCodecs trabalha com frames e áudio crus ou codificados e oferece encoders/decoders; o MDN também classifica WebGPU como recurso de disponibilidade limitada e dependente de contexto seguro. O LTX-2 entra somente como adapter opt-in para geração audiovisual sincronizada, condicionado a repo, modelo, GPU, licença e manifesto. Demucs permanece adapter opcional de separação de stems; sua página oficial informa que o repositório upstream está arquivado e não é mantido ativamente.
+
+```mermaid
+flowchart LR
+  I[Intake + direitos] --> P[PHD Preflight]
+  P --> C[Capability matrix]
+  C --> A[Audio-reactive map]
+  A --> V[WebCodecs / WebGPU / LTX-2 opcional]
+  V --> H[Explicit handoff]
+  H --> Q[QA + KTD approval]
+  Q --> D[Manifest + checksum + atomic delivery]
+  P -. fallback .-> F[CPU / Canvas / Web Audio / manual stem handoff]
+```
+
+A implementação mantém a autoridade artística com Kháirus the Dragon e a autoridade de coordenação com Káiros como persona de trabalho. Toda skill audiovisual deve declarar método, versão, direitos, licença, incerteza, requisito computacional, fallback, saída, checksum e decisão humana necessária.
+
+### Referências técnicas consultadas
+
+[1] [MDN — WebCodecs API](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API).\
+[2] [MDN — WebGPU API](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API).\
+[3] [Lightricks — LTX-2 official repository](https://github.com/Lightricks/LTX-2).\
+[4] [facebookresearch — Demucs official repository](https://github.com/facebookresearch/demucs).

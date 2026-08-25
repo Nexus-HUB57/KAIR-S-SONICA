@@ -194,6 +194,13 @@ button:active { transform: scale(.97); transition: transform .16s cubic-bezier(.
 @media (max-width: 560px) { .studio-master-2-grid, .studio-master-2-readouts { grid-template-columns: 1fr; } .studio-master-2-actions { display: grid; grid-template-columns: 1fr; } .studio-master-2-actions button { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
 
+.frontier-panel { margin-top: 18px; padding: 16px 0 0; border-top: 1px solid rgba(184,167,255,.22); }
+.frontier-grid { display: grid; grid-template-columns: 1.3fr 1fr 1.2fr .55fr auto; align-items: end; gap: 10px; margin-top: 14px; }
+.frontier-grid label { margin: 0; }
+.frontier-grid button { margin: 0; min-height: 44px; white-space: nowrap; }
+.frontier-readouts { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 12px; color: #8f9bb2; font-size: .7rem; }
+.frontier-stack { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.frontier-stack-pill { padding: 7px 9px; border: 1px solid rgba(184,167,255,.32); border-radius: 999px; background: rgba(184,167,255,.08); color: #cfc5ff; font-size: .62rem; }
 .real-adapters-panel { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(117,213,194,.14); }
 .real-adapters-toolbar { display: flex; align-items: center; gap: 12px; margin-top: 12px; color: #7f8ca6; font-size: .7rem; }
 .real-adapters-toolbar button { margin: 0; }
@@ -209,5 +216,6 @@ button:active { transform: scale(.97); transition: transform .16s cubic-bezier(.
 .real-adapter-meta { display: flex; flex-wrap: wrap; gap: 6px; color: #c3a36b; font-size: .58rem; }
 .real-adapter-reason { min-height: 28px; }
 .real-adapter-card code { display: block; overflow: hidden; color: #75d5c2; font-size: .58rem; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 1100px) { .frontier-grid { grid-template-columns: repeat(3, 1fr); } .frontier-grid button { width: 100%; } }
 @media (max-width: 900px) { .real-adapters-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .real-adapters-toolbar { align-items: flex-start; flex-direction: column; } .real-adapters-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .real-adapters-toolbar { align-items: flex-start; flex-direction: column; } .real-adapters-grid { grid-template-columns: 1fr; } .frontier-grid { grid-template-columns: 1fr; } .frontier-readouts { align-items: flex-start; flex-direction: column; } }
