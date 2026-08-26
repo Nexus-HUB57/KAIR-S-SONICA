@@ -92,6 +92,17 @@ class Settings:
     )
     studio_master_preflight_dir: Path = Path("data/studio-master/preflight")
     studio_master_auto_review_enabled: bool = True
+    cloud_video_fallback_enabled: bool = False
+    cloud_video_fallback_provider: str = "NOT_CONFIGURED"
+    cloud_video_fallback_base_url: str | None = None
+    cloud_video_fallback_submit_path: str = "/v1/video/generations"
+    cloud_video_fallback_api_key_env: str = "KAIROS_CLOUD_VIDEO_FALLBACK_API_KEY"
+    cloud_video_fallback_timeout_seconds: int = 1_800
+    cloud_video_fallback_allowed_providers: tuple[str, ...] = ()
+    cloud_video_fallback_license_acknowledged: bool = False
+    cloud_video_fallback_retention_acknowledged: bool = False
+    cloud_video_fallback_spending_limit_cents: int = 0
+    cloud_video_fallback_max_upload_bytes: int = 100 * 1024 * 1024
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -284,6 +295,46 @@ class Settings:
                 "KAIROS_STUDIO_MASTER_AUTO_REVIEW_ENABLED", "true"
             ).lower()
             in {"1", "true", "yes", "on"},
+            cloud_video_fallback_enabled=os.getenv(
+                "KAIROS_CLOUD_VIDEO_FALLBACK_ENABLED", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
+            cloud_video_fallback_provider=os.getenv(
+                "KAIROS_CLOUD_VIDEO_FALLBACK_PROVIDER", "NOT_CONFIGURED"
+            ),
+            cloud_video_fallback_base_url=(
+                os.getenv("KAIROS_CLOUD_VIDEO_FALLBACK_BASE_URL") or None
+            ),
+            cloud_video_fallback_submit_path=os.getenv(
+                "KAIROS_CLOUD_VIDEO_FALLBACK_SUBMIT_PATH", "/v1/video/generations"
+            ),
+            cloud_video_fallback_api_key_env=os.getenv(
+                "KAIROS_CLOUD_VIDEO_FALLBACK_API_KEY_ENV",
+                "KAIROS_CLOUD_VIDEO_FALLBACK_API_KEY",
+            ),
+            cloud_video_fallback_timeout_seconds=int(
+                os.getenv("KAIROS_CLOUD_VIDEO_FALLBACK_TIMEOUT_SECONDS", "1800")
+            ),
+            cloud_video_fallback_allowed_providers=cls._csv(
+                os.getenv("KAIROS_CLOUD_VIDEO_FALLBACK_ALLOWED_PROVIDERS", "")
+            ),
+            cloud_video_fallback_license_acknowledged=os.getenv(
+                "KAIROS_CLOUD_VIDEO_FALLBACK_LICENSE_ACKNOWLEDGED", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
+            cloud_video_fallback_retention_acknowledged=os.getenv(
+                "KAIROS_CLOUD_VIDEO_FALLBACK_RETENTION_ACKNOWLEDGED", "false"
+            ).lower()
+            in {"1", "true", "yes", "on"},
+            cloud_video_fallback_spending_limit_cents=int(
+                os.getenv("KAIROS_CLOUD_VIDEO_FALLBACK_SPENDING_LIMIT_CENTS", "0")
+            ),
+            cloud_video_fallback_max_upload_bytes=int(
+                os.getenv(
+                    "KAIROS_CLOUD_VIDEO_FALLBACK_MAX_UPLOAD_BYTES",
+                    str(100 * 1024 * 1024),
+                )
+            ),
         )
 
     @staticmethod

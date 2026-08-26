@@ -134,6 +134,24 @@ class VideoRequest(BaseModel):
     use_usp: bool = False
 
 
+class CloudVideoSubmitRequest(BaseModel):
+    """Submissão cloud explícita; nunca é criada por um planner ou fallback silencioso."""
+
+    request: VideoRequest
+    identity_metadata: dict[str, Any] = Field(default_factory=dict, max_length=64)
+    confirm_cloud_submit: bool = False
+    human_approved: bool = False
+
+
+class CloudVideoSubmitResponse(BaseModel):
+    provider: str
+    status: Literal["SUBMITTED"]
+    remote_task_id: str | None = None
+    preflight_id: str
+    preflight_decision: Literal["READY_FOR_APPROVAL"]
+    guardrails: dict[str, Any]
+
+
 class MultimediaRequest(BaseModel):
     prompt: str | None = Field(default=None, max_length=2_000)
     route_id: str = Field(default="default", min_length=1, max_length=120)

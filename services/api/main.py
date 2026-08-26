@@ -37,6 +37,8 @@ from kairos_core.config import Settings
 from kairos_core.observability import configure_logging
 from kairos_core.persona import DEFAULT_PERSONA
 from kairos_core.schemas import (
+    CloudVideoSubmitRequest,
+    CloudVideoSubmitResponse,
     ComplementaryMediaSearchRequest,
     ComplementaryPlanRequest,
     GenerateResponse,
@@ -99,6 +101,7 @@ from kairos_core.studio_master import (
     ViralClipPlanner,
     ViralClipPlanRequest,
 )
+from kairos_core.video import CloudFallbackError, CloudVideoFallback
 from kairos_core.video.orchestrator import VideoOrchestrator
 from pydantic import ValidationError
 
@@ -275,6 +278,7 @@ viral_clip_planner = ViralClipPlanner()
 production_history = ProductionHistoryStore(settings.studio_master_analytics_path)
 audiovisual_frontier = AudiovisualFrontier(settings)
 auto_review_engine = AutoReviewEngine(settings)
+cloud_video_fallback = CloudVideoFallback(settings)
 
 
 def _run_auto_review(media_kind: str, payload: dict[str, Any]) -> tuple[Any | None, dict[str, Any]]:
@@ -1206,6 +1210,7 @@ def video_capabilities() -> dict[str, Any]:
     native_model_ready = _native_checkpoint_ready()
     native_runtime_ready = _native_runtime_ready()
     native_ready = native_configured and native_model_ready and native_runtime_ready
+    cloud_status = cloud_video_fallback.status().to_dict()
     return {
         "backends": {
             "cli": {
@@ -1222,7 +1227,67 @@ def video_capabilities() -> dict[str, Any]:
         },
         "modes": ["t2v", "i2v", "extend", "start_end"],
         "default_backend": "native" if native_ready else "cli",
+        "cloud_fallback": cloud_status,
+        "explicit_cloud_submit_endpoint": "/v1/video/cloud-submit",
     }
+
+
+@app.post("/v1/video/cloud-submit", response_model=CloudVideoSubmitResponse, status_code=202)
+def submit_cloud_video(request: CloudVideoSubmitRequest) -> CloudVideoSubmitResponse:
+    """Submete vídeo a um provider externo somente por ação explícita e auditada."""
+    if not settings.studio_master_enabled:
+        raise HTTPException(status_code=503, detail="StudioMaster desabilitado")
+    if not request.confirm_cloud_submit or not request.human_approved:
+        raise HTTPException(
+            status_code=409,
+            detail={
+                "code": "CLOUD_CONFIRMATION_REQUIRED",
+                "message": "Submissão cloud exige confirm_cloud_submit=true e human_approved=true",
+            },
+        )
+    review_payload = dict(request.identity_metadata)
+    review_payload.update(request.request.model_dump(mode="json"))
+    review = auto_review_engine.review(
+        "multimedia", review_payload, auto_repair=False, persist=True
+    )
+    if review.decision == "REJECTED":
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "code": "AUTO_REVIEW_BLOCKED",
+                "message": "Submissão cloud bloqueada pelo gate PHD antes do upload",
+                "audit": review.model_dump(mode="json"),
+            },
+        )
+    if any(finding.severity != "INFO" for finding in review.findings):
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "code": "AUTO_REVIEW_INCOMPLETE",
+                "message": "Submissão cloud exige preflight completo, sem warnings pendentes",
+                "audit": review.model_dump(mode="json"),
+            },
+        )
+    if not settings.cloud_video_fallback_enabled:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "CLOUD_FALLBACK_DISABLED",
+                "message": "Fallback cloud está desabilitado por padrão",
+            },
+        )
+    try:
+        result = cloud_video_fallback.submit(request.request, preflight_id=review.audit_id)
+    except CloudFallbackError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "CLOUD_FALLBACK_NOT_READY",
+                "message": str(exc),
+                "mode": cloud_video_fallback.status().mode,
+            },
+        ) from exc
+    return CloudVideoSubmitResponse.model_validate(result)
 
 
 @app.post("/v1/video/generate", response_model=GenerateResponse, status_code=202)
