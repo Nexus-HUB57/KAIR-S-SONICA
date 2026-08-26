@@ -2,11 +2,15 @@
 
 **Data:** 26 de agosto de 2026
 **Escopo:** aprovação editorial das provas musicais v2, não aprovação de master de distribuição.
-**Fonte da decisão:** mensagem explícita do titular no fluxo de produção.
+**Fonte da decisão original:** mensagem explícita do titular no fluxo de produção.
+
+**Retificação editorial:** em 26 de agosto de 2026, o titular confirmou que as aprovações dos Singles 10 e 11 permanecem válidas. A reprovação posterior aplica-se somente às provas dos Singles 12 e 13; nenhum status dos Singles 10 e 11 é revogado.
 
 ## Single 10 — THE DRAGON SLEEPS
 
-**Decisão:** `APPROVED — Prova 2`.
+**Decisão original:** `APPROVED — Prova 2`.
+
+**Status atual:** `APPROVED — Prova 2`, conforme confirmação posterior do titular; master de distribuição pendente.
 
 **Objeto aprovado:** `outputs/single_10/the-dragon-sleeps-v2-bass-beats-demo.mp3` e seu WAV correspondente.
 
@@ -16,7 +20,9 @@
 
 ## Single 11 — I WON'T WASTE THIS LIFE
 
-**Decisão:** `APPROVED — Prova 2 Old School`.
+**Decisão original:** `APPROVED — Prova 2 Old School`.
+
+**Status atual:** `APPROVED — Prova 2`, conforme confirmação posterior do titular; master de distribuição pendente.
 
 **Objeto aprovado:** `outputs/single_11/i-wont-waste-this-life-v2-old-school-demo-master.mp3` e seu WAV correspondente.
 
@@ -28,4 +34,4 @@
 
 ## Preservação de histórico
 
-As provas v1, os sketches anteriores, os metadados históricos e as traduções v1 permanecem preservados. Nenhum arquivo anterior foi apagado ou sobrescrito. Os Singles 10 e 11 devem avançar para revisão final de mix/master e pacote de distribuição somente mediante nova decisão editorial quando essa etapa estiver concluída.
+As provas v1, os sketches anteriores, os metadados históricos e as traduções v1 permanecem preservados. Nenhum arquivo anterior foi apagado ou sobrescrito. As aprovações dos Singles 10 e 11 permanecem válidas no nível de prova musical. As provas dos Singles 12 e 13 devem ser tratadas como reprovadas para nova análise; nenhuma delas deve avançar para mix/master ou distribuição até nova decisão explícita.
