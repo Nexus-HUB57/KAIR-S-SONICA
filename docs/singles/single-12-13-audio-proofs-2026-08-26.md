@@ -1,7 +1,7 @@
 # Registro de provas de áudio — Singles 12 e 13
 
 **Data:** 26 de agosto de 2026
-**Estado:** provas geradas localmente; todas as provas dos Singles 12 e 13 estão **REPROVADAS para nova análise**, por decisão do titular em 26 de agosto de 2026. Nenhuma é master final ou autorização de lançamento.
+**Estado:** Single 12 Prova 2 aprovada pelo titular; provas do Single 13 reprovadas para nova análise. Nenhuma é master final ou autorização de lançamento.
 
 ## Single 12 — HOLD THE LADDER
 
@@ -10,7 +10,7 @@
 **Direção:** boom bap old school, aproximadamente 96 BPM, piano sujo/sampleado, subgrave quente, bateria hard-knock, textura de vinil, scratches discretos e voz barítono médio-grave.
 **Estrutura:** chorus → verse 1 → chorus → verse 2 → bridge half-time → chorus final em camadas → outro.
 **Fonte lírica:** `single-12-hold-the-ladder-lyrics-v1.md`.
-**Decisão atual:** `REJECTED — reenviar para nova análise`. A Prova 1 anterior permanece aprovada somente como direção histórica; esta Prova 2 não deve avançar para master.
+**Decisão atual:** `APPROVED — Prova 2`, conforme confirmação do titular. A aprovação é da prova musical; master de distribuição e revisão final permanecem pendentes.
 
 ## Single 13 — WHAT HAPPENS IN VEGAS
 
@@ -30,4 +30,4 @@
 
 ## Guardrails comuns
 
-As três provas usam letra em inglês como fonte vocal e estão reprovadas para nova análise. Permanecem sujeitas à conferência humana de letra, performance, direção, arranjo, identidade vocal, mixagem e loudness. A tradução PT-BR é referência editorial e não substitui o idioma original de composição. Não foram usados samples identificáveis, imitação de artista específico ou alteração automática do estado de aprovação. Para o Single 13, uma eventual colisão boom bap→EDM-drop continua sendo trabalho posterior de arranjo/mix/master, não uma decisão automática do gerador.
+As provas usam letra em inglês como fonte vocal. A Prova 2 do Single 12 está aprovada no nível de prova musical; as duas provas do Single 13 estão reprovadas para nova análise. Todas permanecem sujeitas à conferência de performance, direção, arranjo, identidade vocal, mixagem e loudness. A tradução PT-BR é referência editorial e não substitui o idioma original de composição. Não foram usados samples identificáveis, imitação de artista específico ou alteração automática do estado de aprovação. Para o Single 13, uma eventual colisão boom bap→EDM-drop continua sendo trabalho posterior de arranjo/mix/master, não uma decisão automática do gerador.
