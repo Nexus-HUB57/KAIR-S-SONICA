@@ -2,7 +2,7 @@
 
 **Single:** 11
 **Artist:** KTD / Kháirus the Dragon
-**Status:** second musical proof; awaiting human evaluation
+**Status:** Prova musical v2 Old School aprovada pelo usuário em 26 de agosto de 2026; master de distribuição pendente
 **Rejected predecessor:** [`single-11-i-wont-waste-this-life-demo-v1-metadata.md`](single-11-i-wont-waste-this-life-demo-v1-metadata.md)
 **Production brief:** [`single-11-i-wont-waste-this-life-production-brief-v2-old-school.md`](single-11-i-wont-waste-this-life-production-brief-v2-old-school.md)
 **Direction:** Black Music Rap Old School / boom bap / soulful conscious rap
@@ -31,8 +31,8 @@ The transcription confirms the intended first verse, rising pre-chorus and repea
 
 The generated render adds natural response/ad-lib phrases such as “Won't waste this life,” “Woo” and “Yeah.” It also contains a wording variation in the hook transcription, rendering “The dark got breath in my chest” instead of the intended “The dark don’t get what’s left of mine,” and ends with “Dragon on the move, let’s go.” These are **not lyric approvals**; they require human listening and, if necessary, a later vocal/lyric correction.
 
-The proof should be evaluated first for genre fit: whether the pocket, swing, soulful harmony, dry drums, bass movement and rap-first delivery now sound recognizably like KTD. It should then be evaluated for hook memorability, vocal presence, lyric fidelity and mix translation.
+A aprovação do usuário confirma a Prova 2 como versão musical aprovada para a próxima etapa. A mixagem e a entrega devem preservar o pocket, swing, harmonia soulful, bateria seca, movimento de baixo e performance rap-first. A master de distribuição, a tradução de loudness e a conferência final de letra continuam sendo etapas separadas.
 
 ## Status and guardrails
 
-This is a **musical proof only**, not an approved master. The lyric, chorus, melody, vocal take, mix, loudness and distribution status remain pending human approval. The rejected v1 is preserved as historical reference and is not replaced by this file. No real artist imitation, biometric voice cloning, unauthorized sample, artificial streaming, threat, hate speech or graphic violence is permitted.
+This is a **musical proof approved by the user**, not an approved distribution master. The official lyric v2 and PT-BR reference v2 are linked separately; automatic transcription additions remain non-canonical. Final mastering, loudness, metadata and distribution status remain pending. The rejected v1 is preserved as historical reference and is not replaced by this file. No real artist imitation, biometric voice cloning, unauthorized sample, artificial streaming, threat, hate speech or graphic violence is permitted.

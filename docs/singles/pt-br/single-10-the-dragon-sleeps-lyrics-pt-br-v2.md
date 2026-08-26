@@ -5,10 +5,10 @@
 **Artista:** Kháirus the Dragon (KTD)
 **Idioma:** português brasileiro
 **Fonte oficial:** [`../single-10-the-dragon-sleeps-lyrics-v1.md`](../single-10-the-dragon-sleeps-lyrics-v1.md)
-**Status da fonte inglesa:** letra oficial v1 aprovada; refrão aprovado; Prova 2 com ajustes musicais somente
+**Status da fonte inglesa:** letra oficial v1 aprovada; refrão aprovado; Prova 2 musical aprovada pelo usuário em 26 de agosto de 2026
 **Versão da tradução:** PT-BR de referência v2
 **Revisão linha a linha:** concluída; ver o ledger correspondente no `khairus_KTD`
-**Natureza desta versão:** tradução de referência; não substitui a letra oficial em inglês e não constitui nova gravação.
+**Natureza desta versão:** tradução PT-BR oficial de referência; não substitui a letra oficial em inglês, não deve ser usada para sincronizar vocal em português e não constitui nova gravação.
 
 ## Letra traduzida
 

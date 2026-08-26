@@ -4,7 +4,7 @@
 **Artista:** KTD / Kháirus the Dragon
 **Single:** 10
 **Título:** *The Dragon Sleeps*
-**Status:** prova musical v2 para avaliação; letra v1 e refrão preservados e aprovados
+**Status:** Prova musical v2 aprovada pelo usuário em 26 de agosto de 2026; letra v1 e refrão preservados e aprovados; master de distribuição pendente
 **Base:** Prova 1 aprovada em letra, refrão e direção melódica
 
 ## Escopo da alteração
@@ -42,7 +42,7 @@ A letra oficial permanece em [`single-10-the-dragon-sleeps-lyrics-v1.md`](single
 | True peak máximo | +0,5 dBTP | +0,2 dBTP |
 | MP3 | 320 kbps | 320 kbps |
 
-Os números são informativos para comparação entre provas. A Prova 2 não deve ser tratada como master final de distribuição até receber aprovação editorial e eventual revisão final de picos, compatibilidade e loudness por plataforma.
+Os números são informativos para comparação entre provas. A aprovação do usuário autoriza esta Prova 2 como versão musical aprovada para a próxima etapa, mas não a transforma em master final de distribuição. Ainda é necessária revisão final de picos, compatibilidade, loudness por plataforma e metadados de lançamento.
 
 ## Guardrails de identidade
 
