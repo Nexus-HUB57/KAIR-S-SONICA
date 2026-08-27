@@ -24,6 +24,14 @@ Execução: 1 imagem por chamada (o lote de 3 falhou por saldo), gate de identid
 6. Bastidor/processo (estúdio, mãos, caderno)
 7. Detalhe macro (heterocromia / tatuagem)
 
+## Progresso — Single 1 FIRE IN THE FLOOD
+- [x] Imagem 1 — Capa oficial 1:1 GERADA (2026-08-27, nano-banana-pro, 2048x2048): https://www.genspark.ai/api/files/s/4kji9IOr
+  Gate de identidade: 7/8 PASS (rosto, barba, heterocromia, riscos dourados, garras do peito, tinta real, paleta). Obs: coluna de escamas do abdome fora do enquadramento da capa (recorte cabeça/ombros) — não é violação, mas validar nas editoriais de corpo.
+  PENDENTE: aprovação humana do titular antes de mover para khairus_KTD.
+- [ ] Imagem 2 — Editorial corredor chuvoso 3:4 — prompt pronto, aguardando créditos
+- [ ] Imagem 3 — Editorial mão no muro/carvoário 3:4 — prompt pronto, aguardando créditos
+- [ ] Imagens 4–7 — lyric cards 9:16, bastidor, macro heterocromia
+
 ## Prompts prontos — Single 1 FIRE IN THE FLOOD (3 primeiras)
 - Capa 1:1: retrato frontal, chiaroscuro carvão/azul-aço, rim light âmbar, chuva na pele, olhar direto na lente
 - Editorial 3/4: corredor industrial noturno, chuva real, vapor, waist-up, passo em direção à câmera, raiva controlada
