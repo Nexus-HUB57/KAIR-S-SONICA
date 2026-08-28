@@ -1,7 +1,7 @@
 # KTD — Coletânea completa do primeiro álbum
 
 **Artista:** Kháirus the Dragon (KTD)  
-**Escopo:** 13 singles enviados pelo titular para composição da coletânea completa do primeiro álbum  
+**Escopo:** 14 singles enviados/aprovados pelo titular para composição da coletânea completa do primeiro álbum  
 **Data do inventário:** 27 de agosto de 2026  
 **Protocolo:** PHD — Preflight, Handoff, Determinism
 
@@ -26,6 +26,7 @@ Os arquivos históricos existentes em `assets/audio`, `outputs`, `docs/singles` 
 | 11 | I Won’t Waste This Life | `11-i-wont-waste-this-life.mp3` | `IWONTWASTETHISLIFE-KTD.mp3` | 173,453061 s | MP3 estéreo, 44,1 kHz, 320 kbps | `ff930c86c344bff53c07e38759c50318c3b84153db380b6165a0e0dd7f5bb2ef` |
 | 12 | Hold the Ladder | `12-hold-the-ladder.mp3` | `HOLDTHELADDER-KTD.mp3` | 155,951020 s | MP3 estéreo, 44,1 kHz, 192 kbps | `73e3b7cd42b02877110cc42b70bb742d3111300327222c9b234ed59d4ed88240` |
 | 13 | What Happens in Vegas | `13-what-happens-in-vegas.mp3` | `WHATHAPPENSINVEGAS-KTD.mp3` | 162,298776 s | MP3 estéreo, 44,1 kHz, 192 kbps | `fc5fea4ed303013d7eebabf4ac8646703110b65e85406ec94a66e9fcea6d071e` |
+| 14 | Paid in Full | `14-paid-in-full.mp3` | `single-14-paid-in-full-sniper-refrain-proof-v1.mp3` | 179,670167 s | MP3 estéreo, 44,1 kHz, 192 kbps | `640e5bd2a2e3fa404571dfc26877bd3df45bf9daaf7f5c41a2d804bc73eeb538` |
 
 ## Reconciliação com o histórico
 
@@ -35,8 +36,8 @@ A afirmação de que os 13 singles estão aprovados foi recebida do titular nest
 
 ## Estrutura
 
-Os masters organizados estão em `assets/audio/albums/ktd-first-album/masters/`, numerados de 01 a 13. A pasta é uma coleção de entrega organizada, não substitui os diretórios históricos de produção e não altera automaticamente as letras, artes, provas, stems ou registros individuais.
+Os masters organizados estão em `assets/audio/albums/ktd-first-album/masters/`, numerados de 01 a 14. O Single #14 foi adicionado como camada aprovada posterior, sem alterar os 13 registros anteriores. A pasta é uma coleção de entrega organizada, não substitui os diretórios históricos de produção e não altera automaticamente as letras, artes, provas, stems ou registros individuais.
 
 ## Gate de publicação
 
-A coleta e a organização local foram concluídas. Antes do push final, deve ser executada a validação PHD de existência, hash, duração e decodificação dos 13 arquivos, seguida da revisão do diff. Nenhum arquivo histórico ou documento local não relacionado deve ser incluído no commit.
+A coleta e a organização local foram concluídas. Antes do push final, deve ser executada a validação PHD de existência, hash, duração e decodificação dos 14 arquivos, seguida da revisão do diff. Nenhum arquivo histórico ou documento local não relacionado deve ser incluído no commit.
