@@ -1,0 +1,192 @@
+{
+  "project": "KAIR-S-SONICA",
+  "single": 3,
+  "title": "Golden Scars",
+  "artist": "KTD",
+  "status": "TECHNICAL_TEST",
+  "source_video": "assets/video/aprovados/golden-scars-v1-frame-the-whole-picture-approved.mp4",
+  "source_audio": "assets/audio/releases/ktd-third-single-golden-scars-trend-pre-release-v1.wav",
+  "protocol": "docs/ktd-phd-audiovisual-production-protocol-v1.md",
+  "format": {
+    "width": 720,
+    "height": 1280,
+    "fps": 24,
+    "duration_seconds": 8.0,
+    "video_codec": "H.264",
+    "audio_codec": "AAC",
+    "audio_rate": 44100
+  },
+  "variants": [
+    {
+      "id": "reel01-bring-the-truth",
+      "audio_start_seconds": 33.0,
+      "lyric_hook": "BRING THE TRUTH / BRING THE SCARS",
+      "clean": "outputs/single_3/reels_8s/reel01-bring-the-truth-clean.mp4",
+      "captioned": "outputs/single_3/reels_8s/reel01-bring-the-truth-captioned.mp4",
+      "thumbnail": "outputs/single_3/reels_8s/reel01-bring-the-truth-thumbnail.jpg",
+      "sha256": {
+        "clean": "041681a1aed34530b11eee55398a0d48bd7d275e7f5aa834c438e56ff4824672",
+        "captioned": "5e008b287e6cfcab5ab6a9d5e0df2a0456c5afc2b1bf02f4370fc8a230fa0c87",
+        "thumbnail": "efd95909a9d5f28d2f333c64bd75cd64a7d6e39963c514df6645dbdfc4a15736"
+      },
+      "probe": {
+        "clean": {
+          "programs": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 720,
+              "height": 1280,
+              "r_frame_rate": "24/1"
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2257165"
+          }
+        },
+        "captioned": {
+          "programs": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 720,
+              "height": 1280,
+              "r_frame_rate": "24/1"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2373855"
+          }
+        }
+      }
+    },
+    {
+      "id": "reel02-bring-the-night",
+      "audio_start_seconds": 35.4,
+      "lyric_hook": "BRING THE NIGHT INTO THE STARS",
+      "clean": "outputs/single_3/reels_8s/reel02-bring-the-night-clean.mp4",
+      "captioned": "outputs/single_3/reels_8s/reel02-bring-the-night-captioned.mp4",
+      "thumbnail": "outputs/single_3/reels_8s/reel02-bring-the-night-thumbnail.jpg",
+      "sha256": {
+        "clean": "041681a1aed34530b11eee55398a0d48bd7d275e7f5aa834c438e56ff4824672",
+        "captioned": "227064a4f4d59edea9ecfb79a3ddf7828d4da7c8c0c94469c23ed6432e943d70",
+        "thumbnail": "efd95909a9d5f28d2f333c64bd75cd64a7d6e39963c514df6645dbdfc4a15736"
+      },
+      "probe": {
+        "clean": {
+          "programs": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 720,
+              "height": 1280,
+              "r_frame_rate": "24/1"
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2257165"
+          }
+        },
+        "captioned": {
+          "programs": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 720,
+              "height": 1280,
+              "r_frame_rate": "24/1"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2373041"
+          }
+        }
+      }
+    },
+    {
+      "id": "reel03-bring-both",
+      "audio_start_seconds": 37.9,
+      "lyric_hook": "THEY WANT THE SHINE, NOT THE SCARS — I BRING BOTH",
+      "clean": "outputs/single_3/reels_8s/reel03-bring-both-clean.mp4",
+      "captioned": "outputs/single_3/reels_8s/reel03-bring-both-captioned.mp4",
+      "thumbnail": "outputs/single_3/reels_8s/reel03-bring-both-thumbnail.jpg",
+      "sha256": {
+        "clean": "041681a1aed34530b11eee55398a0d48bd7d275e7f5aa834c438e56ff4824672",
+        "captioned": "ce8a70d7a7202e7bc3e863d6e4c3ba25c01859cc17cfb2565d9574b596a7e836",
+        "thumbnail": "efd95909a9d5f28d2f333c64bd75cd64a7d6e39963c514df6645dbdfc4a15736"
+      },
+      "probe": {
+        "clean": {
+          "programs": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 720,
+              "height": 1280,
+              "r_frame_rate": "24/1"
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2257165"
+          }
+        },
+        "captioned": {
+          "programs": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 720,
+              "height": 1280,
+              "r_frame_rate": "24/1"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "8.000000",
+            "size": "2391982"
+          }
+        }
+      }
+    }
+  ]
+}
