@@ -6,6 +6,8 @@
 **Orquestração:** DJ Káiros / KAIR-S-SONICA  
 **Status:** Protocolo operacional para produção, revisão e rejeição de materiais
 
+> **Controle de identidade v1.0:** a referência visual prevalente é a tríade formada por `assets/persona/ktd-visual-master.png`, `assets/persona/artista-principal-diamante.png` e `assets/persona/ktd-physical-turnaround-sheet.png`, conforme `docs/governance/ktd-av-reference-authority-v1.md`. A lateralidade da heterocromia permanece `PENDING_HUMAN_RESOLUTION` até ratificação explícita do titular; textos operacionais não devem fixar `left/right` antes dessa decisão.
+
 > **Princípio central:** nenhum material entra no catálogo oficial por parecer “bonito”, “viral” ou tecnicamente impressionante. Ele só avança quando preserva a identidade de KTD, demonstra execução audiovisual real, respeita a direção musical e passa pelos gates de qualidade, direitos, continuidade e aprovação humana.
 
 ## 1. Escopo e autoridade
@@ -49,12 +51,14 @@ Os dados abaixo são **referências ficcionais de design e continuidade do perso
 | Pele | Marrom-escura, textura natural, subtom quente |
 | Cabeça | Raspada, sem cabelo visível |
 | Barba | Longa, cheia, preta, bem contornada, aproximadamente 20 cm |
-| Olhos | Esquerdo mel/âmbar; direito azul-claro |
+| Olhos | Heterocromia natural: olho anatômico esquerdo honey-amber e olho anatômico direito pale blue, conforme a ficha de turnaround oficial. Qualquer inversão ou efeito neon reprova o material. |
 | Sobrancelhas | Alinhadas, com dois riscos dourados discretos |
 | Postura | Ombros abertos, centro de gravidade firme e presença de palco |
 | Calçado | US 12 / EU 46 |
 
 ### 2.3 Mapa de tatuagens e continuidade corporal
+
+A verificação de identidade deve usar a tríade visual oficial e a orientação anatômica do sujeito. A descrição textual não pode prevalecer sobre as imagens aprovadas quando houver divergência.
 
 O peito possui sete garras verticais do Dragão Diamante alinhadas ao esterno. O desenho continua pelo abdômen até o umbigo; as costas fecham a criatura de sete cabeças. O braço esquerdo recebe carpas, ondas e cerejeiras. O braço direito recebe samurai, armadura e nuvens orientais. A paleta corporal é predominantemente carvão, preto e cinza profundo, com dourado pontual e azul-acinzentado.[3]
 
@@ -70,9 +74,11 @@ São proibidos texto inserido na imagem-mestre, logotipos não autorizados, wate
 
 ### 3.1 Âncora vocal oficial
 
-A única âncora vocal oficial é:
+A referência de essência vocal definitiva é:
 
-`assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3`
+`/home/ubuntu/upload/pressure-speaks-ktd-essence-v1-master.mp3`
+
+Esta âncora (320 kbps, 44.1 kHz) define o padrão de agressividade controlada, dicção percussiva e autoridade lírica.
 
 Essa referência define o eixo de comparação para novas sessões, takes, edições, gerações, mixagens e decisões de performance. Ela não é autorização para imitar qualquer intérprete real nem para copiar letra, melodia, sotaque ou identidade de terceiros.[4]
 
@@ -142,7 +148,11 @@ Os valores do master de `FIRE IN THE FLOOD` são referência de entrega já regi
 
 O padrão mínimo é vídeo vivo com continuidade temporal. KTD deve executar uma ação observável — caminhar, tocar, abrir, atravessar, carregar, respirar, reagir ou performar — enquanto a câmera acompanha a ação e o cenário responde com comportamento temporal.[6] Uma sequência de stills, uma foto animada ou um PNG com zoom não constitui performance audiovisual aceitável.
 
-A referência canônica de qualidade é `assets/video/promos/unleash-the-dragon-realgclip-01-dressing-room.mp4`, em que KTD ajusta o cadarço, baixa o olhar, muda o apoio corporal, eleva o tronco, avança e termina em close mantendo o mesmo personagem.[7]
+A referência canônica de movimento dinâmico e qualidade live action é:
+
+`/home/ubuntu/upload/fire-in-the-flood-ktd-approved-dynamic-8s.mp4`
+
+Este padrão (720x1280, 24fps, H.264 High Profile) estabelece o requisito de caminhada rítmica, dolly back, cenário industrial reativo e continuidade anatômica absoluta.
 
 ### 5.2 Formatos e usos
 
@@ -161,7 +171,7 @@ A pasta de referências aprovadas registra vídeos verticais de 720×1280, 24 fp
 | Eixo | Critério de aceite |
 |---|---|
 | Identidade | Cabeça raspada, barba longa, pele marrom profunda, riscos dourados e presença reconhecível |
-| Heterocromia | Olho esquerdo mel/âmbar e direito azul-claro, sem troca de lado, neon ou uniformização |
+| Heterocromia | Heterocromia natural; lateralidade e cores conforme a diretiva de autoridade visual e decision record ratificado, sem troca de lado, neon ou uniformização |
 | Tatuagens | Mapa corporal contínuo, anatômico e sem mutações |
 | Performance | Respiração, olhos, boca, mãos, transferência de peso e deslocamento observáveis |
 | Câmera | Travelling, órbita, dolly-back, arco, handheld sutil ou push-in acompanhando ação física real |
