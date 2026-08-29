@@ -1,0 +1,44 @@
+{
+  "schema_version": "ktd-single-proof-metadata-v1",
+  "single": 16,
+  "title": "HE DIED KNEELING",
+  "proof_version": "v8",
+  "status": "TECHNICAL_TEST",
+  "decision": "REJECTED_FOR_PROMOTION",
+  "created_at": "2026-08-29",
+  "source_prompt_record": "docs/singles/single-16-he-died-kneeling-production-brief-v5.md",
+  "correction_record": "docs/singles/single-16-he-died-kneeling-correction-record-v1.md",
+  "audio": {
+    "path": "outputs/single_16/he-died-kneeling-prova-8-v8.mp3",
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 192000,
+    "duration_seconds": 175.568917,
+    "integrated_loudness_lufs": -12.6,
+    "true_peak_dbfs": 0.2,
+    "decode_check": "PASS"
+  },
+  "transcription": {
+    "path": "outputs/single_16/he-died-kneeling-prova-8-v8_transcription_20260829_145339.txt",
+    "json_path": "outputs/single_16/he-died-kneeling-prova-8-v8_transcription_20260829_145339.json",
+    "method": "manus-speech-to-text",
+    "alignment": "semantic_alignment_not_line_exact"
+  },
+  "passed_events": [
+    "respected_gangster_context",
+    "Angel_and_forbidden_district",
+    "weapons_exchanged_for_rings",
+    "honest_exit_with_head_held_high",
+    "unarmed_betrayal",
+    "proposal_on_one_knee",
+    "no_shot_in_the_back",
+    "grief_and_moral_disapproval"
+  ],
+  "blocking_failures": [
+    "best_man_suit_and_altar_call_not_explicitly_audible",
+    "final_line_watch_your_back_conflicts_with_editorial_guardrails",
+    "true_peak_above_distribution_limit"
+  ],
+  "editorial_note": "The previous promotion is withdrawn. This proof is preserved for development only and is not a master or release asset."
+}
