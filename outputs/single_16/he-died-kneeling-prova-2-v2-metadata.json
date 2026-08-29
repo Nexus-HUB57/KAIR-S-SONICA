@@ -1,0 +1,72 @@
+{
+  "schema_version": "ktd-single-proof-metadata-v1",
+  "single": 16,
+  "title": "He Died Kneeling",
+  "artist": "Kháirus the Dragon",
+  "language": "en",
+  "status": "TECHNICAL_TEST",
+  "approval_status": "PENDING_HUMAN_APPROVAL",
+  "source_tool": "manus-tools/generate_music",
+  "source_prompt_record": "docs/singles/single-16-he-died-kneeling-production-brief-v2.md",
+  "lyrics_target": "docs/singles/single-16-he-died-kneeling-lyrics-v2.md",
+  "translation_reference": "docs/singles/pt-br/single-16-he-died-kneeling-lyrics-v2.md",
+  "raw_render": {
+    "path": "outputs/single_16/he-died-kneeling-prova-2-v2.mp3",
+    "sha256": "763e7232cb4084c7239f50ee00d4bb2de00371f40eecde76d8ed8ff6693e47de",
+    "duration_seconds": 172.120750,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 192000,
+    "integrated_loudness_lufs": -12.6,
+    "true_peak_dbfs": 0.3,
+    "decode_check": "PASS",
+    "delivery_eligibility": "NO_TRUE_PEAK_ABOVE_LIMIT"
+  },
+  "conference_copy": {
+    "path": "outputs/single_16/he-died-kneeling-prova-2-v2-gainstaged.mp3",
+    "sha256": "da469d7401351c3806d7c7095a8d8750f63a08aa9076476819380fd6ce2bc811",
+    "gain_change_db": -1.5,
+    "duration_seconds": 172.146939,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 320000,
+    "integrated_loudness_lufs": -14.1,
+    "loudness_range_lu": 8.1,
+    "true_peak_dbfs": -1.1,
+    "decode_check": "PASS",
+    "delivery_eligibility": "PROOF_ONLY_PENDING_FINAL_MASTER"
+  },
+  "vertical_hook": {
+    "path": "outputs/single_16/he-died-kneeling-prova-2-v2-gainstaged-hook-22s.mp3",
+    "sha256": "9593f5e48d3931508565add5f19a5bff9a912c29d526cb8b7cd25d2e1d0cba55",
+    "source_start_seconds": 8.0,
+    "duration_seconds": 22.047347,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 320000,
+    "integrated_loudness_lufs": -13.1,
+    "loudness_range_lu": 1.2,
+    "true_peak_dbfs": -1.2,
+    "decode_check": "PASS",
+    "use": "vertical_social_test_only"
+  },
+  "transcription": {
+    "path": "outputs/single_16/he-died-kneeling-prova-2-v2_transcription_20260829_104136.txt",
+    "json_path": "outputs/single_16/he-died-kneeling-prova-2-v2_transcription_20260829_104136.json",
+    "text_sha256": "75ee88dfdd3cc734f20b328da5fb4b7e48857f00e5e053aedd52a1ec30749c69",
+    "json_sha256": "d6c0f737834747039ea17cb579ab2ec614478b9725f5edcf0bc9c0f55eeb112e",
+    "method": "manus-speech-to-text",
+    "role": "diagnostic_only",
+    "alignment": "semantic_alignment_not_line_exact"
+  },
+  "technical_notes": [
+    "The raw render exceeded the true-peak limit and is preserved only as source provenance.",
+    "The gain-staged MP3 is a conference proof, not a final master.",
+    "No WAV PCM master or stems were generated in this step.",
+    "Human listening and approval remain mandatory before publication.",
+    "The generated vocal contains non-graphic but direct references to the shooting; editorial tone requires human review."
+  ]
+}
