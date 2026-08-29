@@ -1,7 +1,7 @@
 # Single 16 — HE DIED KNEELING — Official Lyrics v3
 
 **Artist:** Kháirus the Dragon (KTD)
-**Status:** `APPROVED` — lyrics associated with the exact approved audio version
+**Status:** `WITHDRAWN_FROM_RELEASE` — previous promotion withdrawn after titular lyric review
 **Official composition language:** English
 **Approved audio:** `assets/audio/releases/ktd-sixteenth-single-he-died-kneeling-v1-official.wav`
 **Approval record:** `docs/singles/single-16-he-died-kneeling-approved-v1.md`

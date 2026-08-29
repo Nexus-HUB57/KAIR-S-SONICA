@@ -1,6 +1,6 @@
 # Single 16 — HE DIED KNEELING — Approval Record v1
 
-**Status:** `APPROVED` pelo titular artístico nesta sessão
+**Status:** `WITHDRAWN_FROM_RELEASE` — promoção retirada após revisão da letra pelo titular
 **Data da aprovação:** 2026-08-29
 **Versão aprovada:** `he-died-kneeling-prova-6-v6-gainstaged.mp3`, promovida sem alteração de conteúdo para os arquivos oficiais de distribuição
 **Título oficial:** HE DIED KNEELING
@@ -31,3 +31,7 @@ A letra v3 oficial foi reconstruída a partir da tomada aprovada e da transcriç
 ## Decisão
 
 O Single 16 pode ser promovido para o catálogo oficial de áudio e para o repositório público de entrega nos caminhos manifestados. Nenhum material visual ou campanha não manifestado deve ser tratado como aprovado por associação. Qualquer novo corte, remix, tradução vocal, capa ou vídeo exige seu próprio registro e escopo de aprovação.
+
+## Correction addendum — promotion withdrawn
+
+Após revisão do titular em 2026-08-29, a promoção anterior do Single 16 foi retirada como release ativo porque a letra v3 era resumida, não correspondia à letra aprovada e continha uma imagem incorreta. Os arquivos permanecem preservados para auditoria, mas seus status ativos são históricos/suspensos. A letra v4 e a Prova 8 são candidatas de desenvolvimento e exigem nova aprovação humana.
