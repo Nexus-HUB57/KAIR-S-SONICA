@@ -1,0 +1,70 @@
+{
+  "schema_version": "ktd-single-proof-metadata-v1",
+  "single": 16,
+  "title": "He Died Kneeling",
+  "artist": "Kháirus the Dragon",
+  "language": "en",
+  "status": "TECHNICAL_TEST",
+  "approval_status": "PENDING_HUMAN_APPROVAL",
+  "revision_reason": "Prova 2 rejected by titular for insufficient intensity, aggressive KTD essence, vocal grief, chorus crying, aggressive beat, and violent low-end impact.",
+  "source_tool": "manus-tools/generate_music",
+  "source_prompt_record": "docs/singles/single-16-he-died-kneeling-production-brief-v3.md",
+  "lyrics_target": "docs/singles/single-16-he-died-kneeling-lyrics-v2.md",
+  "rejection_record": "docs/singles/single-16-he-died-kneeling-prova-2-rejection-record-v1.md",
+  "raw_render": {
+    "path": "outputs/single_16/he-died-kneeling-prova-3-v3.mp3",
+    "sha256": "e3ec890a2edbe881c9c6d75ae4317cf786ac57636548a353295bbad26112195b",
+    "duration_seconds": 170.971375,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 192000,
+    "integrated_loudness_lufs": -12.4,
+    "true_peak_dbfs": 0.2,
+    "decode_check": "PASS",
+    "delivery_eligibility": "NO_TRUE_PEAK_ABOVE_LIMIT"
+  },
+  "conference_copy": {
+    "path": "outputs/single_16/he-died-kneeling-prova-3-v3-gainstaged.mp3",
+    "sha256": "0337b6fb754127d09fe632241f6511cd5546b0f8c54274b61cd061ca2d7720a6",
+    "gain_change_db": -1.5,
+    "duration_seconds": 170.997551,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 320000,
+    "integrated_loudness_lufs": -13.9,
+    "loudness_range_lu": 8.3,
+    "true_peak_dbfs": -1.2,
+    "decode_check": "PASS",
+    "delivery_eligibility": "PROOF_ONLY_PENDING_FINAL_MASTER"
+  },
+  "vertical_hook": {
+    "path": "outputs/single_16/he-died-kneeling-prova-3-v3-gainstaged-hook-22s.mp3",
+    "sha256": "e32eadc9fb3f7801bf3a381d30eceeee11efff99e0066ad10061886f20250f24",
+    "source_start_seconds": 6.0,
+    "duration_seconds": 22.047347,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 320000,
+    "integrated_loudness_lufs": -13.2,
+    "loudness_range_lu": 7.1,
+    "true_peak_dbfs": -1.3,
+    "decode_check": "PASS",
+    "use": "vertical_social_test_only"
+  },
+  "transcription": {
+    "path": "outputs/single_16/he-died-kneeling-prova-3-v3_transcription_20260829_110900.txt",
+    "json_path": "outputs/single_16/he-died-kneeling-prova-3-v3_transcription_20260829_110900.json",
+    "method": "manus-speech-to-text",
+    "role": "diagnostic_only",
+    "alignment": "semantic_alignment_not_line_exact"
+  },
+  "editorial_notes": [
+    "The proof intentionally foregrounds grief, anger, crying melodic delivery, and aggressive low-end as requested by the titular.",
+    "Automatic transcription confirms the story and early hook but cannot prove emotional intensity or vocal crying.",
+    "Human listening remains mandatory before approval or publication.",
+    "No master WAV PCM, stems, or public delivery package was created in this step."
+  ]
+}
