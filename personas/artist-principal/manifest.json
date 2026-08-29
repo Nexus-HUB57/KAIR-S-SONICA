@@ -21,12 +21,9 @@
     "head": "shaved",
     "beard": "long full black beard, approximately 20 cm / 8 in",
     "eyes": {
-      "status": "RATIFIED",
-      "left": "honey-amber",
-      "right": "pale clear-blue",
-      "orientation": "anatômica do sujeito (subject-relative)",
-      "authority": "ktd-physical-turnaround-sheet.webp",
-      "continuity_rule": "heterochromia is immutable: anatomical left is honey-amber, anatomical right is pale blue"
+      "right": "honey-amber",
+      "left": "pale clear-blue",
+      "continuity_rule": "heterochromia is immutable in every visual asset"
     },
     "eyebrows": "aligned eyebrows with restrained gold slits",
     "shoe_size": {
@@ -37,7 +34,7 @@
   },
   "visual_identity": {
     "presentation": "original fictional Black adult man with realistic human proportions, compact athletic presence, shaved head and long full beard",
-    "signature": "natural heterochromia; final anatomical side assignment is governed by KTD-AV-REF-001 and the human decision record",
+    "signature": "natural heterochromia: right honey-amber eye and left pale clear-blue eye",
     "eyebrows": "aligned eyebrows with two restrained gold slits",
     "tattoo_system": {
       "status": "immutable",
@@ -54,7 +51,7 @@
   },
   "voice_identity": {
     "status": "approved_reference_locked",
-    "official_reference": "/home/ubuntu/upload/pressure-speaks-ktd-essence-v1-master.mp3",
+    "official_reference": "assets/audio/kairos-rapid-rap-flow-demo-en-v3.mp3",
     "official_reference_rule": "Esta é a única referência vocal aprovada para a identidade de KTD; novas faixas devem preservar seu timbre, presença, agressividade, poesia, double-time, resets em half-time e articulação frontal.",
     "rejected_reference": "assets/audio/ktd-vocal-rough-take-v2.wav",
     "rejected_reference_reason": "Desaprovada: voz abafada, lenta, sem autenticidade e sem as características oficiais de KTD; preservar somente para auditoria histórica e nunca usar como referência de geração.",
@@ -152,8 +149,6 @@
     "primary_portrait": "assets/persona/artista-principal-diamante.png",
     "visual_master": "assets/persona/ktd-visual-master.png",
     "physical_turnaround_sheet": "assets/persona/ktd-physical-turnaround-sheet.png",
-    "av_reference_authority": "docs/governance/ktd-av-reference-authority-v1.md",
-    "live_action_reference": "/home/ubuntu/upload/fire-in-the-flood-ktd-approved-dynamic-8s.mp4",
     "fullbody_rooftop": "assets/persona/ktd-expression-rooftop.png",
     "casual_studio": "assets/persona/ktd-expression-studio.png",
     "stage_performance": "assets/persona/ktd-expression-stage.png",

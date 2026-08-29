@@ -2,7 +2,7 @@
 
 ## Identidade fixa
 
-Kháirus the Dragon, KTD, é um homem negro adulto de presença atlética e compacta, cabeça raspada, barba longa e cheia, sobrancelhas alinhadas com dois riscos dourados discretos e heterocromia natural: olho esquerdo cor de mel/âmbar e olho direito azul-claro. O rosto deve manter a mesma estrutura, mas não precisa repetir a mesma expressão. A interpretação pode variar entre contemplação, dor contida, fúria de palco, ironia, concentração e alívio depois da performance.
+Kháirus the Dragon, KTD, é um homem negro adulto de presença atlética e compacta, cabeça raspada, barba longa e cheia, sobrancelhas alinhadas com dois riscos dourados discretos e heterocromia natural: olho direito cor de mel/âmbar e olho esquerdo azul-claro. O rosto deve manter a mesma estrutura, mas não precisa repetir a mesma expressão. A interpretação pode variar entre contemplação, dor contida, fúria de palco, ironia, concentração e alívio depois da performance.
 
 ## Mapa único das tatuagens
 

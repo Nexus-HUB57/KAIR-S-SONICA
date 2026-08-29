@@ -21,7 +21,7 @@ Esta ficha define dados ficcionais de continuidade para Kháirus the Dragon, tam
 | Pele | Marrom-escura, textura natural, subtom quente |
 | Cabeça | Raspada, sem cabelo visível |
 | Barba | Longa, cheia, preta, bem contornada, aproximadamente 8 in / 20 cm |
-| Olhos | Esquerdo mel/âmbar; direito azul-claro |
+| Olhos | Direito mel/âmbar; esquerdo azul-claro |
 | Sobrancelhas | Alinhadas com dois riscos dourados discretos |
 | Postura | Ombros abertos, centro de gravidade firme, presença de palco |
 

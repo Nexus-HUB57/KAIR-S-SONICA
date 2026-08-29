@@ -22,3 +22,7 @@ Gatilho: capa do Single 1 reprovada pelo titular ("não é KTD e não são as ta
 
 ## Custo desta sessão
 1 imagem gerada (reprovada) + auditoria. Nenhuma outra geração será feita até a decisão do titular.
+
+
+## DECISÃO DO TITULAR (2026-08-29)
+Heterocromia oficial = IMAGENS aprovadas: olho DIREITO de KTD é mel/âmbar, olho ESQUERDO é azul-claro. Documentação corrigida neste commit. A tríade visual é a autoridade final.
