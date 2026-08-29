@@ -41,3 +41,7 @@ Os masters organizados estão em `assets/audio/albums/ktd-first-album/masters/`,
 ## Gate de publicação
 
 A coleta e a organização local foram concluídas. Antes do push final, deve ser executada a validação PHD de existência, hash, duração e decodificação dos 14 arquivos, seguida da revisão do diff. Nenhum arquivo histórico ou documento local não relacionado deve ser incluído no commit.
+
+## Addendum — Single 16 aprovado
+
+Em 2026-08-29, o titular aprovou **HE DIED KNEELING** como single oficial. O master WAV de distribuição está em `assets/audio/albums/ktd-first-album/masters/16-he-died-kneeling.wav` e o MP3 companheiro em `assets/audio/albums/ktd-first-album/masters/16-he-died-kneeling.mp3`; ambos são cópias da versão aprovada registrada em `docs/singles/single-16-he-died-kneeling-approved-v1.md`. A camada é não destrutiva e não substitui as provas nem os masters históricos.

@@ -44,3 +44,7 @@ A auditoria encontrou fontes de letra em inglês para os dez singles e dez tradu
 As fontes inglesas existentes permanecem em seus caminhos originais. As traduções seguem a convenção `single-{n}-{slug}-lyrics-pt-br.md`, com o sufixo explícito `pt-br` para distinguir o idioma de referência do idioma oficial de lançamento.
 
 Nenhum master aprovado dos Singles 1–9 foi alterado nesta revisão. Os arquivos da primeira prova do Single 10 foram adicionados separadamente para avaliação e não devem ser tratados como masters finais.
+
+## Addendum — Single 16
+
+O Single 16, **HE DIED KNEELING**, foi aprovado em 2026-08-29. A fonte inglesa oficial é `docs/singles/single-16-he-died-kneeling-lyrics-v3-official.md`; a tradução PT-BR de referência é `docs/singles/pt-br/single-16-he-died-kneeling-lyrics-pt-br-v3-reference.md`. O inglês permanece o idioma oficial de composição e lançamento. A tradução não autoriza gravação vocal em português.
