@@ -1,0 +1,69 @@
+{
+  "schema_version": "ktd-single-proof-metadata-v1",
+  "single": 16,
+  "title": "He Died Kneeling",
+  "artist": "Kháirus the Dragon",
+  "language": "en",
+  "status": "TECHNICAL_TEST",
+  "approval_status": "PENDING_HUMAN_APPROVAL",
+  "revision_reason": "Titular said Prova 5 was close but requested more chorus intensity.",
+  "source_tool": "manus-tools/generate_music",
+  "source_prompt_focus": "Keep old-school rapper identity; make chorus the emotional and sonic peak through three-stage growth, cracked chest voice, doubled lead, low octave, rough funeral response, ad-libs, and drum-dropout transitions.",
+  "raw_render": {
+    "path": "outputs/single_16/he-died-kneeling-prova-6-v6.mp3",
+    "sha256": "a7b39d7f56b5ad0dc2f88fc381c7907bc16a45532685a6b3b08044db484d5e5e",
+    "duration_seconds": 173.322375,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 192000,
+    "integrated_loudness_lufs": -12.0,
+    "loudness_range_lu": 9.3,
+    "true_peak_dbfs": 0.4,
+    "decode_check": "PASS",
+    "delivery_eligibility": "NO_TRUE_PEAK_ABOVE_LIMIT"
+  },
+  "conference_copy": {
+    "path": "outputs/single_16/he-died-kneeling-prova-6-v6-gainstaged.mp3",
+    "sha256": "3c0355e0659a77f908dcc0d8f989ab0d0bc4a14abe8b176d500340ede304f627",
+    "gain_change_db": -1.5,
+    "duration_seconds": 173.348571,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 320000,
+    "integrated_loudness_lufs": -13.5,
+    "loudness_range_lu": 9.3,
+    "true_peak_dbfs": -1.1,
+    "decode_check": "PASS",
+    "delivery_eligibility": "PROOF_ONLY_PENDING_FINAL_MASTER"
+  },
+  "vertical_hook": {
+    "path": "outputs/single_16/he-died-kneeling-prova-6-v6-gainstaged-hook-22s.mp3",
+    "sha256": "68526359564bb5b3075fb1e752760bbb69d28ccf7db82ef08b1f1e17f9d83d82",
+    "source_start_seconds": 7.0,
+    "duration_seconds": 22.047347,
+    "codec": "mp3",
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "bit_rate_bps": 320000,
+    "integrated_loudness_lufs": -12.3,
+    "loudness_range_lu": 2.4,
+    "true_peak_dbfs": -1.3,
+    "decode_check": "PASS",
+    "use": "vertical_social_test_only"
+  },
+  "transcription": {
+    "path": "outputs/single_16/he-died-kneeling-prova-6-v6_transcription_20260829_133613.txt",
+    "json_path": "outputs/single_16/he-died-kneeling-prova-6-v6_transcription_20260829_133613.json",
+    "method": "manus-speech-to-text",
+    "role": "diagnostic_only",
+    "alignment": "semantic_alignment_not_line_exact"
+  },
+  "editorial_notes": [
+    "The chorus was deliberately made the highest-density section, with three-stage escalation and call-and-response.",
+    "Angel is explicitly present in the generated narrative.",
+    "Human listening is required to judge pain, crying, emotional lift, and KTD identity.",
+    "No public delivery package, master WAV, or stems were created in this step."
+  ]
+}
