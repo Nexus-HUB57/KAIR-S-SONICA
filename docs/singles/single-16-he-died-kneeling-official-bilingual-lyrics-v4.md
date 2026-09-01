@@ -4,7 +4,7 @@
 **Artista:** Kháirus the Dragon (KTD)
 **Idioma oficial da composição:** English
 **Tradução:** Português do Brasil
-**Status documental:** `OFFICIAL_BILINGUAL_LYRIC_DOCUMENT`
+**Status documental:** `OFFICIAL_BILINGUAL_LYRIC_DOCUMENT` — confirmed by titular
 **Versão textual:** v4 — letra integral e tradução correspondente
 **Data de consolidação:** 2026-09-01
 

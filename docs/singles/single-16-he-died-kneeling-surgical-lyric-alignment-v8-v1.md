@@ -1,7 +1,7 @@
 # Single 16 — HE DIED KNEELING
 ## Matriz cirúrgica de substituição vocal — V8
 
-**Status:** `SURGICAL_LYRIC_DEVELOPMENT`
+**Status:** `DERIVATIVE_TIMING_GUIDE_ONLY`
 **Referência musical:** `he-died-kneeling-prova-8-v8.mp3`
 **Objetivo:** substituir somente o texto vocal, preservando melodia, andamento, entradas, pausas, pocket e energia da V8
 **Idioma de gravação:** English
@@ -101,6 +101,6 @@ As linhas foram mantidas curtas e com ataques semelhantes aos da V8 para preserv
 
 ## Fechamento de produção
 
-A V8 original permanece arquivada sem alteração. Esta matriz corrige os pontos que faltaram no áudio: a vida de gangster respeitada, Angel na região proibida, a decisão detalhada de abandonar o crime, a troca das armas por alianças, a traição planejada, o telefonema explícito do padrinho, o altar, a praça, a morte ajoelhado e a tese de honra.
+A V8 original permanece arquivada sem alteração. A letra oficial é a fonte bilíngue confirmada pelo titular; esta matriz serve apenas para timing e não substitui nenhuma linha. Esta matriz corrige os pontos que faltaram no áudio: a vida de gangster respeitada, Angel na região proibida, a decisão detalhada de abandonar o crime, a troca das armas por alianças, a traição planejada, o telefonema explícito do padrinho, o altar, a praça, a morte ajoelhado e a tese de honra.
 
 Para executar a troca de forma fiel, o próximo passo técnico é obter stems ou uma sessão com instrumental e vocal separados. Uma nova geração por prompt não é considerada substituição cirúrgica e não deve ser usada para este objetivo.
