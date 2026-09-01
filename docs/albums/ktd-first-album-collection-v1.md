@@ -1,7 +1,7 @@
 # KTD — Coletânea completa do primeiro álbum
 
 **Artista:** Kháirus the Dragon (KTD)  
-**Escopo:** 14 singles enviados/aprovados pelo titular para composição da coletânea completa do primeiro álbum  
+**Escopo:** 15 singles enviados/aprovados pelo titular para composição da coletânea completa do primeiro álbum; o Single #16 oficial permanece registrado em addendum  
 **Data do inventário:** 27 de agosto de 2026  
 **Protocolo:** PHD — Preflight, Handoff, Determinism
 
@@ -27,6 +27,7 @@ Os arquivos históricos existentes em `assets/audio`, `outputs`, `docs/singles` 
 | 12 | Hold the Ladder | `12-hold-the-ladder.mp3` | `HOLDTHELADDER-KTD.mp3` | 155,951020 s | MP3 estéreo, 44,1 kHz, 192 kbps | `73e3b7cd42b02877110cc42b70bb742d3111300327222c9b234ed59d4ed88240` |
 | 13 | What Happens in Vegas | `13-what-happens-in-vegas.mp3` | `WHATHAPPENSINVEGAS-KTD.mp3` | 162,298776 s | MP3 estéreo, 44,1 kHz, 192 kbps | `fc5fea4ed303013d7eebabf4ac8646703110b65e85406ec94a66e9fcea6d071e` |
 | 14 | Paid in Full | `14-paid-in-full.mp3` | `single-14-paid-in-full-sniper-refrain-proof-v1.mp3` | 179,670167 s | MP3 estéreo, 44,1 kHz, 192 kbps | `640e5bd2a2e3fa404571dfc26877bd3df45bf9daaf7f5c41a2d804bc73eeb538` |
+| 15 | Five Hundred | `15-five-hundred.mp3` | `single-15-five-hundred-proof-v1.mp3` | 179,487292 s | MP3 estéreo, 44,1 kHz, 192 kbps | `a11c177f47a269632ffe7599cc3f0b3ea359aeae5364293b055f7f5893b3a3a6` |
 
 ## Reconciliação com o histórico
 
@@ -36,12 +37,16 @@ A afirmação de que os 13 singles estão aprovados foi recebida do titular nest
 
 ## Estrutura
 
-Os masters organizados estão em `assets/audio/albums/ktd-first-album/masters/`, numerados de 01 a 14. O Single #14 foi adicionado como camada aprovada posterior, sem alterar os 13 registros anteriores. A pasta é uma coleção de entrega organizada, não substitui os diretórios históricos de produção e não altera automaticamente as letras, artes, provas, stems ou registros individuais.
+Os masters organizados estão em `assets/audio/albums/ktd-first-album/masters/`, numerados de 01 a 15. O Single #14 foi adicionado como camada aprovada posterior, sem alterar os 13 registros anteriores. A pasta é uma coleção de entrega organizada, não substitui os diretórios históricos de produção e não altera automaticamente as letras, artes, provas, stems ou registros individuais.
 
 ## Gate de publicação
 
-A coleta e a organização local foram concluídas. Antes do push final, deve ser executada a validação PHD de existência, hash, duração e decodificação dos 14 arquivos, seguida da revisão do diff. Nenhum arquivo histórico ou documento local não relacionado deve ser incluído no commit.
+A coleta e a organização local foram concluídas. Antes do push final, deve ser executada a validação PHD de existência, hash, duração e decodificação dos 15 arquivos, seguida da revisão do diff. Nenhum arquivo histórico ou documento local não relacionado deve ser incluído no commit.
 
 ## Addendum — Single 16 aprovado
 
 Em 2026-08-29, o titular aprovou **HE DIED KNEELING** como single oficial. O master WAV de distribuição está em `assets/audio/albums/ktd-first-album/masters/16-he-died-kneeling.wav` e o MP3 companheiro em `assets/audio/albums/ktd-first-album/masters/16-he-died-kneeling.mp3`; ambos são cópias da versão aprovada registrada em `docs/singles/single-16-he-died-kneeling-approved-v1.md`. A camada é não destrutiva e não substitui as provas nem os masters históricos.
+
+## Proposta não canônica — Single #17
+
+A história da irmã sob controle coercitivo está registrada somente como proposta de Single #17 em `docs/singles/single-17-princess-no-more-*`. Ela não altera a numeração, o master, a letra ou o status oficial do Single #16 **HE DIED KNEELING**.
