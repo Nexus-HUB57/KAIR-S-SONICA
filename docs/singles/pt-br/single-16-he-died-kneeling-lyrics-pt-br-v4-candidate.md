@@ -1,7 +1,7 @@
 # Single 16 — HE DIED KNEELING — Tradução PT-BR de referência v4
 
 **Artista:** Kháirus the Dragon (KTD)
-**Status:** `DRAFT` — tradução de referência da nova candidata; não autoriza gravação em português
+**Status:** `TITULAR_SOURCE` — texto fornecido pelo titular; tradução de referência e fonte textual autoritativa
 **Fonte:** `docs/singles/single-16-he-died-kneeling-lyrics-v4-candidate.md`
 
 > O inglês continua sendo o idioma oficial de composição e lançamento. Esta tradução preserva os detalhes da história para leitura, localização e revisão do titular.
