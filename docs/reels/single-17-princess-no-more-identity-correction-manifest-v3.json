@@ -1,0 +1,36 @@
+{
+  "project": "KAIR-S-SONICA",
+  "single": 17,
+  "title": "Princess, No More",
+  "status": "GENERATED_TEST",
+  "identity_correction": {
+    "left_eye": "honey amber",
+    "right_eye": "clear ice blue",
+    "other_anchors": [
+      "shaved head",
+      "long full beard",
+      "chest and arm tattoos",
+      "dark streetwear"
+    ]
+  },
+  "frames": [
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-proof-04-silent-suffering-heterochromia-v3.png",
+      "sha256": "42ee6d5e8b73d1be119ec9e5bc0c026f3d5aa5f07da6f62e87573070aacf046f",
+      "dimensions": "1440x2560",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-proof-05-consoling-heterochromia-v3.png",
+      "sha256": "5cb4b2624ef11e07e5f53bf65ad3aae315c64999665713059922c5c4e3c2686d",
+      "dimensions": "1440x2560",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-proof-06-freedom-heterochromia-v3.png",
+      "sha256": "c41fc4b61592019e08ee0e238ca4bd6b964169f94553e9ecb313ea4b3b97a193",
+      "dimensions": "1440x2560",
+      "aspect_ratio": "9:16"
+    }
+  ]
+}
