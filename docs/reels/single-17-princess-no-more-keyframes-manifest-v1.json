@@ -1,0 +1,65 @@
+{
+  "project": "KAIR-S-SONICA",
+  "artist": "Kháirus The Dragon (KTD)",
+  "single": 17,
+  "title": "Princess, No More",
+  "purpose": "Reels visual keyframe package",
+  "status": "GENERATED_TEST",
+  "video_generation": "BLOCKED_PLAN_ACCESS",
+  "source_references": [
+    "assets/persona/ktd-visual-master.png",
+    "assets/persona/ktd-expression-stage.png",
+    "assets/persona/ktd-expression-street.png"
+  ],
+  "audio_candidates": [
+    "assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-a-melodic-v1.mp3",
+    "assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-b-documentary-v1.mp3"
+  ],
+  "frames": [
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-frame-a-protection.png",
+      "sha256": "61271b01f664a56d85165a606a5d25fc15f96c20bb98d47e00c94dd2595c676d",
+      "width": 1440,
+      "height": 2560,
+      "aspect_ratio": "9:16",
+      "status": "GENERATED_TEST"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-frame-b-recovery.png",
+      "sha256": "5ab44f824bd1d453692a8ac30565afce93cec18c78f1aa6d1b89d7bd25e87a22",
+      "width": 1440,
+      "height": 2560,
+      "aspect_ratio": "9:16",
+      "status": "GENERATED_TEST"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-frame-c-hook.png",
+      "sha256": "188e71f0f1e94136a36697633975e04100e51debcb6dd59af9a92996f8a251c2",
+      "width": 1440,
+      "height": 2560,
+      "aspect_ratio": "9:16",
+      "status": "GENERATED_TEST"
+    }
+  ],
+  "planned_clips": [
+    {
+      "id": "single-17-reel-01-protection",
+      "frame": "assets/reels/single-17-princess-no-more/single-17-frame-a-protection.png",
+      "duration_seconds": 8,
+      "audio": false
+    },
+    {
+      "id": "single-17-reel-02-recovery",
+      "frame": "assets/reels/single-17-princess-no-more/single-17-frame-b-recovery.png",
+      "duration_seconds": 8,
+      "audio": false
+    },
+    {
+      "id": "single-17-reel-03-hook",
+      "frame": "assets/reels/single-17-princess-no-more/single-17-frame-c-hook.png",
+      "duration_seconds": 8,
+      "audio": false
+    }
+  ],
+  "next_action": "Generate three real-motion portrait clips with gemini-omni-flash-preview after access is enabled; do not substitute slideshow/procedural zoom."
+}
