@@ -1,0 +1,54 @@
+Starting Speech-to-Text conversion...
+Transcribing audio file: assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-c-hybrid-v2.mp3, file size: 4.09 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 178.6 seconds
+Language: eng
+Timestamped segments:
+[00:00.2 - 00:10.3] Seventeen and dreaming wide First love on a golden tide He was twenty with a heavy name Bought the world to win the game Wrapped in
+[00:10.3 - 00:16.7] velvet, locked in steel She forgot how to truly feel Little sister, can you hear the bell?
+[00:16.7 - 00:26.8] Walls aren’t love, they’re just a cell Walls aren’t love, they’re just a cell Return to yourself, princess Fly
+[00:26.8 - 00:36.9] from the stone Walls are not love You are never alone Walls are not love Walls are
+[00:36.9 - 00:47.5] not love You are free, you are free To return to yourself Return to yourself Return to yourself
+[00:47.5 - 00:57.8] Graduation cap He said the dress was way too short Called her phone a leash Made her quit the school report
+[00:57.8 - 01:12.5] Stitched her schedule tight Said her friends were just a threat Erased the work she loved Till she had nothing left to get Erased
+[01:12.5 - 01:22.5] the work she loved Till she had nothing left to get Mistook the heavy hand for the heart The control for a bond But the girl I knew
+[01:22.5 - 01:32.6] was sinking In the dark of his pond No more
+[01:32.6 - 01:43.0] glitter in her grin Grades were failing, light was thin Work was abandoned,
+[01:43.0 - 01:53.0] her circle was gone Just a shadow where she once met the dawn Return to yourself, princess
+[01:53.0 - 02:03.2] Fly from the stone Walls are not love You are never alone Walls are not love Walls are
+[02:03.2 - 02:14.9] not love You are free, you are free To return to yourself Return to yourself Phone
+[02:14.9 - 02:25.0] rang in the midnight Hospital on the line KTD in a V8 Pushing past the sign Miles of highway fire
+[02:25.0 - 02:35.2] Brother’s heart in my chest Saw the bruises on your spirit Failed the sanity test I saw red and I acted Crossed a line in the dark My reaction left a visible and legal mark They used the money and lawyers
+[02:35.2 - 02:45.3] While the law punished me But I’d pay it all again Just to know that you are free You are safe,
+[02:45.3 - 02:54.9] you are free Don’t you blame yourself Return to the smile Return to the books Return to the world You are home now
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-c-hybrid-v2_transcription_20260902_014206.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-c-hybrid-v2_transcription_20260902_014206.txt
+[2J[H[3Jmanus-speech-to-text assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-c-hybrid-v2.mp3
+Starting Speech-to-Text conversion...
+Transcribing audio file: assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-c-hybrid-v2.mp3, file size: 4.09 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.2 - 00:10.3] Seventeen and dreaming wide First love on a golden tide He was twenty with a heavy name Bought the world to win the game Wrapped in
+[00:10.3 - 00:16.7] velvet, locked in steel She forgot how to truly feel Little sister, can you hear the bell?
+[00:16.7 - 00:26.8] Walls aren’t love, they’re just a cell Walls aren’t love, they’re just a cell Return to yourself, princess Fly
+[00:26.8 - 00:36.9] from the stone Walls are not love You are never alone Walls are not love Walls are
+[00:36.9 - 00:47.5] not love You are free, you are free To return to yourself Return to yourself Return to yourself
+[00:47.5 - 00:57.8] Graduation cap He said the dress was way too short Called her phone a leash Made her quit the school report
+[00:57.8 - 01:12.5] Stitched her schedule tight Said her friends were just a threat Erased the work she loved Till she had nothing left to get Erased
+[01:12.5 - 01:22.5] the work she loved Till she had nothing left to get Mistook the heavy hand for the heart The control for a bond But the girl I knew
+[01:22.5 - 01:32.6] was sinking In the dark of his pond No more
+[01:32.6 - 01:43.0] glitter in her grin Grades were failing, light was thin Work was abandoned,
+[01:43.0 - 01:53.0] her circle was gone Just a shadow where she once met the dawn Return to yourself, princess
+[01:53.0 - 02:03.2] Fly from the stone Walls are not love You are never alone Walls are not love Walls are
+[02:03.2 - 02:14.9] not love You are free, you are free To return to yourself Return to yourself Phone
+[02:14.9 - 02:25.0] rang in the midnight Hospital on the line KTD in a V8 Pushing past the sign Miles of highway fire
+[02:25.0 - 02:35.2] Brother’s heart in my chest Saw the bruises on your spirit Failed the sanity test I saw red and I acted Crossed a line in the dark My reaction left a visible and legal mark They used the money and lawyers
+[02:35.2 - 02:45.3] While the law punished me But I’d pay it all again Just to know that you are free You are safe,
+[02:45.3 - 02:54.9] you are free Don’t you blame yourself Return to the smile Return to the books Return to the world You are home now
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-c-hybrid-v2_transcription_20260902_014206.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-proof-c-hybrid-v2_transcription_20260902_014206.txt
