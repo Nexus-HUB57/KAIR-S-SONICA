@@ -1,0 +1,122 @@
+Starting Speech-to-Text conversion...
+Transcribing audio file: assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-reference-aligned-proof-d-v1.mp3, file size: 4.04 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 176.4 seconds
+Language: eng
+Timestamped segments:
+[00:00.2 - 00:03.9] Watch the walls they build inside the dark.
+[00:03.9 - 00:10.0] Come back, princess.
+[00:10.0 - 00:11.5] Walk away.
+[00:11.5 - 00:15.5] Walls are glass and not a place to stay.
+[00:15.5 - 00:16.9] You're free.
+[00:16.9 - 00:23.1] You're free.
+[00:23.1 - 00:25.1] You're free.
+[00:25.1 - 00:27.1] You're free.
+[00:27.1 - 00:29.2] You're free.
+[00:29.2 - 00:32.4] Seventeen and he was twenty.
+[00:32.4 - 00:34.4] Silver spoon and eyes of lead.
+[00:34.4 - 00:37.8] He dressed her in the shadow of the things he never said.
+[00:37.8 - 00:42.0] Cut the phone and cut the circle, said her friends were just a noise.
+[00:42.0 - 00:46.2] School was just a distraction from his expensive little toys.
+[00:46.2 - 00:51.9] Work was optional, movement mapped that he would draw.
+[00:51.9 - 00:55.9] He called it protection while he broke every single law.
+[00:55.9 - 01:00.4] Her smile went gray, her grades decayed, the fire turned to smoke.
+[01:00.4 - 01:05.0] A golden cage is just a cage when every bar is what he spoke.
+[01:05.0 - 01:11.6] Fade out the vision, fade out the light.
+[01:11.6 - 01:16.2] Watching the sparkle get swallowed by night.
+[01:16.2 - 01:20.5] Come back, princess.
+[01:20.5 - 01:21.8] Walk away.
+[01:21.8 - 01:25.8] Walls are glass and not a place to stay.
+[01:25.8 - 01:29.3] You're free.
+[01:29.3 - 01:35.1] You're free.
+[01:35.1 - 01:37.1] You're free.
+[01:37.1 - 01:39.1] You're free.
+[01:39.1 - 01:41.1] You're free.
+[01:41.1 - 01:46.4] Heavy metal in the dark, the V8 roared a hollow plea.
+[01:46.4 - 01:49.9] Eighty miles of asphalt separating him from me.
+[01:49.9 - 01:54.2] Left the show, took the call, the hallway lights were cold and thin.
+[01:54.2 - 01:58.3] Saw the marks and saw the man and let the dragon out from in.
+[01:58.3 - 02:02.1] A boundary crossed, a line erased, a second in the red.
+[02:02.1 - 02:05.8] While lawyers count the dollars, I am counting what he bled.
+[02:05.8 - 02:09.8] They soften up the verdict with the power of the name.
+[02:09.8 - 02:14.1] While I am punished for the heat, they're hiding in the flame.
+[02:14.1 - 02:23.1] I crossed the line to find the truth.
+[02:23.1 - 02:25.3] The anger was my own.
+[02:25.3 - 02:29.9] A reactive hand is still a hand that shouldn't have been thrown.
+[02:29.9 - 02:32.2] Come back, princess.
+[02:32.2 - 02:33.6] Walk away.
+[02:33.6 - 02:37.5] Walls are glass and not a place to stay.
+[02:37.5 - 02:38.8] You're free.
+[02:38.8 - 02:39.0] You're free.
+[02:39.0 - 02:39.0] You're free.
+[02:39.0 - 02:41.0] You're free.
+[02:41.0 - 02:45.8] Sing it now, be free now.
+[02:45.8 - 02:46.9] You're free.
+[02:46.9 - 02:50.5] Get your smile, get your school, get your work, get your voice back.
+[02:50.5 - 02:53.5] Come back to the world, princess.
+[02:53.5 - 02:55.4] You're finally free.
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-reference-aligned-proof-d-v1_transcription_20260902_021559.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-reference-aligned-proof-d-v1_transcription_20260902_021559.txt
+[2J[H[3Jmanus-speech-to-text assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-reference-aligned-proof-d-v1.mp3
+Starting Speech-to-Text conversion...
+Transcribing audio file: assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-reference-aligned-proof-d-v1.mp3, file size: 4.04 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.2 - 00:03.9] Watch the walls they build inside the dark.
+[00:03.9 - 00:10.0] Come back, princess.
+[00:10.0 - 00:11.5] Walk away.
+[00:11.5 - 00:15.5] Walls are glass and not a place to stay.
+[00:15.5 - 00:16.9] You're free.
+[00:16.9 - 00:23.1] You're free.
+[00:23.1 - 00:25.1] You're free.
+[00:25.1 - 00:27.1] You're free.
+[00:27.1 - 00:29.2] You're free.
+[00:29.2 - 00:32.4] Seventeen and he was twenty.
+[00:32.4 - 00:34.4] Silver spoon and eyes of lead.
+[00:34.4 - 00:37.8] He dressed her in the shadow of the things he never said.
+[00:37.8 - 00:42.0] Cut the phone and cut the circle, said her friends were just a noise.
+[00:42.0 - 00:46.2] School was just a distraction from his expensive little toys.
+[00:46.2 - 00:51.9] Work was optional, movement mapped that he would draw.
+[00:51.9 - 00:55.9] He called it protection while he broke every single law.
+[00:55.9 - 01:00.4] Her smile went gray, her grades decayed, the fire turned to smoke.
+[01:00.4 - 01:05.0] A golden cage is just a cage when every bar is what he spoke.
+[01:05.0 - 01:11.6] Fade out the vision, fade out the light.
+[01:11.6 - 01:16.2] Watching the sparkle get swallowed by night.
+[01:16.2 - 01:20.5] Come back, princess.
+[01:20.5 - 01:21.8] Walk away.
+[01:21.8 - 01:25.8] Walls are glass and not a place to stay.
+[01:25.8 - 01:29.3] You're free.
+[01:29.3 - 01:35.1] You're free.
+[01:35.1 - 01:37.1] You're free.
+[01:37.1 - 01:39.1] You're free.
+[01:39.1 - 01:41.1] You're free.
+[01:41.1 - 01:46.4] Heavy metal in the dark, the V8 roared a hollow plea.
+[01:46.4 - 01:49.9] Eighty miles of asphalt separating him from me.
+[01:49.9 - 01:54.2] Left the show, took the call, the hallway lights were cold and thin.
+[01:54.2 - 01:58.3] Saw the marks and saw the man and let the dragon out from in.
+[01:58.3 - 02:02.1] A boundary crossed, a line erased, a second in the red.
+[02:02.1 - 02:05.8] While lawyers count the dollars, I am counting what he bled.
+[02:05.8 - 02:09.8] They soften up the verdict with the power of the name.
+[02:09.8 - 02:14.1] While I am punished for the heat, they're hiding in the flame.
+[02:14.1 - 02:23.1] I crossed the line to find the truth.
+[02:23.1 - 02:25.3] The anger was my own.
+[02:25.3 - 02:29.9] A reactive hand is still a hand that shouldn't have been thrown.
+[02:29.9 - 02:32.2] Come back, princess.
+[02:32.2 - 02:33.6] Walk away.
+[02:33.6 - 02:37.5] Walls are glass and not a place to stay.
+[02:37.5 - 02:38.8] You're free.
+[02:38.8 - 02:39.0] You're free.
+[02:39.0 - 02:39.0] You're free.
+[02:39.0 - 02:41.0] You're free.
+[02:41.0 - 02:45.8] Sing it now, be free now.
+[02:45.8 - 02:46.9] You're free.
+[02:46.9 - 02:50.5] Get your smile, get your school, get your work, get your voice back.
+[02:50.5 - 02:53.5] Come back to the world, princess.
+[02:53.5 - 02:55.4] You're finally free.
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-reference-aligned-proof-d-v1_transcription_20260902_021559.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-reference-aligned-proof-d-v1_transcription_20260902_021559.txt
