@@ -1,0 +1,58 @@
+Starting Speech-to-Text conversion...
+Transcribing audio file: assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-vocal-aggression-proof-e-v1.mp3, file size: 4.08 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 177.9 seconds
+Language: eng
+Timestamped segments:
+[00:00.1 - 00:01.1] Look at me.
+[00:01.1 - 00:01.4] Look.
+[00:01.4 - 00:11.9] Before the lights went dark, before he locked the gate You were seventeen and chasing a twenty-year-old weight He called it protection,
+[00:11.9 - 00:22.5] I saw the invisible fence He called it protection, saw the invisible fence Trading your spirit for a hollow kind of confidence
+[00:22.5 - 00:32.5] I’m warning you now, this ain’t a judgment, it’s a plea Don’t let his wealthy hands bury the girl I used to see Come back to the light, break
+[00:32.5 - 00:42.5] the walls in the night Come back to the light Return to the smile, walk every mile Come back to the
+[00:42.5 - 00:52.5] light, break the walls Return to the smile, walk every mile The clothes on your back are chosen by
+[00:52.5 - 01:02.7] a man of means He filtered out your friends and scrubbed your phone of all the screens You used to read the stars, now you’re just reading his mood Your schoolwork’s
+[01:02.7 - 01:12.7] gathering dust while you starve for mental food I didn’t blame you then, I’m just watching the fire burn Waiting for the moment that you find the key and
+[01:12.7 - 01:23.2] turn One call from the ward while the bass was booming loud Ah, Lord No time for the bridge,
+[01:23.2 - 01:33.5] I’m just watching the forest burn Waiting for the moment that you find the key and turn One call from the ward while the bass was booming loud
+[01:33.5 - 01:43.5] I left the stage and stepped right through the center of the crowd No time for the bridge, no time for the stop Just a V8 engine howling as
+[01:43.5 - 01:53.7] I watch the status drop Hospital halls, white lights in your face Hospital halls,
+[01:53.7 - 02:03.8] white lights in your face Learning the price of a lie in a wealthy man’s place The rage took the wheel and I crossed the red line
+[02:03.8 - 02:13.9] Now the bars are my home and the justice ain’t mine He bought a new name with a family lawyer fee While I took the sentence just to set
+[02:13.9 - 02:24.0] the spirit you’re needing You were the victim, I was the one who went up in flame Come back to the light, break the walls in the night Come back
+[02:24.0 - 02:36.0] to the light Return to the smile, walk every mile Come back to the light, break the walls Return
+[02:36.0 - 02:47.1] to the smile, walk every mile Your voice is your own Your work is your own Go
+[02:47.1 - 02:55.1] get your school, go find your friends This is where the nightmare ends You are free
+Complete transcription result saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-vocal-aggression-proof-e-v1_transcription_20260902_140726.json
+Plain text transcription saved to: /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-vocal-aggression-proof-e-v1_transcription_20260902_140726.txt
+[2J[H[3Jmanus-speech-to-text assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-vocal-aggression-proof-e-v1.mp3
+Starting Speech-to-Text conversion...
+Transcribing audio file: assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-vocal-aggression-proof-e-v1.mp3, file size: 4.08 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.1 - 00:01.1] Look at me.
+[00:01.1 - 00:01.4] Look.
+[00:01.4 - 00:11.9] Before the lights went dark, before he locked the gate You were seventeen and chasing a twenty-year-old weight He called it protection,
+[00:11.9 - 00:22.5] I saw the invisible fence He called it protection, saw the invisible fence Trading your spirit for a hollow kind of confidence
+[00:22.5 - 00:32.5] I’m warning you now, this ain’t a judgment, it’s a plea Don’t let his wealthy hands bury the girl I used to see Come back to the light, break
+[00:32.5 - 00:42.5] the walls in the night Come back to the light Return to the smile, walk every mile Come back to the
+[00:42.5 - 00:52.5] light, break the walls Return to the smile, walk every mile The clothes on your back are chosen by
+[00:52.5 - 01:02.7] a man of means He filtered out your friends and scrubbed your phone of all the screens You used to read the stars, now you’re just reading his mood Your schoolwork’s
+[01:02.7 - 01:12.7] gathering dust while you starve for mental food I didn’t blame you then, I’m just watching the fire burn Waiting for the moment that you find the key and
+[01:12.7 - 01:23.2] turn One call from the ward while the bass was booming loud Ah, Lord No time for the bridge,
+[01:23.2 - 01:33.5] I’m just watching the forest burn Waiting for the moment that you find the key and turn One call from the ward while the bass was booming loud
+[01:33.5 - 01:43.5] I left the stage and stepped right through the center of the crowd No time for the bridge, no time for the stop Just a V8 engine howling as
+[01:43.5 - 01:53.7] I watch the status drop Hospital halls, white lights in your face Hospital halls,
+[01:53.7 - 02:03.8] white lights in your face Learning the price of a lie in a wealthy man’s place The rage took the wheel and I crossed the red line
+[02:03.8 - 02:13.9] Now the bars are my home and the justice ain’t mine He bought a new name with a family lawyer fee While I took the sentence just to set
+[02:13.9 - 02:24.0] the spirit you’re needing You were the victim, I was the one who went up in flame Come back to the light, break the walls in the night Come back
+[02:24.0 - 02:36.0] to the light Return to the smile, walk every mile Come back to the light, break the walls Return
+[02:36.0 - 02:47.1] to the smile, walk every mile Your voice is your own Your work is your own Go
+[02:47.1 - 02:55.1] get your school, go find your friends This is where the nightmare ends You are free
+
+Completed transcription, JSON saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-vocal-aggression-proof-e-v1_transcription_20260902_140726.json
+Plain text transcription saved to /home/ubuntu/KAIR-S-SONICA/assets/audio/proofs/single-17-princess-come-back/single-17-princess-come-back-vocal-aggression-proof-e-v1_transcription_20260902_140726.txt
