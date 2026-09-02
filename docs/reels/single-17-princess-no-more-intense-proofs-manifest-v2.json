@@ -1,0 +1,35 @@
+{
+  "project": "KAIR-S-SONICA",
+  "single": 17,
+  "title": "Princess, No More",
+  "status": "GENERATED_TEST",
+  "direction": "intense non-graphic narrative: silent suffering, KTD consoling, sister returning to herself",
+  "reference_image": "/home/ubuntu/upload/single-17-frame-a-protection.png",
+  "frames": [
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-proof-01-silent-suffering-v2.png",
+      "sha256": "8adbd5b536dd03b967fa33a189bab03726ef907157063bdf84e6d287e9f64585",
+      "width": 1440,
+      "height": 2560,
+      "aspect_ratio": "9:16",
+      "status": "GENERATED_TEST"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-proof-02-ktd-consoling-v2.png",
+      "sha256": "7509964617272b1d7cf57a9897a5fa20128c96b8b0bbed9e9b5e16429f66e098",
+      "width": 1440,
+      "height": 2560,
+      "aspect_ratio": "9:16",
+      "status": "GENERATED_TEST"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-proof-03-return-to-self-v2.png",
+      "sha256": "5d87ab6f8dcc4e442097827ee15d7ef75c38f713fa0b59cf1c060cc904b2d478",
+      "width": 1440,
+      "height": 2560,
+      "aspect_ratio": "9:16",
+      "status": "GENERATED_TEST"
+    }
+  ],
+  "video_generation_status": "pending plan access"
+}
