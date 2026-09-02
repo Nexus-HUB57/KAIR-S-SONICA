@@ -1,0 +1,58 @@
+# KTD — Manifest visual dos Reels
+
+**Status:** `GENERATED_TEST_PENDING_HUMAN_APPROVAL`
+**Escopo:** Singles 01–16; Single 17 excluído
+**Total:** 48 imagens, três por faixa
+**Formato:** 1440 × 2560 px, 9:16
+**Referência:** `assets/persona/ktd-visual-master.png`
+
+| Single | Frame | Arquivo | Dimensões | SHA-256 | Status |
+|---:|---|---|---|---|---|
+| 01 | a-performance | `assets/reels/single-01-fire-in-the-flood/single-01-frame-a-performance.png` | 1440×2560 | `65bce627bfdd75472265ccfc571f85ec3db7f25ab08db910b192d674ee50ffc0` | `GENERATED_TEST` |
+| 01 | b-narrative | `assets/reels/single-01-fire-in-the-flood/single-01-frame-b-narrative.png` | 1440×2560 | `567457b7bbb2d5e36824b6a73ef80da60a9d1a07cd19cc0be682b5bd09dcc0c8` | `GENERATED_TEST` |
+| 01 | c-hook | `assets/reels/single-01-fire-in-the-flood/single-01-frame-c-hook.png` | 1440×2560 | `3bd9ec39c92da48b84a92993cf841fd138591594a63cc100939d38d3ba882aaa` | `GENERATED_TEST` |
+| 02 | a-performance | `assets/reels/single-02-six-names/single-02-frame-a-performance.png` | 1440×2560 | `490ce34de8e5c199213417bad2adcaaa1ac97baf8d704c30744073cac3ae05f1` | `GENERATED_TEST` |
+| 02 | b-narrative | `assets/reels/single-02-six-names/single-02-frame-b-narrative.png` | 1440×2560 | `4f0e4842e005a356dc149b92c5f1ed78c79312710247a9de4a720e00b9a88df4` | `GENERATED_TEST` |
+| 02 | c-hook | `assets/reels/single-02-six-names/single-02-frame-c-hook.png` | 1440×2560 | `bf7c9f39eb862dfae9393b1ce8b89ef03001593ccaed76e1a275f64baec6291a` | `GENERATED_TEST` |
+| 03 | a-performance | `assets/reels/single-03-golden-scars/single-03-frame-a-performance.png` | 1440×2560 | `db25e83c8f3474fd6bd7f9bea615d891534ed9b0b6398804e0589594c5005a9e` | `GENERATED_TEST` |
+| 03 | b-narrative | `assets/reels/single-03-golden-scars/single-03-frame-b-narrative.png` | 1440×2560 | `2cd973e5739a6558f560c1ca6a35bc5a8a7c67d553ef8a367f91f7aa3c8d2328` | `GENERATED_TEST` |
+| 03 | c-hook | `assets/reels/single-03-golden-scars/single-03-frame-c-hook.png` | 1440×2560 | `db6805a48b0260e7ebe54aeabfb3579713a8aa54f9863c555b4da72a4012f567` | `GENERATED_TEST` |
+| 04 | a-performance | `assets/reels/single-04-pressure-speaks/single-04-frame-a-performance.png` | 1440×2560 | `724da9cd8183f483bf4f121daf0bfdbe87cc92a9121f5db8630c049d64af355c` | `GENERATED_TEST` |
+| 04 | b-narrative | `assets/reels/single-04-pressure-speaks/single-04-frame-b-narrative.png` | 1440×2560 | `a9fb682a6f97d7e6e9d4552d6c7f18ce390db1d71ce27fb9ae1629d76a4c493b` | `GENERATED_TEST` |
+| 04 | c-hook | `assets/reels/single-04-pressure-speaks/single-04-frame-c-hook.png` | 1440×2560 | `47c03ed526cedbbbd899c0fffdeb9aaa79e224a444cf25da33f6e421463fe5b1` | `GENERATED_TEST` |
+| 05 | a-performance | `assets/reels/single-05-no-more-quiet-cries/single-05-frame-a-performance.png` | 1440×2560 | `44a3547ed7193f8f9eda149c4070bfb6a1061b633cd44b52d5ca52a6dcf6a236` | `GENERATED_TEST` |
+| 05 | b-narrative | `assets/reels/single-05-no-more-quiet-cries/single-05-frame-b-narrative.png` | 1440×2560 | `fd4af3a98a1b3a88d6b1aaddcf09ec0a0fb43c64a30752889111125072b60813` | `GENERATED_TEST` |
+| 05 | c-hook | `assets/reels/single-05-no-more-quiet-cries/single-05-frame-c-hook.png` | 1440×2560 | `748a818a4d2900698049e9bfd47d6d24d7cd52ff55d48ffa4c22a5153aaf89c3` | `GENERATED_TEST` |
+| 06 | a-performance | `assets/reels/single-06-the-dragon-remembers/single-06-frame-a-performance.png` | 1440×2560 | `5835bd0870d3146ccc4215b044608545195e80b90b7b5defa9b41241505c98cd` | `GENERATED_TEST` |
+| 06 | b-narrative | `assets/reels/single-06-the-dragon-remembers/single-06-frame-b-narrative.png` | 1440×2560 | `34235fbca152b87315068f50f7553d1c1cb960bd836191d6f4b2ab56bb72407d` | `GENERATED_TEST` |
+| 06 | c-hook | `assets/reels/single-06-the-dragon-remembers/single-06-frame-c-hook.png` | 1440×2560 | `08e6b419b00205ca38e71e2c5a930196f2063d3628ba3e592facef5b820907da` | `GENERATED_TEST` |
+| 07 | a-performance | `assets/reels/single-07-no-one-saved-me-a-seat/single-07-frame-a-performance.png` | 1440×2560 | `a6fcc95f3f294370e39f7cb905f68bf07bf41f47605d6197af7ae207a750d0ff` | `GENERATED_TEST` |
+| 07 | b-narrative | `assets/reels/single-07-no-one-saved-me-a-seat/single-07-frame-b-narrative.png` | 1440×2560 | `e4ba308ab59aa5a1b3c84a8e815d3dd296bb5281009b6b7de074dbcdadec6558` | `GENERATED_TEST` |
+| 07 | c-hook | `assets/reels/single-07-no-one-saved-me-a-seat/single-07-frame-c-hook.png` | 1440×2560 | `d4415146bb4d31db1f52847e016d06629f00abc2b7bc83a9287ee8af383e7c93` | `GENERATED_TEST` |
+| 08 | a-performance | `assets/reels/single-08-build-the-door-behind-me/single-08-frame-a-performance.png` | 1440×2560 | `285a52ff28f9991b5d015f3fc5069e56b498a7f358302d29a73ed3d689803c07` | `GENERATED_TEST` |
+| 08 | b-narrative | `assets/reels/single-08-build-the-door-behind-me/single-08-frame-b-narrative.png` | 1440×2560 | `567ec36b77ae4f01ff4bd0fd6d3883434310c8be61287e30f29e04133e1e719b` | `GENERATED_TEST` |
+| 08 | c-hook | `assets/reels/single-08-build-the-door-behind-me/single-08-frame-c-hook.png` | 1440×2560 | `9ee9b03169e00aeee11ae3a93bc9e9853dc091cf45c6b4fa83b8830fef1c6aed` | `GENERATED_TEST` |
+| 09 | a-performance | `assets/reels/single-09-you-came-back-when-i-won/single-09-frame-a-performance.png` | 1440×2560 | `0ea6d10177a3dfd4a5029dc3f81cc53684900e7e58fb0a06d5a82f59cba2b86d` | `GENERATED_TEST` |
+| 09 | b-narrative | `assets/reels/single-09-you-came-back-when-i-won/single-09-frame-b-narrative.png` | 1440×2560 | `fbda752a2b625f9227f2a7cabeb5df7c63ce45769654f4d744f3a9639f9976c1` | `GENERATED_TEST` |
+| 09 | c-hook | `assets/reels/single-09-you-came-back-when-i-won/single-09-frame-c-hook.png` | 1440×2560 | `36857decd320d62686dec319218b8513e9d330c8438d3bae0d78f478f6b3604c` | `GENERATED_TEST` |
+| 10 | a-performance | `assets/reels/single-10-the-dragon-sleeps/single-10-frame-a-performance.png` | 1440×2560 | `a94c7e29f5a2a660b72e8f61ef7a9e8cc5900d1c704279e1496ea06921ba9913` | `GENERATED_TEST` |
+| 10 | b-narrative | `assets/reels/single-10-the-dragon-sleeps/single-10-frame-b-narrative.png` | 1440×2560 | `106a3b94f6dce5b657bbfaa4487d0cd1944495940cc383e46f24bbbf2f0b2133` | `GENERATED_TEST` |
+| 10 | c-hook | `assets/reels/single-10-the-dragon-sleeps/single-10-frame-c-hook.png` | 1440×2560 | `4847c1a1e851b6831194628c94001e1d0d66557bfef71e9709152ac07ced3b5b` | `GENERATED_TEST` |
+| 11 | a-performance | `assets/reels/single-11-i-wont-waste-this-life/single-11-frame-a-performance.png` | 1440×2560 | `0767d5b37592494ebb8892f9ae111aee486afcb2a52f32f3728d859eb86435d4` | `GENERATED_TEST` |
+| 11 | b-narrative | `assets/reels/single-11-i-wont-waste-this-life/single-11-frame-b-narrative.png` | 1440×2560 | `02272fe3844a14b129cb24fa4d770e586b838ee9eb09d741a0e2c4216df484c9` | `GENERATED_TEST` |
+| 11 | c-hook | `assets/reels/single-11-i-wont-waste-this-life/single-11-frame-c-hook.png` | 1440×2560 | `4147e0cc1f87e9954fe305a74ab73239661ff43b167b6e8fa922230cb80c0098` | `GENERATED_TEST` |
+| 12 | a-performance | `assets/reels/single-12-hold-the-ladder/single-12-frame-a-performance.png` | 1440×2560 | `597dd157581ce67b35017a9e4677c58019b682cdec0d453c102b2fdfc8fcae07` | `GENERATED_TEST` |
+| 12 | b-narrative | `assets/reels/single-12-hold-the-ladder/single-12-frame-b-narrative.png` | 1440×2560 | `f0f98fb584f649725f9639df9377256e9eca928ba0d97bdf711074802ba4c7e9` | `GENERATED_TEST` |
+| 12 | c-hook | `assets/reels/single-12-hold-the-ladder/single-12-frame-c-hook.png` | 1440×2560 | `ac4a5ad05ba424cab15177f4581e82180c8b940ae73688484506033fe361534f` | `GENERATED_TEST` |
+| 13 | a-performance | `assets/reels/single-13-what-happens-in-vegas/single-13-frame-a-performance.png` | 1440×2560 | `5159b516f5af5894230aed3dca6daa4a196a941fdd9104bd6060f9d3f207803e` | `GENERATED_TEST` |
+| 13 | b-narrative | `assets/reels/single-13-what-happens-in-vegas/single-13-frame-b-narrative.png` | 1440×2560 | `de3cb74950d28e981daab35785f4ea834e1537c2165bd598531d70d71cc7fe7f` | `GENERATED_TEST` |
+| 13 | c-hook | `assets/reels/single-13-what-happens-in-vegas/single-13-frame-c-hook.png` | 1440×2560 | `a90f26113e94fb1205852a3820beb447ef29428b87a0bdb2a5f8b5c2ad8248ed` | `GENERATED_TEST` |
+| 14 | a-performance | `assets/reels/single-14-paid-in-full/single-14-frame-a-performance.png` | 1440×2560 | `bff70be4a6288ba91eff18deeb3a249af8ebe80853e4e6014953d6f08225e24d` | `GENERATED_TEST` |
+| 14 | b-narrative | `assets/reels/single-14-paid-in-full/single-14-frame-b-narrative.png` | 1440×2560 | `50ed0a9fce711b8c3659178c107fae18000fb21690ff97ae99d24549ac5ae165` | `GENERATED_TEST` |
+| 14 | c-hook | `assets/reels/single-14-paid-in-full/single-14-frame-c-hook.png` | 1440×2560 | `bda0654050070652f23224e2dfe884d39ff2850fb50ca61011d5d32a5eb315de` | `GENERATED_TEST` |
+| 15 | a-performance | `assets/reels/single-15-five-hundred/single-15-frame-a-performance.png` | 1440×2560 | `7dfd7f37829e9eb454df65afff04527b7d22639b0463001366c42b75cc8ca492` | `GENERATED_TEST` |
+| 15 | b-narrative | `assets/reels/single-15-five-hundred/single-15-frame-b-narrative.png` | 1440×2560 | `33689b8b104f421b949dd9da9da7f7e209560b6eac7ed5a8f13cd32e0757206a` | `GENERATED_TEST` |
+| 15 | c-hook | `assets/reels/single-15-five-hundred/single-15-frame-c-hook.png` | 1440×2560 | `30109be9936b5df7f75fad998b44be09f97fd7005e20339431068e4635c6cf65` | `GENERATED_TEST` |
+| 16 | a-performance | `assets/reels/single-16-he-died-kneeling/single-16-frame-a-performance.png` | 1440×2560 | `f755695ca25af6f9d4c4266ee26e52c68822a2843b243ce4ba233d29ce630c39` | `GENERATED_TEST` |
+| 16 | b-narrative | `assets/reels/single-16-he-died-kneeling/single-16-frame-b-narrative.png` | 1440×2560 | `1050e102de892eabe0e5a838da9cdadf17e62f70964aee120a1f90d64e19da19` | `GENERATED_TEST` |
+| 16 | c-hook | `assets/reels/single-16-he-died-kneeling/single-16-frame-c-hook.png` | 1440×2560 | `320e0d50045cce6141c9ab9e3f818a80dc9409daf8be06d9b025fc0026e1dff5` | `GENERATED_TEST` |
