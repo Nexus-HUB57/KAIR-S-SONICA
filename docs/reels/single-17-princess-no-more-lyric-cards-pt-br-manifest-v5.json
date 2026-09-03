@@ -1,0 +1,33 @@
+{
+  "project": "KAIR-S-SONICA",
+  "single": 17,
+  "title": "Princess, No More",
+  "language": "pt-BR",
+  "status": "GENERATED_TEST",
+  "typography": "standard clean sans-serif, discreet sizing",
+  "placements": {
+    "card_01": "bottom center",
+    "card_02": "upper center",
+    "card_03": "bottom center"
+  },
+  "cards": [
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-lyric-card-01-care-v5.png",
+      "sha256": "282bacaf4688b3e3bd1b85eaf12e18b8e3332fd54a72ff67c416720a8a15b38a",
+      "dimensions": "1440x2560",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-lyric-card-02-strength-v5.png",
+      "sha256": "dd9760a7db686861f3a6f4eaea3e757a6d4e8c699ec9dae68402f78a9c7c5b70",
+      "dimensions": "1440x2560",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "file": "assets/reels/single-17-princess-no-more/single-17-lyric-card-03-freedom-v5.png",
+      "sha256": "ff88ce97df13b76d76c474fab73f1aef410eaa1ca175211855710c9014ce1244",
+      "dimensions": "1440x2560",
+      "aspect_ratio": "9:16"
+    }
+  ]
+}
