@@ -54,6 +54,8 @@ from kairos_core.schemas import (
     VideoRequest,
 )
 from kairos_core.social import SocialOrchestrator, SocialScheduleStore
+from kairos_core.bait.api import build_bait_router
+from kairos_core.bait.orchestrator import BaitOrchestrator
 from kairos_core.social.api import build_social_router
 from kairos_core.studio_master import (
     AdapterUnavailable,
@@ -412,6 +414,9 @@ app.add_middleware(
     allow_headers=["Content-Type", "Authorization"],
 )
 app.include_router(build_social_router(social_orchestrator, social_schedule_store))
+_bait_db = Path(os.environ.get("KAIR_BAIT_DB", "data/ktd/bait_wallets.sqlite3"))
+_bait_db.parent.mkdir(parents=True, exist_ok=True)
+app.include_router(build_bait_router(BaitOrchestrator(db_path=_bait_db)))
 
 
 def _run_task(task_id: str, request: TrackRequest) -> None:
