@@ -1,0 +1,3 @@
+e9a037e4aa1cf40432e1aa9951e92d0c498b8cee6820e7e56e28feeca52461e1  outputs/single_18/audio/single-18-after-the-door-v1-master.wav
+ffa1a4c10dd57556b74a135c5c9f15f9cb03bd02343050c0fdb8cfb1cfabb808  outputs/single_18/audio/single-18-after-the-door-v1-conference.mp3
+230ce7772a8ba7090c4c36a7eded5d77fc2416872a3e4e2c6c885ef35da7384a  outputs/single_18/audio/single-18-after-the-door-v1-transcription.txt
