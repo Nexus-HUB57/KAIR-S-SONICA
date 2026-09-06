@@ -1,0 +1,3 @@
+6488b49954b42c58e6759e9a13420ae8619735ba0edf64759cc51066ccc1beb6  outputs/single_18/audio/single-18-the-chain-came-home-v2-aggressive-ktd-proof.wav
+b5f3b4690fa131625cde03a9b0e291a08769bde1e8b080d6fdc7babdfe279685  outputs/single_18/audio/single-18-the-chain-came-home-v2-aggressive-ktd-proof.mp3
+a5d64a0c5eae879d65154695e7785936f0b1009283ca59fe541131b6614cdcc3  outputs/single_18/audio/single-18-the-chain-came-home-v2-transcription.txt
