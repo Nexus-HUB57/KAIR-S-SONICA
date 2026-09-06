@@ -1,0 +1,3 @@
+ba8c2aeb54a2e4c278a4c138435e117be01dd8e59cf6db2eee33c860bb5cb23f  outputs/single_18/audio/single-18-the-chain-came-home-v1-proof.wav
+355a347d069c94fb64be049d00d66326c7f3f4dee0e37b1c3cadf0ecf4ac1927  outputs/single_18/audio/single-18-the-chain-came-home-v1-proof.mp3
+428a71b7838e0e717a3e5f9cf3907ec4306463b67bbec51fb00b8155bd357be7  outputs/single_18/audio/single-18-the-chain-came-home-v1-transcription.txt
