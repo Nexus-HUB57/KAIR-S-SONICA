@@ -1,0 +1,2 @@
+21c856226c535e5b5178a2f374a7189b524d7a0a4209d5bb6dadbaf7084d9087  outputs/single_18/audio/single-18-the-chain-came-home-v4-tiktok-hook-15s.wav
+53031ccf21e9da48172d6fda637641119219fdcf0068ab737e2e8f0da7d45587  outputs/single_18/audio/single-18-the-chain-came-home-v4-tiktok-hook-15s.mp3
