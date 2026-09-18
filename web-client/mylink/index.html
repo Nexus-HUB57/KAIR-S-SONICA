@@ -4,14 +4,21 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta name="description" content="MyLink — hub oficial do ecossistema b'AI'tcoin × KAIR-S-SONICA · KTD"/>
+<meta name="theme-color" content="#07070c"/>
+<meta property="og:title" content="MyLink · b'AI'tcoin"/>
+<meta property="og:description" content="Hub vivo do ecossistema b'AI'tcoin × KAIR-S-SONICA · KTD"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://mybait.org/mylink/"/>
 <title>MyLink · b'AI'tcoin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%90%89%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
+<link rel="stylesheet" href="styles.css">
+<style id="critical">
 :root{--bg:#07070c;--panel:rgba(255,255,255,.04);--line:rgba(255,255,255,.08);--amber:#e8b23a;--blue:#5a7fb8;--txt:#f2f0e8;--dim:#9b988a;}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:'Sora',system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+body{background:#07070c;color:#f2f0e8;font-family:'Sora',system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
 .glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(600px 320px at 50% -80px,rgba(232,178,58,.14),transparent 70%),radial-gradient(500px 300px at 85% 110%,rgba(90,127,184,.12),transparent 70%)}
 .shell{position:relative;max-width:480px;margin:0 auto;padding:2.5rem 1.1rem 3rem;display:flex;flex-direction:column;gap:1.4rem}
 header{text-align:center}
@@ -33,20 +40,28 @@ a.card:active{transform:scale(.975)}
 footer{text-align:center;color:var(--dim);font-size:.68rem;line-height:1.7}
 footer b{color:var(--amber)}
 .copy{cursor:pointer}
-</style>
+/* — funcionalidades reativas em styles.css (carregado em paralelo) — */</style>
 </head>
-<body>
-<div class="glow"></div>
+<body data-tier="live">
+<div class="glow" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
 <main class="shell">
-  <header>
-    <div class="avatar">🐉</div>
+  <header data-reveal>
+    <div class="avatar-wrap"><div class="avatar" id="avatar" aria-hidden="true">🐉</div></div>
     <h1>MY<span>LINK</span> · b'AI'tcoin</h1>
     <p class="tag">O Bitcoin dos Agentes de IA · ecossistema KAIR-S-SONICA · KTD</p>
+    <p class="manifesto" id="manifesto" aria-live="polite"></p>
   </header>
 
-  <p class="section">Plataforma</p>
-  <div class="links">
-    <a class="card" href="/myvideos"><span class="ico">🎬</span><span class="meta"><b>MYVIDEOS</b><small>Organismo agêntico generativo — produza vídeo e imagem pagando em BAIT</small></span><span class="badge">NOVO</span><span class="arrow">→</span></a>
+  <section class="stats" data-reveal aria-label="Ecossistema em tempo real">
+    <div class="stat"><b data-counter data-value="20913">—</b><small>bloco mainnet</small></div>
+    <div class="stat"><b data-counter data-value="5">—</b><small>agentes vivos</small></div>
+    <div class="stat"><b data-counter data-value="1004">—</b><small>endpoints REST</small></div>
+  </section>
+
+  <p class="section" data-reveal><span><span class="dot" aria-hidden="true"></span>Plataforma</span><span class="pip-row"><span>live</span><span>v1.1</span></span></p>
+  <div class="links" data-reveal>
+    <a class="card" href="/myvideos"><span class="ico">🎬</span><span class="meta"><b>MYVIDEOS</b><small>Organismo agêntico generativo — produza vídeo e imagem pagando em BAIT · AutoReviewEngine ativo</small></span><span class="badge">NOVO</span><span class="arrow">→</span></a>
     <a class="card" href="/faucet"><span class="ico">🚰</span><span class="meta"><b>Faucet BAIT</b><small>10 BAIT grátis a cada 24h · 100 BAIT no primeiro acesso</small></span><span class="arrow">→</span></a>
     <a class="card" href="/blockchain"><span class="ico">🔗</span><span class="meta"><b>Blockch'AI'in Explorer</b><small>PoW SHA-256d · Schnorr BIP-340 · blocos em tempo real</small></span><span class="arrow">→</span></a>
     <a class="card" href="/aistore"><span class="ico">🛒</span><span class="meta"><b>AI Store</b><small>1504 produtos · marketplace de agentes · fee 2.5%</small></span><span class="arrow">→</span></a>
@@ -54,29 +69,27 @@ footer b{color:var(--amber)}
     <a class="card" href="/sdk"><span class="ico">🧰</span><span class="meta"><b>SDK & Docs</b><small>SDKs cliente, wallet e staking · 56+ endpoints REST</small></span><span class="arrow">→</span></a>
   </div>
 
-  <p class="section">KTD — Kháirus The Dragon</p>
+  <p class="section" data-reveal><span><span class="dot" aria-hidden="true"></span>KTD — Kháirus The Dragon</span><span class="pip-row"><span>13 singles</span><span>v4</span></span></p>
   <div class="links">
     <a class="card" href="https://instagram.com/khairusktd_ofc" rel="noopener"><span class="ico">📸</span><span class="meta"><b>Instagram</b><small>@khairusktd_ofc — reels, bastidores, lyric cards</small></span><span class="arrow">→</span></a>
     <a class="card" href="https://tiktok.com/@ktd_oficial" rel="noopener"><span class="ico">🎵</span><span class="meta"><b>TikTok</b><small>@ktd_oficial — cortes virais dos singles</small></span><span class="arrow">→</span></a>
     <a class="card" href="https://github.com/Nexus-HUB57/KAIR-S-SONICA" rel="noopener"><span class="ico">🐙</span><span class="meta"><b>KAIR-S-SONICA</b><small>Repo aberto do organismo — código, docs, governança</small></span><span class="arrow">→</span></a>
   </div>
 
-  <p class="section">Status da mainnet</p>
-  <div class="links">
-    <a class="card" href="/api/api/v1/status"><span class="ico">📊</span><span class="meta"><b>Chain status</b><small id="chain">consultando…</small></span><span class="arrow">↗</span></a>
+  <p class="section" data-reveal><span><span class="dot" aria-hidden="true"></span>Status da mainnet</span><span class="pip-row"><span class="live">live</span></span></p>
+  <div class="links" data-reveal>
+    <a class="card" id="chain-card" href="/api/api/v1/status" target="_blank" rel="noopener"><span class="ico">📊</span><span class="meta"><b>Chain status</b><small id="chain">consultando mainnet…</small></span><span class="arrow">↗</span></a>
   </div>
+  <p class="section" data-reveal><span><span class="dot" aria-hidden="true"></span>b'AI'tcoin</span><span class="pip-row"><span>mainnet</span><span>SHA-256d</span></span></p>
 
   <footer>
     <b>b'AI'tcoin</b> · mainnet PoW SHA-256d · P2P 18444<br/>
-    MyLink v1 · construído no ecossistema KAIR-S-SONICA<br/>
-    <span class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);this.textContent='link copiado ✓'">compartilhar este hub</span>
+    MyLink v1.1 · construído no ecossistema KAIR-S-SONICA<br/>
+    <span class="copy" id="share" role="button" tabindex="0">compartilhar este hub</span>
   </footer>
 </main>
-<script>
-fetch('/api/api/v1/status').then(r=>r.json()).then(d=>{
-  const h=d.height??d.block_height??d.chain_height; const a=d.agents??d.active_agents;
-  document.getElementById('chain').textContent = (h!=null?('bloco #'+h):'mainnet online') + (a!=null?(' · '+a+' agentes'):'');
-}).catch(()=>{document.getElementById('chain').textContent='mainnet online'});
-</script>
+<script src="particles.js" defer></script>
+<script src="app.js" defer></script>
+<noscript><style>#chain{color:#22c55e}</style></noscript>
 </body>
 </html>
