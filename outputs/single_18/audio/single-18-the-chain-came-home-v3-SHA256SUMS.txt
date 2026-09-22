@@ -1,0 +1,4 @@
+a6ac63152b549ecce7fc37d0bb55e42d2177732bf67ddaa754f7d54308506997  outputs/single_18/audio/single-18-the-chain-came-home-v3-local-remix-master.wav
+ca90f61c36ad59e4ffb0277d1e0298859da373b0b203a3148bfd402600145759  outputs/single_18/audio/single-18-the-chain-came-home-v3-local-remix-conference.mp3
+5c267e7d2df14b0adb9d02619718676eda6f83c17cae2126356cbdd867f8675e  outputs/single_18/audio/single-18-the-chain-came-home-v3-tiktok-hook-15s.wav
+12407f7ec117e8c092d2207f48d2aacab18d035fd6ac6c19e069b2ebfdfe1637  outputs/single_18/audio/single-18-the-chain-came-home-v3-tiktok-hook-15s.mp3
